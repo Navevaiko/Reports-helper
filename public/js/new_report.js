@@ -26,7 +26,7 @@ function addReport(card) {
     var cardURL = card.shortUrl;
     var membersIds = card.idMembers;
     var title = card.name;
-    var currDate = Date();
+    var currDate = new Date();
 
     formatedCurrDate = (currDate.getDate().length = 1? "0": "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
 
