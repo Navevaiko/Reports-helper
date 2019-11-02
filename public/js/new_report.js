@@ -1,14 +1,13 @@
 var trello = TrelloPowerUp.iframe();
-var cardId = JSON.stringify(trello.getContext()).card;
-console.log(cardId);
-console.log(JSON.stringify(trello.getContext()));
+var context = JSON.stringify(trello.getContext()).card;
+
 resize(trello, '#newReport')
 
 window.newReport.addEventListener('submit', function(event) {
     event.preventDefault();
     var card = {};
-
-    getCardDetailsById(trello, cardId)
+    console.log(context);
+    getCardDetailsById(trello, context.card)
         .then(function(serializedCard) {
             card = JSON.stringify(serializedCard);
             
