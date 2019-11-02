@@ -6,7 +6,7 @@ TrelloPowerUp.initialize({
             callback: function(trello) {
                 return trello.modal({
                     title: 'Novo relatório',
-                    url: 'new_report.html',
+                    url: 'new_report',
                     fullscreen: false,
                 });
             }
