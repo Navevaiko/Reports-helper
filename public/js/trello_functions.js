@@ -9,7 +9,7 @@ function showNewReportModal(trello) {
 }
 
 function addNewReport(report) {
-    getReports.then(function(reports) {
+    getReports().then(function(reports) {
         reports.push(report);
         trello.set('card', 'shared', reportsKey, reports)
     })
