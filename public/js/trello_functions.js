@@ -47,6 +47,6 @@ function resize(trello, elementId) {
     })
 }
 
-function getCardDetailsById(trello, cardId) {
-    return trello.card(cardId);
+function getCardDetailsById(trello) {
+    return trello.card('all');
 }
