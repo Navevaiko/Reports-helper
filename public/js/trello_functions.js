@@ -12,7 +12,15 @@ function showNewReportModal(trello) {
 function addNewReport(trello, report) {
     getReports(trello).then(function(reports) {
         reports.push(report);
-        trello.set('card', reportsVisibility, reportsKey, reports)
+        trello
+        .set('card', reportsVisibility, reportsKey, reports)
+            .then(function() {
+                trello.closeModal();    
+            })
+            .catch(function(error) {
+                alert(error);
+            });
+        
     })
 }
 
@@ -28,7 +36,7 @@ function showBadge(reports) {
 
     return [{
         icon: 'https://navevaiko.github.io/Reports-helper/icons/reports.svg',
-        title: message || 'Sem relatórios',
+        text: message || 'Sem relatórios',
         color: message? 'green' : 'light-gray'
     }]
 }
