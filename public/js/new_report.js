@@ -7,7 +7,7 @@ window.newReport.addEventListener('submit', function(event) {
     event.preventDefault();
     var card = {};
     console.log(context);
-    getCardDetailsById(trello, context.card)
+    getCardDetailsById(trello, context['card'])
         .then(function(serializedCard) {
             card = JSON.stringify(serializedCard);
             
