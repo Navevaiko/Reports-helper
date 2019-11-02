@@ -43,3 +43,7 @@ function resize(trello, elementId) {
         trello.sizeTo(elementId).done();
     })
 }
+
+function getCardDetailsById(trello, cardId) {
+    return trello.card(cardId);
+}
