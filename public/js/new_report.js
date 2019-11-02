@@ -1,5 +1,5 @@
 var trello = TrelloPowerUp.iframe();
-var context = JSON.stringify(trello.getContext()).card;
+var context = JSON.stringify(trello.getContext());
 
 resize(trello, '#newReport')
 
