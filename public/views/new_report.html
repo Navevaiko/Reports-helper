@@ -4,14 +4,34 @@
         <meta charset="UTF-8">
         <title> Novo relatório </title>
 
+        <script src="https://p.trellocdn.com/power-up.min.js"></script>
+
         <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
         <style>
+            html, body { 
+                height: 100%; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+            }
+
             textarea { width: 300px; resize: none; }
+            
+            #newReport { 
+                display: flex;
+                padding: 10px;
+                align-self: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            #newReport h1 { align-self: center; }
         </style>
     </head>
 
     <body>
         <form id="newReport">
+            <h1> Novo relatório </h1>
             <label for="startTime" id="lbStartTime"> *Início da tarefa: </label>
             <input type="time" name="startTime" id="startTime" />
 
