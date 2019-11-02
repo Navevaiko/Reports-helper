@@ -35,6 +35,6 @@ function showBadge(reports) {
 
 function resize(trello, elementId) {
     trello.render(function() {
-
+        trello.sizeTo(elementId).done();
     })
 }

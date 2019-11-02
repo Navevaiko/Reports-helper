@@ -1,5 +1,7 @@
 const trello = TrelloPowerUp.iframe();
 
+resize(trello, '#newReport')
+
 window.newReport.addEventListener('submit', function(event) {
     event.preventDefault();
     
