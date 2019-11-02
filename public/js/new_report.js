@@ -1,18 +1,19 @@
-const trello = TrelloPowerUp.iframe();
+var trello = TrelloPowerUp.iframe();
+var cardId = JSON.stringify(trello.getContext()).card;
 
 resize(trello, '#newReport')
-
+console.log(id);
 window.newReport.addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const startTime = window.startTime.value;
-    const endTime = window.endTime.value;
-    const commitLink = window.commitLink.value;
-    const comment = window.comment.value;
+    var startTime = window.startTime.value;
+    var endTime = window.endTime.value;
+    var commitLink = window.commitLink.value;
+    var comment = window.comment.value;
     
     if(startTime && endTime && comment) {
         if(endTime > startTime) {
-            const report = { startTime, endTime, commitLink, comment };
+            var report = { startTime, endTime, commitLink, comment };
              
             return addNewReport(trello, report)
         }
