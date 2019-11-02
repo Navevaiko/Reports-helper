@@ -18,17 +18,17 @@ window.newReport.addEventListener('submit', function(event) {
 
             return trello.set('card', 'shared', 'reports', report)
                 .then(() => {
-                    trello.closePopup();
+                    trello.closeModal();
                 });
         }else{
-            t.alert({
+            trello.alert({
                 message: 'O tempo de início deve ser menor que o tempo de fim da tarefa.',
                 duration: 5,
                 display: 'error'
             });
         }
     }else{
-        t.alert({
+        trello.alert({
             message: 'Preencha todos os campos.',
             duration: 5,
             display: 'error'
