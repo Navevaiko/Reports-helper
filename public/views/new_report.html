@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Novo relatório </title>
+
+        <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+        <style>
+            textarea { width: 300px; resize: none; }
+        </style>
+    </head>
+
+    <body>
+        <form id="newReport">
+            <label for="startTime" id="lbStartTime"> *Início da tarefa: </label>
+            <input type="time" name="startTime" id="startTime" />
+
+            <label for="endTime" id="lbEndTime"> *Fim da tarefa: </label>
+            <input type="time" name="endTime" id="endTime" />
+
+            <label for="commitLink" id="lbCommitLink"> Link do commit: </label>
+            <input type="url" name="commitLink" id="commitLink" placeholder="https://github.com/SeuNome/Projeto/commit/hashCommit" />
+
+            <label for="comment" id="lbComment"> *Comentário: </label>
+            <textarea name="comment" id="comment" cols="10" rows="5"></textarea>
+            
+            <p>
+                <i> Campos marcados com * são obrigatórios </i>
+            </p>
+            
+
+            <button type="submit" class="mod-primary">Save</button>
+        </form>
+
+        <script src="/js/new_report.js"></script>
+    </body>
+</html>

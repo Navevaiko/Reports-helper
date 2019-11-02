@@ -1,0 +1,31 @@
+{
+  "name": "reports-helper",
+  "version": "1.0.0",
+  "description": "Power up do Trello para criação, visualização e exportação de relatórios de tarefas",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Navevaiko/Reports-helper.git"
+  },
+  "keywords": [
+    "powerup",
+    "trello",
+    "nodejs"
+  ],
+  "author": "Gabriel Navevaiko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Navevaiko/Reports-helper/issues"
+  },
+  "homepage": "https://github.com/Navevaiko/Reports-helper#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
+}
