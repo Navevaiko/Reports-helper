@@ -1,6 +1,7 @@
 var trello = TrelloPowerUp.iframe();
 var cardId = JSON.stringify(trello.getContext()).card;
-
+console.log(cardId);
+console.log(JSON.stringify(trello.getContext()));
 resize(trello, '#newReport')
 
 window.newReport.addEventListener('submit', function(event) {
