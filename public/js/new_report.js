@@ -1,10 +1,10 @@
 const trello = TrelloPowerUp.iframe();
 
-trello.render(() => {
+trello.render(function() {
     trello.sizeTo('#newReport').done();
 });
 
-window.newReport.addEventListener('submit', (event) => {
+window.newReport.addEventListener('submit', function(event) {
     event.preventDefault();
     
     const startTime = window.startTime.value;
