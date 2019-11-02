@@ -16,7 +16,10 @@ function addNewReport(trello, report) {
         trello
             .set('card', reportsVisibility, reportsKey, reports)
                 .then(function() { trello.closeModal(); })
-                .catch(function(error) { alert(error); });
+                .catch(function(error) { 
+                    console.log(error);
+                    alert("Ocorreu um erro, por favor tente novamente mais tarde"); 
+                });
         
     });
 }

@@ -14,6 +14,7 @@ window.newReport.addEventListener('submit', function(event) {
             addReport(card);
         })
         .catch(function(error) {
+            console.log(error);
             alert('Ocorreu um erro, por favor tente novamente mais tarde');
         });
 });
