@@ -1,4 +1,5 @@
 var reportsKey = 'reports';
+var reportsVisibility = 'shared'
 
 function showNewReportModal(trello) {
     return trello.modal({
@@ -8,15 +9,15 @@ function showNewReportModal(trello) {
     })
 }
 
-function addNewReport(report) {
-    getReports().then(function(reports) {
+function addNewReport(trello, report) {
+    getReports(trello).then(function(reports) {
         reports.push(report);
-        trello.set('card', 'shared', reportsKey, reports)
+        trello.set('card', reportsVisibility, reportsKey, reports)
     })
 }
 
 function getReports(trello){
-    return trello.get('card', 'shared', reportsKey);
+    return trello.get('card', reportsVisibility, reportsKey, []);
 }
 
 function showBadge(reports) {
@@ -30,4 +31,10 @@ function showBadge(reports) {
         title: message || 'Sem relatórios',
         color: message? 'green' : 'light-gray'
     }]
+}
+
+function resize(trello, elementId) {
+    trello.render(function() {
+
+    })
 }
