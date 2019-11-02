@@ -1,7 +1,8 @@
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
-function showNewReportModal(trello) {
+function showNewReportModal(trello, options) {
+    console.log(options);
     return trello.modal({
         title: 'Novo relatório',
         url: 'new_report',
@@ -12,16 +13,13 @@ function showNewReportModal(trello) {
 function addNewReport(trello, report) {
     getReports(trello).then(function(reports) {
         reports.push(report);
+
         trello
-        .set('card', reportsVisibility, reportsKey, reports)
-            .then(function() {
-                trello.closeModal();    
-            })
-            .catch(function(error) {
-                alert(error);
-            });
+            .set('card', reportsVisibility, reportsKey, reports)
+                .then(function() { trello.closeModal(); })
+                .catch(function(error) { alert(error); });
         
-    })
+    });
 }
 
 function getReports(trello){
@@ -35,7 +33,7 @@ function showBadge(reports) {
         var message = reportsCount + " " + (reportsCount > 1? "relatórios" : 'relatório');
 
     return [{
-        icon: 'https://navevaiko.github.io/Reports-helper/icons/reports.svg',
+        icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
         text: message || 'Sem relatórios',
         color: message? 'green' : 'light-gray'
     }]

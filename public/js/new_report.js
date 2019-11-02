@@ -13,7 +13,7 @@ window.newReport.addEventListener('submit', function(event) {
     if(startTime && endTime && comment) {
         if(endTime > startTime) {
             const report = { startTime, endTime, commitLink, comment };
-
+             
             return addNewReport(trello, report)
         }
         else alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
