@@ -16,6 +16,10 @@ app.get('/new_report', (request, response) => {
     response.sendFile(`${__dirname}/public/views/new_report.html`)
 });
 
+app.get('/icons/:imageName', (request, response) => {
+    response.sendFile(`${__dirname}/public/icons/${request.params.imageName}`);
+});
+
 const listener = app.listen(process.env.PORT, () => {
     console.log(`Listening on ${process.env.PORT}`)
 });

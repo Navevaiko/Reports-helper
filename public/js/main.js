@@ -4,9 +4,10 @@ TrelloPowerUp.initialize({
             icon: 'https://navevaiko.github.io/Reports-helper/icons/reports.svg',
             text: 'Novo relatório',
             callback: function(trello) {
-                return trello.popup({
-                    title: 'Relatório',
-                    url: 'new_report.html'
+                return trello.modal({
+                    title: 'Novo relatório',
+                    url: 'new_report.html',
+                    fullscreen: false,
                 });
             }
         }] 
