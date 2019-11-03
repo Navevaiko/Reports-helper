@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
 
 function loadReportsList(reports){
     reportsElementsList = "";
-
+    console.log(reports);
     reports.forEach(report => {
         reportsElementsList += createReportElement(report);
     });

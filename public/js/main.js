@@ -15,7 +15,7 @@ TrelloPowerUp.initialize({
             icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
             content: {
                 type: 'iframe',
-                url: trello.signUrl('reports_list'),
+                url: trello.signUrl('/reports_list'),
             }
         }
     }
