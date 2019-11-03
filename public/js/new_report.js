@@ -24,7 +24,7 @@ function addReport(card) {
     var commitLink = window.commitLink.value;
     var comment = window.comment.value;
     var cardURL = card.shortUrl;
-    var membersIds = card.idMembers;
+    var membersIds = card.members;
     var title = card.name;
     var currDate = new Date();
 

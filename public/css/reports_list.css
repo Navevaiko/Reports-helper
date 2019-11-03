@@ -8,20 +8,15 @@ html, body {
 .report {
     display: flex;
     flex-direction: row;
-    max-width: 500px;
+    max-width: 490px;
     max-height: 80px;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
 }
 
-.report hr {
-    transform: rotateZ(90deg);
-    width: 60px;
-}
-
 .report p {
-    width: 160px;
+    width: 230px;
     height: 60px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -29,7 +24,7 @@ html, body {
 }
 
 .report a {
-    width: 80px;
+    width: 50px;
     height: 20px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -48,23 +43,5 @@ html, body {
     justify-content: center;
     align-items: center;
     margin-right: 20px;
-}
-
-.report .members {
-    display: flex;
-    flex-direction: row;
-}
-
-.report .member {
-    text-align: center;
-    line-height: 32px;
-    width: 32px;
-    height: 32px;
-    border-radius: 25em;
-    background: #dfe1e6;
-    font-size: 12px;
-    font-weight: 700;
-    color: #172b4d;
-    margin-right: 4px;
-    overflow: hidden;
+    min-width: 100px;
 }
