@@ -1,0 +1,70 @@
+html, body { 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.report {
+    display: flex;
+    flex-direction: row;
+    max-width: 768px;
+    max-height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.report hr {
+    transform: rotateZ(90deg);
+    width: 60px;
+}
+
+.report p {
+    width: 160px;
+    height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.report a {
+    width: 120px;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.report object {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.report .datetimeInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.report .members {
+    display: flex;
+    flex-direction: row;
+}
+
+.report .member {
+    text-align: center;
+    line-height: 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 25em;
+    background: #dfe1e6;
+    font-size: 12px;
+    font-weight: 700;
+    color: #172b4d;
+    margin-right: 4px;
+    overflow: hidden;
+}
