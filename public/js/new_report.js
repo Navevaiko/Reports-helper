@@ -9,7 +9,7 @@ window.newReport.addEventListener('submit', function(event) {
     getCardDetailsById(trello)
         .then(function(serializedCard) {
             card = JSON.stringify(serializedCard);
-            
+            console.log(card);
             addReport(card);
         })
         .catch(function(error) {
@@ -37,7 +37,7 @@ function addReport(card) {
                 'title': title,
                 'card': cardURL,
                 'membersIds': membersIds,
-                'starTime': startTime,
+                'startTime': startTime,
                 'endTime': endTime,
                 'commitLink': commitLink,
                 'comment': comment
