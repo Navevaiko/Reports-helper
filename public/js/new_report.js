@@ -30,15 +30,15 @@ function addReport(card) {
     var cardURL = card.shortUrl;
     var membersIds = card.members;
     var title = card.name;
-    var currDate = toDate(card.startDate);
+    var currDate = card.startDate;
     var startDate = window.startDate.value;
 
-    formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
+    // formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
 
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
             var report = {
-                'date': formatedCurrDate,
+                'date': currDate,
                 'title': title,
                 'card': cardURL,
                 'membersIds': membersIds,
