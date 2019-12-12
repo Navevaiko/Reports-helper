@@ -8,12 +8,8 @@ TrelloPowerUp.initialize({
         {
             icon: 'https://reports-helper.herokuapp.com/icons/attachments.svg',
             text: 'Exportar relatório',
-            callback: function (trello) {
-                return trello.popup({
-                    title: "Download",
-                    url: 'https://reports-helper.herokuapp.com/type_export'
-                })
-            }
+            callback: showTypesDataExport
+
         }]
     },
     'card-badges': function (trello, options) {
