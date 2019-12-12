@@ -28,6 +28,7 @@ TrelloPowerUp.initialize({
                 url: trello.signUrl(window.TrelloPowerUp.util.relativeUrl('reports_list')),
             }
 
+
         }
     }
 });
