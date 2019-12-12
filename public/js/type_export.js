@@ -2,7 +2,7 @@ var trello = TrelloPowerUp.iframe();
 
 // resize(trello, '#exportData')
 
-t.render(function () {
+t.render(function (t) {
     t.sizeTo('#exportData').done();
 });
 
