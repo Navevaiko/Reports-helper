@@ -29,7 +29,7 @@ function addReport(card) {
     var currDate = new Date();
     var startDate = window.startDate.value;
 
-    formatedCurrDate = (currDate.getDate().length = 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
+    formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
 
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
