@@ -7,5 +7,7 @@ t.render(function () {
 });
 
 window.exportData.addEventListener('submit', function (event) {
-    alert("clicou")
+    event.preventDefault()
+    alert("clicou");
+    return "Ola"
 });
