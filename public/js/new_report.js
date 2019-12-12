@@ -17,6 +17,10 @@ window.newReport.addEventListener('submit', function (event) {
             alert('Ocorreu um erro, por favor tente novamente mais tarde');
         });
 });
+function toDate(dateStr) {
+    var parts = dateStr.split("/");
+    return new Date(parts[2], parts[1], parts[0]);
+}
 
 function addReport(card) {
     var startTime = window.startTime.value;
@@ -26,7 +30,7 @@ function addReport(card) {
     var cardURL = card.shortUrl;
     var membersIds = card.members;
     var title = card.name;
-    var currDate = card.startDate;
+    var currDate = toDate(card.startDate);
     var startDate = window.startDate.value;
 
     formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
