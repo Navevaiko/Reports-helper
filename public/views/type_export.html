@@ -4,23 +4,25 @@
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
     <style>
         select {
-            height: 30px;
+            height: 50px;
         }
     </style>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
 </head>
 
 <body>
-    <form id="estimate">
-        <label for="estimateSize">Estimate:</label>
-        <select name="size" id="estimateSize">
-            <option value="small">Small 👕</option>
-            <option value="medium">Medium 👚</option>
-            <option value="large">Large 👔</option>
-            <option value="x-large">Extra Large 👖</option>
-        </select>
-        <button type="submit" class="mod-primary">Save</button>
-    </form>
+    <center>
+        <form id="estimate">
+            <label for="estimateSize">Estimate:</label>
+            <select name="size" id="estimateSize">
+                <option value="PDF">PDF </option>
+                <option value="EXCEL">Excel</option>
+                <option value="CSV">CSV</option>
+            </select>
+            <button type="submit" class="mod-primary">Save</button>
+        </form>
+    </center>
+    <script src="/js/type_export.js"></script>
 </body>
 
 </html>
