@@ -2,8 +2,8 @@ var trello = TrelloPowerUp.iframe();
 
 // resize(trello, '#exportData')
 
-t.render(function (t) {
-    t.sizeTo('#exportData').done();
+trello.render(function () {
+    trello.sizeTo('#exportData').done();
 });
 
 window.exportData.addEventListener('submit', function (event) {
