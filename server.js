@@ -21,6 +21,10 @@ app.get('/reports_list', (request, response) => {
     response.sendFile(`${__dirname}/public/views/reports_list.html`)
 });
 
+app.get('/type_export', (request, response) => {
+    response.sendFile(`${__dirname}/public/views/type_export.html`)
+});
+
 app.get('/icons/:imageName', (request, response) => {
     response.sendFile(`${__dirname}/public/icons/${request.params.imageName}`);
 });

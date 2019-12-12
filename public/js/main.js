@@ -11,7 +11,7 @@ TrelloPowerUp.initialize({
             callback: function (trello) {
                 return trello.popup({
                     title: "Download",
-                    url: 'https://reports-helper.herokuapp.com/type_export.html'
+                    url: 'https://reports-helper.herokuapp.com/type_export'
                 })
             }
         }]
