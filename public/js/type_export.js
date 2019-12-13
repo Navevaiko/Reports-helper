@@ -1,6 +1,4 @@
 var trello = TrelloPowerUp.iframe();
-var json;
-// resize(trello, '#exportData')
 
 trello.render(function () {
     trello.sizeTo('#exportData').done();
@@ -9,14 +7,15 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    json = await trello.getAll()
-    dataJson = JSON.parse(json).card.shared;
+    let json = await trello.getAll()
 
-    let nameFile = window.typeData.value
+    json = JSON.parse(json);
+    console.log(json)
+    // let nameFile = window.typeData.value
 
-    download(`data${nameFile}`, JSON.stringify(dataJson))
+    // download(`data${nameFile}`, JSON.stringify(dataJson))
 
-    trello.closePopup();
+    // trello.closePopup();
 });
 
 function download(filename, text) {
