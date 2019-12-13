@@ -10,7 +10,7 @@ window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
     json = await trello.getAll()
-    dataJson = JSON.parse(json.card.shared);
+    dataJson = JSON.parse(json).card.shared;
 
     let nameFile = window.typeData.value
 
