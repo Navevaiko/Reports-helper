@@ -1,5 +1,5 @@
 var trello = TrelloPowerUp.iframe();
-
+var json;
 // resize(trello, '#exportData')
 
 trello.render(function () {
@@ -9,8 +9,8 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    let a = await trello.getAll()
-    console.log(JSON.stringif(a))
+    json = await trello.getAll()
+    console.log(JSON.stringif(json))
 
 
 
