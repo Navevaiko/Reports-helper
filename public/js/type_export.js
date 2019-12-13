@@ -13,7 +13,9 @@ window.exportData.addEventListener('submit', function (event) {
 
     trello.get('board', 'shared')
         .then(function (data) {
+            console.log("-----");
             console.log(JSON.stringify(data, null, 2));
+            console.log("-----");
         });
 
     console.log(trello.iframe)
