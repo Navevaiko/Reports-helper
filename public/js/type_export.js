@@ -10,7 +10,7 @@ window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
     json = await trello.getAll()
-    console.log(JSON.stringify(json))
+    console.log(json)
 
 
 
