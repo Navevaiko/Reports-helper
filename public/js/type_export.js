@@ -14,9 +14,9 @@ window.exportData.addEventListener('submit', async event => {
 
 
 
-    // let nameFile = window.typeData.value
-
-    // download(`data${nameFile}`, JSON.stringify(dataJson))
+    let nameFile = window.typeData.value
+    alert(nameFile)
+    download(`data${nameFile}`, JSON.stringify(json.card.shared))
 
     // trello.closePopup();
 });
