@@ -11,7 +11,7 @@ window.exportData.addEventListener('submit', async event => {
     alert("clicou");
 
 
-    let a = await trello.get('board', 'shared')
+    let a = await trello.getAll()
     console.log(a)
 
 
