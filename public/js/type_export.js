@@ -6,27 +6,17 @@ trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
 
-window.exportData.addEventListener('submit', function (event) {
+window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
     alert("clicou");
 
 
-    trello.get('board', 'shared')
-        .then(data => {
-            console.log("-----");
-            console.log(data);
-            console.log("-----");
-        }, error => {
-            console.log(error)
-        });
+    let a = await trello.get('board', 'shared')
     console.log(a)
 
-    getReports(trello).then(teste);
+
 
 
     trello.closePopup();
 });
 
-function teste(data) {
-    console.log(data)
-}
