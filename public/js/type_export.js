@@ -13,7 +13,7 @@ window.exportData.addEventListener('submit', function (event) {
     console.log(trello.iframe)
     console.log(window.exportData.DataView);
     console.log(window.DataTransfer);
-    console.log(window.DataView());
+
 
     getReports(trello).then(teste);
 
