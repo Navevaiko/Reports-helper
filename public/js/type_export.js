@@ -9,11 +9,12 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    json = JSON.parse(await trello.getAll())
+    json = await trello.getAll()
+    dataJson = JSON.parse(json.card.shared);
 
     let nameFile = window.typeData.value
 
-    download(`data${nameFile}`, JSON.stringify(json.card.shared))
+    download(`data${nameFile}`, JSON.stringify(dataJson))
 
     trello.closePopup();
 });
