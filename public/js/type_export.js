@@ -11,17 +11,14 @@ window.exportData.addEventListener('submit', function (event) {
     alert("clicou");
 
 
-    trello.get('board', 'shared')
+    let a = trello.get('board', 'shared')
         .then(function (data) {
             console.log("-----");
             console.log(JSON.stringify(data, null, 2));
             console.log("-----");
+            return data;
         });
-
-    console.log(trello.iframe)
-    console.log(window.exportData.DataView);
-    console.log(window.DataTransfer);
-
+    console.log(a)
 
     getReports(trello).then(teste);
 
@@ -30,5 +27,5 @@ window.exportData.addEventListener('submit', function (event) {
 });
 
 function teste(data) {
-    console.log(teste)
+    console.log(data)
 }
