@@ -12,7 +12,7 @@ window.exportData.addEventListener('submit', async event => {
 
     console.log(json)
 
-        .card.shared
+
 
     // let nameFile = window.typeData.value
 
