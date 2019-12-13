@@ -9,9 +9,13 @@ trello.render(function () {
 window.exportData.addEventListener('submit', function (event) {
     event.preventDefault()
     alert("clicou");
-    console.log(trello.get('card', 'shared', 'newReport'))
+    console.log(trello.get('card', 'shared', 'exportData'))
     console.log(trello)
-    console.log(trello.exportData)
+    console.log(trello)
+    console.log(window.exportData);
+    console.log(window.DataTransfer);
+    console.log(window.DataView);
+
 
     trello.closePopup();
 });
