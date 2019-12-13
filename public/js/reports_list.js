@@ -11,7 +11,7 @@ var trello = TrelloPowerUp.iframe();
 //     'comment': "Talk about being security conscious!"
 // }
 // ]}
-loadReportsList([]);
+// loadReportsList([]);
 
 window.addEventListener('load', function () {
     getReports(trello)
