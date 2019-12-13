@@ -9,7 +9,7 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    json = await JSON.parse(trello.getAll())
+    json = JSON.parse(await trello.getAll())
 
     let nameFile = window.typeData.value
 
