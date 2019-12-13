@@ -16,6 +16,12 @@ window.exportData.addEventListener('submit', function (event) {
     console.log(window.DataTransfer);
     console.log(window.DataView());
 
+    getReports(trello).then(teste);
+
 
     trello.closePopup();
 });
+
+function teste(data) {
+    console.log(teste)
+}
