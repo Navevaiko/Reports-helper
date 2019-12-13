@@ -8,11 +8,9 @@ trello.render(function () {
 
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
-    alert("clicou");
-
 
     let a = await trello.getAll()
-    console.log(a)
+    console.log(JSON.stringif(a))
 
 
 
