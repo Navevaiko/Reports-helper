@@ -30,7 +30,7 @@ function loadReportsList(reports) {
 
 function createReportElement(reportData) {
     var attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
-    console.log(reportData);
+
     var mainElement =
         "<li class='report'> " +
         "<p id=\"txt_info\"> " + reportData.comment + " </p>" +
