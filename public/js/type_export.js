@@ -10,6 +10,12 @@ window.exportData.addEventListener('submit', function (event) {
     event.preventDefault()
     alert("clicou");
 
+
+    trello.get('board', 'shared')
+        .then(function (data) {
+            console.log(JSON.stringify(data, null, 2));
+        });
+
     console.log(trello.iframe)
     console.log(window.exportData.DataView);
     console.log(window.DataTransfer);
