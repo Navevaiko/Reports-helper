@@ -12,9 +12,20 @@ window.exportData.addEventListener('submit', async event => {
     console.log(json)
 
     let nameFile = window.typeData.value
-    alert(nameFile)
-    // download(`data.${nameFile.toLowerCase()}`, JSON.stringify(json.card.shared.reports))
-    JSONToCSVConvertor(json.card.shared.reports, "Relatorio", true)
+
+
+    switch (nameFile) {
+        case "CSV":
+            JSONToCSVConvertor(json.card.shared.reports, "Relatorio.csv", true)
+
+            break;
+        case "JSON":
+            download(`data.${nameFile.toLowerCase()}`, JSON.stringify(json.card.shared.reports))
+
+            break;
+        default:
+            break;
+    }
 
     trello.closePopup();
 });
