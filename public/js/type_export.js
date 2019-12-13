@@ -14,7 +14,7 @@ window.exportData.addEventListener('submit', function (event) {
     trello.get('board', 'shared')
         .then(data => {
             console.log("-----");
-            console.log(JSON.stringify(data, null, 2));
+            console.log(data);
             console.log("-----");
         }, error => {
             console.log(error)
