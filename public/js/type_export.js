@@ -11,12 +11,13 @@ window.exportData.addEventListener('submit', function (event) {
     alert("clicou");
 
 
-    let a = trello.get('board', 'shared')
-        .then(function (data) {
+    trello.get('board', 'shared')
+        .then(data => {
             console.log("-----");
             console.log(JSON.stringify(data, null, 2));
             console.log("-----");
-            return data;
+        }, error => {
+            console.log(error)
         });
     console.log(a)
 
