@@ -11,7 +11,8 @@ window.exportData.addEventListener('submit', async event => {
     let json = await trello.getAll()
 
     let nameFile = window.typeData.value;
-    downloadByType(nameFile, json)
+    let htmlData = window.reportsList
+    downloadByType(nameFile, json, htmlData)
 
     trello.hideCard();
 
@@ -23,7 +24,7 @@ window.exportData.addEventListener('submit', async event => {
     trello.closePopup();
 });
 
-function downloadByType(type, json) {
+function downloadByType(type, json, htmlData) {
 
     switch (type) {
         case "CSV":
@@ -37,9 +38,9 @@ function downloadByType(type, json) {
         default:
         case "PDF":
             alert("vai baixar")
-            console.log(window.reportsList)
+            console.log(htmlData)
             let pdf = new jsPDF();
-            pdf.fromHTML(window.reportsList);
+            pdf.fromHTML(htmlData);
             pdf.save("Relatorio.pdf")
 
             break;
