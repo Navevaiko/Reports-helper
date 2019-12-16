@@ -9,12 +9,26 @@ window.exportData.addEventListener('submit', async event => {
 
     let json = await trello.getAll()
 
-    console.log(json)
+    let nameFile = window.typeData.value;
+    downloadByType(nameFile, json)
 
-    let nameFile = window.typeData.value
+    trello.alert({
+        message: 'Download realizado com sucesso 🎉',
+        duration: 3,
+        display: 'success'
+    })
+
+    t.hideCard();
 
 
-    switch (nameFile) {
+
+
+    trello.closePopup();
+});
+
+function downloadByType(type, json) {
+
+    switch (type) {
         case "CSV":
             JSONToCSVConvertor(json.card.shared.reports, "Relatorio.csv", true)
 
@@ -24,11 +38,14 @@ window.exportData.addEventListener('submit', async event => {
 
             break;
         default:
+        case "PDF":
+            alert("oi")
             break;
     }
 
-    trello.closePopup();
-});
+}
+
+
 
 function download(filename, text) {
     var element = document.createElement('a');
@@ -55,12 +72,10 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
         var row = "";
 
         for (var index in arrData[0]) {
-
             row += index + ',';
         }
 
         row = row.slice(0, -1);
-
         CSV += row + '\r\n';
     }
     for (var i = 0; i < arrData.length; i++) {
@@ -80,5 +95,4 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
         return;
     }
     download(ReportTitle, CSV)
-
-}
+} 
