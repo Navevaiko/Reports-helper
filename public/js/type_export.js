@@ -46,7 +46,7 @@ function downloadByType(type, json) {
             };
 
             pdf.fromHTML(doc, 15, 15, {
-                'width': auto,
+                'width': "90%",
                 'elementHandlers': specialElementHandlers
             });
             pdf.save('Relatorio.pdf');
