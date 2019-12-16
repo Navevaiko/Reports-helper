@@ -36,15 +36,15 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-
+            let doc = window.reportsList;
+            HTMLToPDFConversotor(doc)
 
             break;
     }
 
 }
 
-function HTMLToPDFConversotor(HTMLData) {
-    let doc = window.reportsList;
+function HTMLToPDFConversotor(doc) {
     // window.print(doc);
     let pdf = new jsPDF();
 
