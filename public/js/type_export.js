@@ -36,25 +36,12 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let doc = window.reportsList;
-            HTMLToPDFConversotor(doc)
+            let pdf = new jsPDF();
+            pdf.fromHTML(window.reportsList);
+            pdf.save("Relatorio.pdf")
 
             break;
     }
-
-}
-
-function HTMLToPDFConversotor(doc) {
-    // window.print(doc);
-    let pdf = new jsPDF();
-
-    console.log(doc)
-    window.print(doc)
-    pdf.fromHTML(doc, 15, 15, {
-        'width': 170,
-    });
-    pdf.save('Relatorio.pdf');
-
 
 }
 
