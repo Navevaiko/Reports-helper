@@ -1,4 +1,8 @@
+window.jsPDF = require('jspdf');
+window.jsPDF = require('jspdf');
+
 var trello = TrelloPowerUp.iframe();
+
 
 trello.render(function () {
     trello.sizeTo('#exportData').done();
@@ -35,20 +39,20 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            // let doc = window.reportsList;
+            let doc = window.reportsList;
             // window.print(doc);
-            let doc = new jsPDF();
+            let pdf = new jsPDF();
             let specialElementHandlers = {
                 '#editor': function (element, renderer) {
                     return true;
                 }
             };
 
-            doc.fromHTML($('#content').html(), 15, 15, {
-                'width': 170,
+            pdf.fromHTML(doc, 15, 15, {
+                'width': auto,
                 'elementHandlers': specialElementHandlers
             });
-            doc.save('Relatorio.pdf');
+            pdf.save('Relatorio.pdf');
 
             break;
     }
