@@ -17,13 +17,7 @@ window.exportData.addEventListener('submit', async event => {
     trello.alert({
         message: 'Download realizado com sucesso 🎉',
         duration: 3,
-        display: 'success'
     })
-
-
-
-
-
 
     trello.closePopup();
 });
@@ -41,7 +35,21 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            alert("oi")
+            // let doc = window.reportsList;
+            // window.print(doc);
+            let doc = new jsPDF();
+            let specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            };
+
+            doc.fromHTML($('#content').html(), 15, 15, {
+                'width': 170,
+                'elementHandlers': specialElementHandlers
+            });
+            doc.save('Relatorio.pdf');
+
             break;
     }
 
