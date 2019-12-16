@@ -49,6 +49,7 @@ function HTMLToPDFConversotor(doc) {
     let pdf = new jsPDF();
 
     console.log(doc)
+    window.print(doc)
     pdf.fromHTML(doc, 15, 15, {
         'width': 170,
     });
