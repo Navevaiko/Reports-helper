@@ -11,7 +11,8 @@ window.exportData.addEventListener('submit', async event => {
     let json = await trello.getAll()
 
     let nameFile = window.typeData.value;
-    let htmlData = window.reportsList
+    let htmlData = window.reportsList;
+    console.log(htmlData);
     downloadByType(nameFile, json, htmlData)
 
     trello.hideCard();
