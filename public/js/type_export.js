@@ -1,6 +1,3 @@
-window.jsPDF = require('jspdf');
-window.jsPDF = require('jspdf');
-
 var trello = TrelloPowerUp.iframe();
 
 
