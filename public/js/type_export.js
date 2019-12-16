@@ -36,19 +36,25 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let doc = window.reportsList;
-            // window.print(doc);
-            let pdf = new jsPDF();
 
-            pdf.fromHTML(doc);
-            pdf.save('Relatorio.pdf');
 
             break;
     }
 
 }
 
+function HTMLToPDFConversotor(HTMLData) {
+    let doc = window.reportsList;
+    // window.print(doc);
+    let pdf = new jsPDF();
 
+    pdf.fromHTML(doc, 15, 15, {
+        'width': 170,
+    });
+    pdf.save('Relatorio.pdf');
+
+
+}
 
 function download(filename, text) {
     var element = document.createElement('a');
