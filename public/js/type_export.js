@@ -12,13 +12,15 @@ window.exportData.addEventListener('submit', async event => {
     let nameFile = window.typeData.value;
     downloadByType(nameFile, json)
 
+    trello.hideCard();
+
     trello.alert({
         message: 'Download realizado com sucesso 🎉',
         duration: 3,
         display: 'success'
     })
 
-    t.hideCard();
+
 
 
 
