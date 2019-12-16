@@ -39,16 +39,8 @@ function downloadByType(type, json) {
             let doc = window.reportsList;
             // window.print(doc);
             let pdf = new jsPDF();
-            let specialElementHandlers = {
-                '#editor': function (element, renderer) {
-                    return true;
-                }
-            };
 
-            pdf.fromHTML(doc, 15, 15, {
-                'width': "90%",
-                'elementHandlers': specialElementHandlers
-            });
+            pdf.fromHTML(doc);
             pdf.save('Relatorio.pdf');
 
             break;
