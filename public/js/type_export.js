@@ -36,6 +36,8 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
+            alert("vai baixar")
+            console.log(window.reportsList)
             let pdf = new jsPDF();
             pdf.fromHTML(window.reportsList);
             pdf.save("Relatorio.pdf")
