@@ -43,13 +43,16 @@ const createReportElementToPdf = reportData => {
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
                         <div class='datetimeInfo'> 
-                            ${reportData.name}
+                            ${reportData.title}
                         </div>
                         <div class='datetimeInfo'> 
-                            ${reportData.menbers}
+                            ${reportData.members}
                         </div>
                         <div class='datetimeInfo'> 
                             ${reportData.labels}
+                        </div>
+                        <div class='datetimeInfo'> 
+                            ${reportData.card}
                         </div>
                     </li><hr/>`;
 
