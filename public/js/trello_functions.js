@@ -61,7 +61,9 @@ const getCardContent = trello => trello.getAll()
 const getDataCardExport = (cardContent, card, ) => {
 
     console.log("O Promise", cardContent);
-    console.log("o segundo", cardContent.shared);
+    console.log("o segundo", cardContent.shared.reports);
+
+    console.log("o card", card);
 
     let result = cardContent.shared.reports.map(e => {
         console.log(e)
@@ -70,6 +72,8 @@ const getDataCardExport = (cardContent, card, ) => {
         e.card = card.shortUrl;
     });
 
+
+    console.log("o segundo", result);
 
 
     return result;
