@@ -41,7 +41,7 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let content = `<ul>${createListReportElement(json)}</ul>`
+            let content = `<ul>${createReportElementToPdf(json)}</ul>`
 
             var mywindow = window.open('', 'Print', 'height=600,width=800');
 

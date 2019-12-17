@@ -31,6 +31,30 @@ const loadReportsList = reports => {
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElement(e));
 
+const createReportElementToPdf = reportData => {
+    let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
+    let mainElement = "";
+    mainElement = `<li class='report'> 
+                        <p id="txt_info">   ${reportData.comment} </p> 
+                        <span><a href='  ${reportData.commitLink}' target='_blank'> Commit </a></span>
+                        ${(reportData.attachments ? attachmentsElement : "")}
+                        <div class='datetimeInfo'> 
+                            <span> ${reportData.date} </span> 
+                            <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
+                        </div>
+                        <div class='datetimeInfo'> 
+                            ${reportData.name}
+                        </div>
+                        <div class='datetimeInfo'> 
+                            ${reportData.menbers}
+                        </div>
+                        <div class='datetimeInfo'> 
+                            ${reportData.labels}
+                        </div>
+                    </li><hr/>`;
+
+    return mainElement;
+}
 
 const createReportElement = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
