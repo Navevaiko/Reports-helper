@@ -58,26 +58,18 @@ const getCardDetailsById = trello => trello.card('all');
 
 const getCardContent = trello => trello.getAll()
 
-const getDataCardExport = (cardContent, card, ) => {
-
-    console.log("O Promise", cardContent);
-    console.log("o segundo", cardContent.shared.reports);
-
-    console.log("o card", card);
+const getDataCardExport = (cardContent, card) => {
 
     let result = cardContent.shared.reports.map(e => {
-        console.log(e)
+
         let menbers = card.members.map(e => e.fullName);
         let labels = card.labels.map(e => e.name)
+
         e.membersIds = menbers.join(', ');
         e.title = card.name;
         e.card = card.url;
         e.labels = labels.join(' - ')
     });
-
-
-    console.log("o segundo", result);
-
 
     return result;
 }
