@@ -6,6 +6,7 @@ trello.render(function () {
 });
 
 window.exportData.addEventListener('submit', async event => {
+    window.parent.window.print(window.repotsList)
     event.preventDefault()
 
     let cardContent = await getCardContent(trello);
