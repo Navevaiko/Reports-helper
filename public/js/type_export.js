@@ -40,7 +40,7 @@ function downloadByType(type, json) {
             let doc = createListReportElement(json)
 
             let pdf = new jsPDF();
-            pdf.fromHTML(doc);
+            pdf.fromHTML(doc.join(''));
             pdf.save("Relatorio.pdf")
 
             break;
