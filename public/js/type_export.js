@@ -15,10 +15,10 @@ window.exportData.addEventListener('submit', async event => {
 
     const typeFile = window.typeData.value;
 
-    downloadByType(typeFile, dataCard)
-
     trello.closePopup();
     trello.hideCard();
+
+    downloadByType(typeFile, dataCard)
 
     trello.alert({
         message: 'Download realizado com sucesso 🎉',
