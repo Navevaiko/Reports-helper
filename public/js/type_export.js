@@ -8,8 +8,10 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
+    let cardContent = await getCardContent(trello);
     let card = await getCardDetailsById(trello);
-    let dataCard = getDataCardExport(card);
+
+    let dataCard = getDataCardExport(cardContent, card);
 
     console.log(dataCard)
 
