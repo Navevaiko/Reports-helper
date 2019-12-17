@@ -8,9 +8,9 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    let json = await trello.getAll()
-
-    let nameFile = window.typeData.value;
+    let json = await trello.getAll();
+    json = json.card.shared.reports;
+    const nameFile = window.typeData.value;
 
     downloadByType(nameFile, json)
 
@@ -28,16 +28,15 @@ function downloadByType(type, json) {
 
     switch (type) {
         case "CSV":
-            JSONToCSVConvertor(json.card.shared.reports, "Relatorio.csv", true)
+            JSONToCSVConvertor(json, "Relatorio.csv", true)
 
             break;
         case "JSON":
-            download(`Relatorio.json`, JSON.stringify(json.card.shared.reports))
+            download(`Relatorio.json`, JSON.stringify(json))
 
             break;
         default:
         case "PDF":
-
             let doc = createReportElement(json)
             let pdf = new jsPDF();
             pdf.fromHTML(doc);
