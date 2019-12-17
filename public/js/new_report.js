@@ -1,4 +1,4 @@
-var trello = TrelloPowerUp.iframe();
+let trello = TrelloPowerUp.iframe();
 
 resize(trello, '#newReport')
 

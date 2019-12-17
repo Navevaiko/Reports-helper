@@ -1,4 +1,4 @@
-const trello = TrelloPowerUp.iframe();
+let trello = TrelloPowerUp.iframe();
 
 
 trello.render(function () {
