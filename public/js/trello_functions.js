@@ -59,10 +59,12 @@ const getCardDetailsById = trello => trello.card('all');
 const getCardContent = trello => trello.getAll()
 
 const getDataCardExport = (cardContent, card, ) => {
-    console.log(card);
-    console.log(cardContent);
+
+    console.log("O Promise", cardContent);
+    console.log("o segundo", cardContent.shared);
 
     let result = cardContent.shared.reports.map(e => {
+        console.log(e)
         e.membersIds = card.members.fullName;
         e.title = card.title;
         e.card = card.shortUrl;
