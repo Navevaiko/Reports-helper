@@ -5,7 +5,7 @@ const cors = require('cors');
 var requestCreator = require("request");
 
 const app = express();
-app.use(cors(['http://reports-helper.herokuapp.com', 'https://trello.com', 'https://reports-helper.herokuapp.com']));
+app.use(cors({ origin: ['http://reports-helper.herokuapp.com', 'https://reports-helper.herokuapp.com', 'https://trello.com'] }));
 
 app.use(express.static('public'))
 
