@@ -11,6 +11,8 @@ window.exportData.addEventListener('submit', async event => {
     let json = await trello.getAll()
 
     let nameFile = window.typeData.value;
+    trello.closePopup();
+
     let htmlData = document.getElementById("reportsList");
     console.log(window.reportsList)
     console.log(htmlData);
@@ -23,7 +25,6 @@ window.exportData.addEventListener('submit', async event => {
         duration: 3,
     })
 
-    trello.closePopup();
 });
 
 function downloadByType(type, json, htmlData) {
