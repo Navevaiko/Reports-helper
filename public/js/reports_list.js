@@ -28,7 +28,37 @@ const loadReportsList = reports => {
     window.reportsList.innerHTML = reportsElementsList;
 }
 
-const createListReportElement = reportDatas => reportDatas.map(element => createReportElement(element))
+const createListReportElement = reportDatas => {
+
+    let doc = reportDatas.map(element => createReportElement(element));
+    return `<table border=1>${doc.join('')}</table>`;
+}
+
+
+const createReportElementToHtml4 = reportData => {
+    let mainElement = "";
+    mainElement = `<tr> 
+                        <td>${reportData.comment} </td>
+                        <td>Commit: ${reportData.commitLink}</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        ${reportData.date} 
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td>
+                                        ${reportData.startTime} ás ${reportData.endTime}
+                                    </td>
+                                <tr> 
+                            </table> 
+                        </td>
+                    </tr>`;
+
+    return mainElement;
+}
+
 
 const createReportElement = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";

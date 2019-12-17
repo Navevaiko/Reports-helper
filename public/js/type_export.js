@@ -37,9 +37,9 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let doc = createListReportElement(json)
-            let docString = `<link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css"></link> ${doc.join('')}`
-            let pdf = new jsPDF();
+            let doc = createReportElementToHtml4(json)
+            let docString = `${doc.join('')}`
+            let pdf = new jsPDF('p', 'mm', 'a4');
             pdf.fromHTML(docString);
             pdf.save("Relatorio.pdf")
 
