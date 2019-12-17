@@ -12,6 +12,7 @@ window.exportData.addEventListener('submit', async event => {
 
     let nameFile = window.typeData.value;
     let htmlData = window.reportsList;
+    console.log(window.reportsList)
     console.log(htmlData);
     downloadByType(nameFile, json, htmlData)
 
