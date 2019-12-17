@@ -43,6 +43,7 @@ function downloadByType(type, json) {
         case "PDF":
             let e = createListReportElement(json)
             let html = document.createElement("ul").append(e);
+            html.innerHtml = e.join('')
 
             window.print(html)
             break;
