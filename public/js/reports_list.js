@@ -35,24 +35,24 @@ const createReportElementToPdf = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
     let mainElement = "";
     mainElement = `<li class='report'> 
-                        <p id="txt_info">   ${reportData.comment} </p> 
-                        <span><a href='  ${reportData.commitLink}' target='_blank'> Commit </a></span>
+                        <p id="txt_info">Comentário: ${reportData.comment} </p> 
+                        <p>Link do commit: ${reportData.commitLink}</p>
                         ${(reportData.attachments ? attachmentsElement : "")}
                         <div class='datetimeInfo'> 
                             <span> ${reportData.date} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
                         <div class='datetimeInfo'> 
-                            ${reportData.title}
+                            Cartão: ${reportData.title}
                         </div>
                         <div class='datetimeInfo'> 
-                            ${reportData.members}
+                            Membros: ${reportData.members}
                         </div>
                         <div class='datetimeInfo'> 
-                            ${reportData.labels}
+                            Etiquetas: ${reportData.labels}
                         </div>
                         <div class='datetimeInfo'> 
-                            ${reportData.card}
+                            Link do cartão: ${reportData.card}
                         </div>
                     </li><hr/>`;
 
