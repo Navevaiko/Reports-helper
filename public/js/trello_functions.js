@@ -69,6 +69,8 @@ const getDataCardExport = (cardContent, card) => {
         e.title = card.name;
         e.card = card.url;
         e.labels = labels.join(' - ')
+
+        return e;
     });
 
     return result;
