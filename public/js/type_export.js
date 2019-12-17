@@ -13,16 +13,9 @@ window.exportData.addEventListener('submit', async event => {
 
     let dataCard = getDataCardExport(cardContent.card, card);
 
-    console.log(dataCard)
+    const typeFile = window.typeData.value;
 
-
-
-    listJsonSata = getDataCardExport(card)
-
-
-    // const typeFile = window.typeData.value;
-
-    // downloadByType(typeFile, listJsonData)
+    downloadByType(typeFile, dataCard)
 
     trello.closePopup();
     trello.hideCard();
