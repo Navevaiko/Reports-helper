@@ -46,7 +46,8 @@ function downloadByType(type, json) {
             html.innerHTML = e.join('')
             console.log(e, "eeeeeee")
             console.log(html, "html")
-            window.print(html)
+            // html.print(html)
+            $(html).printElement();
             break;
     }
 
