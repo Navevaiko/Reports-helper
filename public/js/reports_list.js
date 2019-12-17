@@ -33,7 +33,7 @@ const createListReportElement = reportDatas => {
     let doc = reportDatas.map(element => createReportElementToHtml4(element));
     let docString = doc.join('');
 
-    return `<table border=1> <tr><th>Commit</th><th>Link commit</th><th>Data</th>${docString}</table>`;
+    return `<table border=1> <tr><th>Commit</th><th>Link commit</th><th>Data</th></tr>${docString}</table>`;
 }
 
 
@@ -43,21 +43,20 @@ const createReportElementToHtml4 = reportData => {
             <td>${reportData.comment}</td>
             <td>${reportData.commitLink}</td>
             <td>
-                <table>
+                <table width=200px>
                     <tr>
                         <td>
-                            ${reportData.date}
+                            <center>${reportData.date}</center>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            ${reportData.startTime} ás ${reportData.endTime}
+                            <center>${reportData.startTime} ás ${reportData.endTime}</center>
                         </td>
                     <tr>
                 </table>
             </td>
             </tr>`;
-
     return tr;
 }
 
