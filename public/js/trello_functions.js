@@ -62,11 +62,13 @@ const getDataCardExport = (cardContent, card, ) => {
     console.log(card);
     console.log(cardContent);
 
-    let dataResult = cardContent.shared.reports;
+    let result = cardContent.shared.reports.map(e => {
+        e.membersIds = card.members.fullName;
+        e.title = card.title;
+        e.card = card.shortUrl;
+    });
 
-    dataResult.membersIds = card.members;
-    dataResult.title = card.title;
-    dataResult.card = card.shortUrl;
 
-    return dataResult
+
+    return result;
 }
