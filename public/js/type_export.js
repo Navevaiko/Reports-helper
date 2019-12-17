@@ -8,8 +8,8 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    let listJsonData = await trello.getAll();
-    listJsonData = json.card.shared.reports;
+    let listJsonData = await trello.getAll().card.shared.reports;
+
     const typeFile = window.typeData.value;
 
     downloadByType(typeFile, listJsonData)
