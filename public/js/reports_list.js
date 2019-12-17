@@ -31,33 +31,33 @@ const loadReportsList = reports => {
 const createListReportElement = reportDatas => {
 
     let doc = reportDatas.map(element => createReportElement(element));
-    let docString = doc.join('')
+    let docString = doc.join('');
     return `<table border=1>${docString}</table>`;
 }
 
 
 const createReportElementToHtml4 = reportData => {
-    let mainElement = "";
-    mainElement = `<tr> 
-                        <td>${reportData.comment} </td>
-                        <td>Commit: ${reportData.commitLink}</td>
+    let tr = "";
+    tr = `<tr>
+            <td>${reportData.comment}</td>
+            <td>Commit: ${reportData.commitLink}</td>
+            <td>
+                <table>
+                    <tr>
                         <td>
-                            <table>
-                                <tr>
-                                    <td>
-                                        ${reportData.date} 
-                                    </td>
-                                </tr> 
-                                <tr>
-                                    <td>
-                                        ${reportData.startTime} ás ${reportData.endTime}
-                                    </td>
-                                <tr> 
-                            </table> 
+                            ${reportData.date}
                         </td>
-                    </tr>`;
+                    </tr>
+                    <tr>
+                        <td>
+                            ${reportData.startTime} ás ${reportData.endTime}
+                        </td>
+                    <tr>
+                </table>
+            </td>
+            </tr>`;
 
-    return mainElement;
+    return tr;
 }
 
 
