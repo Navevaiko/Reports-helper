@@ -33,15 +33,15 @@ const addReport = card => {
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
             var report = {
-                'date': currDate,
-                'title': title,
-                'card': cardURL,
-                'membersIds': membersIds,
-                'startTime': startTime,
-                'startDate': startDate,
-                'endTime': endTime,
-                'commitLink': commitLink,
-                'comment': comment
+                currDate,
+                title,
+                cardURL,
+                membersIds,
+                startTime,
+                startDate,
+                endTime,
+                commitLink,
+                comment
             };
 
             return addNewReport(trello, report)

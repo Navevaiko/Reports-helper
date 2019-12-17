@@ -54,12 +54,13 @@ const resize = (trello, elementId) => {
     })
 }
 
-const getCardDetailsById = trello => {
-    return trello.card('all');
-}
+const getCardDetailsById = trello => trello.getAll();
+
 const getDataCardExport = card => {
     console.log(card);
     let dataResult = card.shared.reports;
+
+    // (json.card.shared.reports
 
     dataResult.membersIds = card.members;
     dataResult.title = card.title;
