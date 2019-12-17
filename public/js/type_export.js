@@ -6,7 +6,7 @@ trello.render(function () {
 });
 
 window.exportData.addEventListener('submit', async event => {
-    window.parent.window.print(window.repotsList)
+
     event.preventDefault()
 
     let cardContent = await getCardContent(trello);
@@ -41,8 +41,8 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            // let doc = createListReportElement(json);
-            window.parent.window.print(window.repotsList)
+            let e = createListReportElement(json)
+            window.print(e)
             break;
     }
 
