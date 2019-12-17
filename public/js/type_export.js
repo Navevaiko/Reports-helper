@@ -41,7 +41,7 @@ function downloadByType(type, json) {
         default:
         case "PDF":
             // let doc = createListReportElement(json);
-            window.print(window.reportsList)
+            window.parent.window.print(window.repotsList)
             break;
     }
 
