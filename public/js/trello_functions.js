@@ -1,7 +1,7 @@
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
-function showNewReportModal(trello) {
+const showNewReportModal = trello => {
     return trello.modal({
         title: 'Novo relatório',
         url: 'new_report',
@@ -9,14 +9,14 @@ function showNewReportModal(trello) {
     })
 }
 
-function showTypesDataExport(trello) {
+const showTypesDataExport = trello => {
     return trello.popup({
         title: "Download",
         url: 'https://reports-helper.herokuapp.com/type_export'
     })
 }
 
-function addNewReport(trello, report) {
+const addNewReport = (trello, report) => {
     getReports(trello).then(function (reports) {
         reports.push(report);
 
@@ -31,11 +31,11 @@ function addNewReport(trello, report) {
     });
 }
 
-function getReports(trello) {
+const getReports = trello => {
     return trello.get('card', reportsVisibility, reportsKey, []);
 }
 
-function showBadge(reports) {
+const showBadge = reports => {
     var reportsCount = reports.length;
 
     if (reportsCount != 0)
@@ -48,12 +48,22 @@ function showBadge(reports) {
     }]
 }
 
-function resize(trello, elementId) {
+const resize = (trello, elementId) => {
     trello.render(function () {
         trello.sizeTo(elementId).done();
     })
 }
 
-function getCardDetailsById(trello) {
+const getCardDetailsById = trello => {
     return trello.card('all');
+}
+const getDataCardExport = card => {
+    console.log(card);
+    let dataResult = card.shared.reports;
+
+    dataResult.membersIds = card.members;
+    dataResult.title = card.title;
+    dataResult.card = card.shortUrl;
+
+    return dataResult
 }

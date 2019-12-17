@@ -2,27 +2,22 @@ var trello = TrelloPowerUp.iframe();
 
 resize(trello, '#newReport')
 
-window.newReport.addEventListener('submit', function (event) {
+window.newReport.addEventListener('submit', async event => {
     event.preventDefault();
     var card = {};
 
-    getCardDetailsById(trello)
-        .then(function (serializedCard) {
-            card = JSON.stringify(serializedCard);
-            console.log(card);
-            addReport(card);
-        })
-        .catch(function (error) {
-            console.log(error);
-            alert('Ocorreu um erro, por favor tente novamente mais tarde');
-        });
+    card = await getCardDetailsById(trello);
+
+    addReport(JSON.stringify(card));
+    console.log(card);
 });
-function toDate(dateStr) {
+
+const toDate = dateStr => {
     var parts = dateStr.split("-");
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
 }
 
-function addReport(card) {
+const addReport = card => {
     var startTime = window.startTime.value;
     var endTime = window.endTime.value;
     var commitLink = window.commitLink.value;

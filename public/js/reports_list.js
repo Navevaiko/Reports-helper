@@ -28,37 +28,8 @@ const loadReportsList = reports => {
     window.reportsList.innerHTML = reportsElementsList;
 }
 
-const createListReportElement = reportDatas => {
+const createListReportElement = reportDatas => reportDatas.map(e => createReportElement(e));
 
-    let doc = reportDatas.map(element => createReportElementToHtml4(element));
-    let docString = doc.join('');
-
-    return `<table border=1> <tr><th>Commgitit</th><th>Link commit</th><th>Data</th></tr>${docString}</table>`;
-}
-
-
-const createReportElementToHtml4 = reportData => {
-    let tr = "";
-    tr = `<tr>
-            <td>${reportData.comment}</td>
-            <td>${reportData.commitLink}</td>
-            <td>
-                <table width=200px>
-                    <tr>
-                        <td>
-                            <center>${reportData.date}</center>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center>${reportData.startTime} ás ${reportData.endTime}</center>
-                        </td>
-                    <tr>
-                </table>
-            </td>
-            </tr>`;
-    return tr;
-}
 
 
 const createReportElement = reportData => {
@@ -71,7 +42,7 @@ const createReportElement = reportData => {
                         <div class='datetimeInfo'> 
                             <span> ${reportData.date} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
-                        </div>" 
+                        </div>
                     </li><hr/>`;
 
     return mainElement;
