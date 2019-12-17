@@ -29,7 +29,7 @@ const loadReportsList = reports => {
 }
 
 
-const createListReportElement = reportDatas => reportDatas.map(e => createReportElement(e));
+const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
 const createReportElementToPdf = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
