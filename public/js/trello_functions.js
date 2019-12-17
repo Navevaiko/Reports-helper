@@ -58,7 +58,7 @@ const getCardDetailsById = trello => trello.card('all');
 
 const getCardContent = trello => trello.getAll()
 
-const getDataCardExport = (cardContent, card) => {
+const getDataCardExport = (card, cardContent) => {
     console.log(card);
     console.log(cardContent);
 
