@@ -29,6 +29,8 @@ window.exportData.addEventListener('submit', async event => {
 });
 
 function downloadByType(type, json) {
+    console.log(json)
+
 
     switch (type) {
         case "CSV":
