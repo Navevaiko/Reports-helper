@@ -38,9 +38,9 @@ function downloadByType(type, json) {
         default:
         case "PDF":
             let doc = createReportElementToHtml4(json)
-            let docString = `${doc.join('')}`
+
             let pdf = new jsPDF('p', 'mm', 'a4');
-            pdf.fromHTML(docString);
+            pdf.fromHTML(doc);
             pdf.save("Relatorio.pdf")
 
             break;

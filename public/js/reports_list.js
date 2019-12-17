@@ -31,7 +31,8 @@ const loadReportsList = reports => {
 const createListReportElement = reportDatas => {
 
     let doc = reportDatas.map(element => createReportElement(element));
-    return `<table border=1>${doc.join('')}</table>`;
+    let docString = doc.join('')
+    return `<table border=1>${docString}</table>`;
 }
 
 
