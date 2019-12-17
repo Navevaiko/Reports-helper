@@ -41,13 +41,19 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let e = createListReportElement(json)
-            let html = document.createElement("ul");
-            html.innerHTML = e.join('')
-            console.log(e, "eeeeeee")
-            console.log(html, "html")
-            // html.print(html)
-            $(html).printElement();
+            let content = `<ul>${createListReportElement(json)}</ul>`
+
+            var mywindow = window.open('', 'Print', 'height=600,width=800');
+
+            mywindow.document.write('<html><head><title>Print</title>');
+            mywindow.document.write('</head><body>');
+            mywindow.document.write(content);
+            mywindow.document.write('</body></html>');
+            mywindow.document.close();
+            mywindow.focus()
+            mywindow.print();
+            mywindow.close();
+
             break;
     }
 
