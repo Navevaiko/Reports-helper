@@ -30,8 +30,9 @@ const loadReportsList = reports => {
 
 const createListReportElement = reportDatas => {
 
-    let doc = reportDatas.map(element => createReportElement(element));
+    let doc = reportDatas.map(element => createReportElementToHtml4(element));
     let docString = doc.join('');
+
     return `<table border=1>${docString}</table>`;
 }
 

@@ -37,7 +37,7 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let doc = createReportElementToHtml4(json)
+            let doc = createListReportElement(json)
 
             let pdf = new jsPDF('p', 'mm', 'a4');
             pdf.fromHTML(doc);
