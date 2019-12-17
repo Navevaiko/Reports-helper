@@ -11,7 +11,7 @@ window.exportData.addEventListener('submit', async event => {
     let cardContent = await getCardContent(trello);
     let card = await getCardDetailsById(trello);
 
-    let dataCard = getDataCardExport(cardContent, card);
+    let dataCard = getDataCardExport(cardContent.card, card);
 
     console.log(dataCard)
 
