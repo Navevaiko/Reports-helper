@@ -37,7 +37,6 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            alert("vai baixar")
 
             let doc = createReportElement(json)
             let pdf = new jsPDF();
