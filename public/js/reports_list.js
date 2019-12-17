@@ -28,8 +28,8 @@ const loadReportsList = reports => {
     window.reportsList.innerHTML = reportsElementsList;
 }
 
-const createListReportElement = reportDatas => reportDatas.map(e => createReportElement(e));
 
+const createListReportElement = reportDatas => reportDatas.map(e => createReportElement(e));
 
 
 const createReportElement = reportData => {
