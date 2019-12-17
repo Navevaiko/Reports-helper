@@ -1,4 +1,4 @@
-let trello = TrelloPowerUp.iframe();
+var trello = TrelloPowerUp.iframe();
 // loadReportsList([
 // {
 //     'date': "02/11/2019",
