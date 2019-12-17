@@ -11,7 +11,7 @@ window.exportData.addEventListener('submit', async event => {
     let json = await trello.getAll()
 
     let nameFile = window.typeData.value;
-    let htmlData = window.reportsList;
+    let htmlData = document.getElementById("reportsList");
     console.log(window.reportsList)
     console.log(htmlData);
     downloadByType(nameFile, json, htmlData)
