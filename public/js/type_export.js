@@ -1,4 +1,4 @@
-var trello = TrelloPowerUp.iframe();
+const trello = TrelloPowerUp.iframe();
 
 
 trello.render(function () {
@@ -8,11 +8,11 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault()
 
-    let json = await trello.getAll();
-    json = json.card.shared.reports;
-    const nameFile = window.typeData.value;
+    let listJsonData = await trello.getAll();
+    listJsonData = json.card.shared.reports;
+    const typeFile = window.typeData.value;
 
-    downloadByType(nameFile, json)
+    downloadByType(typeFile, listJsonData)
 
     trello.closePopup();
     trello.hideCard();
@@ -38,6 +38,7 @@ function downloadByType(type, json) {
         default:
         case "PDF":
             let doc = createListReportElement(json)
+
             let pdf = new jsPDF();
             pdf.fromHTML(doc);
             pdf.save("Relatorio.pdf")
