@@ -29,7 +29,7 @@ app.get('/icons/:imageName', (request, response) => {
     response.sendFile(`${__dirname}/public/icons/${request.params.imageName}`);
 });
 
-app.get('/repoststyle', (request, response) => {
+app.get('/reportstyle', (request, response) => {
     response.sendFile(`${__dirname}/public/css/report.css`);
 });
 
