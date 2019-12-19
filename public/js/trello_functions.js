@@ -61,14 +61,10 @@ const getCardContent = trello => trello.getAll()
 const getDataCardExport = (cardContent, card) => {
 
     let result = cardContent.shared.reports.map(e => {
-
-        let menbers = card.members.map(e => e.fullName);
-        let labels = card.labels.map(e => e.name)
-
-        e.members = menbers;
+        e.members = card.members;
         e.title = card.name;
         e.card = card.url;
-        e.labels = labels;
+        e.labels = card.labels;
 
         return e;
     });
