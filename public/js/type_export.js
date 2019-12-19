@@ -47,8 +47,42 @@ function downloadByType(type, json) {
 
             var mywindow = window.open('', 'Print', 'height=600,width=800');
 
-            mywindow.document.write('<html><head><title>Print</title>');
-            mywindow.document.write('</head><body>');
+            mywindow.document.write(`<!DOCTYPE html>
+                                        <html lang="en">
+                                        <head>
+                                            <meta charset="UTF-8">
+                                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                            <link rel="stylesheet" href="../css/report.css">
+                                            <title>Relátorio</title>
+                                        </head><body>`);
+
+            mywindow.document.write(`<div class="container">
+                                        <!--delimitador do header-->
+                                        <div class="container_header">
+                                            <div class="item_header member">
+                                                Membros
+                                            </div>
+                                            <div class="item_header card">
+                                                Cartão
+                                            </div>
+                                            <div class="item_header tag">
+                                                Etiquetas
+                                            </div>
+                                            <div class="item_header date">
+                                                Data
+                                            </div>
+                                            <div class="item_header start_end">
+                                                Duração
+                                            </div>
+                                            <div class="item_header link">
+                                                Links
+                                            </div>
+                                            <div class="item_header comment">
+                                                Comentário
+                                            </div>
+                                        </div>
+                                    `);
             mywindow.document.write(content);
             mywindow.document.write('</body></html>');
             mywindow.document.close();
