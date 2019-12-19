@@ -18,21 +18,22 @@ const toDate = dateStr => {
 }
 
 const addReport = card => {
-    var startTime = window.startTime.value;
-    var endTime = window.endTime.value;
-    var commitLink = window.commitLink.value;
-    var comment = window.comment.value;
-    var cardURL = card.shortUrl;
-    var membersIds = card.members;
-    var title = card.name;
-    var currDate = toDate(window.startDate.value);
-    var startDate = window.startDate.value;
+    let startTime = window.startTime.value;
+    let endTime = window.endTime.value;
+    let commitLink = window.commitLink.value;
+    let comment = window.comment.value;
+    let cardURL = card.shortUrl;
+    let membersIds = card.members;
+    let title = card.name;
+    let labels = card.labels
+    let currDate = toDate(window.startDate.value);
+    let startDate = window.startDate.value;
 
     // formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
 
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
-            var report = {
+            let report = {
                 currDate,
                 title,
                 cardURL,
@@ -41,7 +42,8 @@ const addReport = card => {
                 startDate,
                 endTime,
                 commitLink,
-                comment
+                comment,
+                labels
             };
 
             return addNewReport(trello, report)
