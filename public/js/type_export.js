@@ -28,7 +28,7 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 
-function downloadByType(type, json) {
+async function downloadByType(type, json) {
     console.log(json)
 
 
@@ -43,7 +43,7 @@ function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let content = `<ul>${createListReportElement(json)}</ul>`
+            let content = await createListReportElement(json).join('');
 
             var mywindow = window.open('', 'Print', 'height=600,width=800');
 
