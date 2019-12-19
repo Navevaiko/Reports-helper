@@ -29,6 +29,10 @@ app.get('/icons/:imageName', (request, response) => {
     response.sendFile(`${__dirname}/public/icons/${request.params.imageName}`);
 });
 
+app.get('/repoststyle', (request, response) => {
+    response.sendFile(`${__dirname}/public/css/report.css`);
+});
+
 const listener = app.listen(process.env.PORT, () => {
     console.log(`Listening on ${process.env.PORT}`)
 });

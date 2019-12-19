@@ -43,7 +43,7 @@ async function downloadByType(type, json) {
             break;
         default:
         case "PDF":
-            let content = await createListReportElement(json).join('');
+            let content = createListReportElement(json).join('');
 
             var mywindow = window.open('', 'Print', 'height=600,width=800');
 
@@ -53,7 +53,7 @@ async function downloadByType(type, json) {
                                             <meta charset="UTF-8">
                                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                                             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                                            <link rel="stylesheet" href="../css/report.css">
+                                            <link rel="stylesheet" href="https://reports-helper.herokuapp.com/reportstyle">
                                             <title>Relátorio</title>
                                         </head><body>`);
 

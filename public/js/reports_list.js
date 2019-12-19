@@ -36,7 +36,7 @@ const createListReportElement = reportDatas => reportDatas.map(e => createReport
 
 
 
-const createReportElementToPdf = async reportData => {
+const createReportElementToPdf = reportData => {
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`)
     let members = reportData.members.map(e => `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${e.avatar});"></div><br>`);
     let fullTime = "diferença de tempo aqui";
