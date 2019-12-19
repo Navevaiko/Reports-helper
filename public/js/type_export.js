@@ -34,6 +34,8 @@ async function downloadByType(type, json) {
 
     switch (type) {
         case "CSV":
+            json.labels = json.labels.join('')
+            json.members = json.members.join('')
             JSONToCSVConvertor(json, "Relatorio.csv", true)
 
             break;
