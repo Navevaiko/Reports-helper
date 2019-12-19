@@ -86,8 +86,12 @@ async function downloadByType(type, json) {
             mywindow.document.write(content);
             mywindow.document.write('</body></html>');
             mywindow.document.close();
+
             mywindow.focus()
-            mywindow.print();
+            setTimeout(function () {
+                mywindow.print();
+            }, 3000);
+
             mywindow.close();
 
             break;
