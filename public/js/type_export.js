@@ -34,6 +34,8 @@ async function downloadByType(type, json) {
 
     switch (type) {
         case "CSV":
+            json.labels = json.labels.join('')
+            json.members = json.members.join('')
             JSONToCSVConvertor(json, "Relatorio.csv", true)
 
             break;
@@ -84,10 +86,7 @@ async function downloadByType(type, json) {
                                         </div>
                                     `);
             mywindow.document.write(content);
-            mywindow.document.write(`<script>window.addEventListener("load", event => {
-                                        window.print();
-                                        window.close();
-                                    });</script></body></html>`);
+            mywindow.document.write(`</body></html>`);
 
             mywindow.document.close();
             mywindow.focus();
