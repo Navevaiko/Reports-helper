@@ -38,7 +38,7 @@ const createListReportElement = reportDatas => reportDatas.map(e => createReport
 
 const createReportElementToPdf = async reportData => {
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`)
-    let members = reportData.members.map(e => `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: ${e.avatar};"></div><br>`);
+    let members = reportData.members.map(e => `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${e.avatar});"></div><br>`);
     let fullTime = "diferença de tempo aqui";
 
     let boxHtml = `<div class="report_container">
@@ -50,7 +50,7 @@ const createReportElementToPdf = async reportData => {
                     </div>
                     <!-- delimitador 2-->
                     <div class="item_body card">
-                        ${reportData.name}
+                        ${reportData.title}
                     </div>
                     <!-- delimitador 3-->
                     <div class="item_body tag">
@@ -74,7 +74,7 @@ const createReportElementToPdf = async reportData => {
                             <a>
                             <br>
                             <a class="Commit"
-                                href="${reportData.cardURL}">
+                                href="${reportData.card}">
                                 Commit
                             </a>
                         </div>
