@@ -65,10 +65,10 @@ const getDataCardExport = (cardContent, card) => {
         let menbers = card.members.map(e => e.fullName);
         let labels = card.labels.map(e => e.name)
 
-        e.members = menbers.join(', ');
+        e.members = menbers;
         e.title = card.name;
         e.card = card.url;
-        e.labels = labels.join(' - ')
+        e.labels = labels;
 
         return e;
     });
