@@ -25,16 +25,16 @@ TrelloPowerUp.initialize({
             }
         }
     },
-    'board-buttons': function (t, opts) {
-        return [{
+    'board-buttons': function (trello, options) {
+        return {
             icon: {
                 dark: "https://reports-helper.herokuapp.com/icons/reportdark.svg",
                 light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
             },
             text: 'Relatório',
             callback: generateReportMaFromBoard,
-            condition: 'always'
-        }]
+            // condition: 'always'
+        }
     }
 });
 
