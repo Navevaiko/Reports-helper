@@ -39,7 +39,7 @@ const showBadge = reports => {
     var reportsCount = reports.length;
 
     if (reportsCount != 0)
-        var message = reportsCount + " " + (reportsCount > 1 ? "relatórios" : 'relatório');
+        var message = `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
 
     return [{
         icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
