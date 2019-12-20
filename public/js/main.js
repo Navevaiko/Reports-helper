@@ -1,4 +1,6 @@
-TrelloPowerUp.initialize({
+const generateReportMaFromBoard = () => alert('OI')
+
+window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
         return [{
             icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
@@ -9,7 +11,6 @@ TrelloPowerUp.initialize({
             icon: 'https://reports-helper.herokuapp.com/icons/attachments.svg',
             text: 'Exportar relatório',
             callback: showTypesDataExport
-
         }]
     },
     'card-badges': function (trello, options) {
@@ -31,11 +32,9 @@ TrelloPowerUp.initialize({
                 dark: "https://reports-helper.herokuapp.com/icons/reportdark.svg",
                 light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
             },
-            text: 'Relatório',
+            text: 'TESETE',
             callback: generateReportMaFromBoard,
-            // condition: 'always'
+            condition: 'always'
         }
     }
 });
-
-const generateReportMaFromBoard = () => alert('OI')
