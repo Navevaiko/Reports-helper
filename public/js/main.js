@@ -33,7 +33,7 @@ TrelloPowerUp.initialize({
             },
             text: 'Relatório',
             callback: generateReportMaFromBoard,
-            condition: 'always'
+            // condition: 'always'
         }
     }
 });
