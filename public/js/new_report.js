@@ -27,7 +27,7 @@ const addReport = card => {
     let title = card.name;
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
-    let startDate = window.startDate.value;
+    let date = window.startDate.value;
 
     // formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
 
@@ -39,7 +39,7 @@ const addReport = card => {
                 cardURL,
                 membersIds,
                 startTime,
-                startDate,
+                date,
                 endTime,
                 commitLink,
                 comment,
