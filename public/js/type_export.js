@@ -59,7 +59,13 @@ async function downloadByType(type, json) {
                                             <title>Relátorio</title>
                                         </head><body>`);
 
-            mywindow.document.write(`<div class="container">
+            mywindow.document.write(`<script>
+                                        window.onload = () => {
+                                            window.print();
+                                            window.close();
+                                        }
+                                    </script>
+                                    <div class="container">
                                         <!--delimitador do header-->
                                         <div class="container_header">
                                             <div class="item_header member">
@@ -84,13 +90,9 @@ async function downloadByType(type, json) {
                                                 Comentário
                                             </div>
                                         </div>
-                                    `);
+                                        `);
             mywindow.document.write(content);
-            ywindow.document.write(`<script>
-                                    window.onload = () => {
-                                        window.print();
-                                        window.close();
-                                    }</script></body></html>`);
+            ywindow.document.write(`</body></html>`);
 
             mywindow.document.close();
             mywindow.focus();
