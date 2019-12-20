@@ -18,6 +18,10 @@ router.get('/icons/:imageName', (request, response) => {
     response.sendFile(`${__dirname}/public/icons/${request.params.imageName}`);
 });
 
+router.get('/reportstyle', (request, response) => {
+    response.sendFile(`${__dirname}/public/css/report.css`)
+})
+
 router.get('/', (request, response) => {
     response.sendFile(`${__dirname}/public/views/index.html`)
 });
