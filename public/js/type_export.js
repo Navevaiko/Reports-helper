@@ -86,16 +86,18 @@ async function downloadByType(type, json) {
                                         </div>
                                     `);
             mywindow.document.write(content);
-            mywindow.document.write(`</body></html>`);
+            ywindow.document.write(`<script>
+                                    window.onload = () => {
+                                        window.print();
+                                        window.close();
+                                    }</script></body></html>`);
 
             mywindow.document.close();
             mywindow.focus();
-            mywindow.onload = () => {
-                mywindow.print();
-                mywindow.close();
-            }
-
-
+            // mywindow.onload = () => {
+            //     mywindow.print();
+            //     mywindow.close();
+            // }
 
 
             break;
