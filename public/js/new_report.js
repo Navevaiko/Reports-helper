@@ -9,7 +9,6 @@ window.newReport.addEventListener('submit', async event => {
     card = await getCardDetailsById(trello);
 
     addReport(JSON.stringify(card));
-    console.log(card);
 });
 
 const toDate = dateStr => {
@@ -28,8 +27,6 @@ const addReport = card => {
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
     let date = window.startDate.value;
-
-    // formatedCurrDate = (currDate.getDate().length == 1 ? "0" : "") + currDate.getDate() + "/" + currDate.getMonth() + "/" + currDate.getFullYear();
 
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
