@@ -33,8 +33,8 @@ const downloadByType = (type, json) => {
 
     switch (type) {
         case "CSV":
-            json.labels = json.labels.join('');
-            json.members = json.members.join('');
+            json[0].labels = json[0].labels.join('');
+            json[0].members = json[0].members.join('');
 
             JSONToCSVConvertor(json, "Relatorio.csv", true);
 
