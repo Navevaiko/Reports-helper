@@ -33,8 +33,8 @@ const downloadByType = (type, json) => {
 
     switch (type) {
         case "CSV":
-            json[0].labels = JSON.stringify(json[0].labels);
-            json[0].members = JSON.stringify(json[0].members);
+            json[0].labels = getLabels(json[0]);
+            json[0].members = getMembers(json[0]);
 
             JSONToCSVConvertor(json, "Relatorio.csv", true);
 
@@ -52,6 +52,10 @@ const downloadByType = (type, json) => {
     }
 
 }
+
+const getLabels = json => json.labels.map(e => e.name).join(" - ");
+
+const getMembers = json => json.members.map(e => e.fullName).join(" - ");
 
 const openWindowForPdf = content => {
     var mywindow = window.open('', 'Print', 'height=900,width=1100');
@@ -124,7 +128,7 @@ const JSONToCSVConvertor = (JSONData, ReportTitle, ShowLabel) => {
         var row = "";
 
         for (var index in arrData[0]) {
-            row += index + ',';
+            row += index + ';';
         }
 
         row = row.slice(0, -1);
