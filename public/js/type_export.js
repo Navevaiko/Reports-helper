@@ -60,10 +60,7 @@ async function downloadByType(type, json) {
                                         </head><body>`);
 
             mywindow.document.write(`<script>
-                                        window.onload = () => {
-                                            window.print();
-                                            window.close();
-                                        }
+                                        setTimeout(() => { window.print(); window.close(); }, 1500);
                                     </script>
                                     <div class="container">
                                         <!--delimitador do header-->
@@ -95,11 +92,7 @@ async function downloadByType(type, json) {
             ywindow.document.write(`</body></html>`);
 
             mywindow.document.close();
-            mywindow.focus();
-            // mywindow.onload = () => {
-            //     mywindow.print();
-            //     mywindow.close();
-            // }
+
 
 
             break;
