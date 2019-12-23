@@ -43,13 +43,20 @@ window.exportData.addEventListener('submit', async event => {
             if (!json == "") {
                 json = JSON.parse(json);
                 console.log(json)
-                card.push(...json.reports)
+
+                json.reports.map(e => {
+                    e.push(card.name);
+                    e.push(card.url);
+                    e.push(card.members);
+                    e.push(card.labels);
+                })
+
             } else {
                 card.reports = "";
             }
             console.log(card)
 
-            return card;
+            return json;
         });
         dataCard = cards.data
         // console.log(cards);
