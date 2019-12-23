@@ -30,7 +30,15 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,plugindata&members=true&key=${secret}&token=${token}`);
 
-        dataCard = cards.data.map(card => inflateDataCard(card, secret, token));
+        dataCard = cards.data.map(async card => {
+            let idCard = card.id;
+
+            let report = await axios.get(`https://api.trello.com/1/cards/${idCard}/pluginData?key=${secret}&token=${token}`);
+
+            card.report = report.data[0].value || "Null";
+
+            return card;
+        });
 
         Promise.all(dataCard).then(() => {
             downloadByType(typeFile, dataCard);
@@ -47,13 +55,7 @@ window.exportData.addEventListener('submit', async event => {
 });
 
 const inflateDataCard = async (card, secret, token) => {
-    let idCard = card.id;
 
-    let report = await axios.get(`https://api.trello.com/1/cards/${idCard}/pluginData?key=${secret}&token=${token}`);
-
-    card.report = report.data[0].value || "Null";
-
-    return card;
 };
 
 const downloadByType = (type, json) => {
