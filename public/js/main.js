@@ -1,9 +1,15 @@
 const generateReportMaFromBoard = async (trello, options) => {
-    let board = await trello.get('board', 'shared');
-    let board2 = await getCardContent(trello);
+    let board = await trello.list('all');
+    let board2 = await trello.card('all');
+    let board3 = await trello.cards('all');
+    let board4 = await trello.member('all')
+
 
     console.log(board);
     console.log(board2)
+    console.log(board3)
+    console.log(board4)
+
 }
 
 window.TrelloPowerUp.initialize({
