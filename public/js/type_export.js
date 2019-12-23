@@ -44,12 +44,13 @@ window.exportData.addEventListener('submit', async event => {
                 json = JSON.parse(json);
                 console.log(json)
 
-                card = json.reports.map(e => {
+                let card2 = json.reports.map(e => {
                     e.name(card.name);
                     e.url(card.url);
                     e.members(card.members);
                     e.labels(card.labels);
                 });
+                card = Object.assign(card2, card);
 
             } else {
                 card.reports = "";
