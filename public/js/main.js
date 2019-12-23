@@ -33,7 +33,7 @@ window.TrelloPowerUp.initialize({
                 light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
             },
             text: 'TESETE',
-            callback: generateReportMaFromBoard(t),
+            callback: generateReportMaFromBoard(trello),
             condition: 'always'
         }
     }
