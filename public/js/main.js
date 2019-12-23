@@ -1,13 +1,7 @@
 const generateReportMaFromBoard = async (trello, options) => {
-    let board = await trello.list('all');
-    let board2 = await trello.card('all');
-    let board3 = await trello.cards('all');
-    let board4 = await trello.member('all');
-
-    let mem = Trello.get("/members/me/boards")
 
 
-    console.log(mem);
+    console.log(trello);
 
 }
 
