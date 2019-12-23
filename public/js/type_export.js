@@ -43,7 +43,7 @@ window.exportData.addEventListener('submit', async event => {
             if (!json == "") {
                 json = JSON.parse(json);
                 console.log(json)
-                card.reports = json.reports;
+                card.push(...json.reports)
             } else {
                 card.reports = "";
             }
