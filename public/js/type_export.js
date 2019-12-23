@@ -36,15 +36,18 @@ window.exportData.addEventListener('submit', async event => {
 
             const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-            card.request = !!request.data[0] ? request.data[0].value : "NULL";
+            card.request = !!request.data[0] ? request.data[0].value : "Batatimha";
 
             return card;
         });
-        console.log(cards)
-        dataCard = cards.data
+        dataCard = cards
+        console.log(cards);
+        console.log(dataCard);
+
+        // downloadByType(typeFile, dataCard);
     }
 
-    downloadByType(typeFile, dataCard);
+
 
     trello.alert({
         message: 'Download realizado com sucesso 🎉',
