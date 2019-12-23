@@ -28,9 +28,6 @@ window.exportData.addEventListener('submit', async event => {
 });
 
 const downloadByType = (type, json) => {
-    console.log(json)
-
-
     switch (type) {
         case "CSV":
             json[0].labels = getLabels(json[0]);
@@ -50,7 +47,6 @@ const downloadByType = (type, json) => {
 
             break;
     }
-
 }
 
 const getLabels = json => json.labels.map(e => e.name).join(" - ");
