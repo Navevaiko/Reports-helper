@@ -23,6 +23,8 @@ window.exportData.addEventListener('submit', async event => {
         trello.closePopup();
         trello.hideCard();
 
+        downloadByType(typeFile, dataCard.data);
+
     } else {
         let secret = "5bad37ffdf5d8cf03d17a42f87a65ebd";
         let token = "36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c";
@@ -44,7 +46,7 @@ window.exportData.addEventListener('submit', async event => {
         console.log(cards);
         console.log(dataCard);
 
-        // downloadByType(typeFile, dataCard);
+        downloadByType(typeFile, dataCard.data);
     }
 
 
