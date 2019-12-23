@@ -48,6 +48,8 @@ window.exportData.addEventListener('submit', async event => {
 
         let allReports = dataCard.map(data => data.reports)
 
+        console.log(allReports);
+
         downloadByType(typeFile, allReports);
     }
 
