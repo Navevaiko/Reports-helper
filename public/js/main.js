@@ -1,4 +1,4 @@
-const generateReportMaFromBoard = (trello, options) => alert(trello)
+const generateReportMaFromBoard = (trello, options) => console.log(trello)
 
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
