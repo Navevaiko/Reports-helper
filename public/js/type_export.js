@@ -42,25 +42,19 @@ window.exportData.addEventListener('submit', async event => {
             let json = !!request.data[0] ? request.data[0].value : "";
             if (!json == "") {
                 json = JSON.parse(json);
-                console.log(json)
+                // console.log(json)
 
-                let card2 = json.reports.map(e => {
-                    e.name(card.name);
-                    e.url(card.url);
-                    e.members(card.members);
-                    e.labels(card.labels);
-                });
-                card = Object.assign(card2, card);
+                card = Object.assign(card, json.reports);
 
             } else {
                 card.reports = "";
             }
-            console.log(card)
+            // console.log(card)
 
             return json;
         });
         dataCard = cards.data
-        // console.log(cards);
+        console.log(cards);
         // console.log(dataCard);
 
         let allReports = dataCard.map(data => data.reports)
