@@ -8,7 +8,7 @@ window.exportData.addEventListener('submit', async event => {
 
     event.preventDefault()
 
-    let context = trello.card();
+    let context = await getCardContent(trello);
 
     if (Object.keys(context).length == 0) {
         alert("busca por api")
