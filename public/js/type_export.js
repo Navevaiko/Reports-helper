@@ -42,7 +42,7 @@ window.exportData.addEventListener('submit', async event => {
         });
 
         console.log(dataCard)
-        // dataCard = dataCard.data;
+        dataCard = dataCard.data;
     }
 
     downloadByType(typeFile, await dataCard)
