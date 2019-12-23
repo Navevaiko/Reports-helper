@@ -8,17 +8,26 @@ window.exportData.addEventListener('submit', async event => {
 
     event.preventDefault()
 
+    let context = trello.card();
+
+    if (Object.keys(context).length == 0) {
+        alert("busca por api")
+        // const cardContent = await getCardContent(trello);
+        // const card = await getCardDetailsById(trello);
+
+        // let dataCard = getDataCardExport(cardContent.card, card);
+
+        // const typeFile = window.typeData.value;
+
+        // trello.closePopup();
+        // trello.hideCard();
+
+
+    } else {
+        alert("busca por obj")
+        // CONSOME API
+    }
     console.log(trello)
-
-    // const cardContent = await getCardContent(trello);
-    // const card = await getCardDetailsById(trello);
-
-    // let dataCard = getDataCardExport(cardContent.card, card);
-
-    // const typeFile = window.typeData.value;
-
-    // trello.closePopup();
-    // trello.hideCard();
 
     // downloadByType(typeFile, dataCard)
 
