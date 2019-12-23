@@ -46,7 +46,7 @@ window.exportData.addEventListener('submit', async event => {
         console.log(cards);
         console.log(dataCard);
 
-        downloadByType(typeFile, dataCard.data);
+        // downloadByType(typeFile, dataCard.data);
     }
 
 
