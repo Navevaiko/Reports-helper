@@ -30,7 +30,19 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,plugindata&members=true&key=${secret}&token=${token}`);
 
-        console.log(cards);
+        dataCard = cards.data.map(async card => {
+            const { id } = card;
+
+            const resquest = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
+
+            console.log(request);
+
+
+        })
+
+
+
+
 
 
         // dataCard =  cards.data.map( card => {
