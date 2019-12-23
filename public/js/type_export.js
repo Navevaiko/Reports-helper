@@ -39,7 +39,7 @@ window.exportData.addEventListener('submit', async event => {
 
             console.log(request);
 
-
+            return card;
         })
 
 
