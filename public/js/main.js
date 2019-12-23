@@ -1,7 +1,5 @@
-
-var t = window.TrelloPowerUp.iframe();
 const generateReportMaFromBoard = async (trello, options) => {
-    let teste = await t.get('board', 'shared')
+    let teste = await trello.get('board', 'shared')
     console.log(teste)
 }
 
