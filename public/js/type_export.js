@@ -51,7 +51,7 @@ const inflateDataCard = async (card, secret, token) => {
 
     let report = await axios.get(`https://api.trello.com/1/cards/${idCard}/pluginData?key=${secret}&token=${token}`);
 
-    card.report = report.value;
+    card.report = report.data[0].value || "";
     return card
 };
 
