@@ -35,7 +35,7 @@ window.TrelloPowerUp.initialize({
                 dark: "https://reports-helper.herokuapp.com/icons/reportdark.svg",
                 light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
             },
-            text: 'TESETE',
+            text: 'Exportar relatório',
             callback: showTypesDataExport,
         }
     }
