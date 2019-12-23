@@ -1,14 +1,8 @@
+
+var t = window.TrelloPowerUp.iframe();
 const generateReportMaFromBoard = async (trello, options) => {
-
-    // let get1 = await trello.get();
-    let get2 = await trello.get('board', 'shared')
-    let getall = await trello.getall();
-    let card = await trello.card('all');
-
-
-    console.log(get2);
-    console.log(getall);
-    console.log(card);
+    let teste = await t.get('board', 'shared')
+    console.log(teste)
 }
 
 window.TrelloPowerUp.initialize({
