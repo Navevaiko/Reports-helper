@@ -44,12 +44,12 @@ window.exportData.addEventListener('submit', async event => {
                 json = JSON.parse(json);
                 console.log(json)
 
-                json.reports.map(e => {
+                card = json.reports.map(e => {
                     e.push(card.name);
                     e.push(card.url);
                     e.push(card.members);
                     e.push(card.labels);
-                })
+                });
 
             } else {
                 card.reports = "";
