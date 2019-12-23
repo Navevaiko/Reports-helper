@@ -38,7 +38,16 @@ window.exportData.addEventListener('submit', async event => {
 
             const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-            card.reports = !!request.data[0] ? request.data[0].value : "";
+
+            let json = !!request.data[0] ? request.data[0].value : "";
+            if (!json == "") {
+                json = JSON.parse(json);
+                console.log(json)
+                card.reports = json.reports;
+            } else {
+                card.reports = "";
+            }
+
 
             return card;
         });
