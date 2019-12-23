@@ -46,7 +46,7 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 
-const inflateDataCard = (card, secret, token) => {
+const inflateDataCard = async (card, secret, token) => {
     let idCard = card.id;
 
     let report = await axios.get(`https://api.trello.com/1/cards/${idCard}/pluginData?key=${secret}&token=${token}`);
