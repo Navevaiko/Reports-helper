@@ -1,4 +1,10 @@
-const generateReportMaFromBoard = (trello, options) => console.log(getCardContent(trello))
+const generateReportMaFromBoard = async (trello, options) => {
+    let board = await trello.get('board', 'shared');
+    let board2 = await getCardContent(trello);
+
+    console.log(board);
+    console.log(board2)
+}
 
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
