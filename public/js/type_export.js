@@ -45,7 +45,10 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 
-const inflateDataCard = card => card.report = "teste";
+const inflateDataCard = card => {
+    card.report = "teste";
+    return card
+};
 
 const downloadByType = (type, json) => {
     switch (type) {
