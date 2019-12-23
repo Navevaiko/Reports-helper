@@ -39,6 +39,10 @@ window.exportData.addEventListener('submit', async event => {
 
             console.log(request);
 
+
+            card.request = !!request.data[0].value ? request.data[0].value : "Batatimha";
+            console.log(card);
+
             return card;
         })
 
