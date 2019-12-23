@@ -24,18 +24,15 @@ window.exportData.addEventListener('submit', async event => {
         trello.hideCard();
 
     } else {
-        console.log(trello)
         let secret = "5bad37ffdf5d8cf03d17a42f87a65ebd";
         let token = "36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c";
-        let idBoard = "JX5SpQ1P"
+        let idBoard = "JX5SpQ1P";
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,plugindata&members=true&key=${secret}&token=${token}`);
 
-        let finalCard = cards.data.map(card => inflateDataCard(card, secret, token))
+        dataCard = cards.data.map(card => inflateDataCard(card, secret, token));
 
-        console.log(finalCard)
     }
-    console.log(trello)
 
     downloadByType(typeFile, dataCard)
 
