@@ -8,22 +8,24 @@ window.exportData.addEventListener('submit', async event => {
 
     event.preventDefault()
 
-    const cardContent = await getCardContent(trello);
-    const card = await getCardDetailsById(trello);
+    console.log(trello)
 
-    let dataCard = getDataCardExport(cardContent.card, card);
+    // const cardContent = await getCardContent(trello);
+    // const card = await getCardDetailsById(trello);
 
-    const typeFile = window.typeData.value;
+    // let dataCard = getDataCardExport(cardContent.card, card);
 
-    trello.closePopup();
-    trello.hideCard();
+    // const typeFile = window.typeData.value;
 
-    downloadByType(typeFile, dataCard)
+    // trello.closePopup();
+    // trello.hideCard();
 
-    trello.alert({
-        message: 'Download realizado com sucesso 🎉',
-        duration: 3,
-    })
+    // downloadByType(typeFile, dataCard)
+
+    // trello.alert({
+    //     message: 'Download realizado com sucesso 🎉',
+    //     duration: 3,
+    // })
 
 });
 
