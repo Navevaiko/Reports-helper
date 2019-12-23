@@ -47,17 +47,17 @@ window.exportData.addEventListener('submit', async event => {
             } else {
                 card.reports = "";
             }
-
+            console.log(card)
 
             return card;
         });
         dataCard = cards.data
-        console.log(cards);
-        console.log(dataCard);
+        // console.log(cards);
+        // console.log(dataCard);
 
         let allReports = dataCard.map(data => data.reports)
 
-        console.log(allReports);
+        // console.log(allReports);
 
         downloadByType(typeFile, allReports);
     }
