@@ -41,11 +41,12 @@ window.exportData.addEventListener('submit', async event => {
             return card;
         });
 
-        console.log(dataCard)
-        dataCard = dataCard.data;
+        console.log(cards);
+        console.log(dataCard);
+
+        // downloadByType(typeFile, dataCard);
     }
 
-    downloadByType(typeFile, await dataCard)
 
 
     trello.alert({
