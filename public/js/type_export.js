@@ -32,9 +32,7 @@ window.exportData.addEventListener('submit', async event => {
 
         dataCard = cards.data.map(card => inflateDataCard(card, secret, token));
     }
-
-    Promise.all(dataCard)
-        .then(() => downloadByType(typeFile, dataCard));
+    downloadByType(typeFile, dataCard);
 
 
 
