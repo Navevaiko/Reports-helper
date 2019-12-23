@@ -1,5 +1,6 @@
 const generateReportMaFromBoard = async (trello, options) => {
     let teste = await trello.get('board', 'shared')
+    console.log(trello)
     console.log(teste)
 }
 
