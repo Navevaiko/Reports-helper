@@ -12,7 +12,7 @@ const loadReportsList = reports => {
         reportsElementsList += createReportElement(report);
     });
 
-    // window.reportsList.innerHTML = reportsElementsList;  
+    window.reportsList.innerHTML = reportsElementsList;
 }
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
