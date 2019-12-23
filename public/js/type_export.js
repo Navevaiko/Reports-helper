@@ -35,7 +35,7 @@ window.exportData.addEventListener('submit', async event => {
 
             let report = await axios.get(`https://api.trello.com/1/cards/${idCard}/pluginData?key=${secret}&token=${token}`);
 
-            card.report = report.data[0].value || "Null";
+            card.report = report.data[0] != null ? report.data[0].value : "batatinha";
 
             return card;
         });
