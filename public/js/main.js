@@ -1,4 +1,4 @@
-const generateReportMaFromBoard = (t) => alert(t)
+const generateReportMaFromBoard = (trello, options) => alert(trello)
 
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
@@ -33,7 +33,7 @@ window.TrelloPowerUp.initialize({
                 light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
             },
             text: 'TESETE',
-            callback: generateReportMaFromBoard(trello),
+            callback: generateReportMaFromBoard,
             condition: 'always'
         }
     }
