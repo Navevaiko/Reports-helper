@@ -40,6 +40,7 @@ window.exportData.addEventListener('submit', async event => {
 
             return card;
         });
+        console.log(cards)
         dataCard = cards.data
     }
 
