@@ -35,30 +35,12 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        // console.log(cards);
+        const r = cards.data.map(requestReports(cards, token, secret));
 
-        await cards.data.map(async card => {
-            const { id } = card;
-            const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
+        console.log(r);
 
-            let json = !!request.data[0] ? request.data[0].value : "";
+        await Promise.all(r);
 
-            if (!json == "") {
-
-                json = JSON.parse(json);
-
-                const b = json.reports.map(e => ({ ...e, name: card.name, members: card.members, labels: card.labels }))
-
-                console.log('b', b);
-
-                arrayUnificado.push(b)
-
-                console.log("array uni dentro", arrayUnificado.flat())
-            }
-            // console.log(card)
-
-            // return json;
-        });
         console.log("arrayUni", arrayUnificado.flat());
 
         let allReports = dataCard.map(data => data.reports)
@@ -66,15 +48,33 @@ window.exportData.addEventListener('submit', async event => {
         downloadByType(typeFile, allReports);
     }
 
-
-
     trello.alert({
         message: 'Download realizado com sucesso 🎉',
         duration: 3,
     })
 
 });
+const requestReports = async (card, token, secret) => {
+    let arrayUnificado = [];
+    const { id } = card;
+    const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
+    let json = !!request.data[0] ? request.data[0].value : "";
+
+    if (!json == "") {
+
+        json = JSON.parse(json);
+
+        const b = json.reports.map(e => ({ ...e, name: card.name, members: card.members, labels: card.labels }))
+
+        console.log('b', b);
+
+        arrayUnificado.push(b)
+
+        console.log("array uni dentro", arrayUnificado.flat())
+    }
+    return arrayUnificado;
+}
 const inflateDataCard = async (card, secret, token) => {
 
 };
