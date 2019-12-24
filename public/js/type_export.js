@@ -35,11 +35,11 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        arrayUnificado = cards.data.map(requestReports(cards, token, secret));
+        arrayUnificado = cards.data.map(await requestReports(cards, token, secret));
 
         console.log(arrayUnificado);
 
-        await Promise.all(arrayUnificado);
+        // await Promise.all(arrayUnificado);
 
         console.log("arrayUni", arrayUnificado.flat());
 
