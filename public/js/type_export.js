@@ -37,7 +37,7 @@ window.exportData.addEventListener('submit', async event => {
 
         // console.log(cards);
 
-        cards.data.map(async card => {
+        await cards.data.map(async card => {
             const { id } = card;
             const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
@@ -59,14 +59,9 @@ window.exportData.addEventListener('submit', async event => {
 
             // return json;
         });
-
-        dataCard = cards.data
         console.log("arrayUni", arrayUnificado);
-        // console.log(dataCard);
 
         let allReports = dataCard.map(data => data.reports)
-
-        // console.log(allReports);
 
         downloadByType(typeFile, allReports);
     }
