@@ -5,18 +5,17 @@ trello.render(function () {
 });
 
 window.exportData.addEventListener('submit', async event => {
+    event.preventDefault();
 
-    event.preventDefault()
-    const typeFile = window.typeData.value;;
-    let dataCard;
+    const typeFile = window.typeData.value;
 
     let context = await getCardContent(trello);
 
     if (Object.keys(context).length == 1) {
-        let cardContent = getCardContent(trello);
+        let cardContent = await getCardContent(trello);
         let card = await getCardDetailsById(trello);
 
-        dataCard = getDataCardExport(cardContent.card, card);
+        let dataCard = getDataCardExport(cardContent.card, card);
 
         trello.closePopup();
         trello.hideCard();
