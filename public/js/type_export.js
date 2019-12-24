@@ -48,7 +48,9 @@ window.exportData.addEventListener('submit', async event => {
 
                 json = JSON.parse(json);
 
-                const b = json.reports.map(e => ({ ...e, name: card.name }))
+                const b = json.reports.map(e => ({ ...e, name: 'card.name' }))
+
+                console.log(b);
 
                 arrayUnificado.push(b)
 
