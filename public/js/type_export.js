@@ -65,8 +65,9 @@ window.exportData.addEventListener('submit', async event => {
             }
             // console.log(card)
 
-            return json;
+            // return json;
         });
+
         dataCard = cards.data
         console.log("arrayUni", arrayUnificado);
         // console.log(dataCard);
