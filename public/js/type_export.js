@@ -62,8 +62,8 @@ const requestReports = async (card, token, secret) => {
 const downloadByType = (type, json) => {
     switch (type) {
         case "CSV":
-            json[0].labels = getLabels(json[0]);
-            json[0].members = getMembers(json[0]);
+            json = json.map(e => e.labels = getLabels(e));
+            json = jsom.map(e => e.members = getMembers(e));
 
             JSONToCSVConvertor(json, "Relatorio.csv", true);
 
