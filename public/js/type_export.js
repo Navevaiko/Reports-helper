@@ -39,7 +39,8 @@ window.exportData.addEventListener('submit', async event => {
 
         console.log("Array uni fora", arrayUnificado);
 
-        await Promise.all(arrayUnificado);
+        let teste = await Promise.all(arrayUnificado);
+        console.log("teste", teste);
 
 
         console.log("depois da promessa", arrayUnificado);
