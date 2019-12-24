@@ -30,8 +30,12 @@ window.exportData.addEventListener('submit', async event => {
         let token = "36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c";
         let idBoard = "JX5SpQ1P";
 
+        let arrayUnificado = [];
+
+
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
+        console.log(cards);
 
         cards.data.map(async card => {
             const { id } = card;
@@ -41,8 +45,10 @@ window.exportData.addEventListener('submit', async event => {
 
             let json = !!request.data[0] ? request.data[0].value : "";
             if (!json == "") {
+
                 json = JSON.parse(json);
-                // console.log(json)
+
+                console.log(json)
 
                 card = Object.assign(card, json.reports);
 
