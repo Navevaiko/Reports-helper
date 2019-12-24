@@ -40,12 +40,12 @@ window.exportData.addEventListener('submit', async event => {
         console.log("Array uni fora", arrayUnificado);
 
         let teste = await Promise.all(arrayUnificado);
-        console.log("teste", teste);
+        console.log("teste", teste.flat());
 
 
-        console.log("depois da promessa", arrayUnificado);
+        // console.log("depois da promessa", arrayUnificado);
 
-        console.log("arrayUni", arrayUnificado.flat());
+        // console.log("arrayUni", arrayUnificado.flat());
 
         // downloadByType(typeFile, allReports);
     }
