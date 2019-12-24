@@ -47,7 +47,7 @@ window.exportData.addEventListener('submit', async event => {
 
                 json = JSON.parse(json);
 
-                const b = json.reports.map(e => ({ ...e, name: card.name }))
+                const b = json.reports.map(e => ({ ...e, name: card.name, members: card.members, labels: card.labels }))
 
                 console.log('b', b);
 
@@ -59,7 +59,7 @@ window.exportData.addEventListener('submit', async event => {
 
             // return json;
         });
-        console.log("arrayUni", arrayUnificado);
+        console.log("arrayUni", arrayUnificado.flat());
 
         let allReports = dataCard.map(data => data.reports)
 
