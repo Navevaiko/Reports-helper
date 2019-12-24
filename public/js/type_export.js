@@ -43,9 +43,7 @@ window.exportData.addEventListener('submit', async event => {
 
         console.log("arrayUni", arrayUnificado.flat());
 
-        let allReports = dataCard.map(data => data.reports)
-
-        downloadByType(typeFile, allReports);
+        // downloadByType(typeFile, allReports);
     }
 
     trello.alert({
