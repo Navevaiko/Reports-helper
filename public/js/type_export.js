@@ -12,9 +12,7 @@ window.exportData.addEventListener('submit', async event => {
 
     let context = await getCardContent(trello);
 
-
     if (Object.keys(context).length == 1) {
-        alert("busca por obj")
         const cardContent = getCardContent(trello);
         const card = await getCardDetailsById(trello);
 
@@ -33,10 +31,9 @@ window.exportData.addEventListener('submit', async event => {
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
+        let arrayUnified = await Promise.all(promisseResponse);
 
-        let arrayUnificado = await Promise.all(promisseResponse);
-
-        downloadByType(typeFile, arrayUnificado.flat(2));
+        downloadByType(typeFile, arrayUnified.flat(2));
     }
 
     trello.alert({
@@ -46,8 +43,9 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 const requestReports = async (card, token, secret) => {
-    let arrayUnificado = [];
+    let arrayUnified = [];
     const { id } = card;
+
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
     let json = !!request.data[0] ? request.data[0].value : "";
@@ -55,14 +53,11 @@ const requestReports = async (card, token, secret) => {
     if (!json == "") {
 
         json = JSON.parse(json);
+        const jsonUnified = json.reports.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels, }))
 
-        const b = json.reports.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels, }))
-
-        arrayUnificado.push(b)
-
-        console.log("array uni dentro", arrayUnificado.flat())
+        arrayUnified.push(jsonUnified)
     }
-    return arrayUnificado;
+    return arrayUnified;
 }
 
 const downloadByType = (type, json) => {
