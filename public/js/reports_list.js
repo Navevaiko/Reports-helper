@@ -18,9 +18,10 @@ const loadReportsList = reports => {
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
 const createReportElementToPdf = reportData => {
-    let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`)
-    let members = reportData.members.map(e => `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${e.avatar});"></div><br>`);
+    let avatar = e.avatarUrl == undefined ? e.avatar : e.avatarUrl;
 
+    let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`)
+    let members = reportData.members.map(e => `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`);
     let data1 = new Date(`${reportData.date} ${reportData.startTime}`)
     let data2 = new Date(`${reportData.date} ${reportData.endTime}`)
 
