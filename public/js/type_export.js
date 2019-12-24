@@ -63,7 +63,7 @@ const downloadByType = (type, json) => {
     switch (type) {
         case "CSV":
             json = json.map(e => e.labels = getLabels(e));
-            json = jsom.map(e => e.members = getMembers(e));
+            json = json.map(e => e.members = getMembers(e));
 
             JSONToCSVConvertor(json, "Relatorio.csv", true);
 
