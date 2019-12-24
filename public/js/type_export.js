@@ -51,10 +51,12 @@ window.exportData.addEventListener('submit', async event => {
                 const b = json.reports.map(e => ({ ...e, name: 'card.name' }))
 
                 console.log('b', b);
+                console.log("card name", card.name);
+
 
                 arrayUnificado.push(b)
 
-                console.log(json)
+                console.log("array uni dentro", arrayUnificado)
 
                 card = Object.assign(card, json.reports);
 
@@ -66,7 +68,7 @@ window.exportData.addEventListener('submit', async event => {
             return json;
         });
         dataCard = cards.data
-        console.log(arrayUnificado);
+        console.log("arrayUni", arrayUnificado);
         // console.log(dataCard);
 
         let allReports = dataCard.map(data => data.reports)
