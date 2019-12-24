@@ -79,11 +79,22 @@ const createReportElementToPdf = reportData => {
 }
 
 const getHoursDifference = (date1, date2) => {
+    let result = "?";
 
     let diff = (date2.getTime() - date1.getTime()) / 1000;
-    diff /= 60 / 60;
+    diff /= 60 / 60 / 60;
 
-    return diff.toFixed(2).replace(".", ":");
+    if (diff > 0) {
+        result = `${diff.toFixed(2).replace(".", "h")}min`
+
+    } else if (diff < 0) {
+        diff *= 60;
+        result = `${diff.toFixed(0)}min`
+
+    }
+    console.log(result)
+
+    return result;
 
 };
 
