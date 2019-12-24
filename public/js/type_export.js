@@ -56,7 +56,7 @@ const requestReports = async (card, token, secret) => {
 
         json = JSON.parse(json);
 
-        const b = json.reports.map(e => ({ ...e, name: card.name, members: card.members, labels: card.labels }))
+        const b = json.reports.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels, }))
 
         arrayUnificado.push(b)
 
@@ -64,9 +64,6 @@ const requestReports = async (card, token, secret) => {
     }
     return arrayUnificado;
 }
-const inflateDataCard = async (card, secret, token) => {
-
-};
 
 const downloadByType = (type, json) => {
     switch (type) {
