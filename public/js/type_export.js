@@ -20,7 +20,7 @@ window.exportData.addEventListener('submit', async event => {
         trello.closePopup();
         trello.hideCard();
 
-        downloadByType(typeFile, dataCard.data);
+        downloadByType(typeFile, dataCard);
 
     } else {
         let secret = "5bad37ffdf5d8cf03d17a42f87a65ebd";
