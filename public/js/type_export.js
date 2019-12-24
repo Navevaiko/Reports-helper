@@ -39,11 +39,10 @@ window.exportData.addEventListener('submit', async event => {
 
         cards.data.map(async card => {
             const { id } = card;
-
             const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-
             let json = !!request.data[0] ? request.data[0].value : "";
+
             if (!json == "") {
 
                 json = JSON.parse(json);
@@ -51,17 +50,10 @@ window.exportData.addEventListener('submit', async event => {
                 const b = json.reports.map(e => ({ ...e, name: 'card.name' }))
 
                 console.log('b', b);
-                console.log("card name", card.name);
-
 
                 arrayUnificado.push(b)
 
                 console.log("array uni dentro", arrayUnificado)
-
-                card = Object.assign(card, json.reports);
-
-            } else {
-                card.reports = "";
             }
             // console.log(card)
 
