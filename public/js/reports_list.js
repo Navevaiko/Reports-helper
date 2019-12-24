@@ -82,7 +82,7 @@ const getHoursDifference = (date1, date2) => {
     let result = "?";
 
     let diff = (date2.getTime() - date1.getTime()) / 1000;
-    diff /= 60 / 60 / 60;
+    diff = diff / 60 / 60 / 60;
 
     if (diff > 0) {
         result = `${diff.toFixed(2).replace(".", "h")}min`
