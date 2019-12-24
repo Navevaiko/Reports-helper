@@ -37,9 +37,12 @@ window.exportData.addEventListener('submit', async event => {
 
         arrayUnificado = cards.data.map(card => requestReports(card, token, secret));
 
-        console.log(arrayUnificado);
+        console.log("Array uni fora", arrayUnificado);
 
-        // await Promise.all(arrayUnificado);
+        await Promise.all(arrayUnificado);
+
+
+        console.log("depois da promessa", arrayUnificado);
 
         console.log("arrayUni", arrayUnificado.flat());
 
@@ -64,8 +67,6 @@ const requestReports = async (card, token, secret) => {
         json = JSON.parse(json);
 
         const b = json.reports.map(e => ({ ...e, name: card.name, members: card.members, labels: card.labels }))
-
-        console.log('b', b);
 
         arrayUnificado.push(b)
 
