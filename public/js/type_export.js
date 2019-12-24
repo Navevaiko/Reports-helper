@@ -13,8 +13,8 @@ window.exportData.addEventListener('submit', async event => {
     let context = await getCardContent(trello);
 
     if (Object.keys(context).length == 1) {
-        const cardContent = getCardContent(trello);
-        const card = await getCardDetailsById(trello);
+        let cardContent = getCardContent(trello);
+        let card = await getCardDetailsById(trello);
 
         dataCard = getDataCardExport(cardContent.card, card);
 
