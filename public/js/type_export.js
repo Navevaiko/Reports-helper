@@ -1,4 +1,9 @@
-var trello = TrelloPowerUp.iframe();
+
+var trello = window.TrelloPowerUp.iframe({
+    appKey: 'teste-teste',
+    appName: 'teste teste'
+});
+
 var idBoard = trello.args[0].context.board;
 
 trello.render(function () {
@@ -16,10 +21,10 @@ window.exportData.addEventListener('submit', async event => {
     //         alert(`token ${token}`)
     //     });
 
-    trello.getRestApi()
+    t.getRestApi()
         .authorize({ scope: 'read,write' })
         .then(function (t) {
-            alert(`Success! ${t} `);
+            alert('Success!');
         });
 
     // const typeFile = window.typeData.value;
