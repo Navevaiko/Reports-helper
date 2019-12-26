@@ -10,11 +10,11 @@ window.exportData.addEventListener('submit', async event => {
 
 
     // console.log(trello.authorize());
-    trello.getRestApi()
-        .getToken()
-        .then(function (token) {
-            alert(`token ${token}`)
-        });
+    // trello.getRestApi()
+    //     .getToken()
+    //     .then(function (token) {
+    //         alert(`token ${token}`)
+    //     });
 
     trello.getRestApi()
         .authorize({ scope: 'read,write' })
