@@ -128,7 +128,7 @@ p{
 table{
     page-break-inside:auto;
 }
-tr{   
+div{   
     page-break-inside:avoid;
     page-break-after:auto;
 }

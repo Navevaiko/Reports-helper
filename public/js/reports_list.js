@@ -25,19 +25,19 @@ const createReportElementToPdf = reportData => {
 
     // -------  tratamento de valores ultilizados para criar a pagina html
 
-    let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`)
+    let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
 
     let members = reportData.members.map(e => {
-        let avatar = e.avatarUrl === undefined ? e.avatar : e.avatarUrl;
-        return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`
+        let avatar = e.avatarUrl === undefined ? e.avatar : `${e.avatarUrl}/50.png`;
+        return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
 
     let cardUrl = reportData.card === undefined ? reportData.url : reportData.card;
 
-    let data1 = new Date(`${reportData.date} ${reportData.startTime}`)
-    let data2 = new Date(`${reportData.date} ${reportData.endTime}`)
+    let data1 = new Date(`${reportData.date} ${reportData.startTime}`);
+    let data2 = new Date(`${reportData.date} ${reportData.endTime}`);
 
-    console.log("data1", data1)
+    console.log("data1", data1);
 
     let fullTime = getHoursDifference(data1, data2);
 

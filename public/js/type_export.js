@@ -98,10 +98,10 @@ const openWindowForPdf = content => {
                                 <title>Relátorio</title>
                             </head><body>`);
 
-    // <script>
-    //     setTimeout(() => { window.print(); window.close(); }, 1500);
-    // </script>
-    mywindow.document.write(`
+
+    mywindow.document.write(`<script>
+                                setTimeout(() => { window.print(); window.close(); }, 1500);
+                            </script>
                             <div class="container">
                                 <!--delimitador do header-->
                                 <div class="container_header">
