@@ -106,7 +106,7 @@ const getHoursDifference = (date1, date2) => {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
 
-        console.log("minutos else", minutos)
+        console.log("minutos else", result)
     }
 
     return result;
