@@ -1,10 +1,3 @@
-const generateReportMaFromBoard = async (trello, options) => {
-    let teste = await axios.get("https://api.trello.com/1/boards/JX5SpQ1P/cards/?fields=name,labels,members,plugindata&members=true&member_fields=fullName&key=5bad37ffdf5d8cf03d17a42f87a65ebd&token=36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c&tag=true");
-}
-
-
-
-
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
         return [{
