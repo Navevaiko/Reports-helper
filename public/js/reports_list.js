@@ -37,6 +37,8 @@ const createReportElementToPdf = reportData => {
     let data1 = new Date(`${reportData.date} ${reportData.startTime}`)
     let data2 = new Date(`${reportData.date} ${reportData.endTime}`)
 
+    console.log("data1", data1)
+
     let fullTime = getHoursDifference(data1, data2);
 
     // -------
@@ -92,9 +94,13 @@ const createReportElementToPdf = reportData => {
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
     let result = "?";
+    let diff;
 
-    let diff = (date2.getTime() - date1.getTime()) / 1000;
-    diff = diff / 60 / 60 / 60;
+    try {
+        diff = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60;
+    } catch (error) {
+        return result;
+    }
 
     if (!typeof (diff) === "number") {
         return result;
