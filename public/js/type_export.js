@@ -21,10 +21,10 @@ window.exportData.addEventListener('submit', async event => {
     //         alert(`token ${token}`)
     //     });
 
-    t.getRestApi()
+    trello.getRestApi()
         .authorize({ scope: 'read,write' })
         .then(function (t) {
-            alert('Success!');
+            alert(`Success! ${t}`);
         });
 
     // const typeFile = window.typeData.value;
