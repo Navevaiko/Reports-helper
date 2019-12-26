@@ -7,10 +7,10 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault();
 
-    console.log(trello)
-    console.log(trello.board())
-    console.log(trello.boards("name"))
-    console.log(trello.board(1))
+    console.log(trello.args[0].context.board)
+    // console.log(trello.board())
+    // console.log(trello.boards("name"))
+    // console.log(trello.board(1))
 
     // const typeFile = window.typeData.value;
 
