@@ -7,38 +7,43 @@ trello.render(function () {
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault();
 
-    const typeFile = window.typeData.value;
+    console.log(trello)
+    console.log(trello.board())
+    console.log(trello.boards("name"))
+    console.log(trello.board(1))
 
-    let context = await getCardContent(trello);
+    // const typeFile = window.typeData.value;
 
-    if (Object.keys(context).length == 1) {
-        let cardContent = await getCardContent(trello);
-        let card = await getCardDetailsById(trello);
+    // let context = await getCardContent(trello);
 
-        let dataCard = getDataCardExport(cardContent.card, card);
+    // if (Object.keys(context).length == 1) {
+    //     let cardContent = await getCardContent(trello);
+    //     let card = await getCardDetailsById(trello);
 
-        trello.closePopup();
-        trello.hideCard();
+    //     let dataCard = getDataCardExport(cardContent.card, card);
 
-        downloadByType(typeFile, dataCard);
+    //     trello.closePopup();
+    //     trello.hideCard();
 
-    } else {
-        let secret = "5bad37ffdf5d8cf03d17a42f87a65ebd";
-        let token = "36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c";
-        let idBoard = "JX5SpQ1P";
+    //     downloadByType(typeFile, dataCard);
 
-        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
+    // } else {
+    //     let secret = "5bad37ffdf5d8cf03d17a42f87a65ebd";
+    //     let token = "36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c";
+    //     let idBoard = "JX5SpQ1P";
 
-        let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
-        let arrayUnified = await Promise.all(promisseResponse);
+    //     let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        downloadByType(typeFile, arrayUnified.flat(2));
-    }
+    //     let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
+    //     let arrayUnified = await Promise.all(promisseResponse);
 
-    trello.alert({
-        message: 'Download realizado com sucesso 🎉',
-        duration: 3,
-    })
+    //     downloadByType(typeFile, arrayUnified.flat(2));
+    // }
+
+    // trello.alert({
+    //     message: 'Download realizado com sucesso 🎉',
+    //     duration: 3,
+    // })
 
 });
 const requestReports = async (card, token, secret) => {

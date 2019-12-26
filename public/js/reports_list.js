@@ -93,7 +93,7 @@ const createReportElementToPdf = reportData => {
 
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
-    let result = "?";
+    let result = false;
     let diff;
 
     try {
@@ -102,17 +102,16 @@ const getHoursDifference = (date1, date2) => {
         return result;
     }
 
-    if (!typeof (diff) === "number") {
+    //verificando possivel erro 
+    if (!diff && diff != 0) {
         return result;
     }
 
-    if (diff >= 1) {
-        result = `${diff.toFixed(2).replace(".", "h")}min`
-    } else {
+    // tratrar o formato da string de retorno
+    if (diff >= 1) result = `${diff.toFixed(2).replace(".", "h")}min`
+    else {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
-
-        console.log("minutos else", result)
     }
 
     return result;
