@@ -1,10 +1,12 @@
 var trello = TrelloPowerUp.iframe();
 
+//ao carregar a pg
 window.addEventListener('load', function () {
     getReports(trello)
         .then(loadReportsList);
 });
 
+//Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
     reportsElementsList = "";
 
@@ -17,20 +19,29 @@ const loadReportsList = reports => {
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
+// função que cria um elemento html de acordo com um jsom em formato correto
 const createReportElementToPdf = reportData => {
+
+
+    // -------  tratamento de valores ultilizados para criar a pagina html
 
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`)
 
     let members = reportData.members.map(e => {
-        let avatar = e.avatarUrl == undefined ? e.avatar : e.avatarUrl;
+        let avatar = e.avatarUrl === undefined ? e.avatar : e.avatarUrl;
         return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`
     });
+
+    let cardUrl = reportData.card === undefined ? reportData.url : reportData.card;
 
     let data1 = new Date(`${reportData.date} ${reportData.startTime}`)
     let data2 = new Date(`${reportData.date} ${reportData.endTime}`)
 
     let fullTime = getHoursDifference(data1, data2);
 
+    // -------
+
+    // elemento html 
     let boxHtml = `<div class="report_container">
 
                     <div class="item_body member">
@@ -64,7 +75,7 @@ const createReportElementToPdf = reportData => {
                             <a>
                             <br>
                             <a class="Commit"
-                                href="${reportData.card}">
+                                href="${cardUrl}">
                                 Commit
                             </a>
                         </div>
@@ -78,27 +89,30 @@ const createReportElementToPdf = reportData => {
     return boxHtml;
 }
 
+//retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
     let result = "?";
 
     let diff = (date2.getTime() - date1.getTime()) / 1000;
     diff = diff / 60 / 60 / 60;
-    console.log(diff);
+
+    if (!typeof (diff) === "number") {
+        return result;
+    }
 
     if (diff >= 1) {
         result = `${diff.toFixed(2).replace(".", "h")}min`
-
-    } else if (diff < 0) {
+    } else {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
-        console.log(minutos)
+
+        console.log("minutos else", minutos)
     }
-    console.log(result)
 
     return result;
-
 };
 
+//cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
     let mainElement = "";
