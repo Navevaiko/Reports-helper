@@ -9,14 +9,14 @@ window.exportData.addEventListener('submit', async event => {
     event.preventDefault();
 
 
-    console.log(trello.authorize());
+    // console.log(trello.authorize());
     trello.getRestApi()
         .getToken()
         .then(function (token) {
             alert(`token ${token}`)
         });
 
-    t.getRestApi()
+    trello.getRestApi()
         .authorize({ scope: 'read,write' })
         .then(function (t) {
             alert(`Success! ${t} `);
