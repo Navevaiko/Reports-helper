@@ -5,20 +5,24 @@ p, a, li, div, ul, hr, body{
 body{
     -webkit-print-color-adjust: exact;
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     color: black;
+
 }
 .container{
     height: 100%;
     padding: 2px;
     
+    
 }
 .container_header{
     width: 100%;
     height: 50px;
-    border-radius: 4px;
+    border-radius: 2px;
     border: solid #666666 1px;
     display: flex;
+    font-size: 18px !important;
+    font-weight: bold;
     margin-bottom:10px;
 }
 .item_header{
@@ -47,7 +51,10 @@ body{
     width: 30px;
     height: 30px;
 }
+
 .div_caixa{
+
+
     width: 100%;
     padding-left: 5px;
 }
@@ -72,18 +79,23 @@ body{
 }
 .tag{
     display: block !important;
-    font-size: 13px !important;
+    /* font-size: 14px !important; */
 }
 .tags{
     
-  display: block;
-  text-align: center;
-  margin-bottom: 5px;
-  padding-top: 3px;
-  border-radius: 5px;
-  width: 100%;
-  height: 30px;
-  color: white;
+    font-size: 14px !important;
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    color: white;
+    overflow: hidden;
+    font-weight: bold;
+    -webkit-text-stroke-width: 0.3px; /* largura da borda */
+    -webkit-text-stroke-color: #000;
 }
 .link{
     width: 10%;
@@ -93,8 +105,9 @@ body{
 }
 .report_container{
     width: 100%;
-    height: 140px;
+    height: auto;
     display: flex;
+    border-radius: 2px;
     border: solid 1px #777777 ;
     
 }

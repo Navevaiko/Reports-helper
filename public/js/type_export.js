@@ -115,6 +115,7 @@ const openWindowForPdf = content => {
                                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                                     <meta http-equiv="X-UA-Compatible" content="ie=edge">
                                     <link rel="stylesheet" type="text/css" href="https://reports-helper.herokuapp.com/reportstyle">
+                                    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
                                 <title>Relátorio</title>
                             </head><body>`);
 
