@@ -138,7 +138,7 @@ const openWindowForPdf = content => {
                                         Membros
                                     </div>
                                     <div class="item_header card">
-                                        Cartão
+                                        Título
                                     </div>
                                     <div class="item_header tag">
                                         Etiquetas
