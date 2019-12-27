@@ -40,7 +40,9 @@ window.exportData.addEventListener('submit', async event => {
         trello.closePopup();
         trello.hideCard();
 
-        dataCard = dataCard.map(e => fullTime(e))
+        dataCard = dataCard.map(e => fullTime(e));
+
+        console.log(dataCard);
 
         downloadByType(typeFile, dataCard);
 
