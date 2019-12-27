@@ -23,7 +23,7 @@ const convertToDate = (date, hours) => {
     let dataArray = date.split('/');
     let dateFormat = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
 
-    return new Data(`${dateFormat} ${hours}`);
+    return new Date(`${dateFormat} ${hours}`);
 }
 
 // função que cria um elemento html de acordo com um jsom em formato correto
