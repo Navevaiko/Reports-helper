@@ -10,6 +10,20 @@ trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
 
+
+
+const fullTime = json => {
+    let data1 = convertToDate(json.currDate, json.startTime);
+    let data2 = convertToDate(json.currDate, json.endTime);
+
+    let fullTime = getHoursDifference(data1, data2);
+
+    let newJson = json;
+    newJson.duration = fullTime;
+
+    return newJson;
+}
+
 window.exportData.addEventListener('submit', async event => {
     event.preventDefault();
 
@@ -25,6 +39,8 @@ window.exportData.addEventListener('submit', async event => {
 
         trello.closePopup();
         trello.hideCard();
+
+        dataCard = dataCard.map(e => fullTime(e))
 
         downloadByType(typeFile, dataCard);
 
