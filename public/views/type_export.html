@@ -5,13 +5,22 @@
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #exportData {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
     <center>
         <form id="exportData">
             <label for="typeData">Escolha o formato do arquivo:</label>
-            <select name="type" id="typeData">
+            <select name="type" class="form-control form-control-lg" id="typeData">
                 <option value="PDF">PDF </option>
                 <option value="CSV">CSV</option>
                 <option value="JSON">JSON</option>
@@ -19,6 +28,7 @@
             <button type="submit" class="mod-primary">Save</button>
         </form>
     </center>
+
     <script src="./js/reports_list.js"></script>
     <script src="./js/type_export.js"></script>
     <script src="./js/trello_functions.js"></script>
