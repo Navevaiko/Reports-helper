@@ -40,9 +40,8 @@ window.exportData.addEventListener('submit', async event => {
         trello.closePopup();
         trello.hideCard();
 
+        //adicionando o campo de duração no json
         dataCard = dataCard.map(e => fullTime(e));
-
-        console.log(dataCard);
 
         downloadByType(typeFile, dataCard);
 
@@ -55,9 +54,12 @@ window.exportData.addEventListener('submit', async event => {
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
         let arrayUnified = await Promise.all(promisseResponse);
 
+        arrayUnified = arrayUnified.flat(2);
+
+        //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
 
-        downloadByType(typeFile, arrayUnified.flat(2));
+        downloadByType(typeFile, arrayUnified);
     }
 
     trello.alert({
