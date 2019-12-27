@@ -19,6 +19,13 @@ const loadReportsList = reports => {
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
+const convertToDate = (date, hours) => {
+    let dataArray = date.split('/');
+    let dateFormat = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
+
+    return new Data(`${dateFormat} ${hours}`);
+}
+
 // função que cria um elemento html de acordo com um jsom em formato correto
 const createReportElementToPdf = reportData => {
 
@@ -34,10 +41,10 @@ const createReportElementToPdf = reportData => {
 
     let cardUrl = reportData.card === undefined ? reportData.url : reportData.card;
 
-    let data1 = new Date(`${reportData.date} ${reportData.startTime}`);
-    let data2 = new Date(`${reportData.date} ${reportData.endTime}`);
 
-    console.log("data1", data1);
+
+    let data1 = convertToDate(reportData.currDate, reportData.startTime);
+    let data2 = convertToDate(reportData.currDate, reportData.endTime);
 
     let fullTime = getHoursDifference(data1, data2);
 
@@ -61,7 +68,7 @@ const createReportElementToPdf = reportData => {
                     </div>
                     
                     <div class="item_body date">
-                        ${reportData.date}<br>
+                        ${reportData.currDate}<br>
                         ${reportData.startTime} às 
                         ${reportData.endTime}
                     </div>
@@ -93,7 +100,7 @@ const createReportElementToPdf = reportData => {
 
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
-    let result = false;
+    let result = "00h00min";
     let diff;
 
     try {
@@ -103,7 +110,7 @@ const getHoursDifference = (date1, date2) => {
     }
 
     //verificando possivel erro 
-    if (!diff && diff != 0) {
+    if (!diff && diff != 0 || date1 == "Invalid Date" || date2 == "Invalid Date") {
         return result;
     }
 
@@ -127,7 +134,7 @@ const createReportElement = reportData => {
                         <span><a href='  ${reportData.commitLink}' target='_blank'> Commit </a></span>
                         ${(reportData.attachments ? attachmentsElement : "")}
                         <div class='datetimeInfo'> 
-                            <span> ${reportData.date} </span> 
+                            <span> ${reportData.currDate} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
                     </li><hr/>`;

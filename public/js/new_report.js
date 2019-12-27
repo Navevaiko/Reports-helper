@@ -26,7 +26,6 @@ const addReport = card => {
     let title = card.name;
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
-    let date = toDate(window.startDate.value);
 
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
@@ -36,7 +35,6 @@ const addReport = card => {
                 cardURL,
                 membersIds,
                 startTime,
-                date,
                 endTime,
                 commitLink,
                 comment,
