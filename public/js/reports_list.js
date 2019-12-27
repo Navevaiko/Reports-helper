@@ -2,6 +2,8 @@ var trello = TrelloPowerUp.iframe();
 
 //ao carregar a pg
 window.addEventListener('load', function () {
+    console.log("testetsteste");
+
     getReports(trello)
         .then(loadReportsList);
 });
