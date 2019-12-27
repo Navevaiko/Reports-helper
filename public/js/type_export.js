@@ -55,6 +55,8 @@ window.exportData.addEventListener('submit', async event => {
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
         let arrayUnified = await Promise.all(promisseResponse);
 
+        arrayUnified = arrayUnified.map(e => fullTime(e));
+
         downloadByType(typeFile, arrayUnified.flat(2));
     }
 
