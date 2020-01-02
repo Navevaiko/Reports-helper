@@ -2,10 +2,14 @@
 .remove_report{
     width: 10px;
     height: 10px;
-    background-color: red;
     cursor: pointer;
     top: 0;
     right: 0;
+    position: absolute;
+    font-size: 12px;
+}
+#txt_info, #et-secondary-menu {
+    text-align: justify;
 }
 .report {
     display: flex;

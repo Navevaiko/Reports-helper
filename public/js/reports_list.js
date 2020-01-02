@@ -129,6 +129,11 @@ const getHoursDifference = (date1, date2) => {
     return result;
 };
 
+const deleteReport = e => {
+    alert("deleta ai")
+    console.log(e)
+}
+
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
@@ -142,7 +147,7 @@ const createReportElement = reportData => {
                             <span> ${reportData.currDate} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
-                        <div class="remove_report">  
+                        <div class="remove_report" onclick="deletarReport()">  
                             X
                         </div>
                     </li><hr/>`;
