@@ -3,9 +3,8 @@
     width: 10px;
     height: 10px;
     cursor: pointer;
-    top: 0;
+    top: -40p;
     right: 0;
-    position: absolute;
     font-size: 12px;
 }
 #txt_info, #et-secondary-menu {
@@ -19,7 +18,6 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
-    cursor: pointer
 }
 .report p {
     width: 230px;
