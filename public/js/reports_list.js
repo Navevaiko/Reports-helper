@@ -20,6 +20,7 @@ const loadReportsList = reports => {
     });
 
     window.reportsList.innerHTML = reportsElementsList;
+    Array.prototype.slice.call(document.querySelectorAll(".report")).map(element => element.addEventListener('click', element => alert("Oi")))
 }
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
