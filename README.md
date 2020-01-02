@@ -20,11 +20,11 @@
 ### Funcionalidades
 1. Criar relatórios diarios
     > É possível criar relatórios com os as informações do cartão e algumas informações que são inseridas manualmente.  
-    ![Cadastro de relatório](http://s2.glbimg.com/ZQ8SGg6zkIbzVOBmDhAUGmeqiv0=/695x0/s.glbimg.com/po/tt2/f/original/2015/09/01/captura-de-tela-2015-08-27-as-122329.png) 
+    ![Cadastro de relatório](https://reports-helper.herokuapp.com/icons/new-report.png) 
 2. Exportação de relatorioss
     > É possível exportar os relatórios de cada cartão ou do quadro inteiro nos fomatos.
     * **PDF**:  
-    ![PDF](http://s2.glbimg.com/ZQ8SGg6zkIbzVOBmDhAUGmeqiv0=/695x0/s.glbimg.com/po/tt2/f/original/2015/09/01/captura-de-tela-2015-08-27-as-122329.png)
+    ![PDF](https://reports-helper.herokuapp.com/icons/export-report-pdf.png)
     ---
     * **JSON**:  
     ```json
