@@ -19,8 +19,9 @@
 
 ### Funcionalidades
 1. Criar relatórios diarios
-    > É possível criar relatórios com os as informações do cartão e algumas informações que são inseridas manualmente. 
-2. Exportação de relatorios
+    > É possível criar relatórios com os as informações do cartão e algumas informações que são inseridas manualmente.  
+    ![Cadastro de relatório](http://s2.glbimg.com/ZQ8SGg6zkIbzVOBmDhAUGmeqiv0=/695x0/s.glbimg.com/po/tt2/f/original/2015/09/01/captura-de-tela-2015-08-27-as-122329.png) 
+2. Exportação de relatorioss
     > É possível exportar os relatórios de cada cartão ou do quadro inteiro nos fomatos.
     * **PDF**:  
     ![PDF](http://s2.glbimg.com/ZQ8SGg6zkIbzVOBmDhAUGmeqiv0=/695x0/s.glbimg.com/po/tt2/f/original/2015/09/01/captura-de-tela-2015-08-27-as-122329.png)
@@ -67,7 +68,7 @@
     ]
     ```
     ---
-    * **csv**:  
+    * **CSV**:  
      ```csv 
         currDate;startTime;endTime;commitLink;comment;members;title;card;labels;duration
         "27/12/2019";"07:00";"09:50";"https://github.com/washingtonSampaioVieira?tab=followers";"Está é somente mais uma das tarefas que está sendo feita de modo que eu consiga escrever sem mesmo ao olhar a tela e depois de um tempo consigo.";"Washington";"Fazer exportação dos importados";"https://trello.com/c/jmEZtyRf/9-fazer-exporta%C3%A7%C3%A3o-dos-importados";"Laranja - Urgente - Azul Caneta";"2h83min";
