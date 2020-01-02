@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title> Relatórios </title>
 
-        <script src="https://p.trellocdn.com/power-up.min.js"></script>
-        <script src="/js/trello_functions.js"></script>
-        
-        <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
-        <link rel="stylesheet" href="css/reports_list.css">
-     </head>
+<head>
+    <meta charset="UTF-8">
+    <title> Relatórios </title>
 
-    <body>
-    
-        <ol id='reportsList'></ol>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
-        <script type="text/javascript" src="/js/reports_list.js"></script>
-    </body>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="/js/trello_functions.js"></script>
+
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <link rel="stylesheet" href="css/reports_list.css">
+</head>
+
+<body>
+
+    <ol id='reportsList'></ol>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script type="text/javascript" src="/js/reports_list.js"></script>
+    <script>
+        let reports = Array.prototype.slice.call(document.querySelectorAll(".report"))
+        reports.map(element => element.addEventListener('click', deleteReport(element)))
+    </script>
+
+</body>
+
 </html>
