@@ -16,7 +16,6 @@
 
 4. Em cada cartão do quadro deverá aparecer o status de relatório. Quando isso ocorrer é só usar as funcionalidades do Reports-helper.
 
-
 ### Funcionalidades
 1. Criar relatórios diarios
     > É possível criar relatórios com os as informações do cartão e algumas informações que são inseridas manualmente.  
