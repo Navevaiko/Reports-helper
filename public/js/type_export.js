@@ -129,7 +129,7 @@ const openWindowForPdf = content => {
 
 
     mywindow.document.write(`<script>
-                                setTimeout(() => { window.print(); window.close(); }, 1500);
+                                setTimeout(() => { window.print(); window.close(); }, 1500000);
                             </script>
                             <div class="container">
                                 <!--delimitador do header-->
@@ -158,7 +158,6 @@ const openWindowForPdf = content => {
                                 </div>`);
     mywindow.document.write(content);
     mywindow.document.write(`</body></html>`);
-    // mywindow.document.close();
 }
 
 const download = (filename, text) => {
