@@ -146,9 +146,7 @@ const createReportElement = reportData => {
                             <span> ${reportData.currDate} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
-                        <div class="remove_report">  
-                            X
-                        </div>
+                        <div class="remove_report">X</div>
                     </li><hr/>`;
 
     return mainElement;
