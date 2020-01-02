@@ -34,7 +34,6 @@ const convertToDate = (date, hours) => {
 // função que cria um elemento html de acordo com um jsom em formato correto
 const createReportElementToPdf = reportData => {
 
-
     // -------  tratamento de valores ultilizados para criar a pagina html
 
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
@@ -147,7 +146,7 @@ const createReportElement = reportData => {
                             <span> ${reportData.currDate} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
-                        <div class="remove_report" onclick="deleteReport()">  
+                        <div class="remove_report">  
                             X
                         </div>
                     </li><hr/>`;
