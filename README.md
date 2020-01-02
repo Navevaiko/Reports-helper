@@ -68,12 +68,12 @@
     ```
     ---
     * **CSV**:  
-     ```csv 
+    ```csv 
         currDate;startTime;endTime;commitLink;comment;members;title;card;labels;duration
         "27/12/2019";"07:00";"09:50";"https://github.com/washingtonSampaioVieira?tab=followers";"Está é somente mais uma das tarefas que está sendo feita de modo que eu consiga escrever sem mesmo ao olhar a tela e depois de um tempo consigo.";"Washington";"Fazer exportação dos importados";"https://trello.com/c/jmEZtyRf/9-fazer-exporta%C3%A7%C3%A3o-dos-importados";"Laranja - Urgente - Azul Caneta";"2h83min";
-     ``` 
+    ``` 
 3. Visão geral do quadro
     > O Reports-helper da a opção de ter uma visão geral do quadro. ``(em construção)``
 
 ### veja mais sobre Power-Ups
-> [https://blog.trello.com/br/trello-power-ups-para-todos]()
+> [https://blog.trello.com/br/trello-power-ups-para-todos](https://blog.trello.com/br/trello-power-ups-para-todos)
