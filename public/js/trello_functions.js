@@ -31,9 +31,7 @@ const addNewReport = (trello, report) => {
     });
 }
 
-const getReports = trello => {
-    return trello.get('card', reportsVisibility, reportsKey, []);
-}
+const getReports = trello => trello.get('card', reportsVisibility, reportsKey, []);
 
 const showBadge = reports => {
     var reportsCount = reports.length;

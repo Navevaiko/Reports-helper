@@ -1,11 +1,10 @@
 var trello = TrelloPowerUp.iframe();
 
 //ao carregar a pg
-window.addEventListener('load', function () {
+window.addEventListener('load', async () => {
     console.log("testetsteste");
 
-    getReports(trello)
-        .then(loadReportsList);
+    loadReportsList(await getReports(trello))
 });
 
 //Cria a lista para exibição dos elementos no cartão
