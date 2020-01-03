@@ -19,7 +19,9 @@ const loadReportsList = reports => {
     });
 
     window.reportsList.innerHTML = reportsElementsList;
-    Array.prototype.slice.call(document.querySelectorAll(".remove_report")).map(element => element.addEventListener('click', () => deleteReport(element)))
+
+    let allElements = Array.prototype.slice.call(document.querySelectorAll(".remove_report"));
+    allElements.map(element => element.addEventListener('click', () => deleteReport(element)));
 }
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
@@ -128,9 +130,9 @@ const getHoursDifference = (date1, date2) => {
     return result;
 };
 
-const deleteReport = e => {
-    alert("deleta ai")
-    console.log(e)
+const deleteReport = element => {
+    alert("Deletando...")
+    console.log("elemento", element)
 }
 
 //cria uma "li" para listagem dos relatorios no cartão
