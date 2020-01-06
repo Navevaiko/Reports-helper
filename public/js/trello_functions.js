@@ -53,7 +53,7 @@ const getReportsAnyKy = async trello => {
 const concatMyKeyInObj = card => {
     let reportsKeys = Object.keys(card.card.shared);
     let reportsFull = []
-    reportsKey.map(e => {
+    reportsKeys.map(e => {
         try {
             let reportUni = card.card.shared[e]
             reportsFull.push(reportUni)
