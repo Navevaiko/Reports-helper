@@ -52,8 +52,21 @@ const getReportsAnyKy = async trello => {
 
 const concatMyKeyInObj = card => {
     let reportsKeys = Object.keys(card.card.shared);
+    let reportsFull = []
+    reportsKey.map(e => {
+        try {
+            let reportUni = card.card.shared[e]
+            reportsFull.push(reportUni)
+        } catch {
+            return
+        }
+
+    })
+
+
+
     console.log(card.card.shared)
-    console.log(reportsKeys);
+    console.log(reportsFull);
 }
 
 const showBadge = reports => {
