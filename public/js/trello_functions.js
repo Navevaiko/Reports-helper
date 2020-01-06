@@ -45,9 +45,10 @@ const getReports = trello => {
 const getReportsAnyKy = trello => {
     let getAll = trello.getAll();
 
-    console.log(getAll)
+    console.log(typeof (getAll))
     console.log(getAll._settledValue)
     console.log(getAll._bitField);
+    console.log(getAll.E);
 
 
     concatMyKeyInObj(getAll)
