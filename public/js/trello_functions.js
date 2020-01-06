@@ -39,26 +39,20 @@ const addNewReport = (trello, report) => {
     });
 }
 
-const getReports = trello => {
-    return getReportsAnyKy(trello);
+const getReports = async trello => getReportsAnyKy(await trello.getAll);
 
 
-};
-
-const getReportsAnyKy = async trello => {
-    let getAll = await getCardContent(trello);
-
+const getReportsAnyKy = getAll => {
     let reportsKeys = Object.keys(getAll.card.shared);
     let reportsFull = [];
 
     reportsKeys.map(e => {
         try {
-            let reportUni = getAll.card.shared[e]
-            reportsFull.push(reportUni)
+            let reportUni = getAll.card.shared[e];
+            reportsFull.push(reportUni);
         } catch {
-            return
+            return;
         }
-
     })
     return reportsFull;
 }
@@ -91,8 +85,10 @@ const getCardDetailsById = trello => trello.card('all');
 const getCardContent = trello => trello.getAll()
 
 const getDataCardExport = (cardContent, card) => {
+    //tratar dados
+    cardContent = getReportsAnyKy(cardContent);
 
-    let result = cardContent.shared.reports.map(e => {
+    let result = cardContent.map(e => {
         e.members = card.members;
         e.title = card.name;
         e.card = card.url;
