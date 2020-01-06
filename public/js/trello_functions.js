@@ -43,12 +43,12 @@ const getReports = async trello => getReportsAnyKy(await trello.getAll().card);
 
 
 const getReportsAnyKy = getAllCard => {
-    let reportsKeys = Object.keys(getAllCard.card.shared);
+    let reportsKeys = Object.keys(getAllCard.shared);
     let reportsFull = [];
 
     reportsKeys.map(e => {
         try {
-            let reportUni = getAllCard.card.shared[e];
+            let reportUni = getAllCard.shared[e];
             reportsFull.push(reportUni);
         } catch {
             return;
