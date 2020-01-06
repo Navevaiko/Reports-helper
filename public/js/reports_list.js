@@ -130,6 +130,10 @@ const getHoursDifference = (date1, date2) => {
     return result;
 };
 
+const confirmationDeletion  = element =>{
+    
+}
+
 const deleteReport = element => {
     let key = element.id;
     trello.remove('card', 'shared', key);

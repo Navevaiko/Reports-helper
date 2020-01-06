@@ -9,6 +9,13 @@ const showNewReportModal = trello => {
     })
 }
 
+const showConfirmationDialogue = trello => {
+    return trello.popup({
+        title: "Excluir relátorio?",
+        url: 'https://reports-helper.herokuapp.com/confirmation'
+    })
+}
+
 const showTypesDataExport = trello => {
     return trello.popup({
         title: "Download",
