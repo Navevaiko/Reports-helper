@@ -37,8 +37,9 @@ const addNewReport = (trello, report) => {
 }
 
 const getReports = trello => {
-    console.log(trello)
-    // concatMyKeyInObj(trello.getAll().card.shared)
+    // console.log(trello)
+    // concatMyKeyInObj()
+    console.log(trello.getAll())
 
     // return trello.get('card', reportsVisibility, reportsKey, []);
 };
