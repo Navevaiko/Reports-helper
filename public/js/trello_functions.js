@@ -57,7 +57,7 @@ const getReportsAnyKy = getAllCard => {
         reportsKeys = Object.keys(getAllCard.shared);
         cardAll = getAllCard.shared;
     } else {
-        reportsKeys = Object.keys(geAllCard);
+        reportsKeys = Object.keys(getAllCard);
     }
 
     reportsKeys.map(e => {
