@@ -12,14 +12,15 @@
 
 2. Na barra de pesquisa digite ``Reports-helper`` e clique em "Adicionar" ao lado para você adicionar ao quadro.
 
-3. Clique no ícone de engrenagem ao lado do botão Adicionar para editar as configurações e vincular as contas dos aplicativos que você está integrando ao quadro do Trello.
+3. Clique no ícone de engrenagem ao lado do botão "Adicionar" para editar as configurações e vincular as contas dos aplicativos que você está integrando ao quadro do Trello.
 
 4. Em cada cartão do quadro deverá aparecer o status de relatório. Quando isso ocorrer é só usar as funcionalidades do Reports-helper.
 
 ### Funcionalidades
 1. Criar relatórios diarios
-    > É possível criar relatórios com os as informações do cartão e algumas informações que são inseridas manualmente.  
+    > É possível criar relatórios com os as informações do cartão e algumas informações que são inseridas manualmente.   
     ![Cadastro de relatório](https://reports-helper.herokuapp.com/icons/new-report.png) 
+    
 2. Exportação de relatorioss
     > É possível exportar os relatórios de cada cartão ou do quadro inteiro nos fomatos.
     * **PDF**:  
@@ -75,5 +76,5 @@
 3. Visão geral do quadro
     > O Reports-helper da a opção de ter uma visão geral do quadro. ``(em construção)``
 
-### veja mais sobre Power-Ups
+### Veja mais sobre Power-Ups
 > [https://blog.trello.com/br/trello-power-ups-para-todos](https://blog.trello.com/br/trello-power-ups-para-todos)
