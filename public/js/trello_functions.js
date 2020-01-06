@@ -33,7 +33,7 @@ const addNewReport = (trello, report) => {
 
 const getReports = trello => {
     let getAll = trello.getAll();
-    console.log(getAll)
+    console.log("get All aqui ", getAll)
     return trello.get('card', reportsVisibility, reportsKey, []);
 };
 
