@@ -50,8 +50,11 @@ const getReportsAnyKy = async trello => {
     concatMyKeyInObj(getAll)
 }
 
-const concatMyKeyInObj = reports => {
-    console.log("Reports in concatMyKeyInObj", reports.card.shared)
+const concatMyKeyInObj = card => {
+    let reportsKeys = Object.keys(card.card.shared);
+    console.log(card.card.shared)
+    console.log(reportsKeys);
+
     return reports;
 }
 
