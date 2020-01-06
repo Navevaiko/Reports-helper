@@ -36,12 +36,21 @@ const addNewReport = (trello, report) => {
     });
 }
 
-const getReports = trello => trello.get('card', reportsVisibility, reportsKey, []);
+const getReports = trello => {
+    getReportsAnyKy(trello);
+    return trello.get('card', reportsVisibility, reportsKey, [])
 
-const getReportsAnyKy = trello => concatMyKeyInObj(trello.getAll()._settledValue.card.shared)
+};
+
+const getReportsAnyKy = trello => {
+    let getAll = trello.getAll()._settledValue;
+    console.log(getAll)
+    concatMyKeyInObj(getAll)
+
+}
 
 const concatMyKeyInObj = reports => {
-    console.log(reports)
+    console.log("Reports in concatMyKeyInObj", reports)
     return reports;
 }
 
