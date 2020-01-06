@@ -49,18 +49,20 @@ const getReportsAnyKy = getAllCard => {
 
     let reportsFull = [];
     let reportsKeys = [];
+    let cardAll = getAllCard;
 
     console.log(typeof (getAllCard))
 
     if (getAllCard.hasOwnProperty("shared")) {
         reportsKeys = Object.keys(getAllCard.shared);
+        cardAll = getAllCard.shared;
     } else {
-        reportsKeys = Object.keys(getAllCard);
+        reportsKeys = Object.keys(geAllCard);
     }
 
     reportsKeys.map(e => {
         try {
-            let reportUni = getAllCard.shared[e];
+            let reportUni = cardAll[e];
             reportsFull.push(reportUni);
         } catch {
             return;
