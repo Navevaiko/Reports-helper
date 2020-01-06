@@ -46,8 +46,15 @@ const getReports = async trello => {
 
 
 const getReportsAnyKy = getAllCard => {
-    let reportsKeys = Object.keys(getAllCard.shared);
+
     let reportsFull = [];
+    let reportsKeys = [];
+
+    if (!!getAllCard.shared) {
+        reportsKeys = Object.keys(getAllCard.shared);
+    } else {
+        reportsKeys = Object.keys(getAllCard);
+    }
 
     reportsKeys.map(e => {
         try {
