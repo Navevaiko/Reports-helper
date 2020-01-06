@@ -39,7 +39,7 @@ const addNewReport = (trello, report) => {
     });
 }
 
-const getReports = async trello => getReportsAnyKy(await trello.getAll);
+const getReports = async trello => getReportsAnyKy(await trello.getAll());
 
 
 const getReportsAnyKy = getAll => {
