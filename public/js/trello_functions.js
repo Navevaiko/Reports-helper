@@ -40,33 +40,31 @@ const addNewReport = (trello, report) => {
 }
 
 const getReports = trello => {
-    getReportsAnyKy(trello);
-    return trello.get('card', reportsVisibility, reportsKey, [])
+    return getReportsAnyKy(trello);
+
 
 };
 
 const getReportsAnyKy = async trello => {
     let getAll = await getCardContent(trello);
-    concatMyKeyInObj(getAll)
-}
 
-const concatMyKeyInObj = card => {
-    let reportsKeys = Object.keys(card.card.shared);
-    let reportsFull = []
+    let reportsKeys = Object.keys(getAll.card.shared);
+    let reportsFull = [];
+
     reportsKeys.map(e => {
         try {
-            let reportUni = card.card.shared[e]
+            let reportUni = getAll.card.shared[e]
             reportsFull.push(reportUni)
         } catch {
             return
         }
 
     })
+    return reportsFull;
+}
 
+const concatMyKeyInObj = card => {
 
-
-    console.log(card.card.shared)
-    console.log(reportsFull);
 }
 
 const showBadge = reports => {
