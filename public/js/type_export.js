@@ -82,7 +82,6 @@ const requestReports = async (card, token, secret) => {
 
         json = getReportsAnyKy(JSON.parse(json))
 
-        // json = JSON.parse(json);
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
         arrayUnified.push(jsonUnified)
