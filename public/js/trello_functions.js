@@ -20,8 +20,13 @@ const addNewReport = (trello, report) => {
     getReports(trello).then(function (reports) {
         reports.push(report);
 
+        let date = new Date();
+        let myKey = `${reportsKey}_${date.getTime()}`
+
+        console.log("myKey sendo salva", myKey)
+
         trello
-            .set('card', reportsVisibility, reportsKey, reports)
+            .set('card', reportsVisibility, myKey, reports)
             .then(function () { trello.closeModal(); })
             .catch(function (error) {
                 console.log(error);
@@ -32,10 +37,15 @@ const addNewReport = (trello, report) => {
 }
 
 const getReports = trello => {
-    let getAll = trello.getAll();
-    console.log("get All aqui ", getAll)
-    return trello.get('card', reportsVisibility, reportsKey, []);
+    concatMyKeyInObj(trello.getAll().card.shared)
+
+    // return trello.get('card', reportsVisibility, reportsKey, []);
 };
+
+const concatMyKeyInObj = reports => {
+    console.log(reports)
+    return reports;
+}
 
 const showBadge = reports => {
     var reportsCount = reports.length;
