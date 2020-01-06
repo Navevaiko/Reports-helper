@@ -45,7 +45,7 @@ const getReports = trello => {
 const getReportsAnyKy = trello => {
     let getAll = trello.getAll();
 
-    console.log(typeof (getAll))
+    console.log(Object.prototype(getAll))
     console.log(getAll._settledValue)
     console.log(getAll._bitField);
     console.log(getAll.E);
