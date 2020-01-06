@@ -46,7 +46,7 @@ const getReportsAnyKy = async trello => {
     let getAll = await trello.getAll();
 
     console.log(Object.keys(getAll))
-    console.log(getAll._settledValue)
+    console.log(getAll[6])
     console.log(getAll._bitField);
     console.log(getAll.E);
 
