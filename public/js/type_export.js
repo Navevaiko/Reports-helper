@@ -77,7 +77,10 @@ const requestReports = async (card, token, secret) => {
 
     let json = !!request.data[0] ? request.data[0].value : "";
 
+
     if (!json == "") {
+
+        json = getReportsAnyKy({ shared: json })
 
         json = JSON.parse(json);
         const jsonUnified = json.reports.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
