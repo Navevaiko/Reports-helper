@@ -42,8 +42,8 @@ const getReports = trello => {
 
 };
 
-const getReportsAnyKy = trello => {
-    let getAll = trello.getAll();
+const getReportsAnyKy = async trello => {
+    let getAll = await trello.getAll();
 
     console.log(Object.keys(getAll))
     console.log(getAll._settledValue)
