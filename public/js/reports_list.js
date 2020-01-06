@@ -131,7 +131,9 @@ const getHoursDifference = (date1, date2) => {
 };
 
 const deleteReport = element => {
-    trello.remove('card', 'shared', 'reports');
+    let key = element.target.id;
+    trello.remove('card', 'shared', key);
+    console.log("key", key)
     console.log("elemento", element)
 }
 
@@ -148,7 +150,7 @@ const createReportElement = reportData => {
                             <span> ${reportData.currDate} </span> 
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
-                        <div class="remove_report">X</div>
+                        <div class="remove_report" id="${reportData.key}$>X</div>
                     </li><hr/>`;
 
     return mainElement;
