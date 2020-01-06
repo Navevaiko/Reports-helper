@@ -17,16 +17,17 @@ const showTypesDataExport = trello => {
 }
 
 const addNewReport = (trello, report) => {
+    let myKey = `${reportsKey}_${date.getTime()}`
+    report.key = myKey
     getReports(trello).then(function (reports) {
         reports.push(report);
 
         let date = new Date();
-        let myKey = `${reportsKey}_${date.getTime()}`
 
         console.log("myKey sendo salva", myKey)
 
         trello
-            .set('card', reportsVisibility, myKey, reports)
+            .set('card', reportsVisibility, myKey, report)
             .then(function () { trello.closeModal(); })
             .catch(function (error) {
                 console.log(error);
@@ -43,10 +44,7 @@ const getReports = trello => {
 };
 
 const getReportsAnyKy = async trello => {
-    let getAll = await trello.getAll();
-
-    // console.log(getAll["_settledValue"])
-
+    let getAll = await getCardContent(trello);
     concatMyKeyInObj(getAll)
 }
 
@@ -54,8 +52,6 @@ const concatMyKeyInObj = card => {
     let reportsKeys = Object.keys(card.card.shared);
     console.log(card.card.shared)
     console.log(reportsKeys);
-
-    // return reports;
 }
 
 const showBadge = reports => {
