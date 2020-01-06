@@ -55,7 +55,7 @@ const concatMyKeyInObj = card => {
     console.log(card.card.shared)
     console.log(reportsKeys);
 
-    return reports;
+    // return reports;
 }
 
 const showBadge = reports => {
