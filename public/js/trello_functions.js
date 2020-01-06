@@ -17,12 +17,12 @@ const showTypesDataExport = trello => {
 }
 
 const addNewReport = (trello, report) => {
+    let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
     report.key = myKey
     getReports(trello).then(function (reports) {
         reports.push(report);
 
-        let date = new Date();
 
         console.log("myKey sendo salva", myKey)
 
