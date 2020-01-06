@@ -50,6 +50,8 @@ const getReportsAnyKy = getAllCard => {
     let reportsFull = [];
     let reportsKeys = [];
 
+    console.log(typeof (getAllCard))
+
     if (getAllCard.hasOwnProperty("shared")) {
         reportsKeys = Object.keys(getAllCard.shared);
     } else {
