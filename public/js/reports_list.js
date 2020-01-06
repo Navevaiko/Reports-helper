@@ -131,7 +131,7 @@ const getHoursDifference = (date1, date2) => {
 };
 
 const deleteReport = element => {
-    alert("Deletando...")
+    trello.remove('card', 'shared', 'reports');
     console.log("elemento", element)
 }
 
