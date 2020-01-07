@@ -2,15 +2,11 @@ var trello = TrelloPowerUp.iframe();
 
 //ao carregar a pg
 window.addEventListener('load', async () => {
-    console.log("testetsteste");
-
     loadReportsList(await getReports(trello))
 });
 
 //Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
-
-    console.log(reports);
 
     reportsElementsList = "";
 
@@ -137,8 +133,6 @@ const confirmationDeletion  = element =>{
 const deleteReport = element => {
     let key = element.id;
     trello.remove('card', 'shared', key);
-    console.log("key", key)
-    console.log("elemento", element)
 }
 
 //cria uma "li" para listagem dos relatorios no cartão
