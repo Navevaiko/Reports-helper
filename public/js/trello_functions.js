@@ -32,14 +32,10 @@ const addNewReport = (trello, report) => {
     getReports(trello).then(function (reports) {
         reports.push(report);
 
-
-        console.log("myKey sendo salva", myKey)
-
         trello
             .set('card', reportsVisibility, myKey, report)
             .then(function () { trello.closeModal(); })
             .catch(function (error) {
-                console.log(error);
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
             });
 
@@ -57,8 +53,6 @@ const getReportsAnyKy = getAllCard => {
     let reportsFull = [];
     let reportsKeys = [];
     let cardAll = getAllCard;
-
-    console.log(typeof (getAllCard))
 
     if (getAllCard.hasOwnProperty("shared")) {
         reportsKeys = Object.keys(getAllCard.shared);
