@@ -128,7 +128,7 @@ const getHoursDifference = (date1, date2) => {
 
         let hours = parseInt(array[0]);
 
-        result = `${hours}h${min.toFixed(2)}min`
+        result = `${hours}h${min}min`
     } else {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
