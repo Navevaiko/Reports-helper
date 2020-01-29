@@ -132,7 +132,7 @@ const openWindowForPdf = content => {
 
 
     mywindow.document.write(`<script>
-                                // setTimeout(() => { window.print(); window.close(); }, 1500);
+                                setTimeout(() => { window.print(); window.close(); }, 1500);
                             </script>
                             <div class="container">
                                 <!--delimitador do header-->
