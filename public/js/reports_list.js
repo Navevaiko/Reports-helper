@@ -51,7 +51,7 @@ const createReportElementToPdf = reportData => {
     let fullTime = getHoursDifference(data1, data2);
 
     // -------
-
+    console.log(reportData)
     // elemento html 
     let boxHtml = `<div class="report_container">
 
