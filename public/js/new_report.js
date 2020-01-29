@@ -21,8 +21,8 @@ const addReport = card => {
     let endTime = window.endTime.value;
     let commitLink = window.commitLink.value;
     let comment = window.comment.value;
-    let cardURL = card.url;
-    console.log(card);
+    let url = card.url;
+    console.log(card.url);
     let membersIds = card.members;
     let title = card.name;
     let labels = card.labels
@@ -33,7 +33,7 @@ const addReport = card => {
             let report = {
                 currDate,
                 title,
-                "cardURL": cardURL,
+                url,
                 membersIds,
                 startTime,
                 endTime,
