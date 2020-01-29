@@ -119,8 +119,13 @@ const getHoursDifference = (date1, date2) => {
     // tratrar o formato da string de retorno
 
     if (diff >= 1) {
-        let min = diff.split(".")[1] * 0.6;
-        let hours = diff.split(".")[0];
+
+        let diffStr = diff.toString();
+
+        let array = diffStr.split(".");
+
+        let min = parseInt(array[1]) * 0.6;
+        let hours = parseInt(array[0]);
 
         result = `${hours}h${parseInt(min)}min`
     } else {
