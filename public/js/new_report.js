@@ -33,7 +33,7 @@ const addReport = card => {
             let report = {
                 currDate,
                 title,
-                cardURL,
+                "cardURL": cardURL,
                 membersIds,
                 startTime,
                 endTime,
