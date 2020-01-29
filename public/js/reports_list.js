@@ -121,13 +121,14 @@ const getHoursDifference = (date1, date2) => {
     if (diff >= 1) {
 
         let diffStr = diff.toString();
-
+        
         let array = diffStr.split(".");
-
         let min = parseInt(array[1]) * 0.6;
+        min = min.toString().length == 1? `${min}0`: min.substr(0,2);
+
         let hours = parseInt(array[0]);
 
-        result = `${hours}h${parseInt(min)}min`
+        result = `${hours}h${min.toFixed(2)}min`
     } else {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
