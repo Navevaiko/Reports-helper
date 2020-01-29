@@ -117,8 +117,13 @@ const getHoursDifference = (date1, date2) => {
     }
 
     // tratrar o formato da string de retorno
-    if (diff >= 1) result = `${diff.toFixed(2).replace(".", "h")}min`
-    else {
+
+    if (diff >= 1) {
+        let min = diff.split(".")[1] * 0.6;
+        let hours = diff.split(".")[0];
+
+        result = `${hours}h${parseInt(min)}min`
+    } else {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
     }
@@ -126,8 +131,8 @@ const getHoursDifference = (date1, date2) => {
     return result;
 };
 
-const confirmationDeletion  = element =>{
-    
+const confirmationDeletion = element => {
+
 }
 
 const deleteReport = element => {
