@@ -21,7 +21,7 @@ const addReport = card => {
     let endTime = window.endTime.value;
     let commitLink = window.commitLink.value;
     let comment = window.comment.value;
-    let cardURL = card.members.url;
+    let cardURL = card.url;
     console.log(card);
     let membersIds = card.members;
     let title = card.name;
