@@ -81,12 +81,12 @@ const createReportElementToPdf = reportData => {
                     
                     <div class="item_body link">
                         <div class="link_trello">
-                            <a class="trello" href="${reportData.commitLink}">
+                            <a class="trello" href="${reportData.cardUrl}">
                                 Trello
                             <a>
                             <br>
                             <a class="Commit"
-                                href="${cardUrl}">
+                                href="${commitLink}">
                                 Commit
                             </a>
                         </div>
