@@ -126,7 +126,7 @@ const getHoursDifference = (date1, date2) => {
         let min = "00";
 
         if (array.length > 1) {
-            let min = parseInt(array[1]) * 0.6;
+            min = parseInt(array[1]) * 0.6;
             min = parseInt(min.toString().length == 1 ? `${min}0` : min.toString().substr(0, 2));
         }
 

@@ -1,9 +1,48 @@
-const string = '{ "address": null, "attachments": [], "badges": { "attachmentsByType": { "trello": { "board": 0, "card": 0 } }, "location": false, "votes": 0, "viewingMemberVoted": false, "subscribed": false, "fogbugz": "", "checkItems": 0, "checkItemsChecked": 0, "comments": 0, "attachments": 0, "description": false, "due": null, "dueComplete": false }, "closed": false, "coordinates": null, "cover": null, "customFieldItems": [], "dateLastActivity": "2020-01-29T10:36:57.438Z", "desc": "", "due": null, "dueComplete": false, "id": "5e3160499f14433b37b8a32b", "idList": "5defa5b698177e747b20c304", "idShort": 17, "labels": [{ "id": "5defa5b68bdee58e0df659b8", "name": "IPEM", "color": "yellow" }, { "id": "5e0615de56849c52ba9ff9ab", "name": "Alta prioridade", "color": "red" }], "locationName": null, "members": [{ "id": "5beac754a6ce7a3ee807d916", "fullName": "Lucas Santos", "username": "lucassantos386", "initials": "LS", "avatar": "https://trello-avatars.s3.amazonaws.com/20ef1efbb9e527baae29b64f319d3fc7/170.png" }], "name": "Verificar erros das planilhas", "pos": 65535, "shortLink": "lUuCBOk3", "url": "https://trello.com/c/lUuCBOk3/17-verificar-erros-das-planilhas" }'
+const getHoursDifference = (date1, date2) => {
+    let result = "00h00min";
+    let diff;
 
-const obj = JSON.parse(string);
-console.log(obj.url);
+    try {
+        diff = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60;
+    } catch (error) {
+        return result;
+    }
 
-// console.log({
-//     oi: 'okeae'
-// });
+    //verificando possivel erro 
+    if (!diff && diff != 0 || date1 == "Invalid Date" || date2 == "Invalid Date") {
+        return result;
+    }
+
+    // tratrar o formato da string de retorno
+
+    if (diff >= 1) {
+
+        let diffStr = diff.toString();
+
+        let array = diffStr.split(".");
+        let min = "00";
+
+        if (array.length > 1) {
+            min = parseInt(array[1]) * 0.6;
+            min = parseInt(min.toString().length == 1 ? `${min}0` : min.toString().substr(0, 2));
+        }
+
+        let hours = parseInt(array[0]);
+
+        result = `${hours}h${min}min`
+    } else {
+        diff *= 60;
+        result = `${diff.toFixed(0)}min`
+    }
+
+    return result;
+};
+
+let date1 = new Date('2019-12-27 7:00:00')
+let date2 = new Date('2019-12-27 17:30:00')
+
+console.log(date1)
+
+console.log(getHoursDifference(date1, date2))
+
 
