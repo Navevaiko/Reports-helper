@@ -104,6 +104,7 @@ const downloadByType = (type, json) => {
             break;
         default:
         case "PDF":
+            console.log("json aqio", json)
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);
 

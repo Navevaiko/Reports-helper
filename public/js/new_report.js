@@ -22,7 +22,7 @@ const addReport = card => {
     let commitLink = window.commitLink.value;
     let comment = window.comment.value;
     let cardURL = card.url;
-    console.log(card);
+    console.log('cardi', card);
     console.log("url aqui", card.url);
     console.log("carUrl", cardURL)
     let membersIds = card.members;
