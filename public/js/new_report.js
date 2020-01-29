@@ -23,7 +23,8 @@ const addReport = card => {
     let comment = window.comment.value;
     let cardURL = card.url;
     console.log(card);
-    console.log(card.url);
+    console.log("url aqui", card.url);
+    console.log("carUrl", cardURL)
     let membersIds = card.members;
     let title = card.name;
     let labels = card.labels
