@@ -86,7 +86,7 @@ const createReportElementToPdf = reportData => {
                             <a>
                             <br>
                             <a class="Commit"
-                                href="${commitLink}">
+                                href="${reportData.commitLink}">
                                 Commit
                             </a>
                         </div>
