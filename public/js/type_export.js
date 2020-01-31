@@ -78,27 +78,21 @@ const requestReports = async (card, token, secret) => {
     const { id } = card;
 
 
-    const request;
+    const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    var delay = 2000; //1 seconds
-
-    request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
-    setTimeout(function () {
+    let json = !!request.data[0] ? request.data[0].value : "";
 
 
-        let json = !!request.data[0] ? request.data[0].value : "";
+    if (!json == "") {
 
+        json = getReportsAnyKy(JSON.parse(json))
 
-        if (!json == "") {
+        const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-            json = getReportsAnyKy(JSON.parse(json))
+        arrayUnified.push(jsonUnified)
+    }
+    return arrayUnified;
 
-            const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
-
-            arrayUnified.push(jsonUnified)
-        }
-        return arrayUnified;
-    }, delay);
 }
 
 const downloadByType = (type, json) => {
