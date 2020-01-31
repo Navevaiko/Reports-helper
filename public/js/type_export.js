@@ -74,13 +74,11 @@ const requestReports = async (card, token, secret) => {
     const { id } = card;
 
 
-
+    const request;
 
     var delay = 2000; //1 seconds
     setTimeout(function () {
-
-        const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
-        //your code to be executed after 1 seconds
+        request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
     }, delay);
 
     let json = !!request.data[0] ? request.data[0].value : "";
