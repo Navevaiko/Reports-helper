@@ -41,7 +41,12 @@ window.exportData.addEventListener('submit', async event => {
         trello.hideCard();
 
         //adicionando o campo de duração no json
-        dataCard = dataCard.map(e => fullTime(e));
+
+        try {
+            dataCard = dataCard.map(e => fullTime(e));
+        } catch (error) {
+            dataCard = "00:00"
+        }
 
         downloadByType(typeFile, dataCard);
 
