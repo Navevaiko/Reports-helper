@@ -46,8 +46,8 @@ window.exportData.addEventListener('submit', async event => {
         downloadByType(typeFile, dataCard);
 
     } else {
-        let secret = "5bad37ffdf5d8cf03d17a42f87a65ebd";
-        let token = "36322a845604eb43c155a9c4378e74713b5e9bd5d486f8c421ae3698b08b3d3c";
+        let secret = "26b36127f3188e42bd1e3d188069bc94";
+        let token = "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337";
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
