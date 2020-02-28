@@ -92,12 +92,12 @@ window.exportData.addEventListener('submit', async event => {
         let arrayUnified = await Promise.all(promisseResponse);
 
         console.log("arrayUnified antes: ")
-        console.log(arrayUnified[5])
+        console.log(arrayUnified)
 
         arrayUnified = arrayUnified.flat(2);
 
         console.log("arrayUnified antes 2: ")
-        console.log(arrayUnified.currDate)
+        console.log(arrayUnified)
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
