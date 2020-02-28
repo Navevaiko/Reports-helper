@@ -13,6 +13,9 @@ trello.render(function () {
 
 const fullTime = json => {
 
+    console.log("json do fulltime: ")
+    console.log(json)
+
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
 
@@ -78,13 +81,26 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
+        console.log("CARDS: ")
+        console.log(cards)
+
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
+
+        console.log("promisseResponse: ")
+        console.log(promisseResponse)
+
         let arrayUnified = await Promise.all(promisseResponse);
+
+        console.log("arrayUnified antes: ")
+        console.log(arrayUnified)
 
         arrayUnified = arrayUnified.flat(2);
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
+
+        console.log("arrayUnified depois: ")
+        console.log(arrayUnified)
 
         downloadByType(typeFile, arrayUnified);
     }
