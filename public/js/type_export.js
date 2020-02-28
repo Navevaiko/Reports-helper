@@ -30,8 +30,8 @@ window.exportData.addEventListener('submit', async event => {
 
     const typeFile = window.typeData.value;
 
-    console.log("typeFIle: ")
-    console.log(typeFile)
+    console.log("Trello: ")
+    console.log(trello)
 
     let context = await getCardContent(trello);
 
