@@ -17,7 +17,7 @@ const fullTime = json => {
     json.startTime == undefined ? json.startTime = "0:00:00" : json.startTime
     json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentário" : json.comment
-    json.members.length == 0 ? json.members = "Sem membros" : json.members
+    json.members.length == 0 ? console.log("Sem membros") : json.members
 
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
