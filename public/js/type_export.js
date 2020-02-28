@@ -26,16 +26,14 @@ const fullTime = json => {
 
 window.exportData.addEventListener('submit', async event => {
 
-    console.log("Entrou no submit!")
-
     event.preventDefault();
 
     const typeFile = window.typeData.value;
 
-    let context = await getCardContent(trello);
+    console.log("typeFIle: ")
+    console.log(typeFile)
 
-    console.log("Context: ")
-    console.log(context)
+    let context = await getCardContent(trello);
 
     if (Object.keys(context).length == 1) {
 
