@@ -1,3 +1,4 @@
+console.log("Entrou no type_export")
 
 var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
@@ -13,6 +14,9 @@ trello.render(function () {
 
 
 const fullTime = json => {
+
+    console.log("Teste: " + json.currDate)
+
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
 
@@ -25,6 +29,9 @@ const fullTime = json => {
 }
 
 window.exportData.addEventListener('submit', async event => {
+
+    console.log("Submit clicado, type_export")
+
     event.preventDefault();
 
     const typeFile = window.typeData.value;
@@ -32,6 +39,9 @@ window.exportData.addEventListener('submit', async event => {
     let context = await getCardContent(trello);
 
     if (Object.keys(context).length == 1) {
+
+        console.log("Entrou no if do window.exportData.addEventListener: type_export!!!")
+
         let cardContent = await getCardContent(trello);
         let card = await getCardDetailsById(trello);
 
@@ -44,13 +54,21 @@ window.exportData.addEventListener('submit', async event => {
 
         try {
             dataCard = dataCard.map(e => fullTime(e));
+
+            console.log("Entrou no try do window.exportData.addEventListener: type_export!!!")
+
         } catch (error) {
             dataCard = "00:00"
+
+            console.log(error)
         }
 
         downloadByType(typeFile, dataCard);
 
     } else {
+
+        console.log("Entrou no else do type_export!!!")
+
         let secret2 = ["26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "1cff6db2efeb8e2c6d9b26f15e99b6ff", "26b36127f3188e42bd1e3d188069bc94"];
         let token2 = ["57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "2fc25727851421d048f477ef653f036d40eaceddbfc99d937575ebb5b728f930", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337"];
         let randon = parseInt((Math.random() * 10).toFixed(0));
@@ -78,6 +96,7 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 
+// PARTE QUE ENVIA OS CARTÕES E O TRELLO NÃO PERMITE POR MUITAS REQUISIÇÕES
 const requestReports = async (card, token, secret) => {
     let arrayUnified = [];
     const { id } = card;
@@ -90,11 +109,15 @@ const requestReports = async (card, token, secret) => {
 
     if (!json == "") {
 
+        console.log("Entrou no if do requestReports: type_exports")
+
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
         arrayUnified.push(jsonUnified)
+    } else {
+        console.log("Entrou no else do requestReports: type_exports")
     }
     return arrayUnified;
 
@@ -103,6 +126,9 @@ const requestReports = async (card, token, secret) => {
 const downloadByType = (type, json) => {
     switch (type) {
         case "CSV":
+
+            console.log("case do CSV: type_exports")
+
             json.map((e, i) => json[i].labels = getLabels(e));
             json.map((e, i) => json[i].members = getMembers(e));
 
@@ -110,11 +136,17 @@ const downloadByType = (type, json) => {
 
             break;
         case "JSON":
+            
+            console.log("case do CSV: type_exports")
+
             download(`Relatorio.json`, JSON.stringify(json));
 
             break;
         default:
         case "PDF":
+            
+            console.log("case do CSV: type_exports")
+            
             console.log("json aqio", json)
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);

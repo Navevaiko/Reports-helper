@@ -27,6 +27,7 @@ const addReport = card => {
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
 
+    // TRATAR ERRO NO SALVAMENTO DO CARTÃO, APENAS SALVAR QUANDO TER UMA DATA INICIAL
     if (startTime && endTime && comment) {
         if (endTime > startTime) {
             let report = {
