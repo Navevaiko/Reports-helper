@@ -33,24 +33,28 @@ const addReport = card => {
 
         let dateSplit = currDate.split("/")
 
-        console.log(` dia: ${dateSplit[0]}, hora: ${dateSplit[1]}, ano: ${dateSplit[2]} `)
+        if(dateSplit[0] != undefined || dateSplit[1] != undefined || dateSplit[2] != ""){
 
-        if (endTime > startTime) {
-            let report = {
-                currDate,
-                title,
-                cardURL,
-                membersIds,
-                startTime,
-                endTime,
-                commitLink,
-                comment,
-                labels
-            };
-
-            return addNewReport(trello, report)
+            if (endTime > startTime) {
+                let report = {
+                    currDate,
+                    title,
+                    cardURL,
+                    membersIds,
+                    startTime,
+                    endTime,
+                    commitLink,
+                    comment,
+                    labels
+                };
+    
+                return addNewReport(trello, report)
+            } else {
+                alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+            }
+        } else {
+            alert("Por favor, insira uma data em 'Início de tarefa'")
         }
-        else alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
     }
     else alert('Preencha todos os campos.');
 }
