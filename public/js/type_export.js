@@ -89,7 +89,6 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 
-// Função retorna um array (X)
 const requestReports = async (card, token, secret) => {
 
     let arrayUnified = [];
