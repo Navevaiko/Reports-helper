@@ -95,12 +95,8 @@ window.exportData.addEventListener('submit', async event => {
 // PARTE QUE ENVIA OS CARTÕES E O TRELLO NÃO PERMITE POR MUITAS REQUISIÇÕES
 const requestReports = async (card, token, secret) => {
 
-    console.log("card: ")
-    console.log(card)
-    console.log("token: ")
-    console.log(token)
-    console.log("secret: ")
-    console.log(secret)
+    console.log("card ID: ") // 39
+    console.log(card.id)
 
 
     let arrayUnified = [];
