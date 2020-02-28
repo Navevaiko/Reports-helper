@@ -109,7 +109,7 @@ const requestReports = async (card, token, secret) => {
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    console.log(request.data)
+    console.log(request)
 
     let json = !!request.data[0] ? request.data[0].value : "";
 
