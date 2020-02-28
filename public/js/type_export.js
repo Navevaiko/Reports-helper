@@ -92,7 +92,7 @@ window.exportData.addEventListener('submit', async event => {
         let arrayUnified = await Promise.all(promisseResponse);
 
         console.log("arrayUnified antes: ")
-        console.log(arrayUnified)
+        console.log(arrayUnified[5])
 
         arrayUnified = arrayUnified.flat(2);
 
