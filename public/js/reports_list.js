@@ -10,6 +10,9 @@ window.addEventListener('load', async () => {
 //Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
 
+    console.log("reports: ")
+    console.log(reports)
+
     reportsElementsList = "";
 
     reports.forEach(report => {

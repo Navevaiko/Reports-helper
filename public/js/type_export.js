@@ -13,9 +13,6 @@ trello.render(function () {
 
 const fullTime = json => {
 
-    console.log("json:")
-    console.log(json)
-
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
 
@@ -97,6 +94,15 @@ window.exportData.addEventListener('submit', async event => {
 
 // PARTE QUE ENVIA OS CARTÕES E O TRELLO NÃO PERMITE POR MUITAS REQUISIÇÕES
 const requestReports = async (card, token, secret) => {
+
+    console.log("card: ")
+    console.log(card)
+    console.log("token: ")
+    console.log(token)
+    console.log("secret: ")
+    console.log(secret)
+
+
     let arrayUnified = [];
     const { id } = card;
 
@@ -116,8 +122,8 @@ const requestReports = async (card, token, secret) => {
 
         arrayUnified.push(jsonUnified)
     } else {
+
         console.log("Entrou no else do requestReports: type_exports")
-        console.log(json)
     }
     return arrayUnified;
 
