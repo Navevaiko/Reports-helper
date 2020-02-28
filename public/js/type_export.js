@@ -35,6 +35,9 @@ window.exportData.addEventListener('submit', async event => {
 
     let context = await getCardContent(trello);
 
+    console.log("Context: ")
+    console.log(context)
+
     if (Object.keys(context).length == 1) {
 
         console.log("Entrou no if do window.exportData.addEventListener: type_export!!!")
