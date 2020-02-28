@@ -18,8 +18,6 @@ const fullTime = json => {
     json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentário" : json.comment
 
-    console.log(json.members.length)
-
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
 
@@ -37,17 +35,9 @@ window.exportData.addEventListener('submit', async event => {
 
     const typeFile = window.typeData.value;
 
-    console.log("Trello: ")
-    console.log(trello)
-
     let context = await getCardContent(trello);
 
-    console.log("Context: ")
-    console.log(context)
-
     if (Object.keys(context).length == 1) {
-
-        console.log("Entrou no if do window.exportData.addEventListener: type_export!!!")
 
         let cardContent = await getCardContent(trello);
         let card = await getCardDetailsById(trello);
@@ -62,19 +52,14 @@ window.exportData.addEventListener('submit', async event => {
         try {
             dataCard = dataCard.map(e => fullTime(e));
 
-            console.log("Entrou no try do window.exportData.addEventListener: type_export!!!")
-
         } catch (error) {
             dataCard = "00:00"
 
-            console.log(error)
         }
 
         downloadByType(typeFile, dataCard);
 
     } else {
-
-        console.log("Entrou no else do type_export!!!")
 
         let secret2 = ["26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "1cff6db2efeb8e2c6d9b26f15e99b6ff", "26b36127f3188e42bd1e3d188069bc94"];
         let token2 = ["57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "2fc25727851421d048f477ef653f036d40eaceddbfc99d937575ebb5b728f930", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337"];
@@ -85,30 +70,14 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        console.log("CARDS: ")
-        console.log(cards)
-
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
-
-        console.log("promisseResponse: ")
-        console.log(promisseResponse)
 
         let arrayUnified = await Promise.all(promisseResponse);
 
-        console.log("arrayUnified antes: ")
-        console.log(arrayUnified)
-
         arrayUnified = arrayUnified.flat(2);
-
-        console.log("arrayUnified antes 2: ")
-
-        teste = arrayUnified.map(e => e.startTime == undefined || e.endTime == undefined || e.currDate == undefined ? console.log("Não possui") : console.log("inicio: " + e.startTime + ", fim: " + e.endTime + ", data: " + e.currDate))
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
-
-        console.log("arrayUnified depois: ")
-        console.log(arrayUnified)
 
         downloadByType(typeFile, arrayUnified);
     }
@@ -128,9 +97,6 @@ const requestReports = async (card, token, secret) => {
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    console.log("request: ")
-    console.log(request)
-
     let json = !!request.data[0] ? request.data[0].value : "";
 
     if (!json == "") {
@@ -146,9 +112,6 @@ const requestReports = async (card, token, secret) => {
 }
 
 const downloadByType = (type, json) => {
-
-    console.log(type)
-    console.log(json)
 
     switch (type) {
         case "CSV":

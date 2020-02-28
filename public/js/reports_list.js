@@ -1,5 +1,3 @@
-console.log("Entrou no reports_list")
-
 var trello = TrelloPowerUp.iframe();
 
 //ao carregar a pg
@@ -9,9 +7,6 @@ window.addEventListener('load', async () => {
 
 //Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
-
-    console.log("reports: ")
-    console.log(reports)
 
     reportsElementsList = "";
 
@@ -29,8 +24,6 @@ const createListReportElement = reportDatas => reportDatas.map(e => createReport
 
 const convertToDate = (date, hours) => {
 
-    console.log("converToDate: " + date + ", horas: " + hours)
-
     let dataArray = date.split('/');
     let dateFormat = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
 
@@ -39,9 +32,6 @@ const convertToDate = (date, hours) => {
 
 // função que cria um elemento html de acordo com um jsom em formato correto
 const createReportElementToPdf = reportData => {
-
-    console.log("reportData do reports_list: ")
-    console.log(reportData)
 
     // -------  tratamento de valores ultilizados para criar a pagina html
 
@@ -114,15 +104,12 @@ const createReportElementToPdf = reportData => {
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
 
-    console.log("getHoursDifference do reports_list: " + date1 + ", " + date2)
-
     let result = "00h00min";
     let diff;
 
     try {
         diff = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60;
-
-        console.log("Entrou no try do getHoursDifference do reports_list")
+        
     } catch (error) {
         // return result;
         return error
