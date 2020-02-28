@@ -29,7 +29,7 @@ const addReport = card => {
 
     console.log(currDate)
 
-    if (startTime && endTime && comment) {
+    if (startTime && endTime && comment && currDate) {
         if (endTime > startTime) {
             let report = {
                 currDate,
