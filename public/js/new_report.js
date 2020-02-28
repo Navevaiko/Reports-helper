@@ -29,7 +29,12 @@ const addReport = card => {
 
     console.log(currDate)
 
-    if (startTime && endTime && comment && currDate) {
+    if (startTime && endTime && comment) {
+
+        let dateSplit = currDate.split("/")
+
+        console.log(` dia: ${dateSplit[0]}, hora: ${dateSplit[1]}, ano: ${dateSplit[2]} `)
+
         if (endTime > startTime) {
             let report = {
                 currDate,
