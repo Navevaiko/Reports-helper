@@ -114,6 +114,9 @@ const requestReports = async (card, token, secret) => {
         arrayUnified.push(jsonUnified)
     } 
 
+    console.log("arrayUnified: ")
+    console.log(arrayUnified)
+
     return arrayUnified;
 }
 
