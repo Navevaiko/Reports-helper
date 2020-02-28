@@ -109,23 +109,24 @@ const requestReports = async (card, token, secret) => {
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    console.log(request)
-
     let json = !!request.data[0] ? request.data[0].value : "";
 
 
     if (!json == "") {
 
-        console.log("Entrou no if do requestReports: type_exports")
+        console.log(json)
 
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
+        console.log(jsonUnified)
+
         arrayUnified.push(jsonUnified)
     } else {
 
-        console.log("Entrou no else do requestReports: type_exports")
+        console.log("Não entrou!")
+        console.log(json)
     }
     return arrayUnified;
 
