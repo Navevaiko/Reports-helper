@@ -14,7 +14,7 @@ trello.render(function () {
 const fullTime = json => {
 
     console.log("json do fulltime: ")
-    console.log(json)
+    console.log(json.currDate)
 
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
