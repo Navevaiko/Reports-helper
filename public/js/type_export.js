@@ -92,7 +92,7 @@ window.exportData.addEventListener('submit', async event => {
 
 });
 
-// PARTE QUE ENVIA OS CARTÕES E O TRELLO NÃO PERMITE POR MUITAS REQUISIÇÕES
+// Função retorna um array (X)
 const requestReports = async (card, token, secret) => {
 
     let arrayUnified = [];
@@ -114,17 +114,16 @@ const requestReports = async (card, token, secret) => {
         arrayUnified.push(jsonUnified)
     } 
 
-    console.log("arrayUnified: ")
-    console.log(arrayUnified)
-
     return arrayUnified;
 }
 
 const downloadByType = (type, json) => {
+
+    console.log(type)
+    console.log(json)
+
     switch (type) {
         case "CSV":
-
-            console.log("case do CSV: type_exports")
 
             json.map((e, i) => json[i].labels = getLabels(e));
             json.map((e, i) => json[i].members = getMembers(e));
@@ -133,8 +132,6 @@ const downloadByType = (type, json) => {
 
             break;
         case "JSON":
-            
-            console.log("case do CSV: type_exports")
 
             download(`Relatorio.json`, JSON.stringify(json));
 
@@ -142,9 +139,6 @@ const downloadByType = (type, json) => {
         default:
         case "PDF":
             
-            console.log("case do CSV: type_exports")
-            
-            console.log("json aqio", json)
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);
 
