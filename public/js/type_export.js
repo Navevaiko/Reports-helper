@@ -1,5 +1,3 @@
-console.log("Entrou no type_export")
-
 var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
@@ -15,7 +13,8 @@ trello.render(function () {
 
 const fullTime = json => {
 
-    console.log("Teste: " + json.currDate)
+    console.log("json:")
+    console.log(json)
 
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
@@ -30,13 +29,13 @@ const fullTime = json => {
 
 window.exportData.addEventListener('submit', async event => {
 
-    console.log("Submit clicado, type_export")
-
     event.preventDefault();
 
     const typeFile = window.typeData.value;
 
     let context = await getCardContent(trello);
+
+    console.log(context)
 
     if (Object.keys(context).length == 1) {
 
@@ -118,6 +117,7 @@ const requestReports = async (card, token, secret) => {
         arrayUnified.push(jsonUnified)
     } else {
         console.log("Entrou no else do requestReports: type_exports")
+        console.log(json)
     }
     return arrayUnified;
 
