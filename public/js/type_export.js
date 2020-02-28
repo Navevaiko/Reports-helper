@@ -105,25 +105,16 @@ const requestReports = async (card, token, secret) => {
 
     let json = !!request.data[0] ? request.data[0].value : "";
 
-
     if (!json == "") {
-
-        console.log(json)
 
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        console.log(jsonUnified)
-
         arrayUnified.push(jsonUnified)
-    } else {
+    } 
 
-        console.log("Não entrou!")
-        console.log(json)
-    }
     return arrayUnified;
-
 }
 
 const downloadByType = (type, json) => {
