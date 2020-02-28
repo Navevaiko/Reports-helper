@@ -97,7 +97,8 @@ window.exportData.addEventListener('submit', async event => {
         arrayUnified = arrayUnified.flat(2);
 
         console.log("arrayUnified antes 2: ")
-        console.log(arrayUnified)
+
+        teste = arrayUnified.map(e => console.log(e.startTime))
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
