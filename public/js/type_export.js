@@ -95,15 +95,13 @@ window.exportData.addEventListener('submit', async event => {
 // PARTE QUE ENVIA OS CARTÕES E O TRELLO NÃO PERMITE POR MUITAS REQUISIÇÕES
 const requestReports = async (card, token, secret) => {
 
-    console.log("card ID: ") // 39
-    console.log(card.id)
-
-
     let arrayUnified = [];
     const { id } = card;
 
-
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
+
+    console.log("request: ")
+    console.log(request)
 
     let json = !!request.data[0] ? request.data[0].value : "";
 
