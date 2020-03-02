@@ -28,19 +28,6 @@ const addReport = card => {
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
 
-    console.log("Card: ")
-    console.log(card)
-
-    console.log("tempo inicial: " + startTime)
-    console.log("tempo final: " + endTime)
-    console.log("Commit: " + commitLink)
-    console.log("Comentário: " + comment)
-    console.log("URL do Card: " + cardURL)
-    console.log("Membros IDS: " + membersIds)
-    console.log("Titulo: " + title)
-    console.log("labels: " + labels)
-    console.log("Data: " + currDate)
-
     dateSplit = currDate.split('/')
 
     currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
@@ -61,8 +48,6 @@ const addReport = card => {
                 comment,
                 labels
             };
-
-            alert("Sucesso!")
 
             return addNewReport(trello, report)
         } else {
