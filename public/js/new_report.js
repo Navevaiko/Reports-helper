@@ -47,6 +47,10 @@ const addReport = card => {
     mes = dateSplit[1]
     ano = dateSplit[2]
 
+    console.log(dia)
+    console.log(mes)
+    console.log(ano)
+
     if(dia == undefined ) {
         console.log("DIA VAZIO")
     }
