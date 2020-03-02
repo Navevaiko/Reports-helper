@@ -28,6 +28,19 @@ const addReport = card => {
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
 
+    console.log("Card: ")
+    console.log(card)
+
+    console.log("tempo inicial: " + startTime)
+    console.log("tempo final: " + endTime)
+    console.log("Commit: " + commitLink)
+    console.log("Comentário: " + comment)
+    console.log("URL do Card: " + cardURL)
+    console.log("Membros IDS: " + membersIds)
+    console.log("Titulo: " + title)
+    console.log("labels: " + labels)
+    console.log("Data: " + currDate)
+
     if (startTime && endTime && comment) {
 
         if (endTime > startTime) {

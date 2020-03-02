@@ -70,16 +70,7 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        console.log("cards: ")
-        console.log(cards)
-        console.log(idBoard)
-        console.log(secret)
-        console.log(token)
-
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
-
-        console.log("promisseResponse: ")
-        console.log(promisseResponse)
 
         let arrayUnified = await Promise.all(promisseResponse);
 
@@ -87,9 +78,6 @@ window.exportData.addEventListener('submit', async event => {
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
-
-        console.log("arrayUnified: ")
-        console.log(arrayUnified)
 
         downloadByType(typeFile, arrayUnified);
     }
@@ -116,14 +104,10 @@ const requestReports = async (card, token, secret) => {
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        // if(jsonUnified[0].comment){
-        //     arrayUnified.push(jsonUnified)
-        // }
-
-        console.log("jsonUnified: ")
-        console.log(jsonUnified)
-
-        arrayUnified.push(jsonUnified)
+        // Apenas mostrando cards que possuem relatórios
+        if(jsonUnified[0].comment){
+            arrayUnified.push(jsonUnified)
+        }
     } 
 
     return arrayUnified;
