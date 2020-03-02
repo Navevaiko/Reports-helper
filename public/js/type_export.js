@@ -103,11 +103,14 @@ const requestReports = async (card, token, secret) => {
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        if(jsonUnified[0].comment != ""){
+        if(jsonUnified[0].comment){
             console.log(jsonUnified)
         } else {
             console.log("Não possui comentário")
         }
+
+        console.log("comentario: ")
+        console.log(jsonUnified[0].comment)
 
         arrayUnified.push(jsonUnified)
     } 
