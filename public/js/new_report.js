@@ -43,9 +43,9 @@ const addReport = card => {
 
     dateSplit = currDate.split('/')
 
-    dia = dateSplit[0]; mes = dateSplit[1]; ano = dateSplit[2];
+    currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
 
-    if(dia == 'undefined' || mes == 'undefined' || ano == "") return alert("Insira uma data em 'Início da tarefa'")
+    if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
     if (startTime && endTime && comment) {
 
@@ -64,7 +64,7 @@ const addReport = card => {
 
             alert("Sucesso!")
 
-            // return addNewReport(trello, report)
+            return addNewReport(trello, report)
         } else {
             alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
         }
