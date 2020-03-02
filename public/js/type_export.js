@@ -70,8 +70,6 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        console.log(cards)
-
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
         let arrayUnified = await Promise.all(promisseResponse);
@@ -80,6 +78,8 @@ window.exportData.addEventListener('submit', async event => {
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
+
+        console.log(arrayUnified)
 
         downloadByType(typeFile, arrayUnified);
     }
