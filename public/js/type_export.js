@@ -79,6 +79,9 @@ window.exportData.addEventListener('submit', async event => {
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
 
+        console.log("arrayUnified: ")
+        console.log(arrayUnified)
+
         downloadByType(typeFile, arrayUnified);
     }
 
