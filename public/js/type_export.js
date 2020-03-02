@@ -79,8 +79,6 @@ window.exportData.addEventListener('submit', async event => {
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
 
-        console.log(arrayUnified)
-
         downloadByType(typeFile, arrayUnified);
     }
 
@@ -92,6 +90,10 @@ window.exportData.addEventListener('submit', async event => {
 });
 
 const requestReports = async (card, token, secret) => {
+
+    console.log(card)
+    console.log(token)
+    console.log(secret)
 
     let arrayUnified = [];
     const { id } = card;
