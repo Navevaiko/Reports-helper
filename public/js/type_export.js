@@ -13,9 +13,9 @@ trello.render(function () {
 
 const fullTime = json => {
 
-    json.currDate == undefined ? json.currDate = "00/00/0000" : json.currDate
-    json.startTime == undefined ? json.startTime = "0:00:00" : json.startTime
-    json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
+    json.currDate == undefined ? json.currDate = "--/--/----" : json.currDate
+    json.startTime == undefined ? json.startTime = "-:--:--" : json.startTime
+    json.endTime == undefined ? json.endTime = "-:--:--" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentário" : json.comment
 
     let data1 = convertToDate(json.currDate, json.startTime);
@@ -56,6 +56,10 @@ window.exportData.addEventListener('submit', async event => {
             dataCard = "00:00"
 
         }
+
+        console.log("dataCarD: ")
+
+        console.log(dataCard)
 
         downloadByType(typeFile, dataCard);
 
@@ -104,6 +108,7 @@ const requestReports = async (card, token, secret) => {
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
+        console.log('jsonUnified: ')
         console.log(jsonUnified)
 
         arrayUnified.push(jsonUnified)
