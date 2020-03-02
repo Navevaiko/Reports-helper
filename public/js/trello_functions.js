@@ -32,9 +32,15 @@ const addNewReport = (trello, report) => {
     getReports(trello).then(function (reports) {
         reports.push(report);
 
+        reportsElementsList = createReportElement(report);
+
         trello
             .set('card', reportsVisibility, myKey, report)
-            .then(function () { trello.closeModal(); })
+            .then(function () { 
+                trello.closeModal(); 
+                
+                window.reportsList.innerHTML = {reportsElementsList, ...reports};
+            })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
             });
