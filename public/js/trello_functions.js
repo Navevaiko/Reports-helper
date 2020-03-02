@@ -9,24 +9,6 @@ const showNewReportModal = trello => {
     })
 }
 
-const createReportElement = reportData => {
-    let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
-    let mainElement = "";
-
-    mainElement = `<li class='report'> 
-                        <p id=\txt_info\">   ${reportData.comment} </p> 
-                        <span><a href='  ${reportData.commitLink}' target='_blank'> Commit </a></span>
-                        ${(reportData.attachments ? attachmentsElement : "")}
-                        <div class='datetimeInfo'> 
-                            <span> ${reportData.currDate} </span> 
-                            <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
-                        </div>
-                        <div class="remove_report" id="${reportData.key}">X</div>
-                    </li><hr/>`;
-
-    return mainElement;
-}
-
 const showConfirmationDialogue = trello => {
     return trello.popup({
         title: "Excluir relátorio?",
@@ -52,22 +34,9 @@ const addNewReport = (trello, report) => {
 
         trello
             .set('card', reportsVisibility, myKey, report)
-            .then(function () { 
-                trello.closeModal(); 
-                
-                reportsElementsList = "";
-
-                reports.forEach(report => {
-                    reportsElementsList += createReportElement(report);
-                });
-
-                window.reportsList.innerHTML = reportsElementsList;
-
-            })
+            .then(function () { trello.closeModal(); })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
-
-                console.log(error)
             });
 
     });
