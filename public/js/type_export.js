@@ -91,10 +91,6 @@ window.exportData.addEventListener('submit', async event => {
 
 const requestReports = async (card, token, secret) => {
 
-    console.log(card)
-    console.log(token)
-    console.log(secret)
-
     let arrayUnified = [];
     const { id } = card;
 
@@ -107,6 +103,8 @@ const requestReports = async (card, token, secret) => {
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
+
+        console.log(jsonUnified)
 
         arrayUnified.push(jsonUnified)
     } 
