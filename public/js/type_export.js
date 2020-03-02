@@ -16,7 +16,6 @@ const fullTime = json => {
     json.currDate == undefined ? json.currDate = "--/--/----" : json.currDate
     json.startTime == undefined ? json.startTime = "-:--:--" : json.startTime
     json.endTime == undefined ? json.endTime = "-:--:--" : json.endTime
-    json.comment == undefined ? json.comment = "Sem comentário" : json.comment
 
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
@@ -56,10 +55,6 @@ window.exportData.addEventListener('submit', async event => {
             dataCard = "00:00"
 
         }
-
-        console.log("dataCarD: ")
-
-        console.log(dataCard)
 
         downloadByType(typeFile, dataCard);
 
@@ -108,8 +103,11 @@ const requestReports = async (card, token, secret) => {
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        console.log('jsonUnified: ')
-        console.log(jsonUnified)
+        if(jsonUnified[0].comment != ""){
+            console.log(jsonUnified)
+        } else {
+            console.log("Não possui comentário")
+        }
 
         arrayUnified.push(jsonUnified)
     } 
