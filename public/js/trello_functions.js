@@ -44,6 +44,8 @@ const addNewReport = (trello, report) => {
             });
 
     });
+    
+    loadReportsList(await getReports(trello))
 }
 
 const getReports = async trello => {
