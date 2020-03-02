@@ -49,6 +49,10 @@ const addReport = card => {
 
     console.log("dia: " + dia + ", mês: " + mes + ", ano: " + ano)
 
+    if(dia == undefined || mes == undefined || ano == "") {
+        console.log("Algum campo está vazio!")
+    }
+
     if (startTime && endTime && comment) {
 
         if (endTime > startTime) {
