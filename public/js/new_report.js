@@ -32,9 +32,9 @@ const addReport = card => {
 
     currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
 
-    if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
-
     if (startTime && endTime && comment) {
+
+        if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
         if (endTime > startTime) {
             let report = {
