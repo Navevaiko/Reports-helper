@@ -72,6 +72,9 @@ window.exportData.addEventListener('submit', async event => {
 
         console.log("cards: ")
         console.log(cards)
+        console.log(idBoard)
+        console.log(secret)
+        console.log(token)
 
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
