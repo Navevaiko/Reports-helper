@@ -41,6 +41,14 @@ const addReport = card => {
     console.log("labels: " + labels)
     console.log("Data: " + currDate)
 
+    dateSplit = currDate.split('/')
+
+    dia = dateSplit[0]
+    mes = dateSplit[1]
+    ano = dateSplit[2]
+
+    console.log("dia: " + dia + ", mês: " + mes + ", ano: " + ano)
+
     if (startTime && endTime && comment) {
 
         if (endTime > startTime) {
