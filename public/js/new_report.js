@@ -47,31 +47,32 @@ const addReport = card => {
     mes = dateSplit[1]
     ano = dateSplit[2]
 
-    console.log("dia: " + dia + ", mês: " + mes + ", ano: " + ano)
+    if(dia != undefined || mes != undefined || ano != "") {
 
-    if(dia == undefined || mes == undefined || ano == "") {
-        console.log("Algum campo está vazio!")
-    }
+        if (startTime && endTime && comment) {
 
-    if (startTime && endTime && comment) {
+            if (endTime > startTime) {
+                let report = {
+                    currDate,
+                    title,
+                    cardURL,
+                    membersIds,
+                    startTime,
+                    endTime,
+                    commitLink,
+                    comment,
+                    labels
+                };
+    
+                alert("Sucesso!")
 
-        if (endTime > startTime) {
-            let report = {
-                currDate,
-                title,
-                cardURL,
-                membersIds,
-                startTime,
-                endTime,
-                commitLink,
-                comment,
-                labels
-            };
-
-            return addNewReport(trello, report)
-        } else {
-            alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+                return addNewReport(trello, report)
+            } else {
+                alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+            }
         }
+
+    } else {
+       alert("Preencha todos os campos!")
     }
-    else alert('Preencha todos os campos.');
 }
