@@ -54,4 +54,5 @@ const addReport = card => {
             alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
         }
     }
+    else alert("Preencha todos os campos!")
 }
