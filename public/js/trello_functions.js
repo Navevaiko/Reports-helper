@@ -3,15 +3,7 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => {
 
-    console.log(trello)
-
-    if(trello.showCard()) {
-        console.log("Abriu modal")
-    }
-
-    if(trello.hideCard()) {
-        console.log("Fechou modal")
-    }
+    trello.hideModal()
     
     return trello.modal({
         title: 'Novo relatório',
