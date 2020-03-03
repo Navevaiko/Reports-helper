@@ -5,6 +5,10 @@ window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
 });
 
+window.onbeforeunload = function() {
+    return alert("Fechou modal")
+};
+
 //Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
 

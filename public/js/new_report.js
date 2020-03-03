@@ -11,6 +11,10 @@ window.newReport.addEventListener('submit', async event => {
     addReport(JSON.stringify(card));
 });
 
+window.onbeforeunload = function() {
+    return alert("Fechou modal")
+};
+
 const toDate = dateStr => {
     var parts = dateStr.split("-");
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
