@@ -4,7 +4,6 @@ var reportsVisibility = 'shared'
 const showNewReportModal = trello => {
 
     console.log(trello)
-    console.log(trello.getAll())
 
     if(trello.showCard()) {
         console.log("Abriu modal")
