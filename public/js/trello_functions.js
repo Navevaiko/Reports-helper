@@ -25,27 +25,6 @@ const showTypesDataExport = trello => {
 
 const addNewReport = (trello, report) => {
 
-    reportList = document.getElementById(reportsList)
-
-    console.log(reportsList)
-
-    let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
-
-    mainElement = `<li class='report'> 
-                        <p id=\txt_info\">   ${report.comment} </p> 
-                        <span><a href='  ${report.commitLink}' target='_blank'> Commit </a></span>
-                        ${(report.attachments ? attachmentsElement : "")}
-                        <div class='datetimeInfo'> 
-                            <span> ${report.currDate} </span> 
-                            <span> ${report.startTime} ás ${report.endTime} </span> 
-                        </div>
-                        <div class="remove_report" id="${report.key}">X</div>
-                    </li><hr/>`;
-
-    reportList.innerHTML += mainElement;
-
-    console.log(mainElement)
-
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
 
@@ -58,6 +37,8 @@ const addNewReport = (trello, report) => {
             .then(function () { trello.closeModal(); })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
+
+                console.log(error)
             });
 
     });

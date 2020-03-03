@@ -8,6 +8,10 @@ window.newReport.addEventListener('submit', async event => {
 
     card = await getCardDetailsById(trello);
 
+    list = document.getElementById(reportsList)
+
+    console.log(list)
+
     addReport(JSON.stringify(card));
 });
 
@@ -17,6 +21,8 @@ const toDate = dateStr => {
 }
 
 const addReport = card => {
+
+    console.log(reportList)
 
     let startTime = window.startTime.value;
     let endTime = window.endTime.value;
