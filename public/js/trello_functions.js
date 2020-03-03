@@ -25,6 +25,10 @@ const showTypesDataExport = trello => {
 
 const addNewReport = (trello, report) => {
 
+    const newReportElement = createReportElement(report)
+
+    console.log(newReportElement)
+
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
 
