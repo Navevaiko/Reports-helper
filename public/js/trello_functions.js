@@ -25,6 +25,10 @@ const showTypesDataExport = trello => {
 
 const addNewReport = (trello, report) => {
 
+    reportList = document.getElementById(reportsList)
+
+    console.log(reportsList)
+
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
 
     mainElement = `<li class='report'> 
@@ -38,7 +42,7 @@ const addNewReport = (trello, report) => {
                         <div class="remove_report" id="${report.key}">X</div>
                     </li><hr/>`;
 
-    window.reportsList.innerHTML += mainElement;
+    reportList.innerHTML += mainElement;
 
     console.log(mainElement)
 
