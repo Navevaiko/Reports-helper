@@ -8,10 +8,6 @@ window.newReport.addEventListener('submit', async event => {
 
     card = await getCardDetailsById(trello);
 
-    var list = window.reportsList
-
-    console.log(list)
-
     addReport(JSON.stringify(card));
 });
 
