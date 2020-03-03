@@ -1,10 +1,10 @@
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
-const showNewReportModal = trello => {
+const showNewReportModal = trello => {  
 
-    trello.hideModal()
-    
+    console.log(trello)
+
     return trello.modal({
         title: 'Novo relatório',
         url: 'new_report',
