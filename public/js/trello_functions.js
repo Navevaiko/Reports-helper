@@ -3,7 +3,7 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => {  
 
-    console.log(trello) 
+    console.log(window)
 
     return trello.modal({
         title: 'Novo relatório',
@@ -38,19 +38,7 @@ const addNewReport = (trello, report) => {
         trello
             .set('card', reportsVisibility, myKey, report)
             .then(function () {
-                trello.closeModal(); 
-
-                var teste = document.querySelector("#reportsList")
-
-                var teste2 = document.querySelectorAll(".report")
-
-                console.log(teste2)
-
-                console.log(teste)
-
-                console.log(window)
-
-                
+                trello.closeModal();                 
             })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
