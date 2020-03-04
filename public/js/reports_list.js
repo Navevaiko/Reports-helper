@@ -38,6 +38,8 @@ const loadReportsList = reports => {
         var report = element.parentNode
         var reportsList = report.parentNode
 
+        console.log(reportsList)
+
         reportsList.removeChild(report);
 
         deleteReport(element)
