@@ -38,9 +38,11 @@ const loadReportsList = reports => {
         var report = element.parentNode
         var reportsList = report.parentNode
 
-        var hr = report.closest("hr");
+        var hr = report.closest("li");
+        var hr2 = report.closest("ol");
         
         console.log(hr)
+        console.log(hr2)
 
         reportsList.removeChild(report);
 
