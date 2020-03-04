@@ -1,5 +1,11 @@
 console.log("trello_functions chamada...")
 
+var teste2 = document.querySelector('#button-test')
+var reportsList2 = document.querySelector('#reportsList')
+
+console.log(teste2)
+console.log(reportsList2)
+
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
