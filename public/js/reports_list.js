@@ -35,11 +35,10 @@ const loadReportsList = reports => {
 
     allElements.map(element => element.addEventListener('click', () => {
 
+        // REMOVENDO RELATÓRIO DA LISTA
         var report = element.parentNode
         var reportDiv = report.parentNode
         var reportsList = reportDiv.parentNode
-
-        console.log(reportsList)
 
         reportsList.removeChild(reportDiv);
 
