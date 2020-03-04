@@ -1,9 +1,5 @@
 console.log("new_report chamada...")
 
-var teste = document.querySelector('.plugin-modal')
-
-console.log(teste)
-
 var trello = TrelloPowerUp.iframe();
 
 resize(trello, '#newReport')
