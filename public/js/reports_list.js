@@ -27,7 +27,7 @@ const loadReportsList = reports => {
         reportsElementsList += createReportElement(report);
     });
     
-    window.reportsList.innerHTML = reportsElementsList;
+    window.reportsList.innerHTML = reportsElementsList; 
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".remove_report"));
 
@@ -37,14 +37,6 @@ const loadReportsList = reports => {
 
         var report = element.parentNode
         var reportsList = report.parentNode
-
-        var hr8 = reportsList.closest("hr");
-        var hr7 = report.closest("hr");
-        var hr6 = element.closest("hr");
-        
-        console.log(hr8)
-        console.log(hr7)
-        console.log(hr6)
 
         reportsList.removeChild(report);
 
@@ -198,7 +190,8 @@ const createReportElement = reportData => {
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
                         <div class="remove_report" id="${reportData.key}">X</div>
-                    </li><hr/>`;
+                        </hr>
+                    </li>`;
 
     return mainElement;
 }
