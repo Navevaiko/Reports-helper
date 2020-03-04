@@ -35,9 +35,7 @@ const loadReportsList = reports => {
 
     allElements.map(element => element.addEventListener('click', () => {
 
-        // window.reportsList.innerHTML -= element.parentNode;
-
-        console.log(element.parentNode)
+        element.parentNode.removeChild(element);
 
         deleteReport(element)
     }))
