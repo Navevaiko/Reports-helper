@@ -11,18 +11,16 @@
     text-align: justify;
 }
 .report {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     max-width: 490px;
     max-height: 80px;
     margin-top: 5px;
     margin-bottom: 20px;
     border-bottom: solid 1px rgba(0,0,0,.1);
     padding-bottom: 15px;
-}
-.report div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 .report p {
     width: 230px;
