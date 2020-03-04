@@ -1,5 +1,11 @@
 console.log("reports_list chamada...")
 
+var teste2 = document.querySelector('#button-test')
+var reportsList2 = document.querySelector('#reportsList')
+
+console.log(teste2)
+console.log(reportsList2)
+
 var trello = TrelloPowerUp.iframe();
 
 var teste = document.querySelector('#button-test')
