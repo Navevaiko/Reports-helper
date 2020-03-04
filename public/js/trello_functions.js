@@ -1,8 +1,10 @@
 console.log("trello_functions chamada...")
 
-var teste = document.querySelector('.plugin-modal')
+var teste2 = document.querySelector('#button-test')
+var reportsList2 = document.querySelector('#reportsList')
 
-console.log(teste)
+console.log(teste2)
+console.log(reportsList2)
 
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
