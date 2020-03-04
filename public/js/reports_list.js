@@ -1,14 +1,6 @@
 console.log("reports_list chamada...")
 
 var trello = TrelloPowerUp.iframe();
-
-var teste = document.querySelector('#button-test')
-var reportsList = document.querySelector('#reportsList')
-
-teste.addEventListener('click', function() {
-    reportsList.innerHTML += "<h1>CONTEÚDO INSERIDO</h1>"
-})
-
 //ao carregar a pg
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
