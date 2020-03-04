@@ -1,15 +1,5 @@
 console.log("trello_functions chamada...")
 
-var teste2 = document.querySelector('#button-test')
-var reportsList2 = document.querySelector('#reportsList')
-
-var a = document.querySelector(".plugin-chrome-close-button")
-
-console.log(a)
-
-console.log(teste2)
-console.log(reportsList2)
-
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 

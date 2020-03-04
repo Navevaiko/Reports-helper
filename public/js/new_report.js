@@ -11,6 +11,10 @@ window.newReport.addEventListener('submit', async event => {
     card = await getCardDetailsById(trello);
 
     addReport(JSON.stringify(card));
+
+    var reportsList = document.querySelector('#reportsList')
+    
+    console.log(reportsList)
 });
 
 const toDate = dateStr => {
