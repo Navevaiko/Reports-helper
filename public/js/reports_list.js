@@ -1,3 +1,5 @@
+console.log("reports_list chamada...")
+
 var trello = TrelloPowerUp.iframe();
 
 var teste = document.querySelector('#button-test')

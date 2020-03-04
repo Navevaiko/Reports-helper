@@ -1,3 +1,5 @@
+console.log("trello_functions chamada...")
+
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 

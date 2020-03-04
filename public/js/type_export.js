@@ -1,3 +1,5 @@
+console.log("type_export chamada...")
+
 var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
