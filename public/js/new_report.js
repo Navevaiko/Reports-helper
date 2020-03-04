@@ -1,6 +1,6 @@
 console.log("new_report chamada...")
 
-var teste = document.querySelectorAll('.plugin-modal')
+var teste = document.querySelector('.plugin-modal')
 
 console.log(teste)
 
