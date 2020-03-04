@@ -17,9 +17,7 @@ const loadReportsList = reports => {
     reports.forEach(report => {
         reportsElementsList += createReportElement(report);
     });
-
-    console.log(window.reportsList)
-
+    
     window.reportsList.innerHTML = reportsElementsList;
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".remove_report"));

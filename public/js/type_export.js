@@ -9,8 +9,6 @@ trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
 
-
-
 const fullTime = json => {
 
     json.currDate == undefined ? json.currDate = "--/--/----" : json.currDate
