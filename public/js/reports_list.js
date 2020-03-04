@@ -2,7 +2,9 @@ var trello = TrelloPowerUp.iframe();
 
 var teste = document.querySelector('#button-test')
 
-console.log(teste)
+teste.addEventListener('click', function() {
+    alert("Você clicou no botão")
+})
 
 //ao carregar a pg
 window.addEventListener('load', async () => {
