@@ -11,25 +11,17 @@
     text-align: justify;
 }
 .report {
-    display: flex;
-    flex-direction: row;
-    max-width: 490px;
-    max-height: 80px;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-}
-/* .report {
     max-width: 490px;
     max-height: 80px;
     margin-top: 5px;
+    margin-bottom: 10px;
 }
 .report div{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-} */
+}
 .report p {
     width: 230px;
     height: 60px;
