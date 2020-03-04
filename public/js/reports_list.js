@@ -176,7 +176,7 @@ const createReportElement = reportData => {
     let mainElement = "";
 
     mainElement = `<li class='report'> 
-                        <div style="width: 100%">
+                        <div>
                             <p id=\txt_info\">   ${reportData.comment} </p> 
                             <span><a href='  ${reportData.commitLink}' target='_blank'> Commit </a></span>
                             ${(reportData.attachments ? attachmentsElement : "")}
