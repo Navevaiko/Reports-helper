@@ -34,6 +34,9 @@ const loadReportsList = reports => {
     console.log(allElements)
 
     allElements.map(element => element.addEventListener('click', () => {
+
+        console.log(element)
+
         deleteReport(element)
     }))
 }
