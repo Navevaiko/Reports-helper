@@ -190,7 +190,7 @@ const createReportElement = reportData => {
                             <span> ${reportData.startTime} ás ${reportData.endTime} </span> 
                         </div>
                         <div class="remove_report" id="${reportData.key}">X</div>
-                        </hr>
+                        <hr>
                     </li>`;
 
     return mainElement;
