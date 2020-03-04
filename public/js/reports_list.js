@@ -30,7 +30,12 @@ const loadReportsList = reports => {
     window.reportsList.innerHTML = reportsElementsList;
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".remove_report"));
-    allElements.map(element => element.addEventListener('click', () => deleteReport(element)));
+
+    console.log(allElements)
+
+    allElements.map(element => element.addEventListener('click', () => {
+        deleteReport(element)
+    }))
 }
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
