@@ -1,5 +1,9 @@
 var trello = TrelloPowerUp.iframe();
 
+var teste = document.querySelector('#button-test')
+
+console.log(teste)
+
 //ao carregar a pg
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
