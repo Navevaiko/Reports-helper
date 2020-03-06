@@ -29,29 +29,9 @@ h3{
     width: 490px;
 }
 
-html::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-/* Track */
-html::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-html::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-/* Handle on hover */
-html::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-
 body::-webkit-scrollbar {
     width: 10px;
-  }
+}
   
 /* Track */
 body::-webkit-scrollbar-track {
@@ -61,6 +41,7 @@ body::-webkit-scrollbar-track {
 /* Handle */
 body::-webkit-scrollbar-thumb {
     background: #888;
+    border-radius: 5px;
 }
 
 /* Handle on hover */
