@@ -184,9 +184,9 @@ const createReportElement = reportData => {
     //                     <div class="remove_report" id="${reportData.key}">X</div>
     //                 </li>`;
 
-    var commitLink;
+    var commitLink = reportData.commitLink;
 
-    reportData.commitLink.length > 60 ? commitLink = reportData.commitLink.substring(0,60) + "..." : commitLink = reportData.commitLink 
+    commitLink.length > 60 ? commitLink = commitLink.substring(0,60) + "..." : commitLink 
 
     commitLink ? commitLink : "Sem commit"
 
