@@ -26,24 +26,45 @@ h3{
 .li_report{
     list-style-type: none;
     margin-top: 20px;
+    width: 490px;
 }
 
-#reportsList::-webkit-scrollbar {
+html::-webkit-scrollbar {
     width: 10px;
   }
   
 /* Track */
-#reportsList::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
 /* Handle */
-#reportsList::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
     background: #888;
 }
 
 /* Handle on hover */
-#reportsList::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
