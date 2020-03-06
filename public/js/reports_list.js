@@ -190,7 +190,7 @@ const createReportElement = reportData => {
 
     commitLink ? commitLink : "Sem commit"
 
-    console.log(commitLink)
+    console.log(commitLink.length)
 
     mainElement =  `<li class='li_report'> 
                         <div class="report">
