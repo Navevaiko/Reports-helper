@@ -91,6 +91,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 14px !important;
 }
 .commit_details a{
+    text-decoration: none;
     color: black;
 }
 .pCommit, .pDate{
@@ -98,9 +99,6 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 13px;
     font-family: sans-serif;
     box-sizing: border-box;
-}
-.pCommit{
-    opacity: 0.8;
 }
 .pDate{
     padding-top: 1px;
