@@ -109,7 +109,8 @@ const requestReports = async (card, token, secret) => {
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        console.log(jsonUnified[0])
+        if(jsonUnified[0])
+            console.log(jsonUnified[0])
 
         // Apenas mostrando cards que possuem relatórios
         // if(jsonUnified[0].comment){
