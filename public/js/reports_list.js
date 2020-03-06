@@ -186,12 +186,11 @@ const createReportElement = reportData => {
 
     var commitLink = reportData.commitLink;
 
-    commitLink.length > 60 ? commitLink = commitLink.substring(0,50) + "..." : commitLink 
-
-    commitLink ? commitLink : "Sem commit"
+    if(commitLink.length > 50)
+        commitLink = commitLink.substring(0,50) + "..."
 
     if(!commitLink)
-        console.log("Não possui commit")
+        commitLink = "Sem commit"
 
     mainElement =  `<li class='li_report'> 
                         <div class="report">
