@@ -13,10 +13,15 @@ trello.render(function () {
 
 const fullTime = json => {
 
+    console.log(json)
+    console.log(json.comment)
+
     json.currDate == undefined ? json.currDate = "--/--/----" : json.currDate
     json.startTime == undefined ? json.startTime = "-:--:--" : json.startTime
     json.endTime == undefined ? json.endTime = "-:--:--" : json.endTime
-    json.comment == undefined ? json.comment = "Sem comentários" : json.comment
+
+    if(json.comment)
+        json.comment == undefined ? json.comment = "Sem comentários" : json.comment
 
     let data1 = convertToDate(json.currDate, json.startTime);
     let data2 = convertToDate(json.currDate, json.endTime);
