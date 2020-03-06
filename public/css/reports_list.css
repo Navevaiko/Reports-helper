@@ -28,6 +28,25 @@ h3{
     margin-top: 20px;
 }
 
+.li_report::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+.li_report::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.li_report::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.li_report::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /* Comentário e detalhes do relatório */
 .comment_report{
     padding: 15px 15px 25px 15px;
