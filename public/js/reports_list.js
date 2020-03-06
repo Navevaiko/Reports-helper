@@ -174,16 +174,40 @@ const createReportElement = reportData => {
     let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
     let mainElement = "";
 
-    mainElement =  `<li class='report'> 
-                        <p id=\txt_info\">${reportData.comment}</p> 
-                        <span><a href='${reportData.commitLink}' target='_blank'>Commit</a></span>
-                        ${(reportData.attachments ? attachmentsElement : "")}
-                        <div class='datetimeInfo'> 
-                            <span>${reportData.currDate}</span> 
-                            <span>${reportData.startTime} ás ${reportData.endTime}</span> 
+    // mainElement =  `<li class='report'> 
+    //                     <p id=\txt_info\">${reportData.comment}</p> 
+    //                     <span><a href='${reportData.commitLink}' target='_blank'>Commit</a></span>
+    //                     ${(reportData.attachments ? attachmentsElement : "")}
+    //                     <div class='datetimeInfo'> 
+    //                         <span>${reportData.currDate}</span> 
+    //                         <span>${reportData.startTime} ás ${reportData.endTime}</span> 
+    //                     </div>
+    //                     <div class="remove_report" id="${reportData.key}">X</div>
+    //                 </li>`;
+
+
+    mainElement =  `<li class='li_report'> 
+                        <div class="report">
+                            <div class="remove_report" id="${reportData.key}">
+                                <img class="img_remove_report" src="./img/close.png" alt="">
+                            </div>
+                            <div class="comment_report">
+                                <h3>Comentário: </h3>
+                                <p class="pComment">${reportData.comment}</p>
+                            </div>
+                            <div class="details_report">
+                                <div class="date_details">
+                                    <h3>Data: </h3>
+                                    <p class="pDate">${reportData.currDate} - ${reportData.startTime} ás ${reportData.endTime}</p>
+                                </div>
+                                <div class="commit_details">
+                                    <h3>Commit: </h3>
+                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">https://reports-helper.herokuapp.com/reports_list</p></a>
+                                </div>
+                            </div>
+                            ${(reportData.attachments ? attachmentsElement : "")}
                         </div>
-                        <div class="remove_report" id="${reportData.key}">X</div>
-                    </li>`;
+                    </li>`
 
     return mainElement;
 }
