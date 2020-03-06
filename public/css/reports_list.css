@@ -1,3 +1,7 @@
+html{
+    overflow-x: hidden;
+}
+
 h3{
     font-family: sans-serif;
     font-size: 15px;
