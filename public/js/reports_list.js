@@ -185,6 +185,8 @@ const createReportElement = reportData => {
     //                 </li>`;
 
 
+    console.log(reportData.commitLink)
+
     mainElement =  `<li class='li_report'> 
                         <div class="report">
                             <div class="remove_report" id="${reportData.key}">
