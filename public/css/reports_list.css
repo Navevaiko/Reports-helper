@@ -91,21 +91,19 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 14px !important;
 }
 .commit_details a{
-    text-decoration: none;
     color: black;
 }
 .pCommit, .pDate{
     margin-left: 10px;
-    font-size: 14px;
-    font-family: 'Roboto';
-    padding-top: 2px;
+    font-size: 13px;
+    font-family: sans-serif;
     box-sizing: border-box;
 }
 
 /* Comentário */
 .pComment{
     text-align: justify;
-    font-family: 'Roboto';
+    font-family: sans-serif;
     font-size: 14px;
     line-height: 1.5;
 }
