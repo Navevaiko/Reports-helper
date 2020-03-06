@@ -21,17 +21,16 @@ const loadReportsList = reports => {
     
     window.reportsList.innerHTML = reportsElementsList; 
 
-    let allElements = Array.prototype.slice.call(document.querySelectorAll(".remove_report"));
-
-    console.log(allElements)
+    let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
     allElements.map(element => element.addEventListener('click', () => {
 
         // REMOVENDO RELATÓRIO DA LISTA
         var report = element.parentNode
-        var reportsList = report.parentNode
+        var reportsDiv = report.parentNode
+        var reportsList = reportsDiv.parentNode
 
-        reportsList.removeChild(report);
+        reportsList.removeChild(reportsDiv);
 
         deleteReport(element)
     }))
@@ -189,7 +188,7 @@ const createReportElement = reportData => {
     mainElement =  `<li class='li_report'> 
                         <div class="report">
                             <div class="remove_report" id="${reportData.key}">
-                                <img class="img_remove_report" src="./img/close.png" alt="">
+                                <img class="img_remove_report" src="https://pngimage.net/wp-content/uploads/2018/05/close-png-6.png" alt="">
                             </div>
                             <div class="comment_report">
                                 <h3>Comentário: </h3>
