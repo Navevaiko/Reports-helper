@@ -184,9 +184,7 @@ const createReportElement = reportData => {
     //                     <div class="remove_report" id="${reportData.key}">X</div>
     //                 </li>`;
 
-    // var reduced_commit_details = reportData.commit_details.substring(0,50)
-
-    console.log(reportData)
+    console.log(reportData.commitLink.substring(0,50))
 
     mainElement =  `<li class='li_report'> 
                         <div class="report">
@@ -204,7 +202,7 @@ const createReportElement = reportData => {
                                 </div>
                                 <div class="commit_details">
                                     <h3>Commit: </h3>
-                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${reportData.commit_details}</p></a>
+                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${reportData.commitLink}</p></a>
                                 </div>
                             </div>
                             ${(reportData.attachments ? attachmentsElement : "")}
