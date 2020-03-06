@@ -15,7 +15,7 @@ h3{
 
 /* Icone de fechar modal */
 .remove_report{
-    width: 100%;
+    width: 478px;
     height: 20px;
     display: flex;
     justify-content: flex-end;
@@ -32,7 +32,7 @@ h3{
 .li_report{
     list-style-type: none;
     margin-top: 20px;
-    width: 490px;
+    width: 480px;
 }
 
 body::-webkit-scrollbar {
