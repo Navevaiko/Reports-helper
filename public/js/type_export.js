@@ -13,6 +13,9 @@ trello.render(function () {
 
 const fullTime = json => {
 
+    console.log('json: ')
+    console.log(json)
+
     json.currDate == undefined ? json.currDate = "00/00/0000" : json.currDate
     json.startTime == undefined ? json.startTime = "0:00:00" : json.startTime
     json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
@@ -91,6 +94,15 @@ window.exportData.addEventListener('submit', async event => {
 
 const requestReports = async (card, token, secret) => {
 
+    console.log("card: ")
+    console.log(card)
+
+    console.log("token: ")
+    console.log(token)
+
+    console.log("secret: ")
+    console.log(secret)
+
     let arrayUnified = [];
     const { id } = card;
 
@@ -103,6 +115,9 @@ const requestReports = async (card, token, secret) => {
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
+
+        console.log("jsonUnified: ")
+        console.log(jsonUnified)
 
         // Apenas mostrando cards que possuem relatórios
         if(jsonUnified[0])
