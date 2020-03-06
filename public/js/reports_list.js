@@ -186,6 +186,8 @@ const createReportElement = reportData => {
 
     // var reduced_commit_details = reportData.commit_details.substring(0,50)
 
+    console.log(reportData.commit_details)
+
     mainElement =  `<li class='li_report'> 
                         <div class="report">
                             <div class="remove_report" id="${reportData.key}">
