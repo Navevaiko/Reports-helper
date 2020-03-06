@@ -13,9 +13,9 @@ trello.render(function () {
 
 const fullTime = json => {
 
-    json.currDate == undefined ? json.currDate = "--/--/----" : json.currDate
-    json.startTime == undefined ? json.startTime = "-:--:--" : json.startTime
-    json.endTime == undefined ? json.endTime = "-:--:--" : json.endTime
+    json.currDate == undefined ? json.currDate = "00/00/0000" : json.currDate
+    json.startTime == undefined ? json.startTime = "0:00:00" : json.startTime
+    json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentários" : json.comment
 
     let data1 = convertToDate(json.currDate, json.startTime);
@@ -104,13 +104,10 @@ const requestReports = async (card, token, secret) => {
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        // if(jsonUnified[0])
-            console.log(jsonUnified)
-
         // Apenas mostrando cards que possuem relatórios
-        // if(jsonUnified[0].comment){
-            arrayUnified.push(jsonUnified)
-        // }
+        if(jsonUnified[0])
+            if(jsonUnified[0].comment)
+                arrayUnified.push(jsonUnified)
     } 
 
     return arrayUnified;
