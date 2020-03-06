@@ -190,7 +190,8 @@ const createReportElement = reportData => {
 
     commitLink ? commitLink : "Sem commit"
 
-    console.log(commitLink)
+    if(!commitLink)
+        console.log("Não possui commit")
 
     mainElement =  `<li class='li_report'> 
                         <div class="report">
