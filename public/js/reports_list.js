@@ -32,7 +32,7 @@ const loadReportsList = reports => {
 
         reportsList.removeChild(reportsDiv);
 
-        deleteReport(element)
+        deleteReport(element.parentNode)
     }))
 }
 
