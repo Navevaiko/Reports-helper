@@ -92,7 +92,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .commit_details a{
     text-decoration: none;
-    color: black;
 }
 .pCommit, .pDate{
     margin-left: 10px;
