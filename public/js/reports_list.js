@@ -185,7 +185,7 @@ const createReportElement = reportData => {
     //                 </li>`;
 
 
-    console.log(reportData.commitLink)
+    console.log(reportData.commitLink.length)
 
     mainElement =  `<li class='li_report'> 
                         <div class="report">
