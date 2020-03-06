@@ -186,7 +186,7 @@ const createReportElement = reportData => {
 
     var commitLink = reportData.commitLink;
 
-    commitLink.length > 60 ? commitLink = commitLink.substring(0,60) + "..." : commitLink 
+    commitLink.length > 60 ? commitLink = commitLink.substring(0,50) + "..." : commitLink 
 
     commitLink ? commitLink : "Sem commit"
 
