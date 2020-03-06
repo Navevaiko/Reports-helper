@@ -184,6 +184,10 @@ const createReportElement = reportData => {
     //                     <div class="remove_report" id="${reportData.key}">X</div>
     //                 </li>`;
 
+    var commitLink = reportData.commitLink
+
+    commitLink != "" ? commitLink : "Sem commit"
+
     mainElement =  `<li class='li_report'> 
                         <div class="report">
                             <div class="remove_report" id="${reportData.key}">
@@ -200,7 +204,7 @@ const createReportElement = reportData => {
                                 </div>
                                 <div class="commit_details">
                                     <h3>Commit: </h3>
-                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${reportData.commitLink.substring(0,60)}</p></a>
+                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${commitLink.substring(0,60)}</p></a>
                                 </div>
                             </div>
                             ${(reportData.attachments ? attachmentsElement : "")}
