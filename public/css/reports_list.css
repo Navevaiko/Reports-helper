@@ -99,6 +99,9 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: sans-serif;
     box-sizing: border-box;
 }
+.pDate{
+    padding-top: 1px;
+}
 
 /* Comentário */
 .pComment{
@@ -106,6 +109,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: sans-serif;
     font-size: 14px;
     line-height: 1.5;
+    letter-spacing: 0.2px;
 }
 
 
