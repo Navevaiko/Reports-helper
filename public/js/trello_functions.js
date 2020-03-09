@@ -5,13 +5,11 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    return console.log(document.getElementById('reportsList'))
-
-    // return trello.modal({
-    //     title: 'Novo relatório',
-    //     url: 'new_report',
-    //     fullscreen: false,
-    // })
+    return trello.modal({
+        title: 'Novo relatório',
+        url: 'new_report',
+        fullscreen: false,
+    })
 }
 
 const showConfirmationDialogue = trello => {
