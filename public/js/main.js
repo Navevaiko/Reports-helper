@@ -5,10 +5,7 @@ window.TrelloPowerUp.initialize({
         return [{
             icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
             text: 'Novo relatório',
-            content: {
-                type: 'iframe',
-                url: trello.signUrl(window.TrelloPowerUp.util.relativeUrl('reports_list')),
-            }
+            callback: showNewReportModal
         },
         {
             icon: 'https://reports-helper.herokuapp.com/icons/attachments.svg',
