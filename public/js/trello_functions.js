@@ -7,7 +7,7 @@ const showNewReportModal = trello => {
 
     var t = window.TrelloPowerUp.iframe();
 
-    console.log(t)
+    console.log(resize(t, '#newReport'))
 }
 
 const showConfirmationDialogue = trello => {
