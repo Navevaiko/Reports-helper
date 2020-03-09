@@ -11,9 +11,7 @@ const showNewReportModal = trello => {
 
     xhr.open("GET", "new_report");
 
-    xhr.send(data);
-
-    return console.log(xhr[0])
+    return xhr.send(data);
 
     // return trello.modal({
     //     title: 'Novo relatório',
