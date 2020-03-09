@@ -6,7 +6,7 @@ var reportsVisibility = 'shared'
 const showNewReportModal = trello => { 
 
     return trello.navigate({
-                url: 'new_report'
+                url: 'https://reports-helper.herokuapp.com/js/new_report.js'
             });
 }
 
