@@ -7,9 +7,7 @@ window.TrelloPowerUp.initialize({
             text: 'Novo relatório',
             content: {
                 type: 'iframe',
-                url: trello.signUrl('new_report', {
-                  arg: trello
-                }),
+                url: trello.signUrl(window.TrelloPowerUp.util.relativeUrl('reports_list')),
             }
         },
         {
