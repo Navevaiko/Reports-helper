@@ -5,9 +5,11 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    return trello.modal({
-        url: 'new_report',
-    })
+    return addNewReport(trello);
+}
+
+const addNewReport = trello => {
+    console.log("Clicou")
 }
 
 const showConfirmationDialogue = trello => {
