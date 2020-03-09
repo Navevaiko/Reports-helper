@@ -6,7 +6,7 @@ var reportsVisibility = 'shared'
 const showNewReportModal = trello => { 
 
     return trello.navigate({
-                url: 'https://trello.com/c/nqPiDKmw/9-grand-canyon-national-park'
+                url: 'new_report'
             });
 }
 
