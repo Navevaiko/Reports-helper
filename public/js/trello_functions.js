@@ -5,14 +5,8 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    resize(trello, '#newReport')
-    
-    console.log(document.getElementById('newReport'))
-
     return trello.modal({
-        title: 'Novo relatório',
         url: 'new_report',
-        fullscreen: false,
     })
 }
 
