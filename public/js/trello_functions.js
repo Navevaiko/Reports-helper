@@ -5,7 +5,10 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    return console.log("A")
+    const teste = document.getElementById('newReport')
+
+    console.log(teste)
+
     // return trello.modal({
     //     title: 'Novo relatório',
     //     url: 'new_report',
