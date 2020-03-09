@@ -5,9 +5,11 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    return trello.navigate({
-                url: 'https://reports-helper.herokuapp.com/js/new_report.js'
-            });
+    return trello.modal({
+        title: 'Novo relatório',
+        url: 'new_report',
+        fullscreen: false,
+    })
 }
 
 const showConfirmationDialogue = trello => {
