@@ -13,7 +13,7 @@ const showNewReportModal = trello => {
 
     xhr.send(data);
 
-    return data;
+    return console.log(data);
 
     // return trello.modal({
     //     title: 'Novo relatório',
