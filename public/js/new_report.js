@@ -4,8 +4,6 @@ var trello = TrelloPowerUp.iframe();
 
 resize(trello, '#newReport')
 
-console.log(document.getElementById('newReport'))
-
 window.newReport.addEventListener('submit', async event => {
     event.preventDefault();
     var card = {};
