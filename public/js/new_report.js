@@ -1,4 +1,4 @@
-console.log("new_report chamada...")
+console.log(trello)
 
 // var trello = TrelloPowerUp.iframe();
 
