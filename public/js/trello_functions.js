@@ -10,7 +10,7 @@ const showNewReportModal = trello => {
      
     return trello.modal({
         title: 'Novo relatório',
-        url: 'new_reports',
+        url: 'new_report',
         fullscreen: false,
     })
 }
