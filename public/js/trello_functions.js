@@ -4,6 +4,10 @@ var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
+
+    let reportList = document.getElementById('reportsList')
+
+    console.log(reportList)
      
     return trello.modal({
         title: 'Novo relatório',
