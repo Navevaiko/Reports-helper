@@ -5,15 +5,7 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    var data = null;
-
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", "new_report");
-
-    xhr.send(data);
-
-    return console.log(data);
+    console.log(window)
 
     // return trello.modal({
     //     title: 'Novo relatório',
