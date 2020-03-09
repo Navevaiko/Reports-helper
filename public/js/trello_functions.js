@@ -6,20 +6,9 @@ var reportsVisibility = 'shared'
 const showNewReportModal = trello => { 
 
     resize(trello, '#newReport')
-
-    window.newReport.addEventListener('submit', async event => {
-
-        console.log(event)
-        console.log("Clicou")
-
-        // event.preventDefault();
-        // var card = {};
     
-        // card = await getCardDetailsById(trello);
-    
-        // addReport(JSON.stringify(card));
-    });
-     
+    console.log(document.getElementById('newReport'))
+
     return trello.modal({
         title: 'Novo relatório',
         url: 'new_report',
