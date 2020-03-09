@@ -5,9 +5,11 @@ var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
-    var t = window.TrelloPowerUp.iframe();
-
-    console.log(resize(t, '#reportsList'))
+    return trello.modal({
+        title: 'Novo relatório',
+        url: 'new_report',
+        fullscreen: false,
+    })
 }
 
 const showConfirmationDialogue = trello => {
