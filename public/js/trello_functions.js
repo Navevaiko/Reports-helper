@@ -26,12 +26,12 @@ const showTypesDataExport = trello => {
     })
 }
 
-const addNewReport = (trello, report) => {
+const addNewReport = async (trello, report) => {
 
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
 
-    console.log(getReports(trello))
+    console.log(await getReports(trello))
     console.log(report)
 
     report.key = myKey
