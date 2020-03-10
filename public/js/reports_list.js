@@ -4,7 +4,7 @@ var trello = TrelloPowerUp.iframe();
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
 
-    console.log(getReports(trello))
+    console.log(await getReports(trello))
 });
 
 //Cria a lista para exibição dos elementos no cartão
