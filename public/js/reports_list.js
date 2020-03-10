@@ -249,33 +249,31 @@ const addReport = card => {
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
 
-    return console.log(`${startTime}, ${endTime}, ${commitLink}, ${comment}, ${cardURL}, ${membersIds}, ${title}, ${labels}, ${currDate} `)
+    dateSplit = currDate.split('/')
 
-    // dateSplit = currDate.split('/')
+    currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
 
-    // currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
+    if (startTime && endTime && comment) {
 
-    // if (startTime && endTime && comment) {
+        if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
-    //     if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
+        if (endTime > startTime) {
+            let report = {
+                currDate,
+                title,
+                cardURL,
+                membersIds,
+                startTime,
+                endTime,
+                commitLink,
+                comment,
+                labels
+            };
 
-    //     if (endTime > startTime) {
-    //         let report = {
-    //             currDate,
-    //             title,
-    //             cardURL,
-    //             membersIds,
-    //             startTime,
-    //             endTime,
-    //             commitLink,
-    //             comment,
-    //             labels
-    //         };
-
-    //         return addNewReport(trello, report)
-    //     } else {
-    //         alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
-    //     }
-    // }
-    // else alert("Preencha todos os campos!")
+            return addNewReport(trello, report)
+        } else {
+            alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+        }
+    }
+    else alert("Preencha todos os campos!")
 }
