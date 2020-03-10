@@ -23,11 +23,40 @@
             <div id="header_newReport">
                 <span>Novo Relatório</span>
             </div>
+
+            <!-- Corpo do formulário -->
+            <div id="body_newReport">
+                
+                <div id="dateTime_newReport">
+                    <div id="task_start">
+                        <label for="startTime">Início de tarefa:</label>
+                        <input type="time" name="startTime" id="startTime" />
+                    </div>
+                    <div id="task_end">
+                        <label for="endTime">Fim de tarefa:</label>
+                        <input type="time" name="endTime" id="endTime" />
+                    </div>
+                    <div id="task_day">
+                        <label for="startDate">Dia de tarefa:</label>
+                        <input type="date" name="startDate" id="startDate" />
+                    </div>
+                </div>
+                <div id="commit_newReport">
+                    <label for="commitLink">Link do commit: (Opcional)</label>
+                    <input type="url" name="commitLink" id="commitLink"
+                        placeholder="https://github.com/SeuNome/Projeto/commit/hashCommit" />
+                </div>
+                <div id="comment_newReport">
+                    <label for="comment">Comentário:</label>
+                    <textarea name="comment" id="comment" cols="10" rows="5"></textarea>
+                </div>
+
+                <div id="actionButton_newReport">
+
+                </div>
+            </div>
         </div>
 
-        <div id="body_newReport">
-
-        </div>
     </div>
 
     <div id="container_reportsList">
