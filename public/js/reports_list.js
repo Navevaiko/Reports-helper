@@ -8,7 +8,6 @@ window.addEventListener('load', async () => {
 
     console.log(await getReports(trello))
 
-    console.log(await getReportsById(trello))
 });
 
 //Cria a lista para exibição dos elementos no cartão
@@ -266,6 +265,9 @@ const addReport = card => {
         if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
         if (endTime > startTime) {
+            
+            let key = `reports_${date.getTime()}`
+
             let report = {
                 currDate,
                 title,
@@ -277,8 +279,18 @@ const addReport = card => {
                 comment,
                 labels
             };
+
+            let newReport = {
+                currDate,
+                cardURL,
+                startTime,
+                endTime,
+                commitLink,
+                comment,
+                key
+            }
             
-            newReport = createReportElement(report);
+            newReport = addNewReportAtList(newReport)
 
             console.log(newReport)
 
@@ -290,4 +302,9 @@ const addReport = card => {
         }
     }
     else alert("Preencha todos os campos!")
+}
+
+const addNewReportAtList = async trello => {
+
+    console.log(await getReportsById(trello))
 }
