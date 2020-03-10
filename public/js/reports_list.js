@@ -5,12 +5,12 @@ window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
 });
 
-const btnNewReport = document.getElementById('headerBeforeClick_newReport')
-const headerNewReport = document.getElementById('headerAfterClick_newReport')
+const btnNewReport = document.getElementById('btn_newReport')
+const formNewReport = document.getElementById('form_newReport')
 
 btnNewReport.addEventListener('click', () => {
     btnNewReport.style.display = 'none'
-    headerNewReport.style.display = 'block'
+    formNewReport.style.display = 'block'
 })
 
 //Cria a lista para exibição dos elementos no cartão

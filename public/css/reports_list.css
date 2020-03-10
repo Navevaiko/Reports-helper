@@ -14,7 +14,7 @@ h3{
     margin: 15px 0 35px 0;
 }
 
-#headerBeforeClick_newReport{
+#btn_newReport{
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -23,11 +23,16 @@ h3{
     cursor: pointer;
 }
 
-#headerBeforeClick_newReport span{
+#btn_newReport span{
     font-size: 14px;
     color: #172B4D;
     font-weight: bold;
     margin-right: 10px;
+}
+
+#form_newReport{
+    width: 100%;
+    height: auto;
 }
 
 #img_openFormReport{
@@ -54,7 +59,7 @@ h3{
 }
 
 /* Cabeçalho após o click em 'Novo Relatório' */
-#headerAfterClick_newReport{
+#header_newReport{
     width: 100%;
     height: 12px;
     border-bottom: solid 1px #172B4D;
@@ -62,7 +67,7 @@ h3{
     display: none;
 }
 
-.title_reportsList span, #headerAfterClick_newReport span{
+.title_reportsList span, #header_newReport span{
     font-size: 16px;
     background-color: #f4f5f7;
     color: #172B4D;
