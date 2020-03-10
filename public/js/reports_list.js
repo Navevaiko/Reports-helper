@@ -3,6 +3,8 @@ var trello = TrelloPowerUp.iframe();
 //ao carregar a pg
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
+
+    console.log(getReports(trello))
 });
 
 //Cria a lista para exibição dos elementos no cartão
@@ -269,6 +271,12 @@ const addReport = card => {
                 comment,
                 labels
             };
+            
+            newReport = createReportElement(report);
+
+            console.log(newReport)
+
+            // window.reportsList.innerHTML = reportsElementsList; 
 
             return addNewReport(trello, report)
         } else {
