@@ -8,9 +8,7 @@ window.addEventListener('load', async () => {
 
     console.log(await getReports(trello))
 
-    loadReportsList(await getReportsById(trello))
-
-    console.log(await getReports(trello))
+    console.log(await getReportsById(trello))
 });
 
 //Cria a lista para exibição dos elementos no cartão
