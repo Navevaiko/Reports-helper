@@ -18,16 +18,20 @@ h3{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 130px;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 #header_newReport span{
     font-size: 14px;
     color: #172B4D;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 #img_openFormReport{
-    width: 22px;
+    width: 20px;
     height: auto;
 }
 
