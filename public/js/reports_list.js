@@ -15,6 +15,8 @@ const loadReportsList = reports => {
     reports.forEach(report => {
         reportsElementsList += createReportElement(report);
     });
+
+    console.log(reportsElementsList)
     
     window.reportsList.innerHTML = reportsElementsList; 
 
