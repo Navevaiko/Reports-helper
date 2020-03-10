@@ -31,6 +31,9 @@ const addNewReport = (trello, report) => {
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
 
+    console.log(getReports(trello))
+    console.log(report)
+
     report.key = myKey
     getReports(trello).then(function (reports) {
         reports.push(report);

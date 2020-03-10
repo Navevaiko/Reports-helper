@@ -1,5 +1,7 @@
 var trello = TrelloPowerUp.iframe();
 
+console.log(trello)
+
 //ao carregar a pg
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
@@ -14,6 +16,8 @@ const loadReportsList = reports => {
         reportsElementsList += createReportElement(report);
     });
 
+    console.log(reportsElementsList)
+    
     window.reportsList.innerHTML = reportsElementsList; 
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
@@ -258,10 +262,6 @@ const addReport = card => {
         if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
         if (endTime > startTime) {
-            
-            let date = new Date()
-            let key = `reports_${date.getTime()}`
-
             let report = {
                 currDate,
                 title,
@@ -274,31 +274,11 @@ const addReport = card => {
                 labels
             };
 
-            let newReport = {
-                currDate,
-                cardURL,
-                startTime,
-                endTime,
-                commitLink,
-                comment,
-                key
-            }
-            
-            newReport = addNewReportAtList(newReport)
-
-            console.log(newReport)
-
-            // window.reportsList.innerHTML = reportsElementsList; 
-
             return addNewReport(trello, report)
+
         } else {
             alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
         }
     }
     else alert("Preencha todos os campos!")
-}
-
-const addNewReportAtList = async trello => {
-
-    console.log(await getReportsById(trello))
 }
