@@ -1,10 +1,15 @@
-console.log("reports_list chamada...")
-
 var trello = TrelloPowerUp.iframe();
+
 //ao carregar a pg
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
 });
+
+const btnNewReport = document.getElementById('header_newReport')
+
+btnNewReport.addEventListener('click', () => {
+    console.log("Clicou")
+})
 
 //Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
