@@ -104,9 +104,9 @@ h3{
     width: 130px;
     height: 35px;
 }
-#task_end input{
+#task_day input{
     width: 180px;
-    height: 35px;
+    height: 35px !important;
 }
 
 #task_start label, #task_end label, #task_day label{
