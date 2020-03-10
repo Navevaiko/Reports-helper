@@ -36,7 +36,12 @@ const addNewReport = async (trello, report) => {
 
     report.key = myKey
     getReports(trello).then(function (reports) {
+        
         reports.push(report);
+        
+        console.log(await getReports(trello))
+
+        console.log(window.reportsList)
 
         trello
             .set('card', reportsVisibility, myKey, report)
