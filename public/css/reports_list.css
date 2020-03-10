@@ -12,9 +12,25 @@ h3{
     height: auto;
 }
 
-#reportsList, .title_reportsList{
+#reportsList{
     width: 100%;
     height: auto;
+}
+
+.title_reportsList{
+    width: 100%;
+    height: 12px;
+    border-bottom: solid 1px #172B4D;
+    margin: 15px 0 35px 0;
+    text-align: center;
+}
+
+.title_reportsList span{
+    font-size: 16px;
+    background-color: #f4f5f7;
+    color: #172B4D;
+    padding: 0 15px;
+    font-weight: bold;
 }
 
 .report{
