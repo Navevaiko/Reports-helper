@@ -13,6 +13,18 @@ btnNewReport.addEventListener('click', () => {
     formNewReport.style.display = 'block'
 })
 
+window.newReport.addEventListener('submit', async event => {
+    console.log("Clicou")
+
+    console.log(event)
+    // event.preventDefault();
+    // var card = {};
+
+    // card = await getCardDetailsById(trello);
+
+    // addReport(JSON.stringify(card));
+});
+
 //Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
 
