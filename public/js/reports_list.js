@@ -8,7 +8,7 @@ window.addEventListener('load', async () => {
 const btnNewReport = document.getElementById('header_newReport')
 
 btnNewReport.addEventListener('click', () => {
-    console.log("Clicou")
+    btnNewReport.style.display = 'none'
 })
 
 //Cria a lista para exibição dos elementos no cartão
