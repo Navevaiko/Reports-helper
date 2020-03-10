@@ -13,7 +13,7 @@ const loadReportsList = reports => {
     reports.forEach(report => {
         reportsElementsList += createReportElement(report);
     });
-    
+
     window.reportsList.innerHTML = reportsElementsList; 
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
@@ -259,6 +259,7 @@ const addReport = card => {
 
         if (endTime > startTime) {
             
+            let date = new Date()
             let key = `reports_${date.getTime()}`
 
             let report = {
