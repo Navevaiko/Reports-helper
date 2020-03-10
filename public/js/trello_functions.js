@@ -55,7 +55,7 @@ const getReports = async trello => {
 }
 
 const getReportsById = async trello => {
-    trello.get('board', 'shared', 'myKey').then(function (data) {
+    return trello.get('board', 'shared', 'myKey').then(function (data) {
         console.log(JSON.stringify(data, null, 2));
     });
 }
