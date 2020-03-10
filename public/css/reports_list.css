@@ -110,7 +110,7 @@ h3{
     height: 35px !important;
 }
 
-#task_start label, #task_end label, #task_day label, #commit_newReport span{
+#task_start label, #task_end label, #task_day label, #commit_newReport label, #comment_newReport label{
     font-size: 14px;
     font-weight: bold;
     color: #172B4D;
