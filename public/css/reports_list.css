@@ -7,6 +7,30 @@ h3{
     font-size: 15px;
 }
 
+/* NOVO RELATÓRIO */
+#container_newReport{
+    width: 480px;
+    height: auto;
+    margin: 15px 0 35px 0;
+}
+
+#header_newReport{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#header_newReport span{
+    font-size: 14px;
+    color: #172B4D;
+    font-weight: bold;
+}
+
+#img_openFormReport{
+    width: 22px;
+    height: auto;
+}
+
 #container_reportsList{
     width: 480px;
     height: auto;
