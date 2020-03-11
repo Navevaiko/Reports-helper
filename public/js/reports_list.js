@@ -197,6 +197,7 @@ const createReportElement = reportData => {
 // --- NOVO RELATÓRIO --- //
 const btnNewReport = document.getElementById('btn_newReport')
 const formNewReport = document.getElementById('form_newReport')
+const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
 
 let inputStartTime = document.getElementById('startTime')
 let inputEndTime = document.getElementById('endTime')
@@ -207,6 +208,18 @@ let inputComment = document.getElementById('comment')
 btnNewReport.addEventListener('click', () => {
     btnNewReport.style.display = 'none'
     formNewReport.style.display = 'block'
+})
+
+btnCancelNewReport.addEventListener('click', () => {
+    
+    inputStartTime.value = ""
+    inputEndTime.value = ""
+    inputStartDate.value = ""
+    inputCommitLink.value = ""
+    inputComment.value = ""
+
+    btnNewReport.style.display = 'flex'
+    formNewReport.style.display = 'none'
 })
 
 window.newReport.addEventListener('submit', async event => {
