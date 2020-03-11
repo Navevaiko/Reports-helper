@@ -278,5 +278,7 @@ const addReport = card => {
         display: 'success'
     });
 
+    console.log("Chegou aqui!!")
+
     return addNewReport(trello, report)
 }
