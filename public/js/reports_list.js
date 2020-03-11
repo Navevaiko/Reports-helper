@@ -28,7 +28,7 @@ const removeReport = elements => {
         trello.alert({
             message: 'Relatório removido com sucesso!',
             duration: 3,
-            display: 'warning'
+            display: 'info'
         });
 
         // REMOVENDO RELATÓRIO DA LISTA
