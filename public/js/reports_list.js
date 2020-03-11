@@ -18,18 +18,12 @@ const loadReportsList = reports => {
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
-    removeReport(trello, allElements)
+    removeReport(allElements)
 }
 
-const removeReport = (trello, elements) => {
-    
+const removeReport = elements => {
+
     return elements.map(element => element.addEventListener('click', () => {
-        
-        trello.alert({
-            message: 'Relatório removido com sucesso!',
-            duration: 3,
-            display: 'warning'
-        });
 
         // REMOVENDO RELATÓRIO DA LISTA
         let report = element.parentNode
@@ -258,27 +252,22 @@ const addReport = card => {
 
     currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
 
-    if (!startTime && endTime && comment)
-        return alert("Preencha todos os campos!")
+    if (startTime && endTime && comment) {
 
-    if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") 
-        return alert("Insira uma data em 'Início da tarefa'")
+        if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
-    if(!endTime > startTime) 
-        return alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+        if (endTime > startTime) {
 
-    let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
+            let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-    inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
-    addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
+            inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
+            addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
-    trello.alert({
-        message: 'Relatório criado com sucesso!',
-        duration: 3,
-        display: 'success'
-    });
+            return addNewReport(trello, report)
 
-    console.log("Chegou aqui!!")
-
-    return addNewReport(trello, report)
+        } else {
+            alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+        }
+    }
+    else alert("Preencha todos os campos!")
 }
