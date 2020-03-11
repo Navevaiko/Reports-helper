@@ -263,6 +263,8 @@ const addReport = card => {
             inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
             addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
+            console.log("hehehe")
+
             return addNewReport(trello, report)
 
         } else {
