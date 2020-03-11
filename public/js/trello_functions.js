@@ -40,7 +40,7 @@ const addNewReport = async (trello, report) => {
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
-        removeReport(trello, allElements)
+        removeReport(allElements)
     });
 }
 

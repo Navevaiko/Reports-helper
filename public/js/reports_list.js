@@ -18,18 +18,12 @@ const loadReportsList = reports => {
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
-    removeReport(trello, allElements)
+    removeReport(allElements)
 }
 
-const removeReport = (trello, elements) => {
+const removeReport = elements => {
 
     return elements.map(element => element.addEventListener('click', () => {
-
-        trello.alert({
-            message: 'Relatório removido com sucesso!',
-            duration: 3,
-            display: 'warning'
-        });
 
         // REMOVENDO RELATÓRIO DA LISTA
         let report = element.parentNode
