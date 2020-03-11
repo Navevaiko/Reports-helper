@@ -22,6 +22,12 @@ const loadReportsList = reports => {
 }
 
 const removeReport = elements => {
+    
+    trello.alert({
+        message: 'Relatório removido com sucesso!',
+        duration: 3,
+        display: 'success'
+    });
 
     return elements.map(element => element.addEventListener('click', () => {
 
@@ -267,10 +273,10 @@ const addReport = card => {
     addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
     trello.alert({
-        message: 'Relatório removido com sucesso!',
+        message: 'Relatório criado com sucesso!',
         duration: 3,
         display: 'success'
-      });
+    });
 
     return addNewReport(trello, report)
 }
