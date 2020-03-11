@@ -244,23 +244,13 @@ const addReport = card => {
         if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
         if (endTime > startTime) {
-            let report = {
-                currDate,
-                title,
-                cardURL,
-                membersIds,
-                startTime,
-                endTime,
-                commitLink,
-                comment,
-                labels
-            };
+            let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
             inputStartTime.value = ""
             inputEndTime.value = ""
             inputStartDate.value = ""
             inputCommitLink.value = ""
-            inputComment.value =""
+            inputComment.value = ""
 
             btnNewReport.style.display = 'flex'
             formNewReport.style.display = 'none'
