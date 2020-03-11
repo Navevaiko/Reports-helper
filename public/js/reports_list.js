@@ -18,7 +18,26 @@ const loadReportsList = reports => {
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
-    allElements.map(element => element.addEventListener('click', () => {
+    removeReport(allElements)
+
+    // allElements.map(element => element.addEventListener('click', () => {
+
+    //     // REMOVENDO RELATÓRIO DA LISTA
+    //     let report = element.parentNode
+    //     let reportDiv = report.parentNode
+    //     let reportElement = reportDiv.parentNode
+    //     let reportsList = reportElement.parentNode
+
+    //     reportsList.removeChild(reportElement);
+    //     deleteReport(element.parentNode)
+    // }))
+}
+
+const removeReport = elements => {
+
+    console.log("Chamou funcção")
+
+    return elements.map(element => element.addEventListener('click', () => {
 
         // REMOVENDO RELATÓRIO DA LISTA
         let report = element.parentNode
