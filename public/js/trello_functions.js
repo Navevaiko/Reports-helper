@@ -31,15 +31,17 @@ const addNewReport = async (trello, report) => {
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
 
-    console.log(await getReports(trello))
-    console.log(report)
-
     report.key = myKey
     getReports(trello).then(function (reports) {
 
         reports.push(report);
         
+        console.log("Relatório criado: ")
         console.log(window.reportsList)
+        console.log("Relatorios: ")
+        console.log(await getReports(trello))
+        console.log("Função: ")
+        console.log(createReportElement(report))
 
         trello
             .set('card', reportsVisibility, myKey, report)
