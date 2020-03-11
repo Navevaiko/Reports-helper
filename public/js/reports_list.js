@@ -24,6 +24,12 @@ const loadReportsList = reports => {
 const removeReport = elements => {
 
     return elements.map(element => element.addEventListener('click', () => {
+        
+        trello.alert({
+            message: 'Relatório removido com sucesso!',
+            duration: 3,
+            display: 'warning'
+        });
 
         // REMOVENDO RELATÓRIO DA LISTA
         let report = element.parentNode
@@ -262,6 +268,12 @@ const addReport = card => {
 
             inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
             addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
+
+            trello.alert({
+                message: 'Relatório criado com sucesso!',
+                duration: 3,
+                display: 'success'
+            });
 
             return addNewReport(trello, report)
 

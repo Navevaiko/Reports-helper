@@ -42,10 +42,9 @@ const addNewReport = async (trello, report) => {
 
         removeReport(allElements)
         
-        trello
-            .set('card', reportsVisibility, myKey, report)
+        trello.set('card', reportsVisibility, myKey, report)
             .then(function () {
-                trello.closeModal();                 
+                console.log("Relatório criado!")           
             })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
