@@ -32,7 +32,8 @@ const removeReport = elements => {
         });
 
         // REMOVENDO RELATÓRIO DA LISTA
-        console.log(element.closest('.li_report'))
+        let liReport = element.closest('.li_report')
+        console.log(liReport.children[0])
         let report = element.parentNode
         let reportDiv = report.parentNode
         let reportElement = reportDiv.parentNode
