@@ -38,16 +38,20 @@ const addNewReport = async (trello, report) => {
         
         window.reportsList.innerHTML += createReportElement(report)
 
-        trello
-            .set('card', reportsVisibility, myKey, report)
-            .then(function () {
-                trello.closeModal();                 
-            })
-            .catch(function (error) {
-                alert("Ocorreu um erro, por favor tente novamente mais tarde");
+        let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
-                console.log(error)
-            });
+        removeReport(allElements)
+
+        // trello
+        //     .set('card', reportsVisibility, myKey, report)
+        //     .then(function () {
+        //         trello.closeModal();                 
+        //     })
+        //     .catch(function (error) {
+        //         alert("Ocorreu um erro, por favor tente novamente mais tarde");
+
+        //         console.log(error)
+        //     });
 
     });
 }
