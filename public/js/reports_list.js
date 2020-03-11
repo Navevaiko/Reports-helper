@@ -250,7 +250,7 @@ const addReport = card => {
                 labels
             };
 
-            btnNewReport.style.display = 'block'
+            btnNewReport.style.display = 'flex'
             formNewReport.style.display = 'none'
 
             return addNewReport(trello, report)
