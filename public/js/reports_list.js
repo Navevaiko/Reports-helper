@@ -228,6 +228,12 @@ window.newReport.addEventListener('submit', async event => {
 
     card = await getCardDetailsById(trello);
 
+    trello.alert({
+        message: 'Relatório criado com sucesso!',
+        duration: 3,
+        display: 'success'
+    });
+
     addReport(JSON.stringify(card));
 });
 
@@ -263,13 +269,7 @@ const addReport = card => {
             inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
             addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
-            trello.alert({
-                message: 'Relatório criado com sucesso!',
-                duration: 3,
-                display: 'success'
-            });
-
-            console.log("Entrou aqui")
+            console.log("Entrou aqui denovo")
 
             return addNewReport(trello, report)
 
