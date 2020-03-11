@@ -256,7 +256,11 @@ const addReport = card => {
                 labels
             };
 
-            console.log(inputStartTime.value)
+            inputStartTime.value = ""
+            inputEndTime.value = ""
+            inputStartDate.value = ""
+            inputCommitLink.value = ""
+            inputComment.value =""
 
             btnNewReport.style.display = 'flex'
             formNewReport.style.display = 'none'
