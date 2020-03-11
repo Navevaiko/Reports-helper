@@ -27,7 +27,7 @@ const loadReportsList = reports => {
         let reportsList = reportElement.parentNode
 
         reportsList.removeChild(reportElement);
-        deleteReport(element)
+        deleteReport(element.parentNode)
     }))
 }
 
