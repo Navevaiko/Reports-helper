@@ -19,23 +19,9 @@ const loadReportsList = reports => {
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
     removeReport(allElements)
-
-    // allElements.map(element => element.addEventListener('click', () => {
-
-    //     // REMOVENDO RELATÓRIO DA LISTA
-    //     let report = element.parentNode
-    //     let reportDiv = report.parentNode
-    //     let reportElement = reportDiv.parentNode
-    //     let reportsList = reportElement.parentNode
-
-    //     reportsList.removeChild(reportElement);
-    //     deleteReport(element.parentNode)
-    // }))
 }
 
 const removeReport = elements => {
-
-    console.log("Chamou funcção")
 
     return elements.map(element => element.addEventListener('click', () => {
 
@@ -215,7 +201,7 @@ const createReportElement = reportData => {
 }
 
 // --- NOVO RELATÓRIO --- //
-const btnNewReport = document.getElementById('btn_newReport')
+const addFormNewReport = document.getElementById('btn_newReport')
 const formNewReport = document.getElementById('form_newReport')
 const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
 
@@ -225,21 +211,15 @@ let inputStartDate = document.getElementById('startDate')
 let inputCommitLink = document.getElementById('commitLink')
 let inputComment = document.getElementById('comment')
 
-btnNewReport.addEventListener('click', () => {
-    btnNewReport.style.display = 'none'
+addFormNewReport.addEventListener('click', () => {
+    addFormNewReport.style.display = 'none'
     formNewReport.style.display = 'block'
 })
 
 btnCancelNewReport.addEventListener('click', () => {
     
-    inputStartTime.value = ""
-    inputEndTime.value = ""
-    inputStartDate.value = ""
-    inputCommitLink.value = ""
-    inputComment.value = ""
-
-    btnNewReport.style.display = 'flex'
-    formNewReport.style.display = 'none'
+    inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
+    addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 })
 
 window.newReport.addEventListener('submit', async event => {
@@ -252,7 +232,7 @@ window.newReport.addEventListener('submit', async event => {
 });
 
 const toDate = dateStr => {
-    var parts = dateStr.split("-");
+    let parts = dateStr.split("-");
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
 }
 
@@ -277,16 +257,12 @@ const addReport = card => {
         if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
 
         if (endTime > startTime) {
+
             let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-            inputStartTime.value = ""
-            inputEndTime.value = ""
-            inputStartDate.value = ""
-            inputCommitLink.value = ""
-            inputComment.value = ""
+            startTime.value = ""; endTime.value = ""; startDate.value = ""; commitLink.value = ""; comment.value = "";
 
-            btnNewReport.style.display = 'flex'
-            formNewReport.style.display = 'none'
+            addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
             return addNewReport(trello, report)
 
