@@ -260,8 +260,7 @@ const addReport = card => {
 
             let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-            startTime.value = ""; endTime.value = ""; startDate.value = ""; commitLink.value = ""; comment.value = "";
-
+            inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
             addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
             return addNewReport(trello, report)
