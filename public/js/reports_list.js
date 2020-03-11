@@ -12,6 +12,8 @@ const loadReportsList = reports => {
 
     reports.forEach(report => {
         reportsElementsList += createReportElement(report);
+
+        console.log(reportsElementsList)
     });
 
     window.reportsList.innerHTML = reportsElementsList; 
@@ -32,6 +34,7 @@ const removeReport = elements => {
         });
 
         // REMOVENDO RELATÓRIO DA LISTA
+        console.log(window.reportsList)
         let report = element.parentNode
         let reportDiv = report.parentNode
         let reportElement = reportDiv.parentNode
@@ -196,7 +199,7 @@ const createReportElement = reportData => {
                                 </div>
                                 <div class="commit_details">
                                     <h3>Commit: </h3>
-                                    <a href="${reportData.commitLink}" target="../"><p class="pCommit">${commitLink}</p></a>
+                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${commitLink}</p></a>
                                 </div>
                             </div>
                             ${(reportData.attachments ? attachmentsElement : "")}

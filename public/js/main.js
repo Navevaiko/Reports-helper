@@ -3,11 +3,6 @@ console.log("main chamada...")
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
         return [
-            // {
-            //     icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
-            //     text: 'Novo relatório',
-            //     callback: showNewReportModal
-            // },
             {
                 icon: 'https://reports-helper.herokuapp.com/icons/attachments.svg',
                 text: 'Exportar relatório',
