@@ -248,6 +248,10 @@ const addReport = card => {
     let labels = card.labels
     let currDate = toDate(window.startDate.value);
 
+    console.log(startTime)  
+    console.log(window.startTime)
+
+
     dateSplit = currDate.split('/')
 
     currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
