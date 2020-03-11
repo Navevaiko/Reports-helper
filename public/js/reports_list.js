@@ -228,12 +228,6 @@ window.newReport.addEventListener('submit', async event => {
 
     card = await getCardDetailsById(trello);
 
-    trello.alert({
-        message: 'Relatório criado com sucesso!',
-        duration: 3,
-        display: 'success'
-    });
-
     addReport(JSON.stringify(card));
 });
 
