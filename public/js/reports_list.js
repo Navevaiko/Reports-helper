@@ -1,7 +1,5 @@
 var trello = TrelloPowerUp.iframe();
 
-console.log(trello)
-
 //ao carregar a pg
 window.addEventListener('load', async () => {
     loadReportsList(await getReports(trello))
@@ -16,8 +14,6 @@ const loadReportsList = reports => {
         reportsElementsList += createReportElement(report);
     });
 
-    console.log(reportsElementsList)
-    
     window.reportsList.innerHTML = reportsElementsList; 
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
@@ -30,7 +26,6 @@ const loadReportsList = reports => {
         var reportsList = reportsDiv.parentNode
 
         reportsList.removeChild(reportsDiv);
-
         deleteReport(element.parentNode)
     }))
 }
@@ -49,17 +44,12 @@ const convertToDate = (date, hours) => {
 const createReportElementToPdf = reportData => {
 
     // -------  tratamento de valores ultilizados para criar a pagina html
-
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
 
     let members = reportData.members.map(e => {
         let avatar = e.avatarUrl === undefined ? e.avatar : `${e.avatarUrl}/50.png`;
         return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
-
-    let cardUrl = reportData.card === undefined ? reportData.url : reportData.card;
-
-
 
     let data1 = convertToDate(reportData.currDate, reportData.startTime);
     let data2 = convertToDate(reportData.currDate, reportData.endTime);
@@ -158,9 +148,7 @@ const getHoursDifference = (date1, date2) => {
     return result;
 };
 
-const confirmationDeletion = element => {
-
-}
+const confirmationDeletion = element => {}
 
 const deleteReport = element => {
     let key = element.id;
@@ -205,7 +193,6 @@ const createReportElement = reportData => {
 
     return mainElement;
 }
-
 
 // --- NOVO RELATÓRIO --- //
 const btnNewReport = document.getElementById('btn_newReport')
