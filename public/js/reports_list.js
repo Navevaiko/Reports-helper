@@ -22,15 +22,14 @@ const loadReportsList = reports => {
 
         // REMOVENDO RELATÓRIO DA LISTA
         var report = element.parentNode
-        var reportsDiv = report.parentNode
-        var reportsList = reportsDiv.parentNode
+        var reportElement = report.parentNode
+        var reportsList = reportElement.parentNode
 
         console.log(reportsList)
+        console.log(reportElement)
 
-        console.log(element.parentNode)
-
-        reportsList.removeChild(reportsDiv);
-        deleteReport(element.parentNode)
+        reportsList.removeChild(reportElement);
+        deleteReport(reportElement)
     }))
 }
 
