@@ -23,13 +23,13 @@ const loadReportsList = reports => {
 
 const removeReport = (trello, elements) => {
     
-    trello.alert({
-        message: 'Relatório removido com sucesso!',
-        duration: 3,
-        display: 'warning'
-    });
-
     return elements.map(element => element.addEventListener('click', () => {
+        
+        trello.alert({
+            message: 'Relatório removido com sucesso!',
+            duration: 3,
+            display: 'warning'
+        });
 
         // REMOVENDO RELATÓRIO DA LISTA
         let report = element.parentNode
