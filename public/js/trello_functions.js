@@ -40,8 +40,6 @@ const addNewReport = async (trello, report) => {
         console.log(window.reportsList)
         console.log("Relatorios: ")
         console.log(await getReports(trello))
-        console.log("Função: ")
-        console.log(createReportElement(report))
 
         trello
             .set('card', reportsVisibility, myKey, report)
