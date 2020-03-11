@@ -25,6 +25,10 @@ const loadReportsList = reports => {
         var reportsDiv = report.parentNode
         var reportsList = reportsDiv.parentNode
 
+        console.log(reportsList)
+
+        console.log(element.parentNode)
+
         reportsList.removeChild(reportsDiv);
         deleteReport(element.parentNode)
     }))
