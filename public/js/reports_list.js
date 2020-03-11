@@ -263,6 +263,12 @@ const addReport = card => {
             inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
             addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
+            trello.alert({
+                message: 'Relatório criado com sucesso!',
+                duration: 3,
+                display: 'success'
+            });
+
             console.log("Entrou aqui")
 
             return addNewReport(trello, report)
