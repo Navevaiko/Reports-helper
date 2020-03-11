@@ -198,6 +198,12 @@ const createReportElement = reportData => {
 const btnNewReport = document.getElementById('btn_newReport')
 const formNewReport = document.getElementById('form_newReport')
 
+let startTime = document.getElementById('startTime')
+let endTime = document.getElementById('endTime')
+let startDate = document.getElementById('startDate')
+let commitLink = document.getElementById('commitLink')
+let comment = document.getElementById('comment')
+
 btnNewReport.addEventListener('click', () => {
     btnNewReport.style.display = 'none'
     formNewReport.style.display = 'block'
@@ -249,6 +255,8 @@ const addReport = card => {
                 comment,
                 labels
             };
+
+            console.log(startTime.value)
 
             btnNewReport.style.display = 'flex'
             formNewReport.style.display = 'none'
