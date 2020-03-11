@@ -12,8 +12,6 @@ const loadReportsList = reports => {
 
     reports.forEach(report => {
         reportsElementsList += createReportElement(report);
-
-        console.log(reportsElementsList)
     });
 
     window.reportsList.innerHTML = reportsElementsList; 
@@ -34,7 +32,7 @@ const removeReport = elements => {
         });
 
         // REMOVENDO RELATÓRIO DA LISTA
-        console.log(window.reportsList)
+        console.log(element.closest('.li_report'))
         let report = element.parentNode
         let reportDiv = report.parentNode
         let reportElement = reportDiv.parentNode
