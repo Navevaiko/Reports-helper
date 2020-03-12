@@ -111,6 +111,7 @@ const requestReports = async (card, token, secret) => {
 const downloadByType = (type, json) => {
 
     switch (type) {
+        
         case "CSV":
             json.map((e, i) => json[i].labels = getLabels(e));
             json.map((e, i) => json[i].members = getMembers(e));
@@ -121,12 +122,13 @@ const downloadByType = (type, json) => {
             download(`Relatorio.json`, JSON.stringify(json));
             break;
 
-        default:
         case "PDF":
             console.log(createListReportElement(json))
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);
-
+            break;
+            
+        default:
             break;
     }
 }
