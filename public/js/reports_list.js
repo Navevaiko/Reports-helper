@@ -22,55 +22,6 @@ const loadReportsList = reports => {
     removeReport(allElements)
 }
 
-const convertToDate = (date, hours) => {
-
-    let dataArray = date.split('/');
-    let dateFormat = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
-
-    return new Date(`${dateFormat} ${hours}`);
-}
-
-//retorna a diferença entre horas, espera receber dois obj Date
-const getHoursDifference = (date1, date2) => {
-    let diff, result = "00h00min"
-
-    try {
-        diff = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60;
-
-    } catch (error) {
-        
-        return error
-    }
-
-    //verificando possivel erro 
-    if (!diff && diff != 0 || date1 == "Invalid Date" || date2 == "Invalid Date") {
-        return result;
-    }
-
-    // tratrar o formato da string de retorno
-    if (diff >= 1) {
-
-        let diffStr = diff.toString();
-
-        let array = diffStr.split(".");
-        let min = "00";
-
-        if (array.length > 1) {
-            min = parseInt(array[1]) * 0.6;
-            min = parseInt(min.toString().length == 1 ? `${min}0` : min.toString().substr(0, 2));
-        }
-
-        let hours = parseInt(array[0]);
-
-        result = `${hours}h${min}min`
-    } else {
-        diff *= 60;
-        result = `${diff.toFixed(0)}min`
-    }
-
-    return result;
-};
-
 const removeReport = elements => {
 
     return elements.map(element => element.addEventListener('click', () => {
