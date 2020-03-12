@@ -159,8 +159,9 @@ const getLabels = json => json.labels.map(e => e.name).join(" - ");
 
 const getMembers = json => json.members.map(e => e.fullName).join(" - ");
 
-const createListReportElement = reportDatas => reportDatas.map(e => { createReportElementToPdf(e) })
+const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
+// função que cria um elemento html de acordo com um jsom em formato correto
 const createReportElementToPdf = reportData => {
 
     // -------  tratamento de valores ultilizados para criar a pagina html
@@ -171,11 +172,12 @@ const createReportElementToPdf = reportData => {
         return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
 
-    let initialDate = convertToDate(reportData.currDate, reportData.startTime);
-    let finalDate = convertToDate(reportData.currDate, reportData.endTime);
+    let data1 = convertToDate(reportData.currDate, reportData.startTime);
+    let data2 = convertToDate(reportData.currDate, reportData.endTime);
 
-    let fullTime = getHoursDifference(initialDate, finalDate);
+    let fullTime = getHoursDifference(data1, data2);
 
+    // elemento html 
     let boxHtml = `<div class="report_container">
                     <div class="item_body member">
                         <div class="div_caixa">
@@ -220,7 +222,6 @@ const createReportElementToPdf = reportData => {
                 </div>`;
 
     return boxHtml;
-
 }
 
 const convertToDate = (date, hours) => {
