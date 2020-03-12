@@ -270,6 +270,12 @@ const addReport = card => {
     if(!endTime > startTime)
         return alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
 
+    let teste = [ startTime, endTime ]
+
+    teste.forEach(element => {
+        console.log(element)
+    })
+
     let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
     inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
@@ -284,29 +290,4 @@ const addReport = card => {
     console.log("Chegou aqui!")
 
     return addNewReport(trello, report)
-
-    // if (startTime && endTime && comment) {
-
-    //     if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
-
-    //     if (endTime > startTime) {
-
-    //         let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
-
-    //         inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
-    //         addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
-
-    //         trello.alert({
-    //             message: 'Relatório criado com sucesso!',
-    //             duration: 3,
-    //             display: 'success'
-    //         });
-
-    //         return addNewReport(trello, report)
-
-    //     } else {
-    //         alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
-    //     }
-    // }
-    // else alert("Preencha todos os campos!")
 }
