@@ -123,8 +123,6 @@ const getHoursDifference = (date1, date2) => {
     return result;
 };
 
-const confirmationDeletion = element => {}
-
 const removeReport = elements => {
 
     return elements.map(element => element.addEventListener('click', () => {
@@ -136,17 +134,10 @@ const removeReport = elements => {
         });
 
         // REMOVENDO RELATÓRIO DA LISTA
-        let liReport = element.closest('.li_report')
-        let olReport = element.closest('#reportsList')
-        console.log(liReport)
-        console.log(olReport)
+        let liReport = element.closest('.li_report') // Elemento para remover
+        let olReport = element.closest('#reportsList') // Lista dos elementos
 
-        let report = element.parentNode
-        let reportDiv = report.parentNode
-        let reportElement = reportDiv.parentNode
-        let reportsList = reportElement.parentNode
-
-        reportsList.removeChild(reportElement);
+        olReport.removeChild(liReport);
         deleteReport(element.parentNode)
     }))
 }

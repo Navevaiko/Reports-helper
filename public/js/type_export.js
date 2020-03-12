@@ -1,11 +1,9 @@
-console.log("type_export chamada...")
-
-var trello = window.TrelloPowerUp.iframe({
+let trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
 });
 
-var idBoard = trello.args[0].context.board;
+let idBoard = trello.args[0].context.board;
 
 trello.render(function () {
     trello.sizeTo('#exportData').done();
@@ -21,10 +19,10 @@ const fullTime = json => {
     json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentários" : json.comment
 
-    let data1 = convertToDate(json.currDate, json.startTime);
-    let data2 = convertToDate(json.currDate, json.endTime);
+    let initialDate = convertToDate(json.currDate, json.startTime);
+    let finalDate = convertToDate(json.currDate, json.endTime);
 
-    let fullTime = getHoursDifference(data1, data2);
+    let fullTime = getHoursDifference(initialDate, finalDate);
 
     let newJson = json;
     newJson.duration = fullTime;
@@ -51,13 +49,11 @@ window.exportData.addEventListener('submit', async event => {
         trello.hideCard();
 
         //adicionando o campo de duração no json
-
         try {
             dataCard = dataCard.map(e => fullTime(e));
 
         } catch (error) {
             dataCard = "00:00"
-
         }
 
         downloadByType(typeFile, dataCard);
@@ -66,8 +62,8 @@ window.exportData.addEventListener('submit', async event => {
 
         let secret2 = ["26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "1cff6db2efeb8e2c6d9b26f15e99b6ff", "26b36127f3188e42bd1e3d188069bc94"];
         let token2 = ["57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "2fc25727851421d048f477ef653f036d40eaceddbfc99d937575ebb5b728f930", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337"];
-        let randon = parseInt((Math.random() * 10).toFixed(0));
 
+        let randon = parseInt((Math.random() * 10).toFixed(0));
         let secret = secret2[randon];
         let token = token2[randon];
 
@@ -76,7 +72,6 @@ window.exportData.addEventListener('submit', async event => {
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
         let arrayUnified = await Promise.all(promisseResponse);
-
         arrayUnified = arrayUnified.flat(2);
 
         //adicionando o campo de duração no json
@@ -89,7 +84,6 @@ window.exportData.addEventListener('submit', async event => {
         message: 'Download realizado com sucesso 🎉',
         duration: 3,
     })
-
 });
 
 const requestReports = async (card, token, secret) => {
@@ -137,7 +131,7 @@ const downloadByType = (type, json) => {
             json.map((e, i) => json[i].members = getMembers(e));
 
             JSONToCSVConvertor(json, "Relatorio.csv", true);
-
+            
             break;
         case "JSON":
 
@@ -159,7 +153,8 @@ const getLabels = json => json.labels.map(e => e.name).join(" - ");
 const getMembers = json => json.members.map(e => e.fullName).join(" - ");
 
 const openWindowForPdf = content => {
-    var mywindow = window.open('', 'Print', 'height=900,width=1100');
+
+    let mywindow = window.open('', 'Print', 'height=900,width=1100');
 
     mywindow.document.write(`<!DOCTYPE html>
                                 <html lang="en">
@@ -171,7 +166,6 @@ const openWindowForPdf = content => {
                                     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
                                 <title>Relátorio</title>
                             </head><body>`);
-
 
     mywindow.document.write(`<script>
                                 setTimeout(() => { window.print(); window.close(); }, 1500);
@@ -210,8 +204,8 @@ const download = (filename, text) => {
 
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     element.setAttribute('download', filename);
-
     element.style.display = 'none';
+    
     document.body.appendChild(element);
 
     element.click();
@@ -220,26 +214,27 @@ const download = (filename, text) => {
 }
 
 const JSONToCSVConvertor = (JSONData, ReportTitle, ShowLabel) => {
-    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
-    var CSV = '';
+    let arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+
+    let CSV = '';
 
     CSV += ReportTitle + '\r\n\n';
 
     if (ShowLabel) {
-        var row = "";
+        let row = "";
 
-        for (var index in arrData[0]) {
+        for (let index in arrData[0]) {
             row += index + ';';
         }
 
         row = row.slice(0, -1);
         CSV += row + '\r\n';
     }
-    for (var i = 0; i < arrData.length; i++) {
-        var row = "";
+    for (let i = 0; i < arrData.length; i++) {
+        let row = "";
 
-        for (var index in arrData[i]) {
+        for (let index in arrData[i]) {
             row += '"' + arrData[i][index] + '";';
         }
 
