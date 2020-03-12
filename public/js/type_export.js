@@ -141,6 +141,8 @@ const downloadByType = (type, json) => {
         default:
         case "PDF":
             
+            console.log(json)
+            console.log(createListReportElement(json))
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);
 
