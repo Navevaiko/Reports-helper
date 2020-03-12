@@ -22,9 +22,13 @@ const loadReportsList = reports => {
     removeReport(allElements)
 }
 
-const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
+const createListReportElement = reportDatas => {
+    console.log("createListreportElement chamado...")
+    reportDatas.map(e => createReportElementToPdf(e))
+};
 
 const convertToDate = (date, hours) => {
+    console.log("converToDate chamado...")
 
     let dataArray = date.split('/');
     let dateFormat = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
@@ -34,6 +38,7 @@ const convertToDate = (date, hours) => {
 
 // função que cria um elemento html de acordo com um json em formato correto
 const createReportElementToPdf = reportData => {
+    console.log("createReportElementToPdf chamado...")
 
     // -------  tratamento de valores ultilizados para criar a pagina html
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
@@ -84,6 +89,7 @@ const createReportElementToPdf = reportData => {
 
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
+    console.log("getHoursDifference chamado...")
 
     let diff, result = "00h00min"
 
@@ -224,6 +230,7 @@ window.newReport.addEventListener('submit', async event => {
 });
 
 const toDate = dateStr => {
+    console.log("toDate chamado... ")
     
     let parts = dateStr.split("-");
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
