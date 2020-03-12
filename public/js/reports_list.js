@@ -1,4 +1,4 @@
-var trello = TrelloPowerUp.iframe();
+let trello = TrelloPowerUp.iframe();
 
 //ao carregar a pg
 window.addEventListener('load', async () => {
@@ -31,7 +31,7 @@ const convertToDate = (date, hours) => {
     return new Date(`${dateFormat} ${hours}`);
 }
 
-// função que cria um elemento html de acordo com um jsom em formato correto
+// função que cria um elemento html de acordo com um json em formato correto
 const createReportElementToPdf = reportData => {
 
     // -------  tratamento de valores ultilizados para criar a pagina html
@@ -42,55 +42,41 @@ const createReportElementToPdf = reportData => {
         return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
 
-    let data1 = convertToDate(reportData.currDate, reportData.startTime);
-    let data2 = convertToDate(reportData.currDate, reportData.endTime);
+    let initialDate = convertToDate(reportData.currDate, reportData.startTime);
+    let finalDate = convertToDate(reportData.currDate, reportData.endTime);
 
-    let fullTime = getHoursDifference(data1, data2);
+    let fullTime = getHoursDifference(initialDate, finalDate);
 
-    // elemento html 
-    let boxHtml = `<div class="report_container">
-
-                    <div class="item_body member">
-                        <div class="div_caixa">
-                            ${members.join('')}
+    let boxHtml =  `<div class="report_container">
+                        <div class="item_body member">
+                            <div class="div_caixa">
+                                ${members.join('')}
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="item_body card">
-                        ${reportData.title}
-                    </div>
-                    
-                    <div class="item_body tag">
-                        ${tags.join('')}
-                    </div>
-                    
-                    <div class="item_body date">
-                        ${reportData.currDate}<br>
-                        ${reportData.startTime} às 
-                        ${reportData.endTime}
-                    </div>
-                    
-                    <div class="item_body start_end">
-                        ${fullTime}
-                    </div>
-                    
-                    <div class="item_body link">
-                        <div class="link_trello">
-                            <a class="trello" href="${reportData.cardURL}">
-                                Trello
-                            <a>
-                            <br>
-                            <a class="Commit"
-                                href="${reportData.commitLink}">
-                                Commit
-                            </a>
+                        
+                        <div class="item_body card">
+                            ${reportData.title}
                         </div>
-                    </div>
-                    
-                    <div class="item_body comment">
-                    ${reportData.comment}
-                    </div>
-                </div>`;
+                        
+                        <div class="item_body tag">
+                            ${tags.join('')}
+                        </div>
+                        
+                        <div class="item_body date">
+                            ${reportData.currDate} <br> ${reportData.startTime} às ${reportData.endTime}
+                        </div>
+                        
+                        <div class="item_body start_end">${fullTime}</div>
+                        
+                        <div class="item_body link">
+                            <div class="link_trello">
+                                <a class="trello" href="${reportData.cardURL}">Trello<a><br>
+                                <a class="Commit" href="${reportData.commitLink}">Commit</a>
+                            </div>
+                        </div>
+                        
+                        <div class="item_body comment">${reportData.comment}</div>
+                    </div>`;
 
     return boxHtml;
 }
@@ -98,14 +84,13 @@ const createReportElementToPdf = reportData => {
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
 
-    let result = "00h00min";
-    let diff;
+    let diff, result = "00h00min"
 
     try {
         diff = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60;
-        
+
     } catch (error) {
-        // return result;
+        
         return error
     }
 
@@ -115,7 +100,6 @@ const getHoursDifference = (date1, date2) => {
     }
 
     // tratrar o formato da string de retorno
-
     if (diff >= 1) {
 
         let diffStr = diff.toString();
@@ -153,7 +137,10 @@ const removeReport = elements => {
 
         // REMOVENDO RELATÓRIO DA LISTA
         let liReport = element.closest('.li_report')
-        console.log(liReport.children)
+        let olReport = element.closest('#reportsList')
+        console.log(liReport)
+        console.log(olReport)
+
         let report = element.parentNode
         let reportDiv = report.parentNode
         let reportElement = reportDiv.parentNode
@@ -169,13 +156,10 @@ const deleteReport = element => {
     trello.remove('card', 'shared', key);
 }
 
-
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
-    let attachmentsElement = "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>";
-    let mainElement = "";
 
-    var commitLink = reportData.commitLink;
+    let commitLink = reportData.commitLink;
 
     if(commitLink.length > 50)
         commitLink = commitLink.substring(0,50) + "..."
@@ -183,57 +167,62 @@ const createReportElement = reportData => {
     if(!commitLink)
         commitLink = "Sem commit"
 
-    mainElement =  `<li class='li_report'> 
-                        <div class="report">
-                            <div class="remove_report" id="${reportData.key}">
-                                <img class="img_remove_report" src="https://pngimage.net/wp-content/uploads/2018/05/close-png-6.png" alt="">
-                            </div>
-                            <div class="comment_report">
-                                <h3>Comentário: </h3>
-                                <p class="pComment">${reportData.comment}</p>
-                            </div>
-                            <div class="details_report">
-                                <div class="date_details">
-                                    <h3>Data: </h3>
-                                    <p class="pDate">${reportData.currDate} - ${reportData.startTime} ás ${reportData.endTime}</p>
+    let mainElement =  `<li class='li_report'> 
+                            <div class="report">
+                                <div class="remove_report" id="${reportData.key}">
+                                    <img class="img_remove_report" src="https://pngimage.net/wp-content/uploads/2018/05/close-png-6.png" alt="">
                                 </div>
-                                <div class="commit_details">
-                                    <h3>Commit: </h3>
-                                    <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${commitLink}</p></a>
+                                <div class="comment_report">
+                                    <h3>Comentário: </h3>
+                                    <p class="pComment">${reportData.comment}</p>
                                 </div>
+                                <div class="details_report">
+                                    <div class="date_details">
+                                        <h3>Data: </h3>
+                                        <p class="pDate">${reportData.currDate} - ${reportData.startTime} ás ${reportData.endTime}</p>
+                                    </div>
+                                    <div class="commit_details">
+                                        <h3>Commit: </h3>
+                                        <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${commitLink}</p></a>
+                                    </div>
+                                </div>
+                                ${(reportData.attachments ? "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>" : "")}
                             </div>
-                            ${(reportData.attachments ? attachmentsElement : "")}
-                        </div>
-                    </li>`
+                        </li>`
 
     return mainElement;
 }
 
 // --- NOVO RELATÓRIO --- //
-const addFormNewReport = document.getElementById('btn_newReport')
+const addFormNewReport = document.getElementById('addForm_newReport')
 const formNewReport = document.getElementById('form_newReport')
 const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
 
-let inputStartTime = document.getElementById('startTime')
-let inputEndTime = document.getElementById('endTime')
-let inputStartDate = document.getElementById('startDate')
-let inputCommitLink = document.getElementById('commitLink')
-let inputComment = document.getElementById('comment')
+const inputStartTime = document.getElementById('startTime')
+const inputEndTime = document.getElementById('endTime')
+const inputStartDate = document.getElementById('startDate')
+const inputCommitLink = document.getElementById('commitLink')
+const inputComment = document.getElementById('comment')
 
 addFormNewReport.addEventListener('click', () => {
+
     addFormNewReport.style.display = 'none'
     formNewReport.style.display = 'block'
 })
 
 btnCancelNewReport.addEventListener('click', () => {
     
-    inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
-    addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
+    let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
+    clearBoxes(inputs)
+    
+    addFormNewReport.style.display = 'flex'
+    formNewReport.style.display = 'none'
 })
 
 window.newReport.addEventListener('submit', async event => {
+
     event.preventDefault();
-    var card = {};
+    let card = {};
 
     card = await getCardDetailsById(trello);
 
@@ -241,47 +230,47 @@ window.newReport.addEventListener('submit', async event => {
 });
 
 const toDate = dateStr => {
+    
     let parts = dateStr.split("-");
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
 }
 
 const addReport = card => {
 
-    let startTime = window.startTime.value;
-    let endTime = window.endTime.value;
-    let commitLink = window.commitLink.value;
-    let comment = window.comment.value;
-    let cardURL = JSON.parse(card).url;
-    let membersIds = card.members;
-    let title = card.name;
-    let labels = card.labels
-    let currDate = toDate(window.startDate.value);
+    const cardURL = JSON.parse(card).url;
+    const membersIds = card.members;
+    const title = card.name;
+    const labels = card.labels
 
-    dateSplit = currDate.split('/')
+    const startTime = inputStartTime.value;
+    const endTime = inputEndTime.value;
+    const commitLink = inputCommitLink.value;
+    const comment = inputComment.value;
+    const currDate = toDate(inputStartDate.value);
 
-    currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
+    const dateSplit = currDate.split('/')
+
+    const currDia = dateSplit[0]; 
+    const currMes = dateSplit[1]; 
+    const currAno = dateSplit[2];
 
     if(!startTime || !endTime || !comment)
         return alert("Preencha todos os campos!")
 
     if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") 
-        return alert("Insira uma data em 'Início da tarefa'")
+        return alert("Insira uma data em 'Dia de tarefa'")
 
     if(!endTime > startTime)
         return alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
 
     let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
-
     clearBoxes(inputs)
-
-    teste.forEach(element => {
-        console.log(element)
-    })
-
+    
     let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-    inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
-    addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
+    // criar função
+    addFormNewReport.style.display = 'flex'
+    formNewReport.style.display = 'none'
 
     trello.alert({
         message: 'Relatório criado com sucesso!',
@@ -289,14 +278,7 @@ const addReport = card => {
         display: 'success'
     });
 
-    console.log("Chegou aqui!")
-
     return addNewReport(trello, report)
 }
 
-const clearBoxes = inputs => {
-    
-    inputs.forEach(elements => {
-        console.log(elements)
-    })
-}
+const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
