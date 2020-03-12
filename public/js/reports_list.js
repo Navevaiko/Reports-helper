@@ -93,8 +93,6 @@ const createReportElementToPdf = reportData => {
                     </div>
                 </div>`;
 
-    console.log(boxHtml)
-
     return boxHtml;
 }
 
