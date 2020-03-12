@@ -158,6 +158,69 @@ const getLabels = json => json.labels.map(e => e.name).join(" - ");
 
 const getMembers = json => json.members.map(e => e.fullName).join(" - ");
 
+const createListReportElement = reportDatas => reportDatas.map(e => { createReportElementToPdf(e) })
+
+const createReportElementToPdf = reportData => {
+
+    // -------  tratamento de valores ultilizados para criar a pagina html
+    let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
+
+    let members = reportData.members.map(e => {
+        let avatar = e.avatarUrl === undefined ? e.avatar : `${e.avatarUrl}/50.png`;
+        return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
+    });
+
+    let initialDate = convertToDate(reportData.currDate, reportData.startTime);
+    let finalDate = convertToDate(reportData.currDate, reportData.endTime);
+
+    let fullTime = getHoursDifference(initialDate, finalDate);
+
+    let boxHtml = `<div class="report_container">
+                    <div class="item_body member">
+                        <div class="div_caixa">
+                            ${members.join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="item_body card">
+                        ${reportData.title}
+                    </div>
+                    
+                    <div class="item_body tag">
+                        ${tags.join('')}
+                    </div>
+                    
+                    <div class="item_body date">
+                        ${reportData.currDate}<br>
+                        ${reportData.startTime} às 
+                        ${reportData.endTime}
+                    </div>
+                    
+                    <div class="item_body start_end">
+                        ${fullTime}
+                    </div>
+                    
+                    <div class="item_body link">
+                        <div class="link_trello">
+                            <a class="trello" href="${reportData.cardURL}">
+                                Trello
+                            <a>
+                            <br>
+                            <a class="Commit"
+                                href="${reportData.commitLink}">
+                                Commit
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="item_body comment">
+                    ${reportData.comment}
+                    </div>
+                </div>`;
+
+    return boxHtml;
+}
+
 const openWindowForPdf = content => {
     var mywindow = window.open('', 'Print', 'height=900,width=1100');
 
