@@ -195,20 +195,22 @@ const inputStartDate = document.getElementById('startDate')
 const inputCommitLink = document.getElementById('commitLink')
 const inputComment = document.getElementById('comment')
 
-addFormNewReport.addEventListener('click', () => {
+if(addFormNewReport || btnCancelNewReport){
+    addFormNewReport.addEventListener('click', () => {
 
-    addFormNewReport.style.display = 'none'
-    formNewReport.style.display = 'block'
-})
+        addFormNewReport.style.display = 'none'
+        formNewReport.style.display = 'block'
+    })
 
-btnCancelNewReport.addEventListener('click', () => {
-    
-    let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
-    clearBoxes(inputs)
-    
-    addFormNewReport.style.display = 'flex'
-    formNewReport.style.display = 'none'
-})
+    btnCancelNewReport.addEventListener('click', () => {
+        
+        let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
+        clearBoxes(inputs)
+        
+        addFormNewReport.style.display = 'flex'
+        formNewReport.style.display = 'none'
+    })
+}
 
 window.newReport.addEventListener('submit', async event => {
 
