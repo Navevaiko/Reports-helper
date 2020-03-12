@@ -162,6 +162,8 @@ const createListReportElement = reportDatas => reportDatas.map(e => { createRepo
 
 const createReportElementToPdf = reportData => {
 
+    console.log(reportData)
+
     // -------  tratamento de valores ultilizados para criar a pagina html
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
 
