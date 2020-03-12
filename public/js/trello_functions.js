@@ -1,5 +1,7 @@
-let reportsKey = 'reports';
-let reportsVisibility = 'shared'
+console.log("trello_functions chamada...")
+
+var reportsKey = 'reports';
+var reportsVisibility = 'shared'
 
 const showNewReportModal = trello => { 
 
@@ -97,10 +99,10 @@ const concatMyKeyInObj = card => {
 }
 
 const showBadge = reports => {
-    let reportsCount = reports.length;
+    var reportsCount = reports.length;
 
     if (reportsCount != 0)
-        let message = `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
+        var message = `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
 
     return [{
         icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
