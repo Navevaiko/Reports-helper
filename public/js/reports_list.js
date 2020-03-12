@@ -21,29 +21,6 @@ const loadReportsList = reports => {
     removeReport(allElements)
 }
 
-const removeReport = elements => {
-
-    return elements.map(element => element.addEventListener('click', () => {
-        
-        trello.alert({
-            message: 'Relatório removido com sucesso!',
-            duration: 3,
-            display: 'error'
-        });
-
-        // REMOVENDO RELATÓRIO DA LISTA
-        let liReport = element.closest('.li_report')
-        console.log(liReport.children[0])
-        let report = element.parentNode
-        let reportDiv = report.parentNode
-        let reportElement = reportDiv.parentNode
-        let reportsList = reportElement.parentNode
-
-        reportsList.removeChild(reportElement);
-        deleteReport(element.parentNode)
-    }))
-}
-
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
 const convertToDate = (date, hours) => {
@@ -164,10 +141,34 @@ const getHoursDifference = (date1, date2) => {
 
 const confirmationDeletion = element => {}
 
+const removeReport = elements => {
+
+    return elements.map(element => element.addEventListener('click', () => {
+        
+        trello.alert({
+            message: 'Relatório removido com sucesso!',
+            duration: 3,
+            display: 'error'
+        });
+
+        // REMOVENDO RELATÓRIO DA LISTA
+        let liReport = element.closest('.li_report')
+        console.log(liReport.children)
+        let report = element.parentNode
+        let reportDiv = report.parentNode
+        let reportElement = reportDiv.parentNode
+        let reportsList = reportElement.parentNode
+
+        reportsList.removeChild(reportElement);
+        deleteReport(element.parentNode)
+    }))
+}
+
 const deleteReport = element => {
     let key = element.id;
     trello.remove('card', 'shared', key);
 }
+
 
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
@@ -260,28 +261,52 @@ const addReport = card => {
 
     currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
 
-    if (startTime && endTime && comment) {
+    if(!startTime && endTime && comment)
+        return alert("Preencha todos os campos!")
 
-        if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
+    if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") 
+        return alert("Insira uma data em 'Início da tarefa'")
 
-        if (endTime > startTime) {
+    if(!endTime > startTime)
+        return alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
 
-            let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
+    let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-            inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
-            addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
+    inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
+    addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
 
-            trello.alert({
-                message: 'Relatório criado com sucesso!',
-                duration: 3,
-                display: 'success'
-            });
+    trello.alert({
+        message: 'Relatório criado com sucesso!',
+        duration: 3,
+        display: 'success'
+    });
 
-            return addNewReport(trello, report)
+    console.log("Chegou aqui!")
 
-        } else {
-            alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
-        }
-    }
-    else alert("Preencha todos os campos!")
+    return addNewReport(trello, report)
+
+    // if (startTime && endTime && comment) {
+
+    //     if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") return alert("Insira uma data em 'Início da tarefa'")
+
+    //     if (endTime > startTime) {
+
+    //         let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
+
+    //         inputStartTime.value = ""; inputEndTime.value = ""; inputStartDate.value = ""; inputCommitLink.value = ""; inputComment.value = "";
+    //         addFormNewReport.style.display = 'flex'; formNewReport.style.display = 'none'
+
+    //         trello.alert({
+    //             message: 'Relatório criado com sucesso!',
+    //             duration: 3,
+    //             display: 'success'
+    //         });
+
+    //         return addNewReport(trello, report)
+
+    //     } else {
+    //         alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
+    //     }
+    // }
+    // else alert("Preencha todos os campos!")
 }
