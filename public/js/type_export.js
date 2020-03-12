@@ -1,9 +1,11 @@
+console.log("type_export chamada...")
+
 var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
 });
 
-let idBoard = trello.args[0].context.board;
+var idBoard = trello.args[0].context.board;
 
 trello.render(function () {
     trello.sizeTo('#exportData').done();
@@ -19,10 +21,10 @@ const fullTime = json => {
     json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentários" : json.comment
 
-    let initialDate = convertToDate(json.currDate, json.startTime);
-    let finalDate = convertToDate(json.currDate, json.endTime);
+    let data1 = convertToDate(json.currDate, json.startTime);
+    let data2 = convertToDate(json.currDate, json.endTime);
 
-    let fullTime = getHoursDifference(initialDate, finalDate);
+    let fullTime = getHoursDifference(data1, data2);
 
     let newJson = json;
     newJson.duration = fullTime;
@@ -49,6 +51,7 @@ window.exportData.addEventListener('submit', async event => {
         trello.hideCard();
 
         //adicionando o campo de duração no json
+
         try {
             dataCard = dataCard.map(e => fullTime(e));
 
@@ -63,8 +66,8 @@ window.exportData.addEventListener('submit', async event => {
 
         let secret2 = ["26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "26b36127f3188e42bd1e3d188069bc94", "c490a786754dda873bbbe1e2320d3d58", "a8e3f8ce74af51d7ff2618749135b87e", "1cff6db2efeb8e2c6d9b26f15e99b6ff", "26b36127f3188e42bd1e3d188069bc94"];
         let token2 = ["57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337", "4a53ac918fce3b3eb9903611a2aca9afa995e775180020890d27851656da8d0f", "ae4d054beaa98e49e67078008f8799213cddfd92db5900716682bf7e4da11331", "2fc25727851421d048f477ef653f036d40eaceddbfc99d937575ebb5b728f930", "57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337"];
-
         let randon = parseInt((Math.random() * 10).toFixed(0));
+
         let secret = secret2[randon];
         let token = token2[randon];
 
@@ -85,8 +88,8 @@ window.exportData.addEventListener('submit', async event => {
     trello.alert({
         message: 'Download realizado com sucesso 🎉',
         duration: 3,
-        display: 'success'
     })
+
 });
 
 const requestReports = async (card, token, secret) => {
@@ -128,41 +131,43 @@ const requestReports = async (card, token, secret) => {
 const downloadByType = (type, json) => {
 
     switch (type) {
-        
         case "CSV":
+
             json.map((e, i) => json[i].labels = getLabels(e));
             json.map((e, i) => json[i].members = getMembers(e));
+
             JSONToCSVConvertor(json, "Relatorio.csv", true);
-            break;
 
+            break;
         case "JSON":
-            download(`Relatorio.json`, JSON.stringify(json));
-            break;
 
+            download(`Relatorio.json`, JSON.stringify(json));
+
+            break;
+        default:
         case "PDF":
+            
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);
-            break;
 
-        default:
             break;
     }
 }
 
-const getLabels = json => json.labels.map(el => el.name).join(" - ");
+const getLabels = json => json.labels.map(e => e.name).join(" - ");
 
-const getMembers = json => json.members.map(el => el.fullName).join(" - ");
+const getMembers = json => json.members.map(e => e.fullName).join(" - ");
 
-const createListReportElement = reportDatas => reportDatas.map(el => { createReportElementToPdf(el) })
+const createListReportElement = reportDatas => reportDatas.map(e => { createReportElementToPdf(e) })
 
 const createReportElementToPdf = reportData => {
 
-    // Tratamento de valores ultilizados para criar a pagina HTML
-    let tags = reportData.labels.map(el => `<div class="tags" style="background-color: ${el.color};">${el.name}</div>`);
+    // -------  tratamento de valores ultilizados para criar a pagina html
+    let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
 
-    let members = reportData.members.map(el => {
-        let avatar = el.avatarUrl === undefined ? el.avatar : `${el.avatarUrl}/50.png`;
-        return `<div class="name_member">${el.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
+    let members = reportData.members.map(e => {
+        let avatar = e.avatarUrl === undefined ? e.avatar : `${e.avatarUrl}/50.png`;
+        return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
 
     let initialDate = convertToDate(reportData.currDate, reportData.startTime);
@@ -170,48 +175,48 @@ const createReportElementToPdf = reportData => {
 
     let fullTime = getHoursDifference(initialDate, finalDate);
 
-    let boxHtml =  `<div class="report_container">
-                        <div class="item_body member">
-                            <div class="div_caixa">
-                                ${members.join('')}
-                            </div>
+    let boxHtml = `<div class="report_container">
+                    <div class="item_body member">
+                        <div class="div_caixa">
+                            ${members.join('')}
                         </div>
-                        
-                        <div class="item_body card">
-                            ${reportData.title}
+                    </div>
+                    
+                    <div class="item_body card">
+                        ${reportData.title}
+                    </div>
+                    
+                    <div class="item_body tag">
+                        ${tags.join('')}
+                    </div>
+                    
+                    <div class="item_body date">
+                        ${reportData.currDate}<br>
+                        ${reportData.startTime} às 
+                        ${reportData.endTime}
+                    </div>
+                    
+                    <div class="item_body start_end">
+                        ${fullTime}
+                    </div>
+                    
+                    <div class="item_body link">
+                        <div class="link_trello">
+                            <a class="trello" href="${reportData.cardURL}">
+                                Trello
+                            <a>
+                            <br>
+                            <a class="Commit"
+                                href="${reportData.commitLink}">
+                                Commit
+                            </a>
                         </div>
-                        
-                        <div class="item_body tag">
-                            ${tags.join('')}
-                        </div>
-                        
-                        <div class="item_body date">
-                            ${reportData.currDate}<br>
-                            ${reportData.startTime} às 
-                            ${reportData.endTime}
-                        </div>
-                        
-                        <div class="item_body start_end">
-                            ${fullTime}
-                        </div>
-                        
-                        <div class="item_body link">
-                            <div class="link_trello">
-                                <a class="trello" href="${reportData.cardURL}">
-                                    Trello
-                                <a>
-                                <br>
-                                <a class="Commit"
-                                    href="${reportData.commitLink}">
-                                    Commit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="item_body comment">
-                        ${reportData.comment}
-                        </div>
-                    </div>`;
+                    </div>
+                    
+                    <div class="item_body comment">
+                    ${reportData.comment}
+                    </div>
+                </div>`;
 
     return boxHtml;
 }
