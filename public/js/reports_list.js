@@ -24,7 +24,10 @@ const loadReportsList = reports => {
 
 const createListReportElement = reportDatas => {
     console.log("createListreportElement chamado...")
-    reportDatas.map(e => createReportElementToPdf(e))
+    reportDatas.map(e => {
+        console.log(e)
+        createReportElementToPdf(e)
+    })
 };
 
 const convertToDate = (date, hours) => {
