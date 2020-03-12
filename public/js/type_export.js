@@ -147,7 +147,9 @@ const downloadByType = (type, json) => {
         default:
         case "PDF":
             
+            console.log(json)
             let content = createListReportElement(json).join('');
+            console.log(content)
             openWindowForPdf(content);
 
             break;
@@ -218,8 +220,6 @@ const createReportElementToPdf = reportData => {
                     </div>
                 </div>`;
 
-    console.log(boxHtml)
-
     return boxHtml;
 
 }
@@ -274,6 +274,8 @@ const getHoursDifference = (date1, date2) => {
 };
 
 const openWindowForPdf = content => {
+    console.log("content: ")
+    console.log(content)
     var mywindow = window.open('', 'Print', 'height=900,width=1100');
 
     mywindow.document.write(`<!DOCTYPE html>
