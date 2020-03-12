@@ -56,36 +56,48 @@ const createReportElementToPdf = reportData => {
 
     let fullTime = getHoursDifference(initialDate, finalDate);
 
-    let boxHtml =  `<div class="report_container">
-                        <div class="item_body member">
-                            <div class="div_caixa">
-                                ${members.join('')}
-                            </div>
+    let boxHtml = `<div class="report_container">
+                    <div class="item_body member">
+                        <div class="div_caixa">
+                            ${members.join('')}
                         </div>
-                        
-                        <div class="item_body card">
-                            ${reportData.title}
+                    </div>
+                    
+                    <div class="item_body card">
+                        ${reportData.title}
+                    </div>
+                    
+                    <div class="item_body tag">
+                        ${tags.join('')}
+                    </div>
+                    
+                    <div class="item_body date">
+                        ${reportData.currDate}<br>
+                        ${reportData.startTime} às 
+                        ${reportData.endTime}
+                    </div>
+                    
+                    <div class="item_body start_end">
+                        ${fullTime}
+                    </div>
+                    
+                    <div class="item_body link">
+                        <div class="link_trello">
+                            <a class="trello" href="${reportData.cardURL}">
+                                Trello
+                            <a>
+                            <br>
+                            <a class="Commit"
+                                href="${reportData.commitLink}">
+                                Commit
+                            </a>
                         </div>
-                        
-                        <div class="item_body tag">
-                            ${tags.join('')}
-                        </div>
-                        
-                        <div class="item_body date">
-                            ${reportData.currDate} <br> ${reportData.startTime} às ${reportData.endTime}
-                        </div>
-                        
-                        <div class="item_body start_end">${fullTime}</div>
-                        
-                        <div class="item_body link">
-                            <div class="link_trello">
-                                <a class="trello" href="${reportData.cardURL}">Trello<a><br>
-                                <a class="Commit" href="${reportData.commitLink}">Commit</a>
-                            </div>
-                        </div>
-                        
-                        <div class="item_body comment">${reportData.comment}</div>
-                    </div>`;
+                    </div>
+                    
+                    <div class="item_body comment">
+                    ${reportData.comment}
+                    </div>
+                </div>`;
 
     return boxHtml;
 }
