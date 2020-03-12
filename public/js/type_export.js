@@ -161,7 +161,6 @@ const getMembers = json => json.members.map(e => e.fullName).join(" - ");
 
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
-// função que cria um elemento html de acordo com um jsom em formato correto
 const createReportElementToPdf = reportData => {
 
     // -------  tratamento de valores ultilizados para criar a pagina html
