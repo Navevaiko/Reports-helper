@@ -1,4 +1,4 @@
-let trello = TrelloPowerUp.iframe();
+var trello = TrelloPowerUp.iframe();
 
 //ao carregar a pg
 window.addEventListener('load', async () => {

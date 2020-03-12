@@ -1,5 +1,3 @@
-console.log("main chamada...")
-
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
         return [

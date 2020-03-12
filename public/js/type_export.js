@@ -1,4 +1,4 @@
-let trello = window.TrelloPowerUp.iframe({
+var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
 });
