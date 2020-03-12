@@ -22,13 +22,7 @@ const loadReportsList = reports => {
     removeReport(allElements)
 }
 
-const createListReportElement = reportDatas => {
-    console.log("createListreportElement chamado...")
-    reportDatas.map(e => {
-        console.log(e)
-        createReportElementToPdf(e)
-    })
-};
+const createListReportElement = reportDatas => reportDatas.map(e => { createReportElementToPdf(e) })
 
 const convertToDate = (date, hours) => {
     console.log("converToDate chamado...")
@@ -41,7 +35,6 @@ const convertToDate = (date, hours) => {
 
 // função que cria um elemento html de acordo com um json em formato correto
 const createReportElementToPdf = reportData => {
-    console.log("createReportElementToPdf chamado...")
 
     // -------  tratamento de valores ultilizados para criar a pagina html
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
@@ -51,11 +44,12 @@ const createReportElementToPdf = reportData => {
         return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
 
-    let initialDate = convertToDate(reportData.currDate, reportData.startTime);
-    let finalDate = convertToDate(reportData.currDate, reportData.endTime);
+    let data1 = convertToDate(reportData.currDate, reportData.startTime);
+    let data2 = convertToDate(reportData.currDate, reportData.endTime);
 
-    let fullTime = getHoursDifference(initialDate, finalDate);
+    let fullTime = getHoursDifference(data1, data2);
 
+    // elemento html 
     let boxHtml = `<div class="report_container">
                     <div class="item_body member">
                         <div class="div_caixa">
@@ -98,6 +92,8 @@ const createReportElementToPdf = reportData => {
                     ${reportData.comment}
                     </div>
                 </div>`;
+
+    console.log(boxHtml)
 
     return boxHtml;
 }
