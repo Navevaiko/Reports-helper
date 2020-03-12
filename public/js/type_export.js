@@ -16,10 +16,10 @@ const fullTime = json => {
     json.endTime == undefined ? json.endTime = "0:00:00" : json.endTime
     json.comment == undefined ? json.comment = "Sem comentários" : json.comment
 
-    let data1 = convertToDate(json.currDate, json.startTime);
-    let data2 = convertToDate(json.currDate, json.endTime);
+    let initialDate = convertToDate(json.currDate, json.startTime);
+    let finalDate = convertToDate(json.currDate, json.endTime);
 
-    let fullTime = getHoursDifference(data1, data2);
+    let fullTime = getHoursDifference(initialDate, finalDate);
 
     let newJson = json;
     newJson.duration = fullTime;
@@ -111,7 +111,7 @@ const requestReports = async (card, token, secret) => {
 const downloadByType = (type, json) => {
 
     switch (type) {
-        
+
         case "CSV":
             json.map((e, i) => json[i].labels = getLabels(e));
             json.map((e, i) => json[i].members = getMembers(e));
@@ -149,10 +149,10 @@ const createReportElementToPdf = reportData => {
         return `<div class="name_member">${e.fullName}</div><div class="perfil_member" style="background-image: url(${avatar});"></div><br>`;
     });
 
-    let data1 = convertToDate(reportData.currDate, reportData.startTime);
-    let data2 = convertToDate(reportData.currDate, reportData.endTime);
+    let initialDate = convertToDate(reportData.currDate, reportData.startTime);
+    let finalDate = convertToDate(reportData.currDate, reportData.endTime);
 
-    let fullTime = getHoursDifference(data1, data2);
+    let fullTime = getHoursDifference(initialDate, finalDate);
 
     // elemento html 
     let boxHtml = `<div class="report_container">
@@ -211,13 +211,12 @@ const convertToDate = (date, hours) => {
 
 //retorna a diferença entre horas, espera receber dois obj Date
 const getHoursDifference = (date1, date2) => {
+
     let diff, result = "00h00min"
 
     try {
         diff = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60;
-
     } catch (error) {
-        
         return error
     }
 
@@ -251,8 +250,7 @@ const getHoursDifference = (date1, date2) => {
 };
 
 const openWindowForPdf = content => {
-    console.log("content: ")
-    console.log(content)
+
     var mywindow = window.open('', 'Print', 'height=900,width=1100');
 
     mywindow.document.write(`<!DOCTYPE html>
@@ -265,7 +263,6 @@ const openWindowForPdf = content => {
                                     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
                                 <title>Relátorio</title>
                             </head><body>`);
-
 
     mywindow.document.write(`<script>
                                 setTimeout(() => { window.print(); window.close(); }, 1500);
@@ -295,11 +292,13 @@ const openWindowForPdf = content => {
                                         Comentário
                                     </div>
                                 </div>`);
+
     mywindow.document.write(content);
     mywindow.document.write(`</body></html>`);
 }
 
 const download = (filename, text) => {
+
     let element = document.createElement('a');
 
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -314,6 +313,7 @@ const download = (filename, text) => {
 }
 
 const JSONToCSVConvertor = (JSONData, ReportTitle, ShowLabel) => {
+    
     var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
     var CSV = '';
