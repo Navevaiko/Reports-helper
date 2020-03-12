@@ -261,7 +261,7 @@ const addReport = card => {
 
     currDia = dateSplit[0]; currMes = dateSplit[1]; currAno = dateSplit[2];
 
-    if(!startTime && !endTime && !comment)
+    if(!startTime || !endTime || !comment)
         return alert("Preencha todos os campos!")
 
     if(currDia == 'undefined' || currMes == 'undefined' || currAno == "") 
