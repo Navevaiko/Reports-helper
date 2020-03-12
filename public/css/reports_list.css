@@ -14,7 +14,7 @@ h3{
     margin: 15px 0 35px 0;
 }
 
-#btn_newReport{
+#addForm_newReport{
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -23,7 +23,7 @@ h3{
     cursor: pointer;
 }
 
-#btn_newReport span{
+#addForm_newReport span{
     font-size: 14px;
     color: #172B4D;
     font-weight: bold;
