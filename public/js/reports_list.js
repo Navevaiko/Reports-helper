@@ -270,7 +270,9 @@ const addReport = card => {
     if(!endTime > startTime)
         return alert('O tempo de início deve ser menor que o tempo de fim da tarefa.');
 
-    let teste = [ startTime, endTime ]
+    let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
+
+    clearBoxes(inputs)
 
     teste.forEach(element => {
         console.log(element)
@@ -290,4 +292,11 @@ const addReport = card => {
     console.log("Chegou aqui!")
 
     return addNewReport(trello, report)
+}
+
+const clearBoxes = inputs => {
+    
+    inputs.forEach(elements => {
+        console.log(elements)
+    })
 }
