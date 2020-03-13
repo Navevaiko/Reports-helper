@@ -101,19 +101,18 @@ const requestReports = async (card, token, secret) => {
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    console.log("request: ")
-    console.log(request)
+    console.log(request.data[0])
+    console.log(request.data[0].value)
 
     let json = !!request.data[0] ? request.data[0].value : "";
+
+    console.log(json)
 
     if (!json == "") {
 
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ e, title: card.name, members: card.members, labels: card.labels }))
-
-        console.log("jsonUnified: ")
-        console.log(jsonUnified)
 
         // Apenas mostrando cards que possuem relatórios
         if(jsonUnified[0])
