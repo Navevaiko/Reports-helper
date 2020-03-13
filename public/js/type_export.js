@@ -42,12 +42,18 @@ window.exportData.addEventListener('submit', async event => {
 
         let dataCard = getDataCardExport(cardContent.card, card);
 
+        console.log("dataCard: ")
+        console.log(dataCard)
+
         trello.closePopup();
         trello.hideCard();
 
         //adicionando o campo de duração no json
         try {
             dataCard = dataCard.map(e => fullTime(e));
+
+            console.log("dataCard2: ")
+            console.log(dataCard)
 
         } catch (error) {
             dataCard = "00:00"
@@ -74,6 +80,9 @@ window.exportData.addEventListener('submit', async event => {
 
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
+
+        console.log("arrayUnified: ")
+        console.log(arrayUnified)
 
         downloadByType(typeFile, arrayUnified);
     }
@@ -110,6 +119,9 @@ const requestReports = async (card, token, secret) => {
 
 const downloadByType = (type, json) => {
 
+    console.log("json: ")
+    console.log(json)
+
     switch (type) {
 
         case "CSV":
@@ -123,7 +135,6 @@ const downloadByType = (type, json) => {
             break;
 
         case "PDF":
-            console.log(createListReportElement(json))
             let content = createListReportElement(json).join('');
             openWindowForPdf(content);
             break;

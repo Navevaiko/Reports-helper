@@ -60,12 +60,6 @@ const getReports = async trello => {
     return getReportsAnyKy(getAll.card);
 }
 
-const getReportsById = async trello => {
-    return trello.get('card', 'shared', trello.key).then(function (data) {
-        console.log(JSON.stringify(data, null, 2));
-    });
-}
-
 const getReportsAnyKy = getAllCard => {
 
     let reportsFull = [];
