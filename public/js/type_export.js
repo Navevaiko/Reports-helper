@@ -84,9 +84,6 @@ window.exportData.addEventListener('submit', async event => {
         //adicionando o campo de duração no json
         arrayUnified = arrayUnified.map(e => fullTime(e));
 
-        console.log("arrayUnified: ")
-        console.log(arrayUnified)
-
         downloadByType(typeFile, arrayUnified);
     }
 
@@ -98,10 +95,14 @@ window.exportData.addEventListener('submit', async event => {
 
 const requestReports = async (card, token, secret) => {
 
+
     let arrayUnified = [];
     const { id } = card;
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
+
+    console.log("request: ")
+    console.log(request)
 
     let json = !!request.data[0] ? request.data[0].value : "";
 
@@ -124,9 +125,6 @@ const requestReports = async (card, token, secret) => {
 }
 
 const downloadByType = (type, json) => {
-
-    console.log("json: ")
-    console.log(json)
 
     switch (type) {
 
