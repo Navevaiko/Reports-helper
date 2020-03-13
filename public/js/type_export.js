@@ -102,7 +102,7 @@ const requestReports = async (card, token, secret) => {
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
     if(request.data[1])
-        console.log("Existe: " + request.data[1])
+        console.log(request.data[1])
     // console.log(request.data[1])
     // console.log(request.data[1].value)
 
