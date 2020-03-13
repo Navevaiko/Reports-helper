@@ -101,8 +101,11 @@ const requestReports = async (card, token, secret) => {
     let teste = request.data;
 
     teste.forEach(element => {
+
+        const obj = JSON.parse(element.value)
+
         console.log("elemento: ")
-        console.log(element)
+        console.log(obj)
     })
     let json = !!request.data[0] ? request.data[0].value : "";
 
