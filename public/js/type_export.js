@@ -72,6 +72,9 @@ window.exportData.addEventListener('submit', async event => {
 
         let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
+        console.log("cards: ")
+        console.log(cards)
+
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
         let arrayUnified = await Promise.all(promisseResponse);
@@ -107,6 +110,9 @@ const requestReports = async (card, token, secret) => {
         json = getReportsAnyKy(JSON.parse(json))
 
         const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
+
+        console.log("jsonUnified: ")
+        console.log(jsonUnified)
 
         // Apenas mostrando cards que possuem relatórios
         if(jsonUnified[0])
