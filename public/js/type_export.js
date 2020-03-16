@@ -88,12 +88,12 @@ window.exportData.addEventListener('submit', async event => {
 
             trello.alert({
                 message: 'Status 401: Erro ao exportar, tente novamente',
-                duration: 3,
+                duration: 5,
                 display: 'error'
             })
 
-            copnsole.log(error)
-        }
+            console.log(error)
+        }   
     }
 
     trello.alert({
