@@ -3,7 +3,7 @@ var trello = TrelloPowerUp.iframe();
 window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
 const loadReportsList = reports => {
-    
+
     let reportsElementsList;
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
@@ -39,6 +39,8 @@ const deleteReport = element => {
 
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
+
+    console.log(reportData)
 
     let commitLink = reportData.commitLink;
 
