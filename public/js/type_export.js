@@ -92,55 +92,31 @@ window.exportData.addEventListener('submit', async event => {
 
 const requestReports = async (card, token, secret) => {
 
-
-    let arrayUnified = [];
+    let arrayUnified = []; 
     const { id } = card;
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    let data = request.data;
+    request.data.forEach(({value}) => {
 
-    data.forEach(element => {
-
-        const obj = JSON.parse(element.value)
+        const obj = JSON.parse(value)
     
-        if(!isEmptyObject(obj)){
+        if(!isEmptyObject(obj) && !obj.lastSeenOn && !obj.evergreen){
 
-            if(!obj.lastSeenOn && !obj.evergreen){
+            let json = getReportsAnyKy(obj)
+            const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-                let json = getReportsAnyKy(obj)
-
-                const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
-
-                arrayUnified.push(jsonUnified)
-            }
+            arrayUnified.push(jsonUnified)
         }
     })
-    
-    // let json = !!request.data[0] ? request.data[0].value : "";
-
-    // if (!json == "") {
-
-    //     json = getReportsAnyKy(JSON.parse(json))
-
-    //     const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
-
-    //     // Apenas mostrando cards que possuem relatórios
-    //     if(jsonUnified[0])
-    //         if(jsonUnified[0].comment)
-    //             arrayUnified.push(jsonUnified)
-    // } 
-
     return arrayUnified;
 }
 
 // Verifica objeto vazio
 function isEmptyObject(obj) {
-
     let element;
-    for (element in obj) {
-      return false;
-    }
+    for (element in obj) return false;
+
     return true;
 }
 
