@@ -14,8 +14,10 @@ const loadReportsList = reports => {
         reportsElementsList += createReportElement(report);
     });
 
-    if(window.reportsKey)
+    if(window.reportsKey){
+        console.log(window.reportsKey)
         window.reportsList.innerHTML = reportsElementsList; 
+    }
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
 
