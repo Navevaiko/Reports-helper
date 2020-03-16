@@ -1,3 +1,5 @@
+import { response } from "express";
+
 var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
@@ -70,7 +72,13 @@ window.exportData.addEventListener('submit', async event => {
         let secret = secret2[randon];
         let token = token2[randon];
 
-        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
+        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`)
+                          .then(response => {
+                              console.log(response)
+                          })
+                          .catch(error => {
+                              console.log(error)
+                          })
 
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
