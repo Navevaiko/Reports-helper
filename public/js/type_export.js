@@ -106,7 +106,7 @@ const requestReports = async (card, token, secret) => {
     
         if(!isEmptyObject(obj)){
 
-            let json2 = getReportsAnyKy(JSON.parse(json))
+            let json2 = getReportsAnyKy(obj)
 
             console.log(json2)
             // if(!obj.lastSeenOn || !obj.evergreen)
