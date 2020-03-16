@@ -1,14 +1,9 @@
 var trello = TrelloPowerUp.iframe();
 
-window.addEventListener('load', async () => {
-    console.log(await getReports(trello))
-    loadReportsList(await getReports(trello))
-});
+window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
 const loadReportsList = reports => {
-
-    console.log(reports)
-
+    
     let reportsElementsList;
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
