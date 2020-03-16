@@ -4,6 +4,8 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 
 const loadReportsList = reports => {
 
+    console.log(reports)
+
     let reportsElementsList;
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
@@ -26,9 +28,6 @@ const removeReport = elements => {
         // REMOVENDO RELATÓRIO DA LISTA
         let liReport = element.closest('.li_report') // Elemento para remover
         let olReport = element.closest('#reportsList') // Lista dos elementos
-
-        let teste = olReport.children[0]
-        console.log(teste)
 
         olReport.removeChild(liReport);
         deleteReport(element.parentNode)
