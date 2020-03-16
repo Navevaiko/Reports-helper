@@ -91,8 +91,6 @@ window.exportData.addEventListener('submit', async event => {
                 duration: 5,
                 display: 'error'
             })
-
-            console.log(error)
         }   
     }
 
