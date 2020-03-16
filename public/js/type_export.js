@@ -103,11 +103,7 @@ const requestReports = async (card, token, secret) => {
     data.forEach(element => {
 
         const obj = JSON.parse(element.value)
-        
-        console.log("element: ")
-        console.log(!!element)
-        console.log(element)
-
+    
         if(obj)
             if(!obj.lastSeenOn)
                 console.log(obj)
