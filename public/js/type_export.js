@@ -84,6 +84,7 @@ window.exportData.addEventListener('submit', async event => {
                 message: 'Download realizado com sucesso 🎉',
                 duration: 3,
             })
+
         } catch(error) {
 
             trello.alert({
@@ -91,13 +92,10 @@ window.exportData.addEventListener('submit', async event => {
                 duration: 3,
                 display: 'error'
             })
+
+            console.log(error)
         }   
     }
-
-    trello.alert({
-        message: 'Download realizado com sucesso 🎉',
-        duration: 3,
-    })
 });
 
 const requestReports = async (card, token, secret) => {
