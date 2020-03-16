@@ -79,9 +79,20 @@ window.exportData.addEventListener('submit', async event => {
             arrayUnified = arrayUnified.map(e => fullTime(e));
 
             downloadByType(typeFile, arrayUnified);
+
+            trello.alert({
+                message: 'Download realizado com sucesso 🎉',
+                duration: 3,
+            })
         } catch(error) {
 
-            alert("Teste")
+            trello.alert({
+                message: 'Status 401: Erro ao exportar, tente novamente',
+                duration: 3,
+                display: 'error'
+            })
+
+            copnsole.log(error)
         }
     }
 
