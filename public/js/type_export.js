@@ -1,5 +1,3 @@
-import { response } from "express";
-
 var trello = window.TrelloPowerUp.iframe({
     appKey: 'teste-teste',
     appName: 'teste teste'
@@ -53,6 +51,10 @@ window.exportData.addEventListener('submit', async event => {
         //adicionando o campo de duração no json
         try {
             dataCard = dataCard.map(e => fullTime(e));
+
+            console.log("dataCard2: ")
+            console.log(dataCard)
+
         } catch (error) {
             dataCard = "00:00"
         }
@@ -68,7 +70,7 @@ window.exportData.addEventListener('submit', async event => {
         let secret = secret2[randon];
         let token = token2[randon];
 
-        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`)
+        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
         let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
