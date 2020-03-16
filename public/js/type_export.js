@@ -105,7 +105,7 @@ const requestReports = async (card, token, secret) => {
         const obj = JSON.parse(element.value)
 
         console.log("elemento: ")
-        console.log(obj)
+        console.log(obj.lastSeenOn)
     })
     let json = !!request.data[0] ? request.data[0].value : "";
 
