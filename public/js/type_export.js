@@ -106,24 +106,14 @@ const requestReports = async (card, token, secret) => {
     
         if(!isEmptyObject(obj)){
 
-            if(obj.evergreen){
-                console.log("tem: ")
-                console.log(obj)
+            if(!obj.lastSeenOn && !obj.evergreen){
+
+                let json = getReportsAnyKy(obj)
+
+                const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
+
+                arrayUnified.push(jsonUnified)
             }
-
-            let json = getReportsAnyKy(obj)
-
-            const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
-
-            jsonUnified.forEach(element => {
-                console.log("element: ")
-                console.log(element)
-            })
-
-            arrayUnified.push(jsonUnified)
-            // if(!obj.lastSeenOn || !obj.evergreen)
-                // console.log(obj)
-
         }
     })
     
