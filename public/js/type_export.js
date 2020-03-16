@@ -51,10 +51,6 @@ window.exportData.addEventListener('submit', async event => {
         //adicionando o campo de duração no json
         try {
             dataCard = dataCard.map(e => fullTime(e));
-
-            console.log("dataCard2: ")
-            console.log(dataCard)
-
         } catch (error) {
             dataCard = "00:00"
         }
@@ -70,18 +66,22 @@ window.exportData.addEventListener('submit', async event => {
         let secret = secret2[randon];
         let token = token2[randon];
 
-        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
+        try{
+            let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-        let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
+            let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
-        let arrayUnified = await Promise.all(promisseResponse);
+            let arrayUnified = await Promise.all(promisseResponse);
 
-        arrayUnified = arrayUnified.flat(2);
+            arrayUnified = arrayUnified.flat(2);
 
-        //adicionando o campo de duração no json
-        arrayUnified = arrayUnified.map(e => fullTime(e));
+            //adicionando o campo de duração no json
+            arrayUnified = arrayUnified.map(e => fullTime(e));
 
-        downloadByType(typeFile, arrayUnified);
+            downloadByType(typeFile, arrayUnified);
+        } catch(error) {
+            console.log(error)
+        }
     }
 
     trello.alert({
