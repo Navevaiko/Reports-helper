@@ -98,16 +98,22 @@ const requestReports = async (card, token, secret) => {
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
-    let teste = request.data;
+    let data = request.data;
 
-    teste.forEach(element => {
+    data.forEach(element => {
 
         const obj = JSON.parse(element.value)
+        
+        console.log("element: ")
+        console.log(!!element)
+        console.log(element)
 
-        if(!obj.lastSeenOn)
-            if(!obj == "")
+        if(obj)
+            if(!obj.lastSeenOn)
                 console.log(obj)
+
     })
+    
     let json = !!request.data[0] ? request.data[0].value : "";
 
     if (!json == "") {
