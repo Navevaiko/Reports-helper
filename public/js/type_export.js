@@ -72,24 +72,23 @@ window.exportData.addEventListener('submit', async event => {
         let secret = secret2[randon];
         let token = token2[randon];
 
-        let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`)
-                          .then(response => {
-                              console.log(response)
-                          })
-                          .catch(error => {
-                              console.log(error)
-                          })
+        try{
+            let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`)
 
-        let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
-
-        let arrayUnified = await Promise.all(promisseResponse);
-
-        arrayUnified = arrayUnified.flat(2);
-
-        //adicionando o campo de duração no json
-        arrayUnified = arrayUnified.map(e => fullTime(e));
-
-        downloadByType(typeFile, arrayUnified);
+            let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
+    
+            let arrayUnified = await Promise.all(promisseResponse);
+    
+            arrayUnified = arrayUnified.flat(2);
+    
+            //adicionando o campo de duração no json
+            arrayUnified = arrayUnified.map(e => fullTime(e));
+    
+            downloadByType(typeFile, arrayUnified);
+            
+        } catch(error) {
+            console.log(error)
+        } 
     }
 
     trello.alert({
