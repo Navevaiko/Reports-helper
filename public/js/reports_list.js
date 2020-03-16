@@ -40,8 +40,6 @@ const deleteReport = element => {
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
 
-    console.log(reportData)
-
     let commitLink = reportData.commitLink;
 
     if(commitLink.length > 50)
