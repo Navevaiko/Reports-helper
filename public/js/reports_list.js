@@ -1,24 +1,15 @@
 var trello = TrelloPowerUp.iframe();
 
-//ao carregar a pg
-window.addEventListener('load', async () => {
-    loadReportsList(await getReports(trello))
-});
+window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
-//Cria a lista para exibição dos elementos no cartão
 const loadReportsList = reports => {
 
-    reportsElementsList = "";
+    let reportsElementsList;
+    reports.forEach(report => reportsElementsList += createReportElement(report));
 
-    reports.forEach(report => {
-        reportsElementsList += createReportElement(report);
-    });
+    if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
 
-    if(window.reportsList)
-        window.reportsList.innerHTML = reportsElementsList; 
-    
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
-
     removeReport(allElements)
 }
 
