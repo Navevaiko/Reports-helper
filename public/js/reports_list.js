@@ -27,6 +27,9 @@ const removeReport = elements => {
         let liReport = element.closest('.li_report') // Elemento para remover
         let olReport = element.closest('#reportsList') // Lista dos elementos
 
+        let teste = olReport.closest("undefined")
+        console.log(teste)
+
         olReport.removeChild(liReport);
         deleteReport(element.parentNode)
     }))
