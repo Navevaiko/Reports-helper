@@ -85,7 +85,7 @@ window.exportData.addEventListener('submit', async event => {
                 message: 'Erro 401: falha ao exportar, tente novamente',
                 duration: 3,
                 display: 'error'
-            })
+            });
 
             console.log(error)
         }
