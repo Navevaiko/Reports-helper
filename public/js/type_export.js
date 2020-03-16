@@ -106,30 +106,40 @@ const requestReports = async (card, token, secret) => {
     
         if(!isEmptyObject(obj)){
 
-            let json2 = getReportsAnyKy(obj)
+            if(obj.evergreen){
+                console.log("tem: ")
+                console.log(obj)
+            }
 
-            console.log(json2)
+            let json = getReportsAnyKy(obj)
+
+            const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
+
+            jsonUnified.forEach(element => {
+                console.log("element: ")
+                console.log(element)
+            })
+
+            arrayUnified.push(jsonUnified)
             // if(!obj.lastSeenOn || !obj.evergreen)
                 // console.log(obj)
 
         }
-
-
     })
     
-    let json = !!request.data[0] ? request.data[0].value : "";
+    // let json = !!request.data[0] ? request.data[0].value : "";
 
-    if (!json == "") {
+    // if (!json == "") {
 
-        json = getReportsAnyKy(JSON.parse(json))
+    //     json = getReportsAnyKy(JSON.parse(json))
 
-        const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
+    //     const jsonUnified = json.map(e => ({ ...e, title: card.name, members: card.members, labels: card.labels }))
 
-        // Apenas mostrando cards que possuem relatórios
-        if(jsonUnified[0])
-            if(jsonUnified[0].comment)
-                arrayUnified.push(jsonUnified)
-    } 
+    //     // Apenas mostrando cards que possuem relatórios
+    //     if(jsonUnified[0])
+    //         if(jsonUnified[0].comment)
+    //             arrayUnified.push(jsonUnified)
+    // } 
 
     return arrayUnified;
 }
