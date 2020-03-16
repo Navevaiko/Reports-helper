@@ -104,11 +104,10 @@ const requestReports = async (card, token, secret) => {
 
         const obj = JSON.parse(element.value)
     
-        if(isEmptyObject(obj)){
-            console.log("Vazio")
-        }else{
-            console.log(obj)
-        }
+        if(!isEmptyObject(obj))
+            if(!obj.lastSeenOn)
+                console.log(obj)
+
     })
     
     let json = !!request.data[0] ? request.data[0].value : "";
