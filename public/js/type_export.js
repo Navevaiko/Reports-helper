@@ -104,10 +104,11 @@ const requestReports = async (card, token, secret) => {
 
         const obj = JSON.parse(element.value)
     
-        if(!obj == "")
-            if(!obj.lastSeenOn)
-                console.log(obj)
-
+        if(isEmptyObject(obj)){
+            console.log("Vazio")
+        }else{
+            console.log(obj)
+        }
     })
     
     let json = !!request.data[0] ? request.data[0].value : "";
@@ -125,6 +126,16 @@ const requestReports = async (card, token, secret) => {
     } 
 
     return arrayUnified;
+}
+
+// Verifica objeto vazio
+function isEmptyObject(obj) {
+
+    let element;
+    for (element in obj) {
+      return false;
+    }
+    return true;
 }
 
 const downloadByType = (type, json) => {
