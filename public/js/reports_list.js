@@ -73,7 +73,7 @@ const editReport = elements => {
 
             } else if (classElement == 'pCommit') {
 
-                if(!el.innerHTML == 'Sem commit')
+                if(el.innerHTML != 'Sem commit')
                     inputCommitLink.value = el.innerHTML
             }
         })
