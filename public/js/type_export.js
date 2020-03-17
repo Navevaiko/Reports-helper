@@ -30,20 +30,14 @@ const fullTime = json => {
 window.exportData.addEventListener('submit', async event => {
 
     event.preventDefault();
-
     const typeFile = window.typeData.value;
-
     let context = await getCardContent(trello);
 
     if (Object.keys(context).length == 1) {
 
         let cardContent = await getCardContent(trello);
         let card = await getCardDetailsById(trello);
-
         let dataCard = getDataCardExport(cardContent.card, card);
-
-        console.log("dataCard: ")
-        console.log(dataCard)
 
         trello.closePopup();
         trello.hideCard();
@@ -333,31 +327,30 @@ const download = (filename, text) => {
 
 const JSONToCSVConvertor = (JSONData, ReportTitle, ShowLabel) => {
     
-    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
-
-    var CSV = '';
+    let arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+    let CSV = '';
 
     CSV += ReportTitle + '\r\n\n';
 
     if (ShowLabel) {
-        var row = "";
+        let row = "";
 
-        for (var index in arrData[0]) {
+        for (let index in arrData[0]) {
             row += index + ';';
         }
 
         row = row.slice(0, -1);
         CSV += row + '\r\n';
     }
-    for (var i = 0; i < arrData.length; i++) {
-        var row = "";
 
-        for (var index in arrData[i]) {
+    for (let i = 0; i < arrData.length; i++) {
+        let row = "";
+
+        for (let index in arrData[i]) {
             row += '"' + arrData[i][index] + '";';
         }
 
         row.slice(0, row.length - 1);
-
         CSV += row + '\r\n';
     }
 
@@ -365,5 +358,6 @@ const JSONToCSVConvertor = (JSONData, ReportTitle, ShowLabel) => {
         alert("Invalid data");
         return;
     }
+    
     download(ReportTitle, CSV)
 } 

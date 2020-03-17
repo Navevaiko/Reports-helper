@@ -6,9 +6,7 @@ const loadReportsList = reports => {
 
     let reportsElementsList = "";
     reports.forEach(report => reportsElementsList += createReportElement(report));
-
-    console.log(reportsElementsList)
-
+    
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));

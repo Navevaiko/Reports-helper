@@ -1,5 +1,3 @@
-console.log("trello_functions chamada...")
-
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
@@ -35,7 +33,6 @@ const addNewReport = async (trello, report) => {
     getReports(trello).then(function (reports) {
 
         reports.push(report);
-        
         window.reportsList.innerHTML += createReportElement(report)
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
@@ -73,10 +70,7 @@ const getReportsAnyKy = getAllCard => {
         } else {
             reportsKeys = Object.keys(getAllCard);
         }
-
     }
-
-
     reportsKeys.map(e => {
         try {
             let reportUni = cardAll[e];
@@ -88,9 +82,7 @@ const getReportsAnyKy = getAllCard => {
     return reportsFull;
 }
 
-const concatMyKeyInObj = card => {
-
-}
+const concatMyKeyInObj = card => {}
 
 const showBadge = reports => {
     var reportsCount = reports.length;
@@ -105,11 +97,7 @@ const showBadge = reports => {
     }]
 }
 
-const resize = (trello, elementId) => {
-    trello.render(function () {
-        trello.sizeTo(elementId).done();
-    })
-}
+const resize = (trello, elementId) => trello.render(() => trello.sizeTo(elementId).done());
 
 const getCardDetailsById = trello => trello.card('all');
 
