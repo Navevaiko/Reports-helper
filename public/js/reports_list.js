@@ -41,10 +41,11 @@ const editReport = elements => {
 
     elements.map(element => element.addEventListener('click', () => {
 
-        let liReport = element.closest('.li_report').querySelectorAll('p')
+        let paragraphs = element.closest('.li_report').querySelectorAll('p')
 
-        console.log(liReport)
-
+        paragraphs.forEach(el => {
+            console.log(el.value)
+        })
     }))
 }
 
