@@ -43,7 +43,7 @@ const editReport = elements => {
 
         let liReport = element.closest('.li_report')
 
-        console.log(liReport.children[0])
+        console.log(liReport.children)
     }))
 }
 
