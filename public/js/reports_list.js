@@ -9,6 +9,8 @@ const loadReportsList = reports => {
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
 
+    console.log(window.reportsList.innerHTML)
+
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
     removeReport(allElements)
 }
@@ -70,6 +72,8 @@ const createReportElement = reportData => {
                                 ${(reportData.attachments ? "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>" : "")}
                             </div>
                         </li>`
+
+    console.log(mainElement)
 
     return mainElement;
 }
