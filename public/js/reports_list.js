@@ -15,7 +15,7 @@ const loadReportsList = reports => {
 
 const removeReport = elements => {
 
-    console.log(allElements)
+    console.log(elements)
 
     return elements.map(element => element.addEventListener('click', () => {
         
