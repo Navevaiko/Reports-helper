@@ -5,11 +5,10 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 const loadReportsList = reports => {
 
     let reportsElementsList;
+    window.reportsList.innerHTML = "";
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
-
-    console.log(window.reportsList.innerHTML)
 
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
     removeReport(allElements)
