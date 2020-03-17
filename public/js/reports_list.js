@@ -49,10 +49,11 @@ const removeReport = elements => {
 // Edição de um relatório
 const editReport = elements => {
     
-    addFormNewReport.style.display = 'none'
-    formNewReport.style.display = 'block'
 
     elements.map(element => element.addEventListener('click', () => {
+        
+        addFormNewReport.style.display = 'none'
+        formNewReport.style.display = 'block'
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
 
