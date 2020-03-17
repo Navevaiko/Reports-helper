@@ -10,8 +10,6 @@ const loadReportsList = reports => {
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
-    console.log(window.reportsList.innerHTML);
-
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
     removeReport(allElements)
 }
@@ -42,6 +40,8 @@ const deleteReport = element => {
 
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
+
+    console.log(reportData)
 
     let commitLink = reportData.commitLink;
 
