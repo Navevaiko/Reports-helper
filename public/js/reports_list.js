@@ -15,6 +15,8 @@ const loadReportsList = reports => {
 
 const removeReport = elements => {
 
+    console.log(allElements)
+
     return elements.map(element => element.addEventListener('click', () => {
         
         trello.alert({
