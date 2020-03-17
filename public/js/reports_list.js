@@ -1,5 +1,15 @@
 var trello = TrelloPowerUp.iframe();
 
+const addFormNewReport = document.getElementById('addForm_newReport')
+const formNewReport = document.getElementById('form_newReport')
+const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
+
+const inputStartTime = document.getElementById('startTime')
+const inputEndTime = document.getElementById('endTime')
+const inputStartDate = document.getElementById('startDate')
+const inputCommitLink = document.getElementById('commitLink')
+const inputComment = document.getElementById('comment')
+
 window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
 const loadReportsList = reports => {
@@ -38,6 +48,9 @@ const removeReport = elements => {
 
 // Edição de um relatório
 const editReport = elements => {
+    
+    addFormNewReport.style.display = 'none'
+    formNewReport.style.display = 'block'
 
     elements.map(element => element.addEventListener('click', () => {
 
@@ -45,8 +58,15 @@ const editReport = elements => {
 
         paragraphs.forEach(el => {
 
-            console.log(el.classList.value)
+            let classElement = el.classList.value
 
+            if(classElement == 'pComment') {
+                console.log(inputComment)
+            } else if (classElement == 'pDate') {
+                console.log(inputStartDate)
+            } else if (classElement == 'pCommit') {
+                console.log(inputCommitLink)
+            }
         })
     }))
 }
@@ -95,16 +115,6 @@ const createReportElement = reportData => {
 }
 
 // --- NOVO RELATÓRIO --- //
-const addFormNewReport = document.getElementById('addForm_newReport')
-const formNewReport = document.getElementById('form_newReport')
-const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
-
-const inputStartTime = document.getElementById('startTime')
-const inputEndTime = document.getElementById('endTime')
-const inputStartDate = document.getElementById('startDate')
-const inputCommitLink = document.getElementById('commitLink')
-const inputComment = document.getElementById('comment')
-
 if(addFormNewReport || btnCancelNewReport){
     addFormNewReport.addEventListener('click', () => {
 
