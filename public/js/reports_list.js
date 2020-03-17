@@ -4,8 +4,9 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 
 const loadReportsList = reports => {
 
+    console.log(reports)
+
     let reportsElementsList;
-    window.reportsList.innerHTML = "";
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
@@ -71,8 +72,6 @@ const createReportElement = reportData => {
                                 ${(reportData.attachments ? "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>" : "")}
                             </div>
                         </li>`
-
-    console.log(mainElement)
 
     return mainElement;
 }
