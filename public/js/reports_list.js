@@ -4,7 +4,7 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 
 const loadReportsList = reports => {
 
-    let reportsElementsList;
+    let reportsElementsList = "";
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
     console.log(reportsElementsList)
