@@ -44,7 +44,9 @@ const editReport = elements => {
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
 
         paragraphs.forEach(el => {
-            console.log(el.innerHTML)
+
+            console.log(el.class)
+
         })
     }))
 }
