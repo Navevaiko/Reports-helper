@@ -9,13 +9,15 @@ const loadReportsList = reports => {
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
-    let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
-    removeReport(allElements)
+    let elementsForRemoval = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
+    let elementsForEditing = Array.prototype.slice.call(document.querySelectorAll(".img_edit_report"));
+
+    removeReport(elementsForRemoval)
+    editReport(elementsForEditing)
 }
 
+// Remoção de um relatório
 const removeReport = elements => {
-
-    console.log(elements)
 
     return elements.map(element => element.addEventListener('click', () => {
         
@@ -31,6 +33,17 @@ const removeReport = elements => {
 
         olReport.removeChild(liReport);
         deleteReport(element.parentNode)
+    }))
+}
+
+// Edição de um relatório
+const editReport = elements => {
+
+    elements.map(element => element.addEventListener('click', () => {
+
+        let liReport = element.closest('.li_report')
+
+        console.log(liReport)
     }))
 }
 
