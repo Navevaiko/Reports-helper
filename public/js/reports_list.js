@@ -45,7 +45,7 @@ const editReport = elements => {
 
         paragraphs.forEach(el => {
 
-            console.log(el)
+            console.log(el.classList)
 
         })
     }))
