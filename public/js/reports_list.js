@@ -6,7 +6,7 @@ const loadReportsList = reports => {
 
     let reportsElementsList = "";
     reports.forEach(report => reportsElementsList += createReportElement(report));
-    
+
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
     let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
@@ -51,7 +51,8 @@ const createReportElement = reportData => {
     let mainElement =  `<li class='li_report'> 
                             <div class="report">
                                 <div class="remove_report" id="${reportData.key}">
-                                    <img class="img_remove_report" src="https://pngimage.net/wp-content/uploads/2018/05/close-png-6.png" alt="">
+                                    <img class="img_edit_report" src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Editing-Edit-icon.png" alt="Editar">
+                                    <img class="img_remove_report" src="https://pngimage.net/wp-content/uploads/2018/05/close-png-6.png" alt="Excluir">
                                 </div>
                                 <div class="comment_report">
                                     <h3>Comentário: </h3>

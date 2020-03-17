@@ -173,10 +173,10 @@ h3{
     position: absolute;
 }
 
-.img_remove_report{
-    width: 10px;
-    height: 10px;
-    margin: 10px 10px 0 0;
+.img_remove_report, .img_edit_report{
+    width: 12px;
+    height: 12px;
+    margin: 10px 10px 0 2px;
     cursor: pointer;
 }
 
