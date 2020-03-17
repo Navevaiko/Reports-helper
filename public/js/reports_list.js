@@ -41,9 +41,9 @@ const editReport = elements => {
 
     elements.map(element => element.addEventListener('click', () => {
 
-        let liReport = element.closest('.pComment')
+        let liReport = element.closest('.li_report')
 
-        console.log(liReport)
+        console.log(liReport.children[0])
     }))
 }
 
