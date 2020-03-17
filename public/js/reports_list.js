@@ -59,6 +59,8 @@ const editReport = elements => {
 
         paragraphs.forEach(el => {
 
+            let date = el.innerHTML.split()
+
             let classElement = el.classList.value
 
             if(classElement == 'pComment') {
@@ -67,11 +69,12 @@ const editReport = elements => {
 
             } else if (classElement == 'pDate') {
                 
-                console.log("Teste")
-                
+                console.log(el.innerHTML)
+
             } else if (classElement == 'pCommit') {
 
-                inputCommitLink.value = el.innerHTML
+                if(!el.innerHTML == 'Sem commit')
+                    inputCommitLink.value = el.innerHTML
             }
         })
     }))
