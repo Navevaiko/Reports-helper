@@ -62,11 +62,16 @@ const editReport = elements => {
             let classElement = el.classList.value
 
             if(classElement == 'pComment') {
-                console.log(inputComment)
+
+                inputComment.value = el.innerHTML
+
             } else if (classElement == 'pDate') {
-                console.log(inputStartDate)
+                
+                console.log("Teste")
+                
             } else if (classElement == 'pCommit') {
-                console.log(inputCommitLink)
+
+                inputCommitLink.value = el.innerHTML
             }
         })
     }))
