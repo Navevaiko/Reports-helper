@@ -71,9 +71,8 @@ const editReport = elements => {
 
             } else if (classElement == 'pCommit') {
 
-                let commitHref = el.parentNode
+                let commitHref = el.parentNode.href
 
-                console.log(commitHref)
             }
         })
     }))
