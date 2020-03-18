@@ -56,7 +56,7 @@ const editReport = elements => {
         
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
-        btnSaveNewReport.value = "Editar"
+        btnSaveNewReport.textContent = "Editar"
 
         paragraphs.forEach(report => {
 
