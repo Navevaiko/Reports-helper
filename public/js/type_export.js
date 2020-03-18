@@ -3,8 +3,6 @@ var trello = window.TrelloPowerUp.iframe({
     appName: 'teste teste'
 });
 
-var idBoard = trello.args[0].context.board;
-
 trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
@@ -98,6 +96,8 @@ const requestReports = async (card, token, secret) => {
     const { id } = card;
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
+
+    console.log(request)
 
     request.data.forEach(({value}) => {
 
