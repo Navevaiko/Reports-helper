@@ -113,7 +113,7 @@ const createReportElement = reportData => {
                                     </div>
                                     <div class="commit_details">
                                         <h3>Commit: </h3>
-                                        <a href="${reportData.commitLink}" target="_blank"><p class="pCommit">${commitLink}</p></a>
+                                        <a id="commitHref" href="${reportData.commitLink}" target="_blank"><p class="pCommit">${commitLink}</p></a>
                                     </div>
                                 </div>
                                 ${(reportData.attachments ? "<object type='image/svg+xml' data='/icons/attachments.svg'> Anexos </object>" : "")}
