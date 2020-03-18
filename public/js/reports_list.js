@@ -3,6 +3,7 @@ var trello = TrelloPowerUp.iframe();
 const addFormNewReport = document.getElementById('addForm_newReport')
 const formNewReport = document.getElementById('form_newReport')
 const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
+const btnSaveNewReport = document.getElementById('btn_saveNewReport';)
 
 const inputStartTime = document.getElementById('startTime')
 const inputEndTime = document.getElementById('endTime')
@@ -52,8 +53,10 @@ const editReport = elements => {
     elements.map(element => element.addEventListener('click', () => {
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
+        
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
+        btnSaveNewReport.value = "Editar"
 
         paragraphs.forEach(report => {
 
