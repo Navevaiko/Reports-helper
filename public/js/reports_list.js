@@ -1,5 +1,9 @@
 var trello = TrelloPowerUp.iframe();
 
+var idBoard = trello.args[0].context.board;
+
+console.log(idBoard)
+
 const addFormNewReport = document.getElementById('addForm_newReport')
 const formNewReport = document.getElementById('form_newReport')
 const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
