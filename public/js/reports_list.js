@@ -55,21 +55,21 @@ const editReport = elements => {
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
 
-        paragraphs.forEach(({clv = classList.value}) => {
+        paragraphs.forEach(el => {
 
-            let classElement = clv
+            let classElement = el.classList.value
 
             if(classElement == 'pComment') {
                 inputComment.value = el.innerHTML
 
             } else if (classElement == 'pDate') {
-                let dateTime = el.innerHTML.split(' - ')
-                let date = dateTime[0].split('/')
-                let time = dateTime[1].split(' ás ')
+                const dateTime = el.innerHTML.split(' - ')
+                const date = dateTime[0].split('/')
+                const time = dateTime[1].split(' ás ')
 
-                let dateFormat = `${date[2]}-${date[1]}-${date[0]}`
-                let startTime = time[0]
-                let endTime = time[1]
+                const dateFormat = `${date[2]}-${date[1]}-${date[0]}`
+                const startTime = time[0]
+                const endTime = time[1]
 
                 inputStartTime.value = startTime
                 inputEndTime.value = endTime
@@ -77,11 +77,12 @@ const editReport = elements => {
 
             } else if (classElement == 'pCommit') {
 
-                let commitHref = el.parentNode.href
+                const commitHref = el.parentNode.href
 
-                if(el.innerHTML != 'Sem commit') inputCommitLink.value = commitHref
-                else inputCommitLink.value = ""
-                
+                if(el.innerHTML != 'Sem commit') 
+                    inputCommitLink.value = commitHref
+                else 
+                    inputCommitLink.value = ""
             }
         })
     }))
