@@ -59,8 +59,6 @@ const editReport = elements => {
 
         paragraphs.forEach(el => {
 
-            let date = el.innerHTML.split()
-
             let classElement = el.classList.value
 
             if(classElement == 'pComment') {
@@ -73,8 +71,9 @@ const editReport = elements => {
 
             } else if (classElement == 'pCommit') {
 
-                if(el.innerHTML != 'Sem commit')
-                    inputCommitLink.value = el.innerHTML
+                let commitHref = el.parentNode
+
+                console.log(commitHref)
             }
         })
     }))
