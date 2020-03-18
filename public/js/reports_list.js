@@ -66,6 +66,18 @@ const editReport = elements => {
                 inputComment.value = el.innerHTML
 
             } else if (classElement == 'pDate') {
+
+                let dateTime = el.innerHTML.split(' - ')
+                let date = dateTime[0]
+                let time = dateTime[1].split(' ás ')
+                let startTime = time[0]
+                let endTime = time[1]
+
+                console.log(date)
+                console.log(time)
+                console.log(startTime)
+                console.log(endTime)
+
                 
                 console.log(el.innerHTML)
 
