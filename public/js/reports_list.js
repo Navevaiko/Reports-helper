@@ -62,11 +62,9 @@ const editReport = elements => {
             let classElement = el.classList.value
 
             if(classElement == 'pComment') {
-
                 inputComment.value = el.innerHTML
 
             } else if (classElement == 'pDate') {
-
                 let dateTime = el.innerHTML.split(' - ')
                 let date = dateTime[0].split('/')
                 let time = dateTime[1].split(' ás ')
@@ -80,11 +78,8 @@ const editReport = elements => {
                 inputStartDate.value = dateFormat
 
             } else if (classElement == 'pCommit') {
-
                 let commitHref = el.parentNode.href
-
-                console.log(commitHref)
-
+                inputCommitLink.value = commitHref
             }
         })
     }))
