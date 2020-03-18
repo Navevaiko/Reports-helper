@@ -78,8 +78,12 @@ const editReport = elements => {
                 inputStartDate.value = dateFormat
 
             } else if (classElement == 'pCommit') {
+
                 let commitHref = el.parentNode.href
-                inputCommitLink.value = commitHref
+
+                if(el.innerHTML != 'Sem commit') inputCommitLink.value = commitHref
+                else inputCommitLink = ""
+                
             }
         })
     }))
