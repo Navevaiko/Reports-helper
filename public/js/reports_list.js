@@ -64,16 +64,9 @@ const editReport = elements => {
 
             else if (classElement == 'pDate') {
                 const dateTime = report.innerHTML.split(' - ')
-
-                const dataTeste = dateToEN(dateTime[0]);
-
-                console.log(dataTeste)
-
-
-                const date = dateTime[0].split('/')
                 const time = dateTime[1].split(' ás ')
 
-                const dateFormat = `${date[2]}-${date[1]}-${date[0]}`
+                const dateFormat = dateToEN(dateTime[0]);
                 const startTime = time[0]
                 const endTime = time[1]
 
@@ -95,6 +88,7 @@ const editReport = elements => {
 }
 
 const dateToEN = date => date.split('/').reverse().join('-');
+const dateToPTBR = date => date.split('-').reverse().join('/');
  
 const deleteReport = element => {
     let key = element.id;
