@@ -82,7 +82,7 @@ const editReport = elements => {
                 let commitHref = el.parentNode.href
 
                 if(el.innerHTML != 'Sem commit') inputCommitLink.value = commitHref
-                else inputCommitLink = ""
+                else inputCommitLink.value = ""
                 
             }
         })
