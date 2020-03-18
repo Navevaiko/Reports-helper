@@ -68,13 +68,15 @@ const editReport = elements => {
             } else if (classElement == 'pDate') {
 
                 let dateTime = el.innerHTML.split(' - ')
-                let date = dateTime[0]
+                let date = dateTime[0].split('/')
+                let dateFormat = `${date[0]}-${date[1]}-${date[2]}`
+    
                 let time = dateTime[1].split(' ás ')
                 let startTime = time[0]
                 let endTime = time[1]
 
                 console.log(date)
-                console.log(time)
+                console.log(dateFormat)
                 console.log(startTime)
                 console.log(endTime)
 
