@@ -59,10 +59,10 @@ const editReport = elements => {
 
             let classElement = el.classList.value
 
-            if(classElement == 'pComment') {
+            if(classElement == 'pComment') 
                 inputComment.value = el.innerHTML
 
-            } else if (classElement == 'pDate') {
+            else if (classElement == 'pDate') {
                 const dateTime = el.innerHTML.split(' - ')
                 const date = dateTime[0].split('/')
                 const time = dateTime[1].split(' ás ')
