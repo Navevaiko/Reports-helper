@@ -156,12 +156,18 @@ if(addFormNewReport || btnCancelNewReport){
 
 window.newReport.addEventListener('submit', async event => {
 
-    event.preventDefault();
-    let card = {};
+    if(btnSaveNewReport.textContent == 'Editar'){
 
-    card = await getCardDetailsById(trello);
+        console.log("Teste")
+        
+    } else {
+        event.preventDefault();
+        let card = {};
 
-    addReport(JSON.stringify(card));
+        card = await getCardDetailsById(trello);
+
+        addReport(JSON.stringify(card));
+    }
 });
 
 const toDate = dateStr => {
