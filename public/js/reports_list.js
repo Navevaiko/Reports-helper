@@ -48,18 +48,16 @@ const removeReport = elements => {
 
 // Edição de um relatório
 const editReport = elements => {
-    
 
     elements.map(element => element.addEventListener('click', () => {
-        
+
+        let paragraphs = element.closest('.li_report').querySelectorAll('p')
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
 
-        let paragraphs = element.closest('.li_report').querySelectorAll('p')
+        paragraphs.forEach(({clv = classList.value}) => {
 
-        paragraphs.forEach(el => {
-
-            let classElement = el.classList.value
+            let classElement = clv
 
             if(classElement == 'pComment') {
                 inputComment.value = el.innerHTML
