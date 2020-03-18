@@ -3,6 +3,8 @@ var trello = window.TrelloPowerUp.iframe({
     appName: 'teste teste'
 });
 
+var idBoard = trello.args[0].context.board;
+
 trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
