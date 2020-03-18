@@ -86,6 +86,8 @@ const editReport = elements => {
                 else 
                     inputCommitLink.value = ""
             }
+
+            window.localStorage.setItem('id_report', el.parentNode.id)
         })
     }))
 }
@@ -156,16 +158,15 @@ if(addFormNewReport || btnCancelNewReport){
 
 window.newReport.addEventListener('submit', async event => {
 
+    event.preventDefault();
+    let card = {};
+
     if(btnSaveNewReport.textContent == 'Editar'){
 
-        console.log("Teste")
+
         
     } else {
-        event.preventDefault();
-        let card = {};
-
         card = await getCardDetailsById(trello);
-
         addReport(JSON.stringify(card));
     }
 });
