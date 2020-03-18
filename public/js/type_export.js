@@ -97,6 +97,8 @@ const requestReports = async (card, token, secret) => {
     let arrayUnified = []; 
     const { id } = card;
 
+    console.log(card)
+
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
     console.log(request)
