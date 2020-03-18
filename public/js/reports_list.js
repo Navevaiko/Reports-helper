@@ -51,21 +51,25 @@ const editReport = elements => {
 
     elements.map(element => element.addEventListener('click', () => {
 
-        console.log(element.parentNode)
-
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
 
-        paragraphs.forEach(el => {
+        paragraphs.forEach(report => {
 
-            let classElement = el.classList.value
+            let classElement = report.classList.value
 
             if(classElement == 'pComment') 
-                inputComment.value = el.innerHTML
+                inputComment.value = report.innerHTML
 
             else if (classElement == 'pDate') {
-                const dateTime = el.innerHTML.split(' - ')
+                const dateTime = report.innerHTML.split(' - ')
+
+                const dataTeste = dateToEN(dateTime[0]);
+
+                console.log(dataTeste)
+
+
                 const date = dateTime[0].split('/')
                 const time = dateTime[1].split(' ás ')
 
@@ -79,7 +83,7 @@ const editReport = elements => {
 
             } else if (classElement == 'pCommit') {
 
-                const commitHref = el.parentNode.href
+                const commitHref = report.parentNode.href
 
                 if(el.innerHTML != 'Sem commit') 
                     inputCommitLink.value = commitHref
@@ -90,6 +94,8 @@ const editReport = elements => {
     }))
 }
 
+const dateToEN = date => date.split('/').reverse().join('-');
+ 
 const deleteReport = element => {
     let key = element.id;
     trello.remove('card', 'shared', key);
