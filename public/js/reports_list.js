@@ -51,6 +51,8 @@ const editReport = elements => {
 
     elements.map(element => element.addEventListener('click', () => {
 
+        console.log(element.parentNode)
+
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
