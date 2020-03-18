@@ -69,23 +69,21 @@ const editReport = elements => {
 
                 let dateTime = el.innerHTML.split(' - ')
                 let date = dateTime[0].split('/')
-                let dateFormat = `${date[0]}-${date[1]}-${date[2]}`
-    
                 let time = dateTime[1].split(' ás ')
+
+                let dateFormat = `${date[2]}-${date[1]}-${date[0]}`
                 let startTime = time[0]
                 let endTime = time[1]
 
-                console.log(date)
-                console.log(dateFormat)
-                console.log(startTime)
-                console.log(endTime)
-
-                
-                console.log(el.innerHTML)
+                inputStartTime.value = startTime
+                inputEndTime.value = endTime
+                inputStartDate.value = dateFormat
 
             } else if (classElement == 'pCommit') {
 
                 let commitHref = el.parentNode.href
+
+                console.log(commitHref)
 
             }
         })
