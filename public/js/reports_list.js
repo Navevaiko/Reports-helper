@@ -29,7 +29,7 @@ const loadReportsList = reports => {
         });
     })
 
-    sortReportByDate.forEach(repomrt => reportsElementsList += createReportEleent(report))
+    sortReportByDate.forEach(report => reportsElementsList += createReportElement(report))
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
