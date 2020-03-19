@@ -27,9 +27,9 @@ const loadReportsList = reports => {
             if(a.currDate > b.currDate) return 1
             return 0
         });
-        
-        reportsElementsList += createReportElement(sortReportByDate)
     })
+
+    sortReportByDate.forEach(repomrt => reportsElementsList += createReportEleent(report))
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
