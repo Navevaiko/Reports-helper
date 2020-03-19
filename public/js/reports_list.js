@@ -161,6 +161,9 @@ if(addFormNewReport || btnCancelNewReport){
     })
 
     btnCancelNewReport.addEventListener('click', () => {
+
+        if(localStorage.getItem('id_report'))  
+            localStorage.removeItem('id_report')
         
         let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
         clearBoxes(inputs)
