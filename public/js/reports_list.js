@@ -52,9 +52,7 @@ const editReport = elements => {
     
     elements.map(element => element.addEventListener('click', () => {
 
-        let jsonElement = JSON.parse(element.parentNode)
-        console.log(jsonElement)
-        localStorage.setItem('id_report', element.parentNode)
+        localStorage.setItem('id_report', element.parentNode.id)
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         
@@ -91,8 +89,6 @@ const editReport = elements => {
                     inputCommitLink.value = ""
             }
         })
-
-        console.log(JSON.stringify(localStorage.getItem('id_report')))
     }))
 }
 
@@ -168,8 +164,8 @@ window.newReport.addEventListener('submit', async event => {
 
     if(btnSaveNewReport.textContent == 'Editar'){
 
-
-
+        console.log("Teste: ")
+        console.log(localStorage.getItem('id_report'))
         
     } else {
         addReport(JSON.stringify(card));
