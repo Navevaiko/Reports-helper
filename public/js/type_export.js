@@ -221,10 +221,7 @@ const createReportElementToPdf = reportData => {
 }
 
 const convertToDate = (date, hours) => {
-
-    let dataArray = date.split('/');
-    let dateFormat = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
-
+    let dateFormat = date.split('/').reverse().join('-');
     return new Date(`${dateFormat} ${hours}`);
 }
 

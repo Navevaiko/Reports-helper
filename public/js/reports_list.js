@@ -115,9 +115,6 @@ const editReport = elements => {
         })
     }))
 }
-
-const dateToEN = date => date.split('/').reverse().join('-');
-const dateToPTBR = date => date.split('-').reverse().join('/');
  
 const deleteReport = element => {
     let key = element.id;
@@ -169,8 +166,13 @@ if(addFormNewReport || btnCancelNewReport){
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
 
-        let date = Date.now;
-        console.log(date)
+        let date = new Date();
+
+        let day = leftPad(date.getDate(), 2)
+        let month = leftPad((date.getMonth() + 1), 2)
+        let year = date.getFullYear()
+
+        inputStartDate.value = `${year}-${month}-${day}`
     })
 
     btnCancelNewReport.addEventListener('click', () => {
@@ -226,11 +228,6 @@ window.newReport.addEventListener('submit', async event => {
     }
 });
 
-const toDate = dateStr => {
-    let parts = dateStr.split("-");
-    return `${parts[2]}/${parts[1]}/${parts[0]}`;
-}
-
 const addReport = card => {
 
     const cardURL = JSON.parse(card).url;
@@ -242,7 +239,7 @@ const addReport = card => {
     const endTime = inputEndTime.value;
     const commitLink = inputCommitLink.value;
     const comment = inputComment.value;
-    const currDate = toDate(inputStartDate.value);
+    const currDate = dateToPTBR(inputStartDate.value);
 
     const dateSplit = currDate.split('/')
 
@@ -277,4 +274,18 @@ const addReport = card => {
     return addNewReport(trello, report)
 }
 
+// Funções para data
+const leftPad = (value, totalWidth, paddingChar) => {
+    var length = totalWidth - value.toString().length + 1;
+    return Array(length).join(paddingChar || '0') + value;
+};
+const dateToEN = date => date.split('/').reverse().join('-');
+const dateToPTBR = date => date.split('-').reverse().join('/');
+
+const toDate = dateStr => {
+    let parts = dateStr.split("-");
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+// Limpa caixas de texto
 const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
