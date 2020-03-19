@@ -88,10 +88,15 @@ const editReport = elements => {
             }
         })
 
-        const idValue = localStorage.setItem('id_report', 'teste');
+        let idValue = localStorage.setItem('idreport', 'teste');
+        console.log(idValue)
+
+        let idGetValue = localStorage.getItem('idreport')
+        let idGetValue2 = localStorage.getItem(idValue)
 
         console.log("Valor: ")
-        console.log(localStorage.getItem(idValue));
+        console.log(idGetValue)
+        console.log(idGetValue2)
     }))
 }
 
