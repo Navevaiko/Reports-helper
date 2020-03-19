@@ -167,7 +167,16 @@ window.newReport.addEventListener('submit', async event => {
         let key = localStorage.getItem('id_report')
 
         let report = document.getElementById(key)
-        console.log(report)
+        
+        // REMOVENDO RELATÓRIO DA LISTA
+        let liReport = report.closest('.li_report')
+        let olReport = report.closest('#reportsList') 
+
+        console.log(liReport)
+        console.log(olReport)
+
+        olReport.removeChild(liReport);
+
         
     } else {
         addReport(JSON.stringify(card));
