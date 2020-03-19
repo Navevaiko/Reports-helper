@@ -15,23 +15,21 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 
 const loadReportsList = reports => {
     
-    let reportsDate = [], reportsElementsList = "";
+    let sortReportByDate = [], reportsElementsList = "";
 
     if(localStorage.getItem('id_report')) localStorage.removeItem('id_report')
 
     reports.forEach(report => {
 
-        reportsDate.push(report)
-        reportsDate.sort((a, b) => {
+        sortReportByDate.push(report)
+        sortReportByDate.sort((a, b) => {
             if(a.currDate < b.currDate) return -1
             if(a.currDate > b.currDate) return 1
             return 0
         });
         
-        reportsElementsList += createReportElement(report)
+        reportsElementsList += createReportElement(sortReportByDate)
     })
-
-    console.log(reportsDate)
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
