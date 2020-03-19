@@ -89,6 +89,8 @@ const editReport = elements => {
         })
 
         localStorage.setItem('id_report', 'teste');
+
+        console.log(localStorage.getItem('id_report'));
     }))
 }
 
