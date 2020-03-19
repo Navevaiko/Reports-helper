@@ -89,8 +89,6 @@ const editReport = elements => {
                     inputCommitLink.value = ""
             }
         })
-
-        console.log(localStorage.getItem('id_report'))
     }))
 }
 
@@ -165,6 +163,7 @@ window.newReport.addEventListener('submit', async event => {
 
     if(btnSaveNewReport.textContent == 'Editar'){
 
+        console.log("Teste")
 
         
     } else {
