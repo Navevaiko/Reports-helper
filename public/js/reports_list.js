@@ -87,18 +87,23 @@ const editReport = elements => {
                     inputCommitLink.value = ""
             }
         })
-
-        let idValue = localStorage.setItem('idreport', 'teste');
-        console.log(idValue)
-
-        let idGetValue = localStorage.getItem('idreport')
-        let idGetValue2 = localStorage.getItem(idValue)
-
-        console.log("Valor: ")
-        console.log(idGetValue)
-        console.log(idGetValue2)
     }))
 }
+
+function setLocalStorage(){
+    btnSetItem.addEventListener('click', () => {
+        localStorage.setItem('nome','Jack Sparrow')
+    })
+}
+
+function getLocalStorage(){
+    btnGetItem.addEventListener('click', () => {
+        console.log(localStorage.getItem('nome'))
+    })
+}
+
+setLocalStorage();
+getLocalStorage();
 
 const dateToEN = date => date.split('/').reverse().join('-');
 const dateToPTBR = date => date.split('-').reverse().join('/');
