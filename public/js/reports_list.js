@@ -21,8 +21,12 @@ const loadReportsList = reports => {
 
     reports.forEach(report => {
 
-        reportsDate.push(report.currDate)
-        reportsDate.sort();
+        reportsDate.push(report)
+        reportsDate.sort((a, b) => {
+            if(a.currDate < b.currDate) return -1
+            if(a.currDate > b.currDate) return 1
+            return 0
+        });
         
         reportsElementsList += createReportElement(report)
     })
