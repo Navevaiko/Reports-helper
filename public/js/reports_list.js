@@ -168,14 +168,12 @@ window.newReport.addEventListener('submit', async event => {
 
         let report = document.getElementById(key)
         
-        // REMOVENDO RELATÓRIO DA LISTA
         let liReport = report.closest('.li_report')
         let olReport = report.closest('#reportsList') 
-
-        console.log(liReport)
-        console.log(olReport)
-
         olReport.removeChild(liReport);
+
+        trello.remove('card', 'shared', key);
+        addReport(JSON.stringify(card));
 
         
     } else {
