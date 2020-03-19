@@ -31,19 +31,30 @@ const loadReportsList = reports => {
 const removeReport = elements => {
 
     return elements.map(element => element.addEventListener('click', () => {
-        
-        trello.alert({
-            message: 'Relatório removido com sucesso!',
-            duration: 3,
-            display: 'error'
-        });
 
-        // REMOVENDO RELATÓRIO DA LISTA
-        let liReport = element.closest('.li_report') // Elemento para remover
-        let olReport = element.closest('#reportsList') // Lista dos elementos
+        if(localStorage.getItem('id_report')){
 
-        olReport.removeChild(liReport);
-        deleteReport(element.parentNode)
+            trello.alert({
+                message: 'Não é possível excluir um relatório em edição',
+                duration: 5,
+                display: 'warning'
+            });
+            
+        } else {
+            
+            trello.alert({
+                message: 'Relatório removido com sucesso!',
+                duration: 3,
+                display: 'error'
+            });
+
+            // REMOVENDO RELATÓRIO DA LISTA
+            let liReport = element.closest('.li_report') // Elemento para remover
+            let olReport = element.closest('#reportsList') // Lista dos elementos
+
+            olReport.removeChild(liReport);
+            deleteReport(element.parentNode)
+        }
     }))
 }
 
