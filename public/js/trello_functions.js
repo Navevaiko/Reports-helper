@@ -36,8 +36,10 @@ const addNewReport = async (trello, report) => {
         window.reportsList.innerHTML += createReportElement(report)
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
+        let elementsForEditing = Array.prototype.slice.call(document.querySelectorAll(".img_edit_report"));
 
         removeReport(allElements)
+        editReport(elementsForEditing)
         
         trello.set('card', reportsVisibility, myKey, report)
             .then(function () {
