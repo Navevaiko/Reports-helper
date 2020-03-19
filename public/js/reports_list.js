@@ -165,8 +165,9 @@ window.newReport.addEventListener('submit', async event => {
     if(btnSaveNewReport.textContent == 'Editar'){
 
         let key = localStorage.getItem('id_report')
-        trello.remove('card', 'shared', key);
-        addReport(JSON.stringify(card));
+
+        let report = document.getElementById(key)
+        console.log(report)
         
     } else {
         addReport(JSON.stringify(card));
