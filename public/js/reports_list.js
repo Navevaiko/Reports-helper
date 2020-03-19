@@ -52,7 +52,7 @@ const editReport = elements => {
     
     elements.map(element => element.addEventListener('click', () => {
 
-        localStorage.setItem('id_report', element.parentNode.id)
+        localStorage.setItem('id_report', element.parentNode)
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         
@@ -89,6 +89,8 @@ const editReport = elements => {
                     inputCommitLink.value = ""
             }
         })
+
+        console.log(localStorage.getItem('id_report'))
     }))
 }
 
@@ -160,14 +162,14 @@ window.newReport.addEventListener('submit', async event => {
 
     event.preventDefault();
     let card = {};
+    card = await getCardDetailsById(trello);
 
     if(btnSaveNewReport.textContent == 'Editar'){
 
-        console.log("Teste")
+
 
         
     } else {
-        card = await getCardDetailsById(trello);
         addReport(JSON.stringify(card));
     }
 });
