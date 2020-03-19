@@ -14,16 +14,20 @@ const inputComment = document.getElementById('comment')
 window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
 const loadReportsList = reports => {
-
-    let reportsElementsList = "";
+    
+    let reportsDate = [], reportsElementsList = "";
 
     if(localStorage.getItem('id_report')) localStorage.removeItem('id_report')
 
     reports.forEach(report => {
+
+        reportsDate.push(report.currDate)
+        reportsDate.sort();
         
-        console.log(report)
         reportsElementsList += createReportElement(report)
     })
+
+    console.log(reportsDate)
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
