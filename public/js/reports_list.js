@@ -86,8 +86,6 @@ const editReport = elements => {
                 else 
                     inputCommitLink.value = ""
             }
-
-            localStorage.setItem('id_report', report.parentNode.id)
         })
     }))
 }
