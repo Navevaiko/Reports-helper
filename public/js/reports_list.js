@@ -91,15 +91,11 @@ const editReport = elements => {
 }
 
 function setLocalStorage(){
-    btnSetItem.addEventListener('click', () => {
-        localStorage.setItem('nome','Jack Sparrow')
-    })
+    localStorage.setItem('nome','Jack Sparrow')
 }
 
 function getLocalStorage(){
-    btnGetItem.addEventListener('click', () => {
-        console.log(localStorage.getItem('nome'))
-    })
+    console.log(localStorage.getItem('nome'))
 }
 
 setLocalStorage();
