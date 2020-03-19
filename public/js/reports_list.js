@@ -23,8 +23,8 @@ const loadReportsList = reports => {
 
         sortReportByDate.push(report)
         sortReportByDate.sort((a, b) => {
-            if(a.currDate < b.currDate) return -1
-            if(a.currDate > b.currDate) return 1
+            if(a.currDate > b.currDate) return -1
+            if(a.currDate < b.currDate) return 1
             return 0
         });
     })
