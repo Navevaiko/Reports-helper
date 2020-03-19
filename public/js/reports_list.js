@@ -49,8 +49,10 @@ const removeReport = elements => {
 
 // Edição de um relatório
 const editReport = elements => {
-
+    
     elements.map(element => element.addEventListener('click', () => {
+
+        localStorage.setItem('nome','Jack Sparrow')
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         
@@ -87,19 +89,10 @@ const editReport = elements => {
                     inputCommitLink.value = ""
             }
         })
+
+        console.log(localStorage.getItem('nome'))
     }))
 }
-
-function setLocalStorage(){
-    localStorage.setItem('nome','Jack Sparrow')
-}
-
-function getLocalStorage(){
-    console.log(localStorage.getItem('nome'))
-}
-
-setLocalStorage();
-getLocalStorage();
 
 const dateToEN = date => date.split('/').reverse().join('-');
 const dateToPTBR = date => date.split('-').reverse().join('/');
