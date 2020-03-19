@@ -282,10 +282,5 @@ const leftPad = (value, totalWidth, paddingChar) => {
 const dateToEN = date => date.split('/').reverse().join('-');
 const dateToPTBR = date => date.split('-').reverse().join('/');
 
-const toDate = dateStr => {
-    let parts = dateStr.split("-");
-    return `${parts[2]}/${parts[1]}/${parts[0]}`;
-}
-
 // Limpa caixas de texto
 const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
