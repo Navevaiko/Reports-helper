@@ -15,6 +15,9 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 
 const loadReportsList = reports => {
 
+    if(localStorage.getItem('id_report'))  
+        localStorage.removeItem('id_report')
+
     let reportsElementsList = "";
     reports.forEach(report => reportsElementsList += createReportElement(report));
 
@@ -39,7 +42,7 @@ const removeReport = elements => {
                 duration: 5,
                 display: 'warning'
             });
-            
+
         } else {
             
             trello.alert({
