@@ -15,11 +15,15 @@ window.addEventListener('load', async () => loadReportsList(await getReports(tre
 
 const loadReportsList = reports => {
 
-    if(localStorage.getItem('id_report'))  
-        localStorage.removeItem('id_report')
-
     let reportsElementsList = "";
-    reports.forEach(report => reportsElementsList += createReportElement(report));
+
+    if(localStorage.getItem('id_report')) localStorage.removeItem('id_report')
+
+    reports.forEach(report => {
+        
+        console.log(report)
+        reportsElementsList += createReportElement(report)
+    })
 
     if(window.reportsList) window.reportsList.innerHTML = reportsElementsList; 
     
