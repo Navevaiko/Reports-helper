@@ -168,6 +168,9 @@ if(addFormNewReport || btnCancelNewReport){
 
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
+
+        let date = new Date.now();
+        console.log(date)
     })
 
     btnCancelNewReport.addEventListener('click', () => {
