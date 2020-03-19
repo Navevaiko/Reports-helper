@@ -52,7 +52,7 @@ const editReport = elements => {
     
     elements.map(element => element.addEventListener('click', () => {
 
-        localStorage.setItem('nome','Jack Sparrow')
+        localStorage.setItem('id_report', element.parentNode.id)
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         
@@ -90,7 +90,7 @@ const editReport = elements => {
             }
         })
 
-        console.log(localStorage.getItem('nome'))
+        console.log(localStorage.getItem('id_report'))
     }))
 }
 
