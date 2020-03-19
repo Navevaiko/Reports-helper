@@ -175,6 +175,7 @@ window.newReport.addEventListener('submit', async event => {
         trello.remove('card', 'shared', key);
         addReport(JSON.stringify(card));
 
+        localStorage.removeItem('id_report')
         
     } else {
         addReport(JSON.stringify(card));
