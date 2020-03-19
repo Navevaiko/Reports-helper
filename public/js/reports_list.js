@@ -88,6 +88,34 @@ const editReport = elements => {
 
             let classElement = report.classList.value
 
+            // switch (classElement){
+            //     case 'pComment':
+            //         inputComment.value = report.innerHTML
+            //         break;
+
+            //     case 'pDate':
+            //         const dateTime = report.innerHTML.split(' - ')
+            //         const time = dateTime[1].split(' ás ')
+    
+            //         const dateFormat = dateToEN(dateTime[0]);
+            //         const startTime = time[0]
+            //         const endTime = time[1]
+    
+            //         inputStartTime.value = startTime
+            //         inputEndTime.value = endTime
+            //         inputStartDate.value = dateFormat
+            //         break;
+
+            //     case 'pCommit':
+            //         const commitHref = report.parentNode.href
+
+            //         if(report.innerHTML != 'Sem commit') 
+            //             inputCommitLink.value = commitHref
+            //         else 
+            //             inputCommitLink.value = ""
+            //         break;
+            // }
+
             if(classElement == 'pComment') 
                 inputComment.value = report.innerHTML
 
