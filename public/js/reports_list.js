@@ -52,7 +52,7 @@ const editReport = elements => {
     
     elements.map(element => element.addEventListener('click', () => {
 
-        localStorage.setItem('id_report', JSON.parse(element.parentNode))
+        localStorage.setItem('id_report', JSON.stringify(element.parentNode))
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
         
