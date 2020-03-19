@@ -49,7 +49,7 @@ const removeReport = elements => {
 
 // Edição de um relatório
 const editReport = elements => {
-    
+
     elements.map(element => element.addEventListener('click', () => {
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
@@ -87,6 +87,8 @@ const editReport = elements => {
                     inputCommitLink.value = ""
             }
         })
+
+        localStorage.setItem('id_report', 'teste');
     }))
 }
 
