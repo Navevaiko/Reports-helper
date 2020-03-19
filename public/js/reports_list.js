@@ -159,19 +159,21 @@ const createReportElement = reportData => {
     return mainElement;
 }
 
-// --- NOVO RELATÓRIO --- //
 if(addFormNewReport || btnCancelNewReport){
     addFormNewReport.addEventListener('click', () => {
 
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
+        btnSaveNewReport.textContent = "Salvar Relatório"
 
         let date = new Date();
 
+        // Data com 0 na esquerda caso não tenha 2 digitos
         let day = leftPad(date.getDate(), 2)
         let month = leftPad((date.getMonth() + 1), 2)
         let year = date.getFullYear()
 
+        // Dia de tarefa setado com data atual
         inputStartDate.value = `${year}-${month}-${day}`
     })
 
