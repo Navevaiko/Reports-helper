@@ -49,9 +49,7 @@ const removeReport = elements => {
 
 // Edição de um relatório
 const editReport = elements => {
-
-    console.log("Teste")
-
+    
     elements.map(element => element.addEventListener('click', () => {
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
