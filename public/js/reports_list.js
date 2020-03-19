@@ -162,8 +162,22 @@ if(addFormNewReport || btnCancelNewReport){
 
     btnCancelNewReport.addEventListener('click', () => {
 
-        if(localStorage.getItem('id_report'))  
+        if(localStorage.getItem('id_report')){
             localStorage.removeItem('id_report')
+
+            trello.alert({
+                message: 'Edição de relatório cancelada!',
+                duration: 4,
+                display: 'info'
+            });
+        } else {
+            
+            trello.alert({
+                message: 'Criação de relatório cancelada!',
+                duration: 4,
+                display: 'info'
+            });
+        }
         
         let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
         clearBoxes(inputs)
