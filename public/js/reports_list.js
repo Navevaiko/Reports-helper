@@ -183,6 +183,8 @@ const createReportElement = reportData => {
     return mainElement;
 }
 
+console.log(window.addForm_newReport)
+
 if(addFormNewReport || btnCancelNewReport){
     addFormNewReport.addEventListener('click', () => {
 
@@ -300,24 +302,4 @@ const addReport = card => {
     });
 
     return addNewReport(trello, report)
-}
-
-// Funções para data
-const leftPad = (value, totalWidth, paddingChar) => {
-    var length = totalWidth - value.toString().length + 1;
-    return Array(length).join(paddingChar || '0') + value;
-};
-const dateToEN = date => date.split('/').reverse().join('-');
-const dateToPTBR = date => date.split('-').reverse().join('/');
-
-// Limpa caixas de texto
-const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
-
-// Alert do Trello
-const trelloAlert = (trello, text, duration, display) => {
-    return trello.alert({
-        message: text,
-        duration: duration,
-        display: display
-    })
 }
