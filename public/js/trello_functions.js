@@ -46,7 +46,7 @@ const addNewReport = async (trello, report) => {
 
             console.log(element)
 
-            let dateReport = element.querySelectorAll('.pDate')
+            let dateReport = element.querySelectorAll('.pDate')[0]
 
             console.log(dateReport)
 
