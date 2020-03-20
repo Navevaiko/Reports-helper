@@ -63,10 +63,7 @@ window.exportData.addEventListener('submit', async event => {
         try{
             let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-            console.log(cards)
-
             let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
-
             let arrayUnified = await Promise.all(promisseResponse);
 
             arrayUnified = arrayUnified.flat(2);
@@ -76,21 +73,11 @@ window.exportData.addEventListener('submit', async event => {
 
             downloadByType(typeFile, arrayUnified);
 
-            trello.alert({
-                message: 'Download realizado com sucesso 🎉',
-                duration: 3,
-            })
+            trelloAlert(trello, 'Download realizado com sucesso!', 3, 'info')
 
         } catch(error) {
-
-            trello.alert({
-                message: 'Status 401: Erro ao exportar, tente novamente',
-                duration: 3,
-                display: 'error'
-            })
-
-            console.log(error)
-        }   
+            trelloAlert(trello, 'Status 401: Erro ao exportar, tente novamente', 3, 'error')
+        }
     }
 });
 
@@ -98,8 +85,6 @@ const requestReports = async (card, token, secret) => {
 
     let arrayUnified = []; 
     const { id } = card;
-
-    console.log(card)
 
     const request = await axios.get(`https://api.trello.com/1/cards/${id}/pluginData?key=${secret}&token=${token}`);
 
@@ -122,14 +107,12 @@ const requestReports = async (card, token, secret) => {
 function isEmptyObject(obj) {
     let element;
     for (element in obj) return false;
-
     return true;
 }
 
 const downloadByType = (type, json) => {
 
     switch (type) {
-
         case "CSV":
             json.map((e, i) => json[i].labels = getLabels(e));
             json.map((e, i) => json[i].members = getMembers(e));
@@ -151,14 +134,12 @@ const downloadByType = (type, json) => {
 }
 
 const getLabels = json => json.labels.map(e => e.name).join(" - ");
-
 const getMembers = json => json.members.map(e => e.fullName).join(" - ");
-
 const createListReportElement = reportDatas => reportDatas.map(e => createReportElementToPdf(e));
 
 const createReportElementToPdf = reportData => {
 
-    // -------  tratamento de valores ultilizados para criar a pagina html
+    // Tratamento de valores ultilizados para criar a pagina html
     let tags = reportData.labels.map(e => `<div class="tags" style="background-color: ${e.color};">${e.name}</div>`);
 
     let members = reportData.members.map(e => {
@@ -171,7 +152,6 @@ const createReportElementToPdf = reportData => {
 
     let fullTime = getHoursDifference(initialDate, finalDate);
 
-    // elemento html 
     let boxHtml = `<div class="report_container">
                     <div class="item_body member">
                         <div class="div_caixa">
@@ -234,12 +214,12 @@ const getHoursDifference = (date1, date2) => {
         return error
     }
 
-    //verificando possivel erro 
+    // Verificando possivel erro 
     if (!diff && diff != 0 || date1 == "Invalid Date" || date2 == "Invalid Date") {
         return result;
     }
 
-    // tratrar o formato da string de retorno
+    // Tratrar o formato da string de retorno
     if (diff >= 1) {
 
         let diffStr = diff.toString();
@@ -259,7 +239,6 @@ const getHoursDifference = (date1, date2) => {
         diff *= 60;
         result = `${diff.toFixed(0)}min`
     }
-
     return result;
 };
 
