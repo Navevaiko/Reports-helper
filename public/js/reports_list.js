@@ -72,7 +72,7 @@ const editReport = elements => {
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
 
-        dislayAction(addFormNewReport, formNewReport, 'none', 'block')
+        displayAction(addFormNewReport, formNewReport, 'none', 'block')
         btnSaveNewReport.textContent = "Editar"
 
         paragraphs.forEach(report => {
@@ -181,8 +181,7 @@ const createReportElement = reportData => {
 if(addFormNewReport || btnCancelNewReport){
     addFormNewReport.addEventListener('click', () => {
 
-        addFormNewReport.style.display = 'none'
-        formNewReport.style.display = 'block'
+        displayAction(addFormNewReport, formNewReport, 'none', 'block')
         btnSaveNewReport.textContent = "Salvar Relatório"
 
         let date = new Date();
@@ -207,8 +206,7 @@ if(addFormNewReport || btnCancelNewReport){
         let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
         clearBoxes(inputs)
         
-        addFormNewReport.style.display = 'flex'
-        formNewReport.style.display = 'none'
+        displayAction(addFormNewReport, formNewReport, 'flex', 'none')
     })
 }
 
@@ -271,15 +269,13 @@ const addReport = card => {
     
     let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-    addFormNewReport.style.display = 'flex'
-    formNewReport.style.display = 'none'
-
+    displayAction(addFormNewReport, formNewReport, 'flex', 'none')
     trelloAlert(trello, 'Relatório criado com sucesso!', 3, 'success')
     
     return addNewReport(trello, report)
 }
 
-const dislayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay) => {
+const displayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay) => {
 
     firstElement.style.display = fisrtDisplay
     secondElement.style.display = secondDisplay
