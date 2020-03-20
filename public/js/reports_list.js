@@ -63,7 +63,7 @@ const removeReport = elements => {
     }))
 }
 
-// Edição de um relatório
+// Jogando os dados de um relatório no formulário para editar
 const editReport = elements => {
     
     elements.map(element => element.addEventListener('click', () => {
@@ -106,50 +106,22 @@ const editReport = elements => {
                         inputCommitLink.value = ""
                     break;
             }
-
-            // if(classElement == 'pComment') 
-            //     inputComment.value = report.innerHTML
-
-            // else if (classElement == 'pDate') {
-            //     const dateTime = report.innerHTML.split(' - ')
-            //     const time = dateTime[1].split(' ás ')
-
-            //     const dateFormat = dateToEN(dateTime[0]);
-            //     const startTime = time[0]
-            //     const endTime = time[1]
-
-            //     inputStartTime.value = startTime
-            //     inputEndTime.value = endTime
-            //     inputStartDate.value = dateFormat
-
-            // } else if (classElement == 'pCommit') {
-
-            //     const commitHref = report.parentNode.href
-
-            //     if(report.innerHTML != 'Sem commit') 
-            //         inputCommitLink.value = commitHref
-            //     else 
-            //         inputCommitLink.value = ""
-            // }
         })
     }))
 }
  
-const deleteReport = element => {
-    let key = element.id;
-    trello.remove('card', 'shared', key);
-}
+const deleteReport = element => trello.remove('card', 'shared', element.id);
 
 //cria uma "li" para listagem dos relatorios no cartão
 const createReportElement = reportData => {
 
     let commitLink = reportData.commitLink;
 
-    if(commitLink.length > 50)
-        commitLink = commitLink.substring(0,50) + "..."
-
     if(!commitLink)
         commitLink = "Sem commit"
+
+    if(commitLink.length > 50)
+        commitLink = commitLink.substring(0,50) + "..."
 
     let mainElement =  `<li class='li_report'> 
                             <div class="report">
@@ -195,6 +167,7 @@ if(addFormNewReport || btnCancelNewReport){
         inputStartDate.value = `${year}-${month}-${day}`
     })
 
+    // Cancela ação do formulário e remove localStorage caso tenha
     btnCancelNewReport.addEventListener('click', () => {
 
         if(localStorage.getItem('id_report')){
@@ -219,10 +192,9 @@ window.newReport.addEventListener('submit', async event => {
     if(btnSaveNewReport.textContent == 'Editar'){
 
         let key = localStorage.getItem('id_report')
-
         let report = document.getElementById(key)
         
-        let liReport = report.closest('.li_report')
+        let liReport = report.closest('.li_report') 
         let olReport = report.closest('#reportsList') 
         olReport.removeChild(liReport);
 
@@ -250,7 +222,6 @@ const addReport = card => {
     const currDate = dateToPTBR(inputStartDate.value);
 
     const dateSplit = currDate.split('/')
-
     const currDia = dateSplit[0]; 
     const currMes = dateSplit[1]; 
     const currAno = dateSplit[2];
@@ -276,7 +247,6 @@ const addReport = card => {
 }
 
 const displayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay) => {
-
     firstElement.style.display = fisrtDisplay
     secondElement.style.display = secondDisplay
 }

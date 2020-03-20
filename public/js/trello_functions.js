@@ -1,22 +1,6 @@
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
-const showNewReportModal = trello => { 
-
-    return trello.modal({
-        title: 'Novo relatório',
-        url: 'new_report',
-        fullscreen: false,
-    })
-}
-
-const showConfirmationDialogue = trello => {
-    return trello.popup({
-        title: "Excluir relátorio?",
-        url: 'https://reports-helper.herokuapp.com/confirmation'
-    })
-}
-
 const showTypesDataExport = trello => {
     return trello.popup({
         title: "Download",
@@ -26,14 +10,14 @@ const showTypesDataExport = trello => {
 
 const addNewReport = async (trello, report) => {
 
-    let date = new Date();
-    let myKey = `${reportsKey}_${date.getTime()}`
-    let reportsElementsList = "";
+    const date = new Date();
     let liArray = [];
-
+    let myKey = `${reportsKey}_${date.getTime()}`
     report.key = myKey
+
     getReports(trello).then(function (reports) {
 
+        // Ordenando array de relatórios
         reports.push(report);
         reports.sort((a, b) => {
             if(a.currDate > b.currDate) return -1
@@ -41,49 +25,22 @@ const addNewReport = async (trello, report) => {
             return 0
         });
 
-        let allLiReports = window.reportsList.querySelectorAll('li')
-
+        const allLiReports = window.reportsList.querySelectorAll('li')
         allLiReports.forEach(element => liArray.push(element))
 
-        // some() - a função apenas para quando retorna verdadeiro
+        // some() - a função para quando retorna verdadeiro
         liArray.some((element, index) => {
 
-            let dateReport = element.querySelectorAll('.pDate')[0]
-
+            const dateReport = element.querySelectorAll('.pDate')[0]
             const dateTime = dateReport.innerHTML.split(' - ')
             const dateFormat = dateTime[0];
 
+            // Inserindo relatório e ordenando por data de criação 
             if(report.currDate > dateFormat){
                 element.insertAdjacentHTML('beforebegin', createReportElement(report));
                 return true;
             } else return false
         })
-
-
-        // allLiReports.forEach(element => {
-
-            // let dateReport = element.querySelectorAll('.pDate')[0]
-
-            // const dateTime = dateReport.innerHTML.split(' - ')
-            // const dateFormat = dateTime[0];
-
-            // if(!report.currDate < dateFormat){
-            //     console.log("É maior")
-            // }
-                // element.insertAdjacentHTML('beforebegin', report);
-        // })
-
-        // console.log(allLiReports)
-
-        // reports.forEach(report => {
-
-        //     reportsElementsList += createReportElement(report)
-
-        // })
-
-        // console.log(reportsElementsList)
-
-        // window.reportsList.innerHTML += createReportElement(report)
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
         let elementsForEditing = Array.prototype.slice.call(document.querySelectorAll(".img_edit_report"));
@@ -97,10 +54,8 @@ const addNewReport = async (trello, report) => {
             })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
-
                 console.log(error)
             });
-
     });
 }
 
