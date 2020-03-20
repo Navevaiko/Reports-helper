@@ -50,12 +50,8 @@ const removeReport = elements => {
             trelloAlert(trello, 'Não é possível excluir um relatório em edição', 5, 'warning')
 
         } else {
-            
-            trello.alert({
-                message: 'Relatório removido com sucesso!',
-                duration: 3,
-                display: 'error'
-            });
+
+            trelloAlert(trello, 'relatório removido com sucesso!', 3, 'error')
 
             // REMOVENDO RELATÓRIO DA LISTA
             let liReport = element.closest('.li_report') // Elemento para remover
@@ -75,6 +71,8 @@ const editReport = elements => {
         localStorage.setItem('id_report', element.parentNode.id)
 
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
+
+        dislayAction(addFormNewReport, formNewReport, 'none', 'block')
         
         addFormNewReport.style.display = 'none'
         formNewReport.style.display = 'block'
@@ -207,22 +205,9 @@ if(addFormNewReport || btnCancelNewReport){
 
         if(localStorage.getItem('id_report')){
             localStorage.removeItem('id_report')
-
+            trelloAlert(trello, 'Edição de relatório cancelada!', 4, 'info')
             
-
-            trello.alert({
-                message: 'Edição de relatório cancelada!',
-                duration: 4,
-                display: 'info'
-            });
-        } else {
-            
-            trello.alert({
-                message: 'Criação de relatório cancelada!',
-                duration: 4,
-                display: 'info'
-            });
-        }
+        } else trelloAlert(trello, 'Criação de relatório cancelada!', 4, 'info')
         
         let inputs = [ inputStartTime, inputEndTime, inputStartDate, inputCommitLink, inputComment ]
         clearBoxes(inputs)
@@ -291,15 +276,16 @@ const addReport = card => {
     
     let report = { currDate, title, cardURL, membersIds, startTime, endTime, commitLink, comment, labels };
 
-    // criar função
     addFormNewReport.style.display = 'flex'
     formNewReport.style.display = 'none'
 
-    trello.alert({
-        message: 'Relatório criado com sucesso!',
-        duration: 3,
-        display: 'success'
-    });
-
+    trelloAlert(trello, 'Relatório criado com sucesso!', 3, 'success')
+    
     return addNewReport(trello, report)
+}
+
+const dislayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay) => {
+
+    firstElement.style.display = fisrtDisplay
+    secondElement.style.display = secondDisplay
 }
