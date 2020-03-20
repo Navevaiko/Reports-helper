@@ -47,11 +47,7 @@ const removeReport = elements => {
 
         if(localStorage.getItem('id_report')){
 
-            trello.alert({
-                message: 'Não é possível excluir um relatório em edição',
-                duration: 5,
-                display: 'warning'
-            });
+            trelloAlert(trello, 'Não é possível excluir um relatório em edição', 5, 'warning')
 
         } else {
             
@@ -210,6 +206,8 @@ if(addFormNewReport || btnCancelNewReport){
         if(localStorage.getItem('id_report')){
             localStorage.removeItem('id_report')
 
+            
+
             trello.alert({
                 message: 'Edição de relatório cancelada!',
                 duration: 4,
@@ -314,3 +312,12 @@ const dateToPTBR = date => date.split('-').reverse().join('/');
 
 // Limpa caixas de texto
 const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
+
+// Alert do Trello
+const trelloAlert = (trello, text, duration, display) => {
+    return trello.alert({
+        message: text,
+        duration: duration,
+        display: display
+    })
+}
