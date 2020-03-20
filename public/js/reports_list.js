@@ -178,8 +178,6 @@ const createReportElement = reportData => {
     return mainElement;
 }
 
-console.log(window.addForm_newReport)
-
 if(addFormNewReport || btnCancelNewReport){
     addFormNewReport.addEventListener('click', () => {
 
