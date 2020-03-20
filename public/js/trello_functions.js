@@ -29,6 +29,7 @@ const addNewReport = async (trello, report) => {
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
     let reportsElementsList = "";
+    let liArray = [];
 
     report.key = myKey
     getReports(trello).then(function (reports) {
@@ -42,7 +43,11 @@ const addNewReport = async (trello, report) => {
 
         let allLiReports = window.reportsList.querySelectorAll('li')
 
-        allLiReports.map(element => {
+        allLiReports.forEach(element => liArray.push(element))
+
+        console.log(liArray)
+
+        liArray.some((element, index) => {
 
             let dateReport = element.querySelectorAll('.pDate')[0]
 
@@ -50,10 +55,27 @@ const addNewReport = async (trello, report) => {
             const dateFormat = dateTime[0];
 
             if(!report.currDate < dateFormat){
-                console.log("É maior")
+                console.log(report.currDate + " é maior que " + dateFormat)
+                return true;
+            } else {
+                console.log(report.currDate + " é menor que " + dateFormat)
+                return false;
             }
-                // element.insertAdjacentHTML('beforebegin', report);
         })
+
+
+        // allLiReports.forEach(element => {
+
+            // let dateReport = element.querySelectorAll('.pDate')[0]
+
+            // const dateTime = dateReport.innerHTML.split(' - ')
+            // const dateFormat = dateTime[0];
+
+            // if(!report.currDate < dateFormat){
+            //     console.log("É maior")
+            // }
+                // element.insertAdjacentHTML('beforebegin', report);
+        // })
 
         console.log(allLiReports)
 
