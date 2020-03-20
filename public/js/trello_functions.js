@@ -40,7 +40,7 @@ const addNewReport = async (trello, report) => {
             return 0
         });
 
-        let teste = window.reportsList
+        let teste = window.reportsList.querySelectorAll('li')
 
         console.log(teste)
 
