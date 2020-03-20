@@ -47,6 +47,7 @@ const addNewReport = async (trello, report) => {
 
         console.log(liArray)
 
+        // some() - a função apenas para quando retorna verdadeiro
         liArray.some((element, index) => {
 
             let dateReport = element.querySelectorAll('.pDate')[0]
