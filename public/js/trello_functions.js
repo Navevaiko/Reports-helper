@@ -54,7 +54,7 @@ const addNewReport = async (trello, report) => {
             const dateFormat = dateTime[0];
 
             if(report.currDate > dateFormat){
-                element.insertAdjacentHTML('beforebegin', report);
+                element.insertAdjacentHTML('beforebegin', createReportElement(report));
                 return true;
             } else return false
         })
