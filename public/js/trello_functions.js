@@ -28,6 +28,7 @@ const addNewReport = async (trello, report) => {
 
     let date = new Date();
     let myKey = `${reportsKey}_${date.getTime()}`
+    let reportsElementsList = "";
 
     report.key = myKey
     getReports(trello).then(function (reports) {
@@ -38,7 +39,11 @@ const addNewReport = async (trello, report) => {
             if(a.currDate < b.currDate) return 1
             return 0
         });
-        console.log(reports)
+
+        reports.forEach(report => reportsElementsList += createReportElement(report))
+
+        console.log(reportsElementsList)
+
         window.reportsList.innerHTML += createReportElement(report)
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
