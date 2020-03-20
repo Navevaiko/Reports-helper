@@ -40,7 +40,15 @@ const addNewReport = async (trello, report) => {
             return 0
         });
 
-        reports.forEach(report => reportsElementsList += createReportElement(report))
+        let teste = window.reportsList
+
+        console.log(teste)
+
+        reports.forEach(report => {
+
+            reportsElementsList += createReportElement(report)
+
+        })
 
         console.log(reportsElementsList)
 
