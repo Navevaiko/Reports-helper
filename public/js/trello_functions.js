@@ -55,7 +55,7 @@ const addNewReport = async (trello, report) => {
             const dateTime = dateReport.innerHTML.split(' - ')
             const dateFormat = dateTime[0];
 
-            if(!report.currDate < dateFormat){
+            if(report.currDate > dateFormat){
                 console.log(report.currDate + " é maior que " + dateFormat)
                 return true;
             } else {
