@@ -45,8 +45,6 @@ const addNewReport = async (trello, report) => {
 
         allLiReports.forEach(element => liArray.push(element))
 
-        console.log(liArray)
-
         // some() - a função apenas para quando retorna verdadeiro
         liArray.some((element, index) => {
 
@@ -56,12 +54,9 @@ const addNewReport = async (trello, report) => {
             const dateFormat = dateTime[0];
 
             if(report.currDate > dateFormat){
-                console.log(report.currDate + " é maior que " + dateFormat)
+                element.insertAdjacentHTML('beforebegin', report);
                 return true;
-            } else {
-                console.log(report.currDate + " é menor que " + dateFormat)
-                return false;
-            }
+            } else return false
         })
 
 
@@ -78,17 +73,17 @@ const addNewReport = async (trello, report) => {
                 // element.insertAdjacentHTML('beforebegin', report);
         // })
 
-        console.log(allLiReports)
+        // console.log(allLiReports)
 
-        reports.forEach(report => {
+        // reports.forEach(report => {
 
-            reportsElementsList += createReportElement(report)
+        //     reportsElementsList += createReportElement(report)
 
-        })
+        // })
 
-        console.log(reportsElementsList)
+        // console.log(reportsElementsList)
 
-        window.reportsList.innerHTML += createReportElement(report)
+        // window.reportsList.innerHTML += createReportElement(report)
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
         let elementsForEditing = Array.prototype.slice.call(document.querySelectorAll(".img_edit_report"));
