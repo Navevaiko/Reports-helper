@@ -44,7 +44,11 @@ const addNewReport = async (trello, report) => {
 
         allLiReports.forEach(element => {
 
+            console.log(element)
+
             let dateReport = element.closest('.pDate')
+
+            console.log(dateReport)
 
             const dateTime = dateReport.innerHTML.split(' - ')
             const dateFormat = dateTime[0];
