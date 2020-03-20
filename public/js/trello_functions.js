@@ -42,22 +42,17 @@ const addNewReport = async (trello, report) => {
 
         let allLiReports = window.reportsList.querySelectorAll('li')
 
-        allLiReports.forEach(element => {
-
-            console.log(element)
+        allLiReports.map(element => {
 
             let dateReport = element.querySelectorAll('.pDate')[0]
-
-            console.log(dateReport)
 
             const dateTime = dateReport.innerHTML.split(' - ')
             const dateFormat = dateTime[0];
 
-            if(report.currDate < dateFormat) {
-                console.log("É menor")
-            } else {
+            if(!report.currDate < dateFormat){
                 console.log("É maior")
             }
+                // element.insertAdjacentHTML('beforebegin', report);
         })
 
         console.log(allLiReports)
