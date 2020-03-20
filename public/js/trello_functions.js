@@ -40,9 +40,23 @@ const addNewReport = async (trello, report) => {
             return 0
         });
 
-        let teste = window.reportsList.querySelectorAll('li')
+        let allLiReports = window.reportsList.querySelectorAll('li')
 
-        console.log(teste)
+        allLiReports.forEach(element => {
+
+            let dateReport = element.closest('.pDate')
+
+            const dateTime = dateReport.innerHTML.split(' - ')
+            const dateFormat = dateTime[0];
+
+            if(report.currDate < dateFormat) {
+                console.log("É menor")
+            } else {
+                console.log("É maior")
+            }
+        })
+
+        console.log(allLiReports)
 
         reports.forEach(report => {
 
