@@ -73,9 +73,6 @@ const editReport = elements => {
         let paragraphs = element.closest('.li_report').querySelectorAll('p')
 
         dislayAction(addFormNewReport, formNewReport, 'none', 'block')
-        
-        addFormNewReport.style.display = 'none'
-        formNewReport.style.display = 'block'
         btnSaveNewReport.textContent = "Editar"
 
         paragraphs.forEach(report => {
