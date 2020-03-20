@@ -33,6 +33,12 @@ const addNewReport = async (trello, report) => {
     getReports(trello).then(function (reports) {
 
         reports.push(report);
+        reports.sort((a, b) => {
+            if(a.currDate > b.currDate) return -1
+            if(a.currDate < b.currDate) return 1
+            return 0
+        });
+        console.log(reports)
         window.reportsList.innerHTML += createReportElement(report)
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
