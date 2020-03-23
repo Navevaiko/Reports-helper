@@ -31,6 +31,7 @@ const addNewReport = async (trello, report) => {
         if(liArray.length){
 
             console.log("Possui relatório!")
+            console.log(liArray.length - 1)
 
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
@@ -42,13 +43,12 @@ const addNewReport = async (trello, report) => {
                 const dateFormat = dateTime[0];
 
                 // Inserindo relatório e ordenando por data de criação 
-                if(report.currDate > dateFormat){
+                if(report.currDate > dateFormat || report.currDate == dateFormat){
                     element.insertAdjacentHTML('beforebegin', createReportElement(report));
                     return true;
                 } else return false
             })
         } else {
-            console.log("Não tem nenhum relatório!")
             window.reportsList.innerHTML = createReportElement(report)
         }
 
