@@ -28,6 +28,9 @@ const addNewReport = async (trello, report) => {
         const allLiReports = window.reportsList.querySelectorAll('li')
         allLiReports.forEach(element => liArray.push(element))
 
+        console.log(liArray)
+        console.log(liArray.length)
+
         // some() - a função para quando retorna verdadeiro
         liArray.some((element, index) => {
 
