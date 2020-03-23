@@ -126,7 +126,7 @@ const createReportElement = reportData => {
     let mainElement =  `<li class='li_report'> 
                             <div class="report">
                                 <div class="remove_report" id="${reportData.key}">
-                                    <img class="img_edit_report" src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Editing-Edit-icon.png" alt="Editar" title="Editar">
+                                    <img class="img_edit_report" src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Editing-Edit-icon.png" alt="Editar" title="Editar" onclick="scrollTop()">
                                     <img class="img_remove_report" src="https://pngimage.net/wp-content/uploads/2018/05/close-png-6.png" alt="Excluir" title="Excluir">
                                 </div>
                                 <div class="comment_report">
@@ -249,4 +249,8 @@ const addReport = card => {
 const displayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay) => {
     firstElement.style.display = fisrtDisplay
     secondElement.style.display = secondDisplay
+}
+
+const scrollTop = () => {
+    window.scrollTo(0, 0);
 }
