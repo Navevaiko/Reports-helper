@@ -64,7 +64,7 @@ const addNewReport = async (trello, report) => {
             })
             .catch(function (error) {
                 alert("Ocorreu um erro, por favor tente novamente mais tarde");
-                console.log(error)
+                console.log(error.message)
             });
     });
 }
