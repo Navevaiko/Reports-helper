@@ -31,7 +31,7 @@ const addNewReport = async (trello, report) => {
         if(liArray.length){
 
             console.log("Possui relatório!")
-            console.log(liArray.length - 1)
+            console.log(liArray[liArray.length - 1])
 
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
