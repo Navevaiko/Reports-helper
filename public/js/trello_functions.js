@@ -30,8 +30,7 @@ const addNewReport = async (trello, report) => {
 
         if(liArray.length){
 
-            console.log("Possui relatório!")
-            console.log(liArray[liArray.length - 1])
+            const lastLiArray = liArray[liArray.length - 1]
 
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
@@ -46,6 +45,9 @@ const addNewReport = async (trello, report) => {
                 if(report.currDate > dateFormat || report.currDate == dateFormat){
                     element.insertAdjacentHTML('beforebegin', createReportElement(report));
                     return true;
+                } else if (element == lastLiArray) {
+                    console.log("Chegou no último")
+                    return false;
                 } else return false
             })
         } else {
