@@ -28,22 +28,29 @@ const addNewReport = async (trello, report) => {
         const allLiReports = window.reportsList.querySelectorAll('li')
         allLiReports.forEach(element => liArray.push(element))
 
-        console.log(liArray)
-        console.log(liArray.length)
+        if(liArray.length){
 
-        // some() - a função para quando retorna verdadeiro
-        liArray.some((element, index) => {
+            console.log("Possui relatório!")
 
-            const dateReport = element.querySelectorAll('.pDate')[0]
-            const dateTime = dateReport.innerHTML.split(' - ')
-            const dateFormat = dateTime[0];
+            // some() - a função para quando retorna verdadeiro
+            liArray.some((element, index) => {
 
-            // Inserindo relatório e ordenando por data de criação 
-            if(report.currDate > dateFormat){
-                element.insertAdjacentHTML('beforebegin', createReportElement(report));
-                return true;
-            } else return false
-        })
+                console.log(element)
+
+                const dateReport = element.querySelectorAll('.pDate')[0]
+                const dateTime = dateReport.innerHTML.split(' - ')
+                const dateFormat = dateTime[0];
+
+                // Inserindo relatório e ordenando por data de criação 
+                if(report.currDate > dateFormat){
+                    element.insertAdjacentHTML('beforebegin', createReportElement(report));
+                    return true;
+                } else return false
+            })
+        } else {
+            console.log("Não tem nenhum relatório!")
+            window.reportsList.innerHTML = createReportElement(report)
+        }
 
         let allElements = Array.prototype.slice.call(document.querySelectorAll(".img_remove_report"));
         let elementsForEditing = Array.prototype.slice.call(document.querySelectorAll(".img_edit_report"));
