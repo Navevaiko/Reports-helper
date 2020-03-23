@@ -65,6 +65,8 @@ const removeReport = elements => {
 
 // Jogando os dados de um relatório no formulário para editar
 const editReport = elements => {
+
+    window.scrollTo(0, 0);
     
     elements.map(element => element.addEventListener('click', () => {
 

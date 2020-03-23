@@ -28,29 +28,27 @@ const addNewReport = async (trello, report) => {
         const allLiReports = window.reportsList.querySelectorAll('li')
         allLiReports.forEach(element => liArray.push(element))
 
-        if(liArray.length){
+        if(liArray.length){ // Se existir relatóro
 
             const lastLiArray = liArray[liArray.length - 1]
 
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
 
-                console.log(element)
-
                 const dateReport = element.querySelectorAll('.pDate')[0]
                 const dateTime = dateReport.innerHTML.split(' - ')
                 const dateFormat = dateTime[0];
 
                 // Inserindo relatório e ordenando por data de criação 
-                if(report.currDate > dateFormat || report.currDate == dateFormat){
+                if(report.currDate > dateFormat || report.currDate == dateFormat){ 
                     element.insertAdjacentHTML('beforebegin', createReportElement(report));
                     return true;
-                } else if (element == lastLiArray) {
+                } else if (element == lastLiArray) { // Inserir por último
                     element.insertAdjacentHTML('afterend', createReportElement(report));
                     return true;
-                } else return false
+                } else return false;
             })
-        } else {
+        } else { // Caso não exista nenhum relatório
             window.reportsList.innerHTML = createReportElement(report)
         }
 
