@@ -17,8 +17,7 @@ const loadReportsList = reports => {
     
     let sortReportByDate = [], reportsElementsList = "";
 
-    if(localStorage)
-        if(localStorage.getItem('id_report')) localStorage.removeItem('id_report')  
+    if(localStorage.getItem('id_report')) localStorage.removeItem('id_report')
 
     reports.forEach(report => {
 
