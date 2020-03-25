@@ -63,7 +63,7 @@ const addNewReport = async (trello, report) => {
                 console.log("Relatório criado!")           
             })
             .catch(function (error) {
-                if(erro.message.indexOf("4096") >= 0)
+                if(error.message.indexOf("4096") >= 0)
                     alert("Número de caracteres excedido! Você só pode ter 4096 caracteres por card")
                 else 
                     alert("Ocorreu um erro, por favor tente novamente mais tarde");
