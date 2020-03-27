@@ -23,29 +23,15 @@ const loadReportsList = reports => {
 
         sortReportByDate.push(report)
         sortReportByDate.sort((a, b) => {
-
-            console.log(a.currDate)
             
-            // const dateA = a.currDate.split(''), dateB = b.currDate.split(' - ')
+            const dateA = a.currDate.split('/'), dateB = b.currDate.split('/')
+            const timeA = a.startTime.split(':'), timeB = b.startTime.split(':');
 
-            // const dateFormatA = dateTime[0].split('/');
-            // const dateFormatB = dateTime[0].split('/');
+            const timestampReportA = toTimestamp( dateA[2], dateA[1], dateA[0], timeA[1], timeA[0], '00');
+            const timestampReportB = toTimestamp(dateB[2], dateB[1], dateB[0], timeB[1], timeB[0], '00');
 
-            // const timeFormat = dateTime[1].split(' ás ')
-            // const startTime = timeFormat[0].split(':')
-
-            // const timestampReport = 
-            //     toTimestamp(
-            //         dateFormat[2], 
-            //         dateFormat[1], 
-            //         dateFormat[0], 
-            //         startTime[1], 
-            //         startTime[0], 
-            //         '00'
-            //     );
-
-            if(a.currDate > b.currDate) return -1
-            if(a.currDate < b.currDate) return 1
+            if(timestampReportA > timestampReportB) return -1
+            if(timestampReportA < timestampReportB) return 1
             return 0
         });
     })
@@ -270,4 +256,10 @@ const addReport = card => {
 const displayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay) => {
     firstElement.style.display = fisrtDisplay
     secondElement.style.display = secondDisplay
+}
+
+// Funções para data
+const toTimestamp = (year,month,day,hour,minute,second) => {
+    let data = new Date( Date.UTC( year , month - 1 , day , hour , minute , second ));
+    return data.getTime() / 1000;
 }

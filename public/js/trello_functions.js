@@ -171,11 +171,6 @@ const leftPad = (value, totalWidth, paddingChar) => {
 const dateToEN = date => date.split('/').reverse().join('-');
 const dateToPTBR = date => date.split('-').reverse().join('/');
 
-const toTimestamp = (year,month,day,hour,minute,second) => {
-    let data = new Date( Date.UTC( year , month - 1 , day , hour , minute , second ));
-    return data.getTime() / 1000;
-}
-
 // Limpa caixas de texto
 const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
 
