@@ -75,9 +75,6 @@ const addNewReport = async (trello, report) => {
                     if(startTimeNewReport > startTime || startTimeNewReport == startTime){
                         element.insertAdjacentHTML('beforebegin', createReportElement(report));
                         return true;
-                    } else {
-                        element.insertAdjacentHTML('afterend', createReportElement(report));
-                        return true;
                     }
                 } else if (element == lastLiArray) { // Inserir por último
                     element.insertAdjacentHTML('afterend', createReportElement(report));
