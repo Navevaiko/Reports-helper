@@ -31,13 +31,48 @@ const addNewReport = async (trello, report) => {
         if(liArray.length){ // Se existir relatóro
 
             const lastLiArray = liArray[liArray.length - 1]
+            const dateNewReport = report.currDate.split('/');
+            const startTimeNewReport = report.startTime.split(':');
+
+            let timestampNewReport = 
+                toTimestamp(
+                            dateNewReport[2], 
+                            dateNewReport[1], 
+                            dateNewReport[0], 
+                            startTimeNewReport[1], 
+                            startTimeNewReport[0], 
+                            '00');
+
+            console.log("Novo relatório: " + timestampNewReport)
 
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
 
                 const dateReport = element.querySelectorAll('.pDate')[0]
+
                 const dateTime = dateReport.innerHTML.split(' - ')
                 const dateFormat = dateTime[0];
+
+                const dateTeste = dateFormat.split('/')
+                const timeFormat = dateTime[1].split(' ás ')
+                const startTime = timeFormat[0].split(':')
+
+                const timestampReport = 
+                    toTimestamp(
+                        dateTeste[2], 
+                        dateTeste[1], 
+                        dateTeste[0], 
+                        startTime[1], 
+                        startTime[0], 
+                        '00'
+                    );
+    
+                console.log("Relatório " + index + ": " + timestampReport)
+
+                if(timestampNewReport > timestampReport)
+                    console.log(timestampNewReport + " é maior que " + timestampReport)
+                else
+                    console.log(timestampNewReport + " é menor que " + timestampReport)
 
                 // Inserindo relatório e ordenando por data de criação 
                 if(report.currDate > dateFormat || report.currDate == dateFormat){ 
@@ -145,6 +180,11 @@ const leftPad = (value, totalWidth, paddingChar) => {
 };
 const dateToEN = date => date.split('/').reverse().join('-');
 const dateToPTBR = date => date.split('-').reverse().join('/');
+
+const toTimestamp = (year,month,day,hour,minute,second) => {
+    let data = new Date( Date.UTC( year , month - 1 , day , hour , minute , second ));
+    return data.getTime() / 1000;
+}
 
 // Limpa caixas de texto
 const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })

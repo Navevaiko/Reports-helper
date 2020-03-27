@@ -14,9 +14,6 @@ const inputComment = document.getElementById('comment')
 window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
 const loadReportsList = reports => {
-
-    var datum = new Date(Date.UTC('2020','03','27','13','13','05'));
-    console.log(datum.getTime()/1000);
     
     let sortReportByDate = [], reportsElementsList = "";
 
