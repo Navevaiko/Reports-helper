@@ -65,7 +65,7 @@ const addNewReport = async (trello, report) => {
                     );
 
                 // Inserindo relatório e ordenando por data de criação 
-                if(timestampNewReport > timestampReport || timestampNewReporte == timestampReport){ 
+                if(timestampNewReport > timestampReport || timestampNewReport == timestampReport){ 
                     element.insertAdjacentHTML('beforebegin', createReportElement(report));
                     return true;
                 } else if (element == lastLiArray) { // Inserir por último
