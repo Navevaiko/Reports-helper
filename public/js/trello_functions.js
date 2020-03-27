@@ -44,6 +44,8 @@ const addNewReport = async (trello, report) => {
                     '00'
                 );
 
+            console.log("Novo: " + timestampNewReport)
+
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
 
@@ -63,6 +65,13 @@ const addNewReport = async (trello, report) => {
                         startTime[0], 
                         '00'
                     );
+
+                console.log("Relatório " + index + ": " + timestampNewReport)
+
+                if(timestampNewReport > timestampReport)
+                    console.log(timestampNewReport + " é maior que " + timestampReport)
+                else
+                console.log(timestampNewReport + " é menor que " + timestampReport)
 
                 // Inserindo relatório e ordenando por data de criação 
                 if(timestampNewReport > timestampReport || timestampNewReport == timestampReport){ 
