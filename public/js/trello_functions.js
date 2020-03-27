@@ -32,16 +32,13 @@ const addNewReport = async (trello, report) => {
 
             const lastLiArray = liArray[liArray.length - 1]
             const dateNewReport = report.currDate.split('/');
-            const startTimeNewReport = report.startTime.split(':');
+            const startTimeNewReport = report.startTime;
 
             let timestampNewReport = 
                 toTimestamp(
                     dateNewReport[2], 
                     dateNewReport[1], 
-                    dateNewReport[0], 
-                    startTimeNewReport[1], 
-                    startTimeNewReport[0], 
-                    '00'
+                    dateNewReport[0]
                 );
 
             console.log("Novo: " + timestampNewReport)
@@ -54,16 +51,13 @@ const addNewReport = async (trello, report) => {
                 const dateTime = dateReport.innerHTML.split(' - ')
                 const dateFormat = dateTime[0].split('/');
                 const timeFormat = dateTime[1].split(' ás ')
-                const startTime = timeFormat[0].split(':')
+                const startTime = timeFormat[0]
 
                 const timestampReport = 
                     toTimestamp(
                         dateFormat[2], 
                         dateFormat[1], 
-                        dateFormat[0], 
-                        startTime[1], 
-                        startTime[0], 
-                        '00'
+                        dateFormat[0]
                     );
 
                 console.log("Relatório " + index + ": " + timestampNewReport)
@@ -74,9 +68,17 @@ const addNewReport = async (trello, report) => {
                 console.log(timestampNewReport + " é menor que " + timestampReport)
 
                 // Inserindo relatório e ordenando por data de criação 
-                if(timestampNewReport > timestampReport || timestampNewReport == timestampReport){ 
+                if(timestampNewReport > timestampReport){ 
                     element.insertAdjacentHTML('beforebegin', createReportElement(report));
                     return true;
+                } else if (timestampNewReport == timestampReport) {
+                    if(startTimeNewReport > startTime || startTimeNewReport == startTime){
+                        element.insertAdjacentHTML('beforebegin', createReportElement(report));
+                        return true;
+                    } else {
+                        element.insertAdjacentHTML('afterend', createReportElement(report));
+                        return true;
+                    }
                 } else if (element == lastLiArray) { // Inserir por último
                     element.insertAdjacentHTML('afterend', createReportElement(report));
                     return true;
