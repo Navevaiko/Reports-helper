@@ -25,12 +25,16 @@ const loadReportsList = reports => {
         sortReportByDate.sort((a, b) => {
 
             const dateA = a.currDate.split('/'), dateB = b.currDate.split('/')
-            const timeA = a.startTime.split(':'), timeB = b.startTime.split(':');
+            const timeA = a.startTime, timeB = b.startTime;
 
-            const timestampReportA = toTimestamp( dateA[2], dateA[1], dateA[0], timeA[1], timeA[0], '00');
-            const timestampReportB = toTimestamp(dateB[2], dateB[1], dateB[0], timeB[1], timeB[0], '00');
+            const timestampReportA = toTimestamp( dateA[2], dateA[1], dateA[0]);
+            const timestampReportB = toTimestamp(dateB[2], dateB[1], dateB[0]);
 
             if(timestampReportA > timestampReportB) return -1
+            if(timestampReportA == timestampReportB){
+                if(timeA > timeB) return -1
+                if(timeA < timeB || timeA == timeB) return 1
+            }
             if(timestampReportA < timestampReportB) return 1
             return 0
         });
