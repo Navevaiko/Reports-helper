@@ -23,6 +23,27 @@ const loadReportsList = reports => {
 
         sortReportByDate.push(report)
         sortReportByDate.sort((a, b) => {
+
+            console.log(a.currDate)
+            
+            // const dateA = a.currDate.split(''), dateB = b.currDate.split(' - ')
+
+            // const dateFormatA = dateTime[0].split('/');
+            // const dateFormatB = dateTime[0].split('/');
+
+            // const timeFormat = dateTime[1].split(' ás ')
+            // const startTime = timeFormat[0].split(':')
+
+            // const timestampReport = 
+            //     toTimestamp(
+            //         dateFormat[2], 
+            //         dateFormat[1], 
+            //         dateFormat[0], 
+            //         startTime[1], 
+            //         startTime[0], 
+            //         '00'
+            //     );
+
             if(a.currDate > b.currDate) return -1
             if(a.currDate < b.currDate) return 1
             return 0
