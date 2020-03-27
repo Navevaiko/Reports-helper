@@ -23,7 +23,7 @@ const loadReportsList = reports => {
 
         sortReportByDate.push(report)
         sortReportByDate.sort((a, b) => {
-            
+
             const dateA = a.currDate.split('/'), dateB = b.currDate.split('/')
             const timeA = a.startTime.split(':'), timeB = b.startTime.split(':');
 
@@ -259,7 +259,7 @@ const displayAction = (firstElement, secondElement, fisrtDisplay, secondDisplay)
 }
 
 // Funções para data
-const toTimestamp = (year,month,day,hour,minute,second) => {
-    let data = new Date( Date.UTC( year , month - 1 , day , hour , minute , second ));
+const toTimestamp = (year,month,day) => {
+    let data = new Date( Date.UTC( year , month - 1 , day , 0 , 0 , 0 ));
     return data.getTime() / 1000;
 }
