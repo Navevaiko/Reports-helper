@@ -1,15 +1,15 @@
 var trello = TrelloPowerUp.iframe();
 
-const addFormNewReport = document.getElementById('addForm_newReport')
-const formNewReport = document.getElementById('form_newReport')
-const btnCancelNewReport = document.getElementById('btn_cancelNewReport')
-const btnSaveNewReport = document.getElementById('btn_saveNewReport')
+const addFormNewReport = document.getElementById('addForm_newReport'),
+formNewReport = document.getElementById('form_newReport'),
+btnCancelNewReport = document.getElementById('btn_cancelNewReport'),
+btnSaveNewReport = document.getElementById('btn_saveNewReport');
 
-const inputStartTime = document.getElementById('startTime')
-const inputEndTime = document.getElementById('endTime')
-const inputStartDate = document.getElementById('startDate')
-const inputCommitLink = document.getElementById('commitLink')
-const inputComment = document.getElementById('comment')
+const inputStartTime = document.getElementById('startTime'),
+inputEndTime = document.getElementById('endTime'),
+inputStartDate = document.getElementById('startDate'),
+inputCommitLink = document.getElementById('commitLink'),
+inputComment = document.getElementById('comment');
 
 window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
@@ -24,11 +24,11 @@ const loadReportsList = reports => {
         sortReportByDate.push(report)
         sortReportByDate.sort((a, b) => {
 
-            const dateA = a.currDate.split('/'), dateB = b.currDate.split('/')
-            const timeA = a.startTime, timeB = b.startTime;
+            const dateA = a.currDate.split('/'), dateB = b.currDate.split('/'),
+            timeA = a.startTime, timeB = b.startTime;
 
-            const timestampReportA = toTimestamp( dateA[2], dateA[1], dateA[0]);
-            const timestampReportB = toTimestamp(dateB[2], dateB[1], dateB[0]);
+            const timestampReportA = toTimestamp( dateA[2], dateA[1], dateA[0]),
+            timestampReportB = toTimestamp(dateB[2], dateB[1], dateB[0]);
 
             if(timestampReportA > timestampReportB) return -1
             if(timestampReportA == timestampReportB){
@@ -59,7 +59,6 @@ const removeReport = elements => {
         if(localStorage.getItem('id_report')){
 
             trelloAlert(trello, 'Não é possível excluir um relatório em edição', 5, 'warning')
-
         } else {
 
             trelloAlert(trello, 'relatório removido com sucesso!', 3, 'error')
@@ -96,12 +95,12 @@ const editReport = elements => {
                     break;
 
                 case 'pDate':
-                    const dateTime = report.innerHTML.split(' - ')
-                    const time = dateTime[1].split(' ás ')
+                    const dateTime = report.innerHTML.split(' - '),
+                    time = dateTime[1].split(' ás ');
     
-                    const dateFormat = dateToEN(dateTime[0]);
-                    const startTime = time[0]
-                    const endTime = time[1]
+                    const dateFormat = dateToEN(dateTime[0]),
+                    startTime = time[0],
+                    endTime = time[1];
     
                     inputStartTime.value = startTime
                     inputEndTime.value = endTime
@@ -111,10 +110,8 @@ const editReport = elements => {
                 case 'pCommit':
                     const commitHref = report.parentNode.href
 
-                    if(report.innerHTML != 'Sem commit') 
-                        inputCommitLink.value = commitHref
-                    else 
-                        inputCommitLink.value = ""
+                    if(report.innerHTML != 'Sem commit') inputCommitLink.value = commitHref
+                    else inputCommitLink.value = ""
                     break;
             }
         })
@@ -167,12 +164,12 @@ if(addFormNewReport || btnCancelNewReport){
         displayAction(addFormNewReport, formNewReport, 'none', 'block')
         btnSaveNewReport.textContent = "Salvar Relatório"
 
-        let date = new Date();
+        const date = new Date();
 
         // Data com 0 na esquerda caso não tenha 2 digitos
-        let day = leftPad(date.getDate(), 2)
-        let month = leftPad((date.getMonth() + 1), 2)
-        let year = date.getFullYear()
+        let day = leftPad(date.getDate(), 2),
+        month = leftPad((date.getMonth() + 1), 2),
+        year = date.getFullYear()
 
         // Dia de tarefa setado com data atual
         inputStartDate.value = `${year}-${month}-${day}`
@@ -213,7 +210,6 @@ window.newReport.addEventListener('submit', async event => {
         addReport(JSON.stringify(card));
 
         localStorage.removeItem('id_report')
-        
     } else {
         addReport(JSON.stringify(card));
     }

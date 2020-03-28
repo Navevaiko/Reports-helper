@@ -30,42 +30,21 @@ const addNewReport = async (trello, report) => {
 
         if(liArray.length){ // Se existir relatóro
 
-            const lastLiArray = liArray[liArray.length - 1]
-            const dateNewReport = report.currDate.split('/');
-            const startTimeNewReport = report.startTime;
+            const lastLiArray = liArray[liArray.length - 1],
+            dateNewReport = report.currDate.split('/'),
+            startTimeNewReport = report.startTime;
 
-            let timestampNewReport = 
-                toTimestamp(
-                    dateNewReport[2], 
-                    dateNewReport[1], 
-                    dateNewReport[0]
-                );
-
-            console.log("Novo: " + timestampNewReport)
+            let timestampNewReport = toTimestamp(dateNewReport[2], dateNewReport[1], dateNewReport[0]);
 
             // some() - a função para quando retorna verdadeiro
             liArray.some((element, index) => {
 
-                const dateReport = element.querySelectorAll('.pDate')[0]
-
-                const dateTime = dateReport.innerHTML.split(' - ')
-                const dateFormat = dateTime[0].split('/');
-                const timeFormat = dateTime[1].split(' ás ')
-                const startTime = timeFormat[0]
-
-                const timestampReport = 
-                    toTimestamp(
-                        dateFormat[2], 
-                        dateFormat[1], 
-                        dateFormat[0]
-                    );
-
-                console.log("Relatório " + index + ": " + timestampNewReport)
-
-                if(timestampNewReport > timestampReport)
-                    console.log(timestampNewReport + " é maior que " + timestampReport)
-                else
-                console.log(timestampNewReport + " é menor que " + timestampReport)
+                const dateReport = element.querySelectorAll('.pDate')[0],
+                dateTime = dateReport.innerHTML.split(' - '),
+                dateFormat = dateTime[0].split('/'),
+                timeFormat = dateTime[1].split(' ás '),
+                startTime = timeFormat[0],
+                timestampReport = toTimestamp(dateFormat[2], dateFormat[1], dateFormat[0]);
 
                 // Inserindo relatório e ordenando por data de criação 
                 if(timestampNewReport > timestampReport){ 
@@ -98,8 +77,7 @@ const addNewReport = async (trello, report) => {
             .catch(function (error) {
                 if(error.message.indexOf("4096") >= 0)
                     alert("Número de caracteres excedido! Você só pode ter 4096 caracteres por card")
-                else 
-                    alert("Ocorreu um erro, por favor tente novamente mais tarde");
+                else alert("Ocorreu um erro, por favor tente novamente mais tarde");
             });
     });
 }
