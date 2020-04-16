@@ -5,6 +5,9 @@ var trello = window.TrelloPowerUp.iframe({
 
 var idBoard = trello.args[0].context.board;
 
+console.log("TRELLO TYPE EXPORTS: ")
+console.log(trello)
+console.log(trello.args);
 console.log(idBoard);
 
 trello.render(function () {
