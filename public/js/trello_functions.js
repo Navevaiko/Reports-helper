@@ -8,12 +8,6 @@ const showTypesDataExport = trello => {
     })
 }
 
-
-console.log("TRELLO TRELLO FUNCTIONS: ")
-console.log(trello)
-console.log(trello.args);
-console.log(idBoard);
-
 const addNewReport = async (trello, report) => {
 
     const date = new Date();
