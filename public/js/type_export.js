@@ -29,14 +29,17 @@ const fullTime = json => {
 
 window.exportData.addEventListener('submit', async event => {
 
+    console.log("Foi chamado!");
+
     event.preventDefault();
     const typeFile = window.typeData.value;
     let context = await getCardContent(trello);
 
+    console.log(context);
+
     if (Object.keys(context).length == 1) {
 
         let cardContent = await getCardContent(trello);
-        console.log(cardContent);
         let card = await getCardDetailsById(trello);
         let dataCard = getDataCardExport(cardContent.card, card);
 
@@ -64,8 +67,18 @@ window.exportData.addEventListener('submit', async event => {
         try{
             let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
+            console.log("CARDS: ")
+            console.log(cards);
+
             let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
+
+            console.log('promisse: ')
+            console.log(promisseResponse);
+
             let arrayUnified = await Promise.all(promisseResponse);
+
+            console.log("promisse 2: ")
+            console.log(arrayUnified);
 
             arrayUnified = arrayUnified.flat(2);
 
