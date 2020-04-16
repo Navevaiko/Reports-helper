@@ -5,6 +5,8 @@ var trello = window.TrelloPowerUp.iframe({
 
 var idBoard = trello.args[0].context.board;
 
+console.log(idBoard);
+
 trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
@@ -29,13 +31,9 @@ const fullTime = json => {
 
 window.exportData.addEventListener('submit', async event => {
 
-    console.log("Foi chamado!");
-
     event.preventDefault();
     const typeFile = window.typeData.value;
     let context = await getCardContent(trello);
-
-    console.log(context);
 
     if (Object.keys(context).length == 1) {
 
