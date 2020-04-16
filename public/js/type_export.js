@@ -5,11 +5,6 @@ var trello = window.TrelloPowerUp.iframe({
 
 var idBoard = trello.args[0].context.board;
 
-console.log("TRELLO TYPE EXPORTS: ")
-console.log(trello)
-console.log(trello.args);
-console.log(idBoard);
-
 trello.render(function () {
     trello.sizeTo('#exportData').done();
 });
@@ -68,18 +63,9 @@ window.exportData.addEventListener('submit', async event => {
         try{
             let cards = await axios.get(`https://api.trello.com/1/boards/${idBoard}/cards/?fields=name,labels,members,url&members=true&key=${secret}&token=${token}`);
 
-            console.log("CARDS: ")
-            console.log(cards);
-
             let promisseResponse = cards.data.map(card => requestReports(card, token, secret));
 
-            console.log('promisse: ')
-            console.log(promisseResponse);
-
             let arrayUnified = await Promise.all(promisseResponse);
-
-            console.log("promisse 2: ")
-            console.log(arrayUnified);
 
             arrayUnified = arrayUnified.flat(2);
 
