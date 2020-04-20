@@ -14,8 +14,6 @@ inputComment = document.getElementById('comment');
 window.addEventListener('load', async () => loadReportsList(await getReports(trello)));
 
 const loadReportsList = reports => {
-
-    console.log("Chamada")
     
     let sortReportByDate = [], reportsElementsList = "";
 
