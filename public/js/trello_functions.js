@@ -85,6 +85,7 @@ const addNewReport = async (trello, report) => {
 const getReports = async trello => {
     let getAll = await trello.getAll();
     console.log(trello);
+    console.log(trello.getAll());
     return getReportsAnyKy(getAll.card);
 }
 
