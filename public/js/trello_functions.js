@@ -72,7 +72,6 @@ const addNewReport = async (trello, report) => {
         
         trello.set('card', reportsVisibility, myKey, report)
             .then(function () {
-                console.log(trello.set('card', reportsVisibility, myKey, report));
                 console.log("Relatório criado!")           
             })
             .catch(function (error) {
@@ -85,6 +84,7 @@ const addNewReport = async (trello, report) => {
 
 const getReports = async trello => {
     let getAll = await trello.getAll();
+    console.log(await trello.getAll());
     return getReportsAnyKy(getAll.card);
 }
 
