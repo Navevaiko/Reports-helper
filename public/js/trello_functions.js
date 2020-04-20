@@ -71,8 +71,8 @@ const addNewReport = async (trello, report) => {
         editReport(elementsForEditing)
         
         trello.set('card', reportsVisibility, myKey, report)
-            .then(function (e) {
-                console.log(e);
+            .then(function () {
+                console.log(trello.set('card', reportsVisibility, myKey, report));
                 console.log("Relatório criado!")           
             })
             .catch(function (error) {
