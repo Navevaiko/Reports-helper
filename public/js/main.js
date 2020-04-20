@@ -12,7 +12,6 @@ window.TrelloPowerUp.initialize({
         return getReports(trello).then(showBadge)
     },
     'card-back-section': function (trello, options) {
-        console.log(window.TrelloPowerUp.util.relativeUrl('reports_list'));
         return {
             title: 'Relatórios',
             icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
