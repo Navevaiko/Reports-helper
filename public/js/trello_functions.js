@@ -17,7 +17,6 @@ const showDetailsBoard = async trello => {
     let cards = await trello.cards('all');
 
     console.log(board);
-    console.log(cards);
 }
 
 const addNewReport = async (trello, report) => {
