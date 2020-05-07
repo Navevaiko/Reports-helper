@@ -1,3 +1,5 @@
+import { api } from './../services/api.js';
+
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
         return [
@@ -33,7 +35,17 @@ window.TrelloPowerUp.initialize({
             },
             {
                 text: 'Salvar Quadro',
-                callback: showDetailsBoard,
+                callback: () => {
+                    console.log("Botão apertado");
+                    // let members = await trello.board('members');
+                    // let org = await trello.board('idOrganization');
+                    // let board = await trello.board('id');
+                    // // let cards = await trello.cards('all');
+
+                    // const response = await api.post(`organizations/${org.idOrganization}/projects/${board.id}`);
+
+                    // console.log(response);
+                }
             }
         ]
     }

@@ -7,29 +7,6 @@ const showTypesDataExport = trello => {
         url: 'https://reports-helper.herokuapp.com/type_export'
     })
 }
-
-const showDetailsBoard = async trello => {
-
-    import api from './../services/api';
-
-    let members = await trello.board('members');
-    let org = await trello.board('idOrganization');
-    let board = await trello.board('id');
-    // let cards = await trello.cards('all');
-
-    const response = await api.post(`organizations/${org.idOrganization}/projects/${board.id}`);
-
-    console.log(response);
-
-    // console.log("Quadros:")
-    // console.log(board.id);
-    // console.log("Membros:")
-    // console.log([members]);
-    // console.log("Organização:")
-    // console.log(idOrg.idOrganization);
-
-}
-
 const addNewReport = async (trello, report) => {
 
     const date = new Date();
