@@ -10,17 +10,24 @@ const showTypesDataExport = trello => {
 
 const showDetailsBoard = async trello => {
 
+    import api from './../services/api';
+
     let members = await trello.board('members');
-    let idOrg = await trello.board('idOrganization');
+    let org = await trello.board('idOrganization');
     let board = await trello.board('id');
     // let cards = await trello.cards('all');
 
-    console.log("Quadros:")
-    console.log(board.id);
-    console.log("Membros:")
-    console.log([members]);
-    console.log("Organização:")
-    console.log(idOrg.idOrganization);
+    const response = await api.post(`organizations/${org.idOrganization}/projects/${board.id}`);
+
+    console.log(response);
+
+    // console.log("Quadros:")
+    // console.log(board.id);
+    // console.log("Membros:")
+    // console.log([members]);
+    // console.log("Organização:")
+    // console.log(idOrg.idOrganization);
+
 }
 
 const addNewReport = async (trello, report) => {
