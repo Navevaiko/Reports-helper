@@ -8,22 +8,16 @@ const showTypesDataExport = trello => {
     })
 }
 
-const showDetailsBoard = trello => {
+const showDetailsBoard = async trello => {
 
     // Pegando os dados do quadro
-    trello.board('id', 'name').then( board => {
-        console.log(board);
-    });
+    let board = await trello.board('id', 'name', 'idOrganization', 'members');
 
     // Pegando todos os cartões
-    trello.cards('all').then( cards => {
-        // console.log(cards);
-    });
+    let cards = await trello.cards('all');
 
-    // Pegando os dados da organização
-    trello.organization('all').then( org => {
-        console.log(org);
-    });
+    console.log(board);
+    console.log(cards);
 }
 
 const addNewReport = async (trello, report) => {
