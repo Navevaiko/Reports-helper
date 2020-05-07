@@ -1,4 +1,4 @@
-// const api = require('./../services/api');
+const api = require('./../services/api');
 
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
