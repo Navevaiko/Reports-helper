@@ -33,22 +33,7 @@ window.TrelloPowerUp.initialize({
             },
             {
                 text: 'Salvar Quadro',
-                callback: trello => {
-                    
-                    let members = await trello.board('members');
-                    let org = await trello.board('idOrganization');
-                    let board = await trello.board('id');
-                    let cards = await trello.cards('all');
-
-                    console.log(members);
-                    console.log(org);
-                    console.log(board);
-                    console.log(cards);
-
-                    // const response = await api.post(`organizations/${org.idOrganization}/projects/${board.id}`);
-
-                    // console.log(response);
-                }
+                callback: showDetailsBoard,
             }
         ]
     }

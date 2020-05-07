@@ -8,6 +8,19 @@ const showTypesDataExport = trello => {
     })
 }
 
+const showDetailsBoard = async trello => {
+                    
+    let members = await trello.board('members');
+    let org = await trello.board('idOrganization');
+    let board = await trello.board('id');
+    let cards = await trello.cards('all');
+
+    console.log(members);
+    console.log(org);
+    console.log(board);
+    console.log(cards);
+}
+
 const addNewReport = async (trello, report) => {
 
     const date = new Date();
