@@ -22,13 +22,15 @@ window.TrelloPowerUp.initialize({
         }
     },
     'board-buttons': function (trello, options) {
-        return {
-            icon: {
-                dark: "https://reports-helper.herokuapp.com/icons/reportdark.svg",
-                light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
-            },
-            text: 'Exportar relatório',
-            callback: showTypesDataExport,
-        }
+        return [
+            {
+                icon: {
+                    dark: "https://reports-helper.herokuapp.com/icons/reportdark.svg",
+                    light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
+                },
+                text: 'Exportar relatório',
+                callback: showTypesDataExport,
+            }
+        ]
     }
 });
