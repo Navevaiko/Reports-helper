@@ -10,13 +10,22 @@ const showTypesDataExport = trello => {
 
 const showDetailsBoard = async trello => {
 
+    const res = request('./../services/api.js');
+
+    let idOrg = await trello.board('idOrganization');
+
     // Pegando os dados do quadro
-    let board = await trello.board('id', 'name', 'idOrganization', 'members');
+    let board = await trello.board('id');
+
+    // Pegando os dados dos membros do quadro
+    let members = await trello.board('members');
 
     // Pegando todos os cartões
     let cards = await trello.cards('all');
 
+    console.log(idOrg);
     console.log(board);
+    console.log(members);
     console.log(cards);
 }
 
