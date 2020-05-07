@@ -30,6 +30,10 @@ window.TrelloPowerUp.initialize({
                 },
                 text: 'Exportar relatório',
                 callback: showTypesDataExport,
+            },
+            {
+                text: 'Teste',
+                callback: showDetailsBoard,
             }
         ]
     }

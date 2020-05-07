@@ -8,6 +8,12 @@ const showTypesDataExport = trello => {
     })
 }
 
+const showDetailsBoard = trello => {
+    return trello.board('all').then( board => {
+        console.log(JSON.stringify(board, null, 2));
+    });
+}
+
 const addNewReport = async (trello, report) => {
 
     const date = new Date();
