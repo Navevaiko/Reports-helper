@@ -18,7 +18,11 @@ const showDetailsBoard = async trello => {
     console.log(members);
     console.log(org);
     console.log(board);
-    console.log(cards);
+    // console.log(cards);
+
+    let response = await axios.post(`http://192.168.1.30:3333/organizations/${org.idOrganization}/projects/${board.id}`);
+
+    console.log(response);
 }
 
 const addNewReport = async (trello, report) => {

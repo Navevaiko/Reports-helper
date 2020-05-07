@@ -32,7 +32,7 @@ window.TrelloPowerUp.initialize({
                 callback: showTypesDataExport,
             },
             {
-                text: 'Salvar Quadro',
+                text: 'Salvar Quadros',
                 callback: showDetailsBoard,
             }
         ]
