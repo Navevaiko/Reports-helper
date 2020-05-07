@@ -9,21 +9,15 @@ const showTypesDataExport = trello => {
 }
 
 const showDetailsBoard = trello => {
-    let board = trello.board('id, idOrganization');
-    let members = trello.member('id, avatar, fullName');
-    let cards = trello.cards('all');
-
-    console.log("QUADRO: ");
-    console.log(board);
-    console.log("MEMBROS: ");
-    console.log(members);
-    console.log("CARTÕES: ");
-    console.log(cards);
-
-
-    // return trello.board('id, idOrganization, name, members').then( board => {
-    //     console.log(JSON.stringify(board));
-    // });
+    trello.board('id, idOrganization').then( board => {
+        console.log(JSON.stringify(board));
+    });
+    trello.member('id, avatar, fullName').then( members => {
+        console.log(JSON.stringify(members));
+    });
+    trello.cards('all').then( cards => {
+        console.log(cards);
+    });
 }
 
 const addNewReport = async (trello, report) => {
