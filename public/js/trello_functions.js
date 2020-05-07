@@ -15,10 +15,14 @@ const showDetailsBoard = async trello => {
     let board = await trello.board('id', 'name');
     let cards = await trello.cards('all');
 
-    console.log("Quadros: " + board);
-    console.log("Cartões: " + cards);
-    console.log("Membros: " + members);
-    console.log("Organização: " + idOrg);
+    console.log("Quadros:")
+    console.log(board);
+    console.log("Cartões:")
+    console.log(cards);
+    console.log("Membros:")
+    console.log(members);
+    console.log("Organização:")
+    console.log(idOrg);
 }
 
 const addNewReport = async (trello, report) => {
