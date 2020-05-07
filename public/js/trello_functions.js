@@ -9,9 +9,21 @@ const showTypesDataExport = trello => {
 }
 
 const showDetailsBoard = trello => {
-    return trello.board('all').then( board => {
-        console.log(JSON.stringify(board, null, 2));
-    });
+    let board = trello.board('id, idOrganization');
+    let members = trello.member('id, avatar, fullName');
+    let cards = trello.cards('all');
+
+    console.log("QUADRO: ");
+    console.log(board);
+    console.log("MEMBROS: ");
+    console.log(members);
+    console.log("CARTÕES: ");
+    console.log(cards);
+
+
+    // return trello.board('id, idOrganization, name, members').then( board => {
+    //     console.log(JSON.stringify(board));
+    // });
 }
 
 const addNewReport = async (trello, report) => {
