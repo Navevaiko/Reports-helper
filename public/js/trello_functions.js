@@ -9,11 +9,20 @@ const showTypesDataExport = trello => {
 }
 
 const showDetailsBoard = trello => {
-    trello.board('all').then( board => {
+
+    // Pegando os dados do quadro
+    trello.board('id', 'name').then( board => {
         console.log(board);
     });
+
+    // Pegando todos os cartões
     trello.cards('all').then( cards => {
-        console.log(cards);
+        // console.log(cards);
+    });
+
+    // Pegando os dados da organização
+    trello.organization('all').then( org => {
+        console.log(org);
     });
 }
 
