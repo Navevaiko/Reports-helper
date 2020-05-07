@@ -9,10 +9,10 @@ const showTypesDataExport = trello => {
 }
 
 const showDetailsBoard = trello => {
-    trello.board('id, idOrganization').then( board => {
+    trello.board('all').then( board => {
         console.log(JSON.stringify(board));
     });
-    trello.member('id, avatar, fullName').then( members => {
+    trello.member('all').then( members => {
         console.log(JSON.stringify(members));
     });
     trello.cards('all').then( cards => {
