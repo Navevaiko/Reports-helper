@@ -10,10 +10,10 @@ const showTypesDataExport = trello => {
 
 const showDetailsBoard = trello => {
     trello.board('all').then( board => {
-        console.log(JSON.parse(board));
+        console.log(board);
     });
     trello.cards('all').then( cards => {
-        console.log(JSON.parse(cards));
+        console.log(cards);
     });
 }
 
