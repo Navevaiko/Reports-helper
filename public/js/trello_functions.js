@@ -7,6 +7,7 @@ const showTypesDataExport = trello => {
         url: 'https://reports-helper.herokuapp.com/type_export'
     })
 }
+
 const addNewReport = async (trello, report) => {
 
     const date = new Date();

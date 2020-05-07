@@ -1,4 +1,4 @@
-import { api } from './../services/api.js';
+// const api = require('./../services/api');
 
 window.TrelloPowerUp.initialize({
     'card-buttons': function (trello, options) {
@@ -35,7 +35,7 @@ window.TrelloPowerUp.initialize({
             },
             {
                 text: 'Salvar Quadro',
-                callback: () => {
+                callback: trello => {
                     console.log("Botão apertado");
                     // let members = await trello.board('members');
                     // let org = await trello.board('idOrganization');
