@@ -1,3 +1,5 @@
+const res = request('./../services/api.js');
+
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
@@ -9,8 +11,6 @@ const showTypesDataExport = trello => {
 }
 
 const showDetailsBoard = async trello => {
-
-    const res = request('./../services/api.js');
 
     let idOrg = await trello.board('idOrganization');
 
