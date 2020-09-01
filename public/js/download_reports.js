@@ -4,6 +4,9 @@ const key = '26b36127f3188e42bd1e3d188069bc94';
 const memberReportSelect = document.getElementById('memberReport');
 const dateInput = document.getElementById('dtReport');
 
+dateInput.valueAsDate = new Date();
+fillUserSelect();
+
 async function getUsersList() {
     const base_url = 'https://api.trello.com/1/organizations/desenvolvimento53265891/members';
     
