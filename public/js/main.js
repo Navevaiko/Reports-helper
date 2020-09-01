@@ -1,13 +1,4 @@
 window.TrelloPowerUp.initialize({
-    'card-buttons': function (trello, options) {
-        return [
-            {
-                icon: 'https://reports-helper.herokuapp.com/icons/attachments.svg',
-                text: 'Exportar relatório',
-                callback: showTypesDataExport
-            }
-        ]
-    },
     'card-badges': function (trello, options) {
         return getReports(trello).then(showBadge)
     },
@@ -29,11 +20,7 @@ window.TrelloPowerUp.initialize({
                     light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
                 },
                 text: 'Exportar relatório',
-                callback: showTypesDataExport,
-            },
-            {
-                text: 'Salvar Quadros',
-                callback: showDetailsBoard,
+                callback: showDataExport,
             }
         ]
     }

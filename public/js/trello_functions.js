@@ -1,10 +1,10 @@
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
-const showTypesDataExport = trello => {
+const showDataExport = trello => {
     return trello.popup({
         title: "Download",
-        url: 'https://reports-helper.herokuapp.com/type_export'
+        url: 'https://reports-helper.herokuapp.com/download_report'
     })
 }
 

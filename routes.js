@@ -10,8 +10,8 @@ router.get('/reports_list', (_, response) => {
     response.sendFile(`${__dirname}/public/views/reports_list.html`)
 });
 
-router.get('/type_export', (_, response) => {
-    response.sendFile(`${__dirname}/public/views/type_export.html`)
+router.get('/download_report', (_, response) => {
+    response.sendFile(`${__dirname}/public/views/download_report.html`)
 });
 
 router.get('/icons/:imageName', (request, response) => {
