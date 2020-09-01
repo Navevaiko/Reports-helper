@@ -83,7 +83,7 @@ const addNewReport = async (trello, report) => {
 
 const getReportsFromCurrentCard = async trello => {
     const pluginData = await trello.getAll();
-    console.log(pluginData);
+    console.log('Data: ', pluginData);
     // const reports = [];
     // // let reportsKeys = [];
     // // console.log(pluginData);
@@ -108,9 +108,7 @@ const getReportsFromCurrentCard = async trello => {
 
 const showBadge = reports => {
     var reportsCount = reports.length;
-
-    if (reportsCount !== 0)
-        const message = `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
+    const message = reportsCount === 0? undefined : `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
 
     return [{
         icon: 'https://reports-helper.herokuapp.com/assets/reports.svg',

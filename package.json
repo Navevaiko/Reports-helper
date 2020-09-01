@@ -4,7 +4,7 @@
   "description": "Power up do Trello para criação, visualização e exportação de relatórios de tarefas",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon server.js"
   },
   "keywords": [
     "powerup",
