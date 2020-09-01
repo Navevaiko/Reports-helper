@@ -1,32 +1,14 @@
 var reportsKey = 'reports';
 var reportsVisibility = 'shared'
 
-const showDataExport = trello => {
+const exportReports = trello => {
     return trello.popup({
         title: "Download",
-        url: 'https://reports-helper.herokuapp.com/download_report'
-    })
-}
-
-const showDetailsBoard = async trello => {
-                    
-    let members = await trello.board('members');
-    let org = await trello.board('idOrganization');
-    let board = await trello.board('id');
-    let cards = await trello.cards('all');
-
-    console.log(members);
-    console.log(org);
-    console.log(board);
-    // console.log(cards);
-
-    let response = await axios.post(`http://192.168.1.30:3333/organizations/${org.idOrganization}/projects/${board.id}`);
-
-    console.log(response);
+        url: 'https://reports-helper.herokuapp.com/reports/download'
+    });
 }
 
 const addNewReport = async (trello, report) => {
-
     const date = new Date();
     let liArray = [];
     let myKey = `${reportsKey}_${date.getTime()}`
@@ -99,87 +81,50 @@ const addNewReport = async (trello, report) => {
     });
 }
 
-const getReports = async trello => {
-    let getAll = await trello.getAll();
-    console.log(trello);
-    console.log(trello.getAll());
-    return getReportsAnyKy(getAll.card);
+const getReportsFromCurrentCard = async trello => {
+    const pluginData = await trello.getAll();
+    console.log(pluginData);
+    // const reports = [];
+    // // let reportsKeys = [];
+    // // console.log(pluginData);
+    
+    // if(pluginData.hasOwnProperty("shared")) {
+    //     reportsKeys = Object.keys(pluginData.shared);
+    //     cardAll = getAllCard.shared;
+    // } else {
+    //     reportsKeys = Object.keys(getAllCard);
+    // }
+    
+    // reportsKeys.map(e => {
+    //     try {
+    //         let reportUni = cardAll[e];
+    //         reportsFull.push(reportUni);
+    //     } catch {
+    //         return;
+    //     }
+    // })
+    // return reportsFull;
 }
-
-const getReportsAnyKy = getAllCard => {
-
-    let reportsFull = [];
-    let reportsKeys = [];
-    let cardAll = getAllCard;
-
-    if (getAllCard) {
-        if (getAllCard.hasOwnProperty("shared")) {
-            reportsKeys = Object.keys(getAllCard.shared);
-            cardAll = getAllCard.shared;
-        } else {
-            reportsKeys = Object.keys(getAllCard);
-        }
-    }
-    reportsKeys.map(e => {
-        try {
-            let reportUni = cardAll[e];
-            reportsFull.push(reportUni);
-        } catch {
-            return;
-        }
-    })
-    return reportsFull;
-}
-
-const concatMyKeyInObj = card => {}
 
 const showBadge = reports => {
     var reportsCount = reports.length;
 
-    if (reportsCount != 0)
-        var message = `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
+    if (reportsCount !== 0)
+        const message = `${reportsCount} ${(reportsCount > 1 ? "relatórios" : 'relatório')}`;
 
     return [{
-        icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
+        icon: 'https://reports-helper.herokuapp.com/assets/reports.svg',
         text: message || 'Sem relatórios',
         color: message ? 'green' : 'light-gray'
-    }]
+    }];
 }
 
 const resize = (trello, elementId) => trello.render(() => trello.sizeTo(elementId).done());
 
 const getCardDetailsById = trello => trello.card('all');
 
-const getCardContent = trello => trello.getAll()
-
-const getDataCardExport = (cardContent, card) => {
-    //tratar dados
-    cardContent = getReportsAnyKy(cardContent);
-
-    let result = cardContent.map(e => {
-        e.members = card.members;
-        e.title = card.name;
-        e.card = card.url;
-        e.labels = card.labels;
-
-        return e;
-    });
-
-    return result;
-}
-
-// Funções para data
-const leftPad = (value, totalWidth, paddingChar) => {
-    var length = totalWidth - value.toString().length + 1;
-    return Array(length).join(paddingChar || '0') + value;
-};
-const dateToEN = date => date.split('/').reverse().join('-');
-const dateToPTBR = date => date.split('-').reverse().join('/');
-
-// Limpa caixas de texto
 const clearBoxes = inputs => inputs.forEach(elements => { elements.value = "" })
 
-// Alert do Trello
 const trelloAlert = (trello, text, duration, display) => {
     return trello.alert({
         message: text,

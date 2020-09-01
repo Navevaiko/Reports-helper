@@ -1,18 +1,18 @@
 window.TrelloPowerUp.initialize({
-    'card-badges': function (trello, options) {
+    'card-badges': function (trello, _) {
         return getReports(trello).then(showBadge)
     },
-    'card-back-section': function (trello, options) {
+    'card-back-section': function (trello, _) {
         return {
             title: 'Relatórios',
-            icon: 'https://reports-helper.herokuapp.com/icons/reports.svg',
+            icon: 'https://reports-helper.herokuapp.com/assets/reports.svg',
             content: {
                 type: 'iframe',
-                url: trello.signUrl(window.TrelloPowerUp.util.relativeUrl('reports_list')),
+                url: trello.signUrl(window.TrelloPowerUp.util.relativeUrl('reports')),
             }
         }
     },
-    'board-buttons': function (trello, options) {
+    'board-buttons': function (_, _) {
         return [
             {
                 icon: {
@@ -20,7 +20,7 @@ window.TrelloPowerUp.initialize({
                     light: "https://reports-helper.herokuapp.com/icons/reportligth.svg"
                 },
                 text: 'Exportar relatório',
-                callback: showDataExport,
+                callback: exportReports,
             }
         ]
     }
