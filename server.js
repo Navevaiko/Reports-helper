@@ -11,6 +11,4 @@ app.use(express.static('public'))
 
 app.use('/', routes)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Listening on ${process.env.PORT}`)
-});
+app.listen(process.env.PORT);
