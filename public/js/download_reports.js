@@ -1,15 +1,15 @@
+const token = '57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337';
+const key = '26b36127f3188e42bd1e3d188069bc94';
+
 const memberReportSelect = document.getElementById('memberReport');
 const dateInput = document.getElementById('dtReport');
-
-dateInput.valueAsDate = new Date();
-fillUserSelect();
 
 async function getUsersList() {
     const base_url = 'https://api.trello.com/1/organizations/desenvolvimento53265891/members';
     
     const params = {
-        key: process.env.KEY,
-        token: process.env.TOKEN
+        key,
+        token
     }
 
     const { data } = await axios.get(base_url, { params })
