@@ -7,6 +7,19 @@ const dateInput = document.getElementById('dtReport');
 dateInput.valueAsDate = new Date();
 fillUserSelect();
 
+function setLoader(loading) {
+    const loader = document.createElement('img')
+    loader.src = '/icons/oval_loader.svg';
+    
+    document.getElementById('button').innerHTML = '';
+
+    if(loading) {
+        document.getElementById('button').appendChild(loader);
+    }else{
+        document.getElementById('button').textContent = 'Gerar relatório';
+    }
+}
+
 async function getUsersList() {
     const base_url = 'https://api.trello.com/1/organizations/desenvolvimento53265891/members';
     
@@ -66,10 +79,15 @@ document.getElementById('form').onsubmit = async function(e) {
         const selecteUserFullName = memberReportSelect.options[selectedIndex].text;
 
         try {
+            setLoader(true);
+
             const response = await axios.get(`http://localhost:3022/report?user_name=${selectedUserName}&date=${date}`, { responseType: 'blob' });
             const formattedDate = formatDate(date);
+            
+            setLoader(false);
 
             downloadFile(response.data, `Relatório ${selecteUserFullName} dia ${formattedDate}.xlsx`);
+            
         }catch(error) {
             console.log(error);
             alert('Ocorreu um erro, tente novamente.')
