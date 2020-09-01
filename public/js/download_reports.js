@@ -9,7 +9,7 @@ fillUserSelect();
 
 function setLoader(loading) {
     const loader = document.createElement('img')
-    loader.src = '/icons/oval_loader.svg';
+    loader.src = 'https://reports-helper.herokuapp.com/icons/oval_loader.svg';
     
     document.getElementById('button').innerHTML = '';
 
