@@ -81,7 +81,7 @@ document.getElementById('form').onsubmit = async function(e) {
         try {
             setLoader(true);
 
-            const response = await axios.get(`http://localhost:3022/report?user_name=${selectedUserName}&date=${date}`, { responseType: 'blob' });
+            const response = await axios.get(`https://api.taskreport.primitecnologia.com/report?user_name=${selectedUserName}&date=${date}`, { responseType: 'blob' });
             const formattedDate = formatDate(date);
             
             setLoader(false);
