@@ -1,4 +1,4 @@
-const token = '7b5b4799b2bf79e37560a6cf9499cda16c16226aab2358c3393c6fb979fb2f6f';
+const token = '57e7066078fcb60ed7c9277d57a861a24e133d64f1e5b98bf9ec974d9565e337';
 const key = '26b36127f3188e42bd1e3d188069bc94';
 
 const memberReportSelect = document.getElementById('memberReport');
