@@ -1,0 +1,54 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Beto\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Users\Beto\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Beto\bin;C:\Python39\Scripts;C:\Python39;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\OpenJDK\openjdk-8u282-b08\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Users\Beto\anaconda3;C:\Users\Beto\anaconda3\Library\mingw-w64\bin;C:\Users\Beto\anaconda3\Library\usr\bin;C:\Users\Beto\anaconda3\Library\bin;C:\Users\Beto\anaconda3\Scripts;C:\Users\Beto\AppData\Local\Microsoft\WindowsApps;C:\Users\Beto\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Beto\AppData\Local\Programs\Git\cmd;C:\Users\Beto\AppData\Roaming\npm;C:\Users\Beto\AppData\Local\Android\Sdk\platform-tools;C:\Users\Beto\AppData\Roaming\Python\Python39\Scripts;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  14.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\Beto\Desktop\Projetos\Reports-helper\package.json: Unexpected token } in JSON at position 230
+      at JSON.parse (<anonymous>)
+      at C:\Users\Beto\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Beto\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Beto\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "reports-helper",
+    "version": "1.0.0",
+    "description": "Power up do Trello para criação, visualização e exportação de relatórios de tarefas",
+    "main": "server.js",
+    "scripts": {
+      "start": "nodemon server.js",
+    },
+    "keywords": [
+      "powerup",
+      "trello",
+      "nodejs"
+    ],
+    "author": "Gabriel Navevaiko",
+    "license": "MIT",
+    "dependencies": {
+      "axios": "^0.19.2",
+      "cors": "^2.8.5",
+      "dotenv": "^8.2.0",
+      "express": "^4.17.1",
+      "nodemon": "^1.19.4",
+      "request": "^2.88.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
